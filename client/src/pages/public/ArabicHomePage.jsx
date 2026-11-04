@@ -90,7 +90,7 @@ export default function ArabicHomePage() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
-    <div className="bg-[#040A18] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#040A18]" dir="rtl">
+    <div className="bg-[#F5F0E7] text-[#352719] font-arabic antialiased selection:bg-[#C5A989] selection:text-[#352719]" dir="rtl">
       <SEOHead
         title="مطبعة في دبي | أون برينت ONPRINT – خدمات الطباعة التجارية والفاخرة في الإمارات"
         description="أون برينت ONPRINT مطبعة تجارية متكاملة في القوز، دبي. طباعة كروت شخصية فاخرة، أختام شركات معتمدة، ستيكرات وملصقات مقاومة للماء، بروشورات ورول اب بانر مع توصيل لكافة الإمارات."
@@ -100,23 +100,23 @@ export default function ArabicHomePage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#122240] bg-gradient-to-b from-[#020611] via-[#040A18] to-[#040A18]">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#081226]/60 blur-3xl" />
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#DED2C1] bg-gradient-to-b from-[#EDE3D5] via-[#F5F0E7] to-[#F5F0E7]">
+        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#795C43]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#FAF8F3]/60 blur-3xl" />
 
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#D4AF65]/10 px-4 py-1.5 text-xs font-bold text-[#D4AF65] shadow-xs">
-              <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/30 bg-[#795C43]/10 px-4 py-1.5 text-xs font-bold text-[#795C43] shadow-xs">
+              <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
               <span>مطبعة تجارية متكاملة • القوز، دبي، الإمارات</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#F5F2EB] tracking-tight leading-[1.25]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#352719] tracking-tight leading-[1.25]">
               حلول الطباعة التجارية والفاخرة <br />
-              <span className="text-[#D4AF65]">للشركات والمحترفين في دبي</span>
+              <span className="text-[#795C43]">للشركات والمحترفين في دبي</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-[#B0BECE] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#756657] leading-relaxed max-w-2xl mx-auto">
               تقدم <strong>ONPRINT</strong> أعلى معايير الطباعة الألمانية والأوفست والرقمية في دبي. كروت شخصية قطنية فاخرة، أختام شركات معتمدة، ملصقات مقاومة للماء، ورول اب بانر مع خدمة التوصيل السريع لجميع الإمارات.
             </p>
 
@@ -142,29 +142,29 @@ export default function ArabicHomePage() {
               <Link
                 to="/ar/business-cards"
                 onClick={() => trackGetQuoteClick({ source_page: '/ar', product_name: 'business_cards_ar' })}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#081226] hover:bg-[#122240] border border-[#122240] hover:border-[#D4AF65] px-6 py-3.5 text-sm font-bold text-[#F5F2EB] transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#FAF8F3] hover:bg-[#EDE3D5] border border-[#DED2C1] hover:border-[#C5A989] px-6 py-3.5 text-sm font-bold text-[#352719] transition-all"
               >
                 <span>استكشف الكروت الشخصية</span>
-                <ArrowLeft className="h-4 w-4 text-[#D4AF65]" />
+                <ArrowLeft className="h-4 w-4 text-[#795C43]" />
               </Link>
             </div>
 
             {/* Quick Guarantees Bar */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-right sm:text-center text-xs text-[#B0BECE]">
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
-                <Clock className="h-4 w-4 text-[#D4AF65] shrink-0" />
+            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-right sm:text-center text-xs text-[#756657]">
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#FAF8F3]/40 border border-[#DED2C1]">
+                <Clock className="h-4 w-4 text-[#795C43] shrink-0" />
                 <span>تنفيذ سريع خلال 24 ساعة</span>
               </div>
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#FAF8F3]/40 border border-[#DED2C1]">
                 <Truck className="h-4 w-4 text-emerald-400 shrink-0" />
                 <span>توصيل لكافة إمارات الدولة</span>
               </div>
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
-                <ShieldCheck className="h-4 w-4 text-[#D4AF65] shrink-0" />
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#FAF8F3]/40 border border-[#DED2C1]">
+                <ShieldCheck className="h-4 w-4 text-[#795C43] shrink-0" />
                 <span>أختام رسمية معتمدة قانونياً</span>
               </div>
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
-                <Award className="h-4 w-4 text-[#D4AF65] shrink-0" />
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#FAF8F3]/40 border border-[#DED2C1]">
+                <Award className="h-4 w-4 text-[#795C43] shrink-0" />
                 <span>دقة ألوان ألمانية Heidelberg</span>
               </div>
             </div>
@@ -173,16 +173,16 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 2. CORE PRODUCTS GRID */}
-      <section className="py-16 sm:py-20 border-b border-[#122240]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
               أقسام الطباعة الرئيسية في دبي
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F2EB] mt-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719] mt-2">
               اختر المنتج الذي يناسب أعمالك
             </h2>
-            <p className="text-sm text-[#B0BECE] mt-2">
+            <p className="text-sm text-[#756657] mt-2">
               مطبوعات مصممة بأعلى جودة ورق وتشطيبات هندسية دقيقة لتعزيز حضور علامتك التجارية في السوق الإماراتي.
             </p>
           </div>
@@ -193,44 +193,44 @@ export default function ArabicHomePage() {
               return (
                 <div
                   key={dept.slug}
-                  className="rounded-3xl border border-[#122240] bg-[#081226]/80 hover:bg-[#081226] hover:border-[#D4AF65]/60 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-lg"
+                  className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3]/80 hover:bg-[#FAF8F3] hover:border-[#C5A989]/60 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-lg"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#040A18] border border-[#122240] text-[#D4AF65]">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] text-[#795C43]">
                         <Icon className="h-6 w-6" />
                       </div>
-                      <span className="rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-3 py-1 text-[11px] font-bold text-[#D4AF65]">
+                      <span className="rounded-full bg-[#795C43]/10 border border-[#C5A989]/30 px-3 py-1 text-[11px] font-bold text-[#795C43]">
                         {dept.badge}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-black text-[#F5F2EB]">
+                      <h3 className="text-xl sm:text-2xl font-black text-[#352719]">
                         {dept.title}
                       </h3>
-                      <p className="text-xs text-[#D4AF65] font-semibold mt-0.5" dir="ltr">
+                      <p className="text-xs text-[#795C43] font-semibold mt-0.5" dir="ltr">
                         {dept.enLabel}
                       </p>
-                      <p className="text-sm text-[#B0BECE] leading-relaxed mt-2.5">
+                      <p className="text-sm text-[#756657] leading-relaxed mt-2.5">
                         {dept.desc}
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-[#122240] space-y-1.5">
+                    <div className="pt-2 border-t border-[#DED2C1] space-y-1.5">
                       {dept.features.map((feat, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-[#F5F2EB]">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
+                        <div key={idx} className="flex items-center gap-2 text-xs text-[#352719]">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-[#122240] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <div className="pt-6 mt-6 border-t border-[#DED2C1] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <Link
                       to={dept.slug}
-                      className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:text-white transition-colors py-2"
+                      className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#795C43] hover:text-white transition-colors py-2"
                     >
                       <span>عرض التفاصيل والمواصفات</span>
                       <ArrowLeft className="h-3.5 w-3.5" />
@@ -265,81 +265,81 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 3. PRESSROOM CAPABILITIES & DELIVERY COVERAGE */}
-      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#020611]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1] bg-[#EDE3D5]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="space-y-5">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
                 دقة التنفيذ والسرعة
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F2EB] leading-tight">
-                لماذا تعتمد كبرى الشركات في دبي على <span className="text-[#D4AF65]">ONPRINT</span>؟
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719] leading-tight">
+                لماذا تعتمد كبرى الشركات في دبي على <span className="text-[#795C43]">ONPRINT</span>؟
               </h2>
-              <p className="text-sm text-[#B0BECE] leading-relaxed">
+              <p className="text-sm text-[#756657] leading-relaxed">
                 ندرك في ONPRINT أهمية الصورة الأولى لعلامتك التجارية. نعتمد على ماكينات طباعة رقمية HP Indigo وماكينات هايدلبرغ أوفست لضمان مطابقة تامة لألوان الشعار الرسمية وأوزان الورق المعتمدة دولياً.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
-                  <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">مطبعة مركزية في القوز</h4>
-                  <p className="text-xs text-[#B0BECE] leading-relaxed">
+                <div className="p-4 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1]">
+                  <h4 className="font-bold text-[#352719] text-sm mb-1">مطبعة مركزية في القوز</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
                     إشراف فني مباشر ومراقبة دقيقة لجودة كل شحنة قبل خروجها للمستلم.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
-                  <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">تشطيبات فاخرة متخصصة</h4>
-                  <p className="text-xs text-[#B0BECE] leading-relaxed">
+                <div className="p-4 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1]">
+                  <h4 className="font-bold text-[#352719] text-sm mb-1">تشطيبات فاخرة متخصصة</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
                     بصمة ذهبية بارزة 24K، حواف ملونة، ورنيش موضعي ثلاثي الأبعاد، وسلوفان مطفي.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
-                  <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">توصيل سريع لكافة الإمارات</h4>
-                  <p className="text-xs text-[#B0BECE] leading-relaxed">
+                <div className="p-4 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1]">
+                  <h4 className="font-bold text-[#352719] text-sm mb-1">توصيل سريع لكافة الإمارات</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
                     توصيل سريع في دبي (الخليج التجاري، مركز دبي المالي، وسط دبي)، وأبوظبي، والشارقة.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
-                  <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">خدمة عملاء عبر واتساب</h4>
-                  <p className="text-xs text-[#B0BECE] leading-relaxed">
+                <div className="p-4 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1]">
+                  <h4 className="font-bold text-[#352719] text-sm mb-1">خدمة عملاء عبر واتساب</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
                     استجابة فورية لمراجعة ملفات التصميم وإرسال البروفات الرقمية مجاناً قبل الاعتماد.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-[#122240] bg-[#040A18] p-6 sm:p-8 space-y-6">
-              <h3 className="text-xl font-black text-[#F5F2EB]">
+            <div className="rounded-3xl border border-[#DED2C1] bg-[#F5F0E7] p-6 sm:p-8 space-y-6">
+              <h3 className="text-xl font-black text-[#352719]">
                 مناطق التوصيل والخدمة اليومية في الإمارات
               </h3>
-              <p className="text-xs text-[#B0BECE] leading-relaxed">
+              <p className="text-xs text-[#756657] leading-relaxed">
                 نوفر خدمة الشحن والتوصيل المباشر إلى مقرات الشركات والمكاتب والمستودعات في جميع مناطق الدولة:
               </p>
 
               <div className="grid grid-cols-2 gap-3 text-xs">
-                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#FAF8F3] border border-[#DED2C1] text-[#352719] font-bold">
                   📍 دبي: DIFC, Business Bay, Downtown, Al Quoz, Media City, JLT
                 </div>
-                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#FAF8F3] border border-[#DED2C1] text-[#352719] font-bold">
                   📍 أبوظبي: جزيرة المارية، الكورنيش، المصفح، مدينة خليفة
                 </div>
-                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#FAF8F3] border border-[#DED2C1] text-[#352719] font-bold">
                   📍 الشارقة: المناطق الصناعية، المجاز، الخان
                 </div>
-                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#FAF8F3] border border-[#DED2C1] text-[#352719] font-bold">
                   📍 باقي الإمارات: عجمان، رأس الخيمة، الفجيرة، أم القيوين
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#122240]">
-                <p className="text-xs text-[#B0BECE] mb-3">
+              <div className="pt-2 border-t border-[#DED2C1]">
+                <p className="text-xs text-[#756657] mb-3">
                   هل تحتاج استشارة فورية بخصوص المقاسات أو الكميات؟ تحدث مع المهندس المختص:
                 </p>
                 <div className="flex flex-wrap items-center gap-3">
                   <a
                     href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-4 py-2 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#DED2C1] bg-[#FAF8F3] px-4 py-2 text-xs font-bold text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-colors"
                   >
-                    <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
+                    <Phone className="h-3.5 w-3.5 text-[#795C43]" />
                     <span>الهاتف: {FORMATTED_PHONE}</span>
                   </a>
                   <a
@@ -359,14 +359,14 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 4. ARABIC FAQS */}
-      <section className="py-16 sm:py-20 border-b border-[#122240]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
                 الأسئلة الشائعة حول خدمات الطباعة في دبي
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#F5F2EB] mt-2">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#352719] mt-2">
                 إجابات شاملة لجميع استفساراتكم
               </h2>
             </div>
@@ -375,16 +375,16 @@ export default function ArabicHomePage() {
               {ARABIC_FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#122240] bg-[#081226]/70 overflow-hidden transition-colors"
+                  className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/70 overflow-hidden transition-colors"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                    className="w-full p-4 sm:p-5 text-right flex items-center justify-between gap-3 text-sm font-bold text-[#F5F2EB] hover:text-[#D4AF65] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-right flex items-center justify-between gap-3 text-sm font-bold text-[#352719] hover:text-[#795C43] transition-colors cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-4 w-4 text-[#D4AF65] shrink-0 transition-transform duration-200 ${
+                      className={`h-4 w-4 text-[#795C43] shrink-0 transition-transform duration-200 ${
                         openFaq === idx ? 'rotate-180' : ''
                       }`}
                     />
@@ -398,7 +398,7 @@ export default function ArabicHomePage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#122240]/60">
+                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#756657] leading-relaxed border-t border-[#DED2C1]/60">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -412,13 +412,13 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 5. BOTTOM WHATSAPP CONVERSION BANNER */}
-      <section className="py-14 sm:py-16 bg-[#020611] text-center">
+      <section className="py-14 sm:py-16 bg-[#EDE3D5] text-center">
         <Container>
           <div className="max-w-2xl mx-auto space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#F5F2EB]">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#352719]">
               جاهز لبدء طباعة مشروعك التجاري في دبي؟
             </h2>
-            <p className="text-sm text-[#B0BECE] leading-relaxed">
+            <p className="text-sm text-[#756657] leading-relaxed">
               أرسل ملفات التصميم أو استفسارك عبر واتساب الآن، وسيقوم فريقنا بمراجعة الجودة وموافاتك بالتكلفة والخيارات خلال دقائق.
             </p>
             <div className="pt-2">

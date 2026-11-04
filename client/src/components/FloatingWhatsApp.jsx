@@ -100,7 +100,7 @@ export default function FloatingWhatsApp() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.95 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="mb-3 w-[min(370px,calc(100vw-1.5rem))] max-h-[calc(100vh-7.5rem)] flex flex-col overflow-hidden rounded-3xl border border-[#122240] bg-[#081226] shadow-2xl text-[#F5F2EB]"
+            className="mb-3 w-[min(370px,calc(100vw-1.5rem))] max-h-[calc(100vh-7.5rem)] flex flex-col overflow-hidden rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-2xl text-[#352719]"
           >
             {/* Header */}
             <div className="relative shrink-0 bg-gradient-to-r from-[#128C7E] to-[#075E54] p-3.5 sm:p-4 text-white">
@@ -144,17 +144,17 @@ export default function FloatingWhatsApp() {
             </div>
 
             {/* Body */}
-            <div className="bg-[#040A18] p-3.5 sm:p-4 space-y-3 max-h-[min(340px,46vh)] overflow-y-auto">
+            <div className="bg-[#F5F0E7] p-3.5 sm:p-4 space-y-3 max-h-[min(340px,46vh)] overflow-y-auto">
               {/* Agent Bubble */}
               <div className="flex items-start gap-2.5">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#128C7E] text-white text-[11px] font-bold">
                   OP
                 </div>
-                <div className="rounded-2xl rounded-tl-none bg-[#081226] p-3 text-xs leading-relaxed text-[#F5F2EB] shadow-2xs border border-[#122240]">
-                  <p className="font-medium text-[#F5F2EB]">
-                    Hello! Welcome to <strong className="text-[#D4AF65]">ONPRINT Dubai</strong>. 👋
+                <div className="rounded-2xl rounded-tl-none bg-[#FAF8F3] p-3 text-xs leading-relaxed text-[#352719] shadow-2xs border border-[#DED2C1]">
+                  <p className="font-medium text-[#352719]">
+                    Hello! Welcome to <strong className="text-[#795C43]">ONPRINT Dubai</strong>. 👋
                   </p>
-                  <p className="mt-1 text-[#A0AEC0]">
+                  <p className="mt-1 text-[#756657]">
                     Select a service to start a conversation with our master pressman, or type custom requirements:
                   </p>
                 </div>
@@ -162,7 +162,7 @@ export default function FloatingWhatsApp() {
 
               {/* Quick Service Selection Chips */}
               <div className="space-y-1.5 pt-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] block px-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#795C43] block px-1">
                   Select Priority Service
                 </span>
                 <div className="flex flex-col gap-1.5">
@@ -171,17 +171,17 @@ export default function FloatingWhatsApp() {
                       key={prompt.key}
                       type="button"
                       onClick={() => handleOpenWhatsApp(prompt.text, prompt.key)}
-                      className="flex items-center justify-between gap-2 rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-left text-xs font-semibold text-[#F5F2EB] transition-all hover:border-[#25D366] hover:bg-[#122240] shadow-2xs group cursor-pointer"
+                      className="flex items-center justify-between gap-2 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-left text-xs font-semibold text-[#352719] transition-all hover:border-[#25D366] hover:bg-[#EDE3D5] shadow-2xs group cursor-pointer"
                     >
                       <span className="flex items-center gap-2 min-w-0">
-                        <Sparkles className="h-3.5 w-3.5 text-[#D4AF65] group-hover:scale-110 shrink-0 transition-transform" />
+                        <Sparkles className="h-3.5 w-3.5 text-[#795C43] group-hover:scale-110 shrink-0 transition-transform" />
                         <span className="truncate">{prompt.label}</span>
                       </span>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <span className="text-[9px] font-bold uppercase text-[#D4AF65] bg-[#040A18] border border-[#122240] px-1.5 py-0.5 rounded group-hover:border-[#25D366] group-hover:text-emerald-300">
+                        <span className="text-[9px] font-bold uppercase text-[#795C43] bg-[#F5F0E7] border border-[#DED2C1] px-1.5 py-0.5 rounded group-hover:border-[#25D366] group-hover:text-emerald-300">
                           {prompt.badge}
                         </span>
-                        <Send className="h-3 w-3 text-[#52647D] group-hover:text-[#25D366] group-hover:translate-x-0.5 transition-all" />
+                        <Send className="h-3 w-3 text-[#756657] group-hover:text-[#25D366] group-hover:translate-x-0.5 transition-all" />
                       </div>
                     </button>
                   ))}
@@ -189,14 +189,14 @@ export default function FloatingWhatsApp() {
               </div>
 
               {/* Direct Custom Message Form */}
-              <form onSubmit={handleCustomSubmit} className="pt-2 border-t border-[#122240]">
+              <form onSubmit={handleCustomSubmit} className="pt-2 border-t border-[#DED2C1]">
                 <div className="relative flex items-center">
                   <input
                     type="text"
                     value={customMsg}
                     onChange={(e) => setCustomMsg(e.target.value)}
                     placeholder="Type specs (e.g. 500 gold foil cards)..."
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 pr-10 text-xs text-[#F5F2EB] placeholder:text-[#52647D] focus:border-[#25D366] focus:outline-hidden focus:ring-2 focus:ring-[#25D366]/20 shadow-2xs"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 pr-10 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#25D366] focus:outline-hidden focus:ring-2 focus:ring-[#25D366]/20 shadow-2xs"
                   />
                   <button
                     type="submit"
@@ -210,25 +210,25 @@ export default function FloatingWhatsApp() {
               </form>
 
               {/* Alternative Contact Fallbacks if WhatsApp is unavailable */}
-              <div className="pt-2.5 border-t border-[#122240] space-y-1.5 text-[10.5px] text-[#A0AEC0]">
-                <span className="block text-[9px] font-bold uppercase tracking-wider text-[#D4AF65]">
+              <div className="pt-2.5 border-t border-[#DED2C1] space-y-1.5 text-[10.5px] text-[#756657]">
+                <span className="block text-[9px] font-bold uppercase tracking-wider text-[#795C43]">
                   Alternative Direct Contact:
                 </span>
                 <div className="grid grid-cols-2 gap-1.5">
                   <a
                     href={`tel:+${WHATSAPP_PHONE}`}
                     onClick={() => trackPhoneClick({ source_page: 'floating_concierge', button_location: 'concierge_call_fallback' })}
-                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#122240] bg-[#040A18] px-2 py-1.5 text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all font-semibold"
+                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-2 py-1.5 text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-all font-semibold"
                   >
-                    <Phone className="h-3 w-3 text-[#D4AF65]" />
+                    <Phone className="h-3 w-3 text-[#795C43]" />
                     <span>Call Hotline</span>
                   </a>
                   <Link
                     to="/get-a-quote"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#122240] bg-[#040A18] px-2 py-1.5 text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all font-semibold"
+                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-2 py-1.5 text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-all font-semibold"
                   >
-                    <FileText className="h-3 w-3 text-[#D4AF65]" />
+                    <FileText className="h-3 w-3 text-[#795C43]" />
                     <span>Fast Web Quote</span>
                   </Link>
                 </div>
@@ -247,12 +247,12 @@ export default function FloatingWhatsApp() {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Soft Ambient Gold Pulse Behind Button */}
-        <span className="animate-gold-pulse absolute inset-0 rounded-full bg-[#D4AF65]/20 -z-10 pointer-events-none" />
+        <span className="animate-gold-pulse absolute inset-0 rounded-full bg-[#795C43]/20 -z-10 pointer-events-none" />
 
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="relative flex h-13 w-13 md:h-14 md:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl hover:bg-[#20ba59] transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF65]"
+          className="relative flex h-13 w-13 md:h-14 md:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl hover:bg-[#20ba59] transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#795C43]"
           aria-label={isOpen ? 'Close WhatsApp Concierge' : 'Open WhatsApp Concierge'}
           title={`Inquire on WhatsApp: ${FORMATTED_PHONE}`}
         >
@@ -278,7 +278,7 @@ export default function FloatingWhatsApp() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 8 }}
               transition={{ duration: 0.15 }}
-              className="hidden lg:flex absolute right-full top-1/2 -translate-y-1/2 mr-3 whitespace-nowrap rounded-2xl bg-[#081226] border border-[#122240] px-3.5 py-1.5 text-xs font-bold text-[#F5F2EB] shadow-xl pointer-events-none"
+              className="hidden lg:flex absolute right-full top-1/2 -translate-y-1/2 mr-3 whitespace-nowrap rounded-2xl bg-[#FAF8F3] border border-[#DED2C1] px-3.5 py-1.5 text-xs font-bold text-[#352719] shadow-xl pointer-events-none"
             >
               <div className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse" />

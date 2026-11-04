@@ -154,7 +154,7 @@ export default function AdminServiceFormPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6C29A] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#C5A989] border-t-transparent" />
       </div>
     )
   }
@@ -167,21 +167,21 @@ export default function AdminServiceFormPage() {
     <div className="space-y-6 max-w-5xl">
       {/* Breadcrumbs */}
       <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
-        <Link to="/admin" className="hover:text-[#F5F3EE] transition-colors">
+        <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Admin
         </Link>
         <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
-        <Link to="/admin/services" className="hover:text-[#F5F3EE] transition-colors">
+        <Link to="/admin/services" className="hover:text-[#352719] transition-colors">
           Services
         </Link>
         <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
-        <span className="text-[#F5F3EE]">{isEdit ? 'Edit Service' : 'Add Service'}</span>
+        <span className="text-[#352719]">{isEdit ? 'Edit Service' : 'Add Service'}</span>
       </nav>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#122240] pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#DED2C1] pb-5">
         <div>
-          <h1 className="font-display text-2xl font-black tracking-tight text-[#F5F3EE]">
+          <h1 className="font-display text-2xl font-black tracking-tight text-[#352719]">
             {isEdit ? `Edit Service: ${form.name}` : 'Add New Service'}
           </h1>
           <p className="text-xs text-[#B8C2D9] mt-1">
@@ -194,7 +194,7 @@ export default function AdminServiceFormPage() {
             variant="outline"
             onClick={() => navigate('/admin/services')}
             disabled={submitting}
-            className="w-full sm:w-auto justify-center border-[#122240] text-[#F5F3EE] hover:bg-[#040A18] text-xs"
+            className="w-full sm:w-auto justify-center border-[#DED2C1] text-[#352719] hover:bg-[#F5F0E7] text-xs"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Cancel
@@ -221,13 +221,13 @@ export default function AdminServiceFormPage() {
       {/* Main Form */}
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         <div className="space-y-6 lg:col-span-8">
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               Service Details
             </h2>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 Service Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -236,15 +236,15 @@ export default function AdminServiceFormPage() {
                 onChange={handleNameChange}
                 placeholder="e.g. Digital & Offset Printing"
                 required
-                className="w-full rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] px-4 py-2.5 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-[#122240] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#D6C29A]">
+              <div className="flex items-center rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#C5A989]">
                 <span className="text-[#B8C2D9]/70">/services/</span>
                 <input
                   type="text"
@@ -255,13 +255,13 @@ export default function AdminServiceFormPage() {
                   }}
                   placeholder="digital-offset-printing"
                   required
-                  className="w-full bg-transparent pl-1 font-semibold text-[#F5F3EE] focus:outline-none"
+                  className="w-full bg-transparent pl-1 font-semibold text-[#352719] focus:outline-none"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 Short Description
               </label>
               <input
@@ -269,12 +269,12 @@ export default function AdminServiceFormPage() {
                 value={form.shortDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, shortDescription: e.target.value }))}
                 placeholder="High-speed digital press and high-volume offset printing in Dubai…"
-                className="w-full rounded-xl border border-[#122240] px-4 py-2 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] px-4 py-2 text-xs font-medium text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 Full Detailed Description
               </label>
               <textarea
@@ -282,17 +282,17 @@ export default function AdminServiceFormPage() {
                 value={form.description}
                 onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Explain the machinery, paper stock options, and quality guarantees…"
-                className="w-full rounded-xl border border-[#122240] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] p-3 text-xs font-medium text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           {/* SEO Card */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#DED2C1] pb-3">
               <div className="flex items-center gap-2">
-                <Search className="h-4 w-4 text-[#D6C29A]" />
-                <h2 className="font-display text-base font-bold text-[#F5F3EE]">
+                <Search className="h-4 w-4 text-[#795C43]" />
+                <h2 className="font-display text-base font-bold text-[#352719]">
                   Google Search &amp; AI Answer Optimization (SEO + GEO)
                 </h2>
               </div>
@@ -300,7 +300,7 @@ export default function AdminServiceFormPage() {
                 <select
                   value={form.seoReviewStatus}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoReviewStatus: e.target.value }))}
-                  className="rounded-lg border border-[#122240] bg-[#040A18] px-2.5 py-1.5 text-[11px] font-bold text-[#D6C29A] focus:border-[#D6C29A] focus:outline-none"
+                  className="rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-2.5 py-1.5 text-[11px] font-bold text-[#795C43] focus:border-[#C5A989] focus:outline-none"
                 >
                   <option value="needs_review">Status: Draft (Needs Admin Review)</option>
                   <option value="approved">Status: Reviewed &amp; Approved</option>
@@ -308,7 +308,7 @@ export default function AdminServiceFormPage() {
                 <button
                   type="button"
                   onClick={handleGenerateSeoDraft}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#D6C29A] px-3 py-1.5 text-xs font-extrabold text-[#040A18] hover:bg-[#e5d4b0] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#C5A989] px-3 py-1.5 text-xs font-extrabold text-white hover:bg-[#e5d4b0] transition-colors"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   Auto-Generate SEO Draft
@@ -322,7 +322,7 @@ export default function AdminServiceFormPage() {
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                   SEO Meta Title
                 </label>
                 <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
@@ -334,13 +334,13 @@ export default function AdminServiceFormPage() {
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
                 placeholder="e.g. Digital & Offset Printing Dubai | Fast Turnaround | ONPRINT"
-                className="w-full rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] px-4 py-2.5 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                   SEO Meta Description
                 </label>
                 <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
@@ -352,13 +352,13 @@ export default function AdminServiceFormPage() {
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
                 placeholder="Clear summary for Google search snippet..."
-                className="w-full rounded-xl border border-[#122240] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] p-3 text-xs font-medium text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                   SEO Keywords
                 </label>
                 <input
@@ -366,12 +366,12 @@ export default function AdminServiceFormPage() {
                   value={form.seoKeywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                   placeholder="digital printing dubai, offset printing dubai"
-                  className="w-full rounded-xl border border-[#122240] px-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] px-4 py-2 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                   Primary H1 Heading
                 </label>
                 <input
@@ -379,13 +379,13 @@ export default function AdminServiceFormPage() {
                   value={form.seoHeading}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
                   placeholder={form.name || 'Defaults to Service Name'}
-                  className="w-full rounded-xl border border-[#122240] px-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] px-4 py-2 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Live SERP Preview */}
-            <div className="mt-4 rounded-xl border border-[#122240] bg-[#040A18] p-4">
+            <div className="mt-4 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                 Google SERP Snippet Preview
               </span>
@@ -406,19 +406,19 @@ export default function AdminServiceFormPage() {
         </div>
 
         <div className="space-y-6 lg:col-span-4">
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               Service Status
             </h2>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 Visibility Status
               </label>
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-[#122240] px-3 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] px-3 py-2.5 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
               >
                 <option value="active">Active (Visible)</option>
                 <option value="inactive">Inactive (Hidden)</option>
@@ -426,20 +426,20 @@ export default function AdminServiceFormPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 Display Order
               </label>
               <input
                 type="number"
                 value={form.displayOrder}
                 onChange={(e) => setForm((prev) => ({ ...prev, displayOrder: e.target.value }))}
-                className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               Service Image &amp; ALT
             </h2>
 
@@ -449,7 +449,7 @@ export default function AdminServiceFormPage() {
             />
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 Image ALT Text (SEO)
               </label>
               <input
@@ -457,7 +457,7 @@ export default function AdminServiceFormPage() {
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
                 placeholder={form.name || 'Descriptive ALT tag for Google search'}
-                className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>

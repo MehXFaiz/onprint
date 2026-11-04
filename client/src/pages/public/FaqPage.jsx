@@ -117,7 +117,7 @@ export default function FaqPage() {
   }, [selectedCategory, searchQuery])
 
   return (
-    <div className="py-16 sm:py-24 bg-[#040A18] min-h-screen text-[#F5F2EB]">
+    <div className="py-16 sm:py-24 bg-[#F5F0E7] min-h-screen text-[#352719]">
       <SEOHead
         title="Commercial Printing FAQ Dubai | Turnaround, Specs & Prices | ONPRINT"
         description="Comprehensive answers to commercial printing questions in Dubai: turnaround times, CMYK bleed specifications, luxury foil & spot UV finishes, 5% UAE VAT, and corporate credit terms."
@@ -131,9 +131,9 @@ export default function FaqPage() {
         <Breadcrumbs items={[{ name: 'FAQ & Print Knowledgebase' }]} />
 
         {/* Hero Header */}
-        <div className="border-b border-[#122240] pb-8 text-center sm:text-left">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#081226] border border-[#D4AF65]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
-            <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+        <div className="border-b border-[#DED2C1] pb-8 text-center sm:text-left">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF8F3] border border-[#C5A989]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43]">
+            <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
             <span>COMMERCIAL PRINT KNOWLEDGEBASE</span>
           </div>
           <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
@@ -151,7 +151,7 @@ export default function FaqPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by keyword (e.g. foil, turnaround, 300 DPI, VAT, delivery)…"
-              className="w-full rounded-xl border border-[#122240] bg-[#081226] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
+              className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-white placeholder:text-slate-400 focus:border-[#C5A989] focus:outline-none shadow-xs"
             />
           </div>
         </div>
@@ -165,8 +165,8 @@ export default function FaqPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
-                  : 'bg-[#081226] border border-[#122240] text-slate-200 hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                  ? 'bg-[#795C43] text-white shadow-xs'
+                  : 'bg-[#FAF8F3] border border-[#DED2C1] text-slate-200 hover:border-[#C5A989] hover:text-[#795C43]'
               }`}
             >
               {cat}
@@ -175,7 +175,7 @@ export default function FaqPage() {
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="mt-8 divide-y divide-[#122240] border border-[#122240] bg-[#081226] rounded-2xl p-4 sm:p-8 shadow-xs">
+        <div className="mt-8 divide-y divide-[#DED2C1] border border-[#DED2C1] bg-[#FAF8F3] rounded-2xl p-4 sm:p-8 shadow-xs">
           {filteredFaqs.length === 0 ? (
             <div className="py-12 text-center">
               <HelpCircle className="h-10 w-10 text-slate-400 mx-auto mb-2" />
@@ -186,7 +186,7 @@ export default function FaqPage() {
                   setSearchQuery('')
                   setSelectedCategory('All Topics')
                 }}
-                className="mt-2 text-xs font-bold text-[#D4AF65] hover:underline cursor-pointer"
+                className="mt-2 text-xs font-bold text-[#795C43] hover:underline cursor-pointer"
               >
                 Reset search filters
               </button>
@@ -196,16 +196,16 @@ export default function FaqPage() {
               <details key={faq.question} className="group py-5 first:pt-2 last:pb-2">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] block mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#795C43] block mb-1">
                       {faq.category}
                     </span>
-                    <h2 className="font-display text-sm font-bold text-white sm:text-base group-hover:text-[#D4AF65] transition-colors">
+                    <h2 className="font-display text-sm font-bold text-white sm:text-base group-hover:text-[#795C43] transition-colors">
                       {faq.question}
                     </h2>
                   </div>
-                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#D4AF65]" />
+                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#795C43]" />
                 </summary>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 pl-0 sm:pl-2 border-l-2 border-[#D4AF65]/30">
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 pl-0 sm:pl-2 border-l-2 border-[#C5A989]/30">
                   {faq.answer}
                 </p>
               </details>
@@ -214,7 +214,7 @@ export default function FaqPage() {
         </div>
 
         {/* Support CTA Box */}
-        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#040A18] p-6 sm:p-8 text-white sm:flex-row sm:items-center sm:justify-between shadow-lg">
+        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#F5F0E7] p-6 sm:p-8 text-white sm:flex-row sm:items-center sm:justify-between shadow-lg">
           <div>
             <h3 className="font-display text-base font-bold text-white">
               Have a custom specification or non-standard print request?

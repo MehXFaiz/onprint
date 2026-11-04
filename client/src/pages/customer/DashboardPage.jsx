@@ -41,16 +41,16 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       {/* Welcome Card */}
-      <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-sm">
+      <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+            <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#795C43]">
               <ShieldCheck className="h-3.5 w-3.5" /> Client Portal
             </span>
-            <h1 className="font-display mt-1 text-2xl sm:text-3xl font-black text-[#F5F3EE]">
+            <h1 className="font-display mt-1 text-2xl sm:text-3xl font-black text-[#352719]">
               Welcome, {user?.name || 'Valued Client'}
             </h1>
-            <p className="mt-1 text-xs text-[#F5F3EE]/70">
+            <p className="mt-1 text-xs text-[#352719]/70">
               {user?.company || 'Corporate Account'} • Track active print runs, quotes, and delivery proofs.
             </p>
           </div>
@@ -64,64 +64,64 @@ export default function DashboardPage() {
 
       {/* KPI Overview */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Link to="/account/orders" className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs hover:border-[#D6C29A]/40 transition-all">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60">Active Orders</div>
-          <div className="mt-2 text-3xl font-black text-[#F5F3EE]">{orders.length}</div>
+        <Link to="/account/orders" className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs hover:border-[#C5A989]/40 transition-all">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#352719]/60">Active Orders</div>
+          <div className="mt-2 text-3xl font-black text-[#352719]">{orders.length}</div>
         </Link>
 
-        <Link to="/account/quotes" className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs hover:border-[#D6C29A]/40 transition-all">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60">Quotes Requested</div>
-          <div className="mt-2 text-3xl font-black text-[#F5F3EE]">{quotes.length}</div>
+        <Link to="/account/quotes" className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs hover:border-[#C5A989]/40 transition-all">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#352719]/60">Quotes Requested</div>
+          <div className="mt-2 text-3xl font-black text-[#352719]">{quotes.length}</div>
         </Link>
 
-        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60">Proof Status</div>
-          <div className="mt-2 text-3xl font-black text-[#D6C29A]">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#352719]/60">Proof Status</div>
+          <div className="mt-2 text-3xl font-black text-[#795C43]">
             {orders.length > 0 ? (orders[0].status === 'Pending' ? 'Under Review' : 'Approved') : 'Ready'}
           </div>
         </div>
       </div>
 
       {/* Active Orders List */}
-      <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
-        <div className="flex items-center justify-between border-b border-[#122240] pb-4 mb-4">
+      <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
+        <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4 mb-4">
           <div>
-            <h3 className="font-display text-lg font-bold text-[#F5F3EE]">My Print Orders</h3>
-            <p className="text-xs text-[#F5F3EE]/60">Track production progress and dispatch details</p>
+            <h3 className="font-display text-lg font-bold text-[#352719]">My Print Orders</h3>
+            <p className="text-xs text-[#352719]/60">Track production progress and dispatch details</p>
           </div>
-          <Link to="/account/orders" className="text-xs font-bold text-[#D6C29A] hover:underline flex items-center gap-1">
+          <Link to="/account/orders" className="text-xs font-bold text-[#795C43] hover:underline flex items-center gap-1">
             View All <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
         {orders.length === 0 ? (
-          <div className="py-12 text-center text-xs text-[#F5F3EE]/60">
-            <Package className="h-8 w-8 text-[#52647D] mx-auto mb-2" />
-            <p className="font-bold text-[#F5F3EE]">No active print orders yet</p>
+          <div className="py-12 text-center text-xs text-[#352719]/60">
+            <Package className="h-8 w-8 text-[#756657] mx-auto mb-2" />
+            <p className="font-bold text-[#352719]">No active print orders yet</p>
             <p className="mt-1">Submit a quote request to begin your custom print run.</p>
             <Button to="/get-a-quote" variant="accent" size="sm" icon={false} className="mt-4">
               Get a Quote Now
             </Button>
           </div>
         ) : (
-          <div className="divide-y divide-[#122240]">
+          <div className="divide-y divide-[#DED2C1]">
             {orders.slice(0, 5).map((order) => (
               <div key={order._id || order.id || order.orderNumber} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div>
-                  <div className="font-bold text-[#F5F3EE] text-sm">{order.productName}</div>
-                  <div className="text-[#F5F3EE]/60 mt-0.5">
+                  <div className="font-bold text-[#352719] text-sm">{order.productName}</div>
+                  <div className="text-[#352719]/60 mt-0.5">
                     Order #{order.orderNumber} • Qty: {order.quantity} units {order.specs ? `• ${order.specs}` : ''}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <span className="font-bold text-[#D6C29A]">AED {Number(order.totalPrice || 0).toLocaleString()}</span>
+                  <span className="font-bold text-[#795C43]">AED {Number(order.totalPrice || 0).toLocaleString()}</span>
                   <span
                     className={`rounded-full px-3 py-1 text-[10px] font-bold border ${
                       order.status === 'Pending'
                         ? 'bg-amber-500/10 border-amber-500/30 text-amber-300'
                         : order.status === 'In Production'
-                          ? 'bg-[#D6C29A]/10 border-[#D6C29A]/30 text-[#D6C29A]'
+                          ? 'bg-[#C5A989]/10 border-[#C5A989]/30 text-[#795C43]'
                           : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
                     }`}
                   >

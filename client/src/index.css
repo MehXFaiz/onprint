@@ -1,105 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  /* Approved Brand Palette:
-     Midnight Navy:    #040A18 — header, footer, hero backgrounds and dark sections.
-     Champagne Gold:   #D4AF65 — primary accents, icons, borders and premium details.
-     Pure White:       #FFFFFF — clean product cards and content backgrounds.
-     Warm Ivory:       #F5F2EB — alternate sections and premium backgrounds.
-     Slate Navy:       #0E1B33 — secondary text and supporting UI.
+  /* =========================================================================
+     ONPRINT Premium Warm Beige & Light Brown Design System (WCAG 2.2 Compliant)
+     =========================================================================
+     Primary Background:   #F5F0E7 — Warm Beige main canvas & page sections.
+     Secondary Background: #EDE3D5 — Cream Beige alternating sections & header bar.
+     Card Background:      #FAF8F3 — Soft Ivory elevated cards & surfaces.
+     Light Brown:          #C5A989 — Tactile highlights, badges & secondary buttons.
+     Medium Brown:         #A98968 — Refined borders & hover states.
+     Dark Brown:           #795C43 — Primary buttons & authoritative brand accents.
+     Dark Brown Hover:     #5D442E — Rich espresso button hover state.
+     Primary Text:         #352719 — High-contrast deep espresso primary text.
+     Secondary Text:       #756657 — Warm taupe / medium brown secondary text.
+     Borders:              #DED2C1 — Warm sand / refined beige borders.
+     Pure White:           #FFFFFF — Clean accents & card contrast.
   */
-  --color-primary: #F5F2EB;            /* Warm Ivory: High-contrast primary headings & text */
-  --color-accent: #D4AF65;             /* Champagne Gold: Brand accents, icons, premium details */
-  --color-accent-hover: #C49E52;       /* Gold hover */
-  --color-accent-soft: rgba(212, 175, 101, 0.15);
-  --color-white: #FFFFFF;              /* Pure White */
-  --color-ivory: #F5F2EB;              /* Warm Ivory */
-  --color-secondary: #B0BECE;          /* Muted supporting text on dark */
-  --color-secondary-light: #B0BECE;    /* Muted text on dark */
 
-  --color-background: #040A18;         /* Midnight Navy Main Canvas */
-  --color-background-alt: #020611;     /* Deep Utility Navy Canvas */
-  --color-surface: #081226;            /* Elevated Navy Card Surface */
-  --color-surface-alt: #081226;        /* Secondary Surface Variant */
-  --color-surface-dark: #020611;       /* Deep Utility Navy Surface */
-  --color-text: #F5F2EB;               /* Warm Ivory Primary Text */
-  --color-text-secondary: #B0BECE;     /* Muted Secondary Text */
-  --color-border: #122240;             /* Refined Navy Border */
+  --color-primary-bg: #F5F0E7;
+  --color-secondary-bg: #EDE3D5;
+  --color-card-bg: #FAF8F3;
+
+  --color-light-brown: #C5A989;
+  --color-medium-brown: #A98968;
+  --color-dark-brown: #795C43;
+  --color-dark-brown-hover: #5D442E;
+
+  --color-text-primary: #352719;
+  --color-text-secondary: #756657;
+
+  --color-border: #DED2C1;
+  --color-border-hover: #C5A989;
+  --color-white: #FFFFFF;
+
+  /* Semantic Theme Tokens */
+  --color-primary: #795C43;
+  --color-accent: #795C43;
+  --color-accent-hover: #5D442E;
+  --color-accent-soft: rgba(197, 169, 137, 0.18);
+  --color-white: #FFFFFF;
+  --color-ivory: #FAF8F3;
+  --color-secondary: #756657;
+  --color-secondary-light: #756657;
+
+  --color-background: #F5F0E7;
+  --color-background-alt: #EDE3D5;
+  --color-surface: #FAF8F3;
+  --color-surface-alt: #EDE3D5;
+  --color-surface-dark: #EDE3D5;
+  --color-text: #352719;
+  --color-text-secondary: #756657;
+  --color-border: #DED2C1;
 
   /* Dedicated Tokens */
-  --midnight-navy: #040A18;
-  --midnight-navy-dark: #020611;
-  --midnight-navy-elevated: #081226;
-  --midnight-navy-surface: #081226;
-  --midnight-navy-border: #122240;
+  --warm-beige: #F5F0E7;
+  --cream-beige: #EDE3D5;
+  --soft-ivory: #FAF8F3;
+  --light-brown: #C5A989;
+  --medium-brown: #A98968;
+  --dark-brown: #795C43;
+  --dark-brown-hover: #5D442E;
+  --primary-text: #352719;
+  --secondary-text: #756657;
+  --border-beige: #DED2C1;
 
-  --champagne-gold: #D4AF65;
-  --champagne-gold-hover: #C49E52;
-  --champagne-gold-active: #B38D40;
-  --champagne-gold-soft: rgba(212, 175, 101, 0.15);
-  --champagne-gold-border: #D4AF65;
-
-  --pure-white: #FFFFFF;
-  --warm-ivory: #F5F2EB;
-  --warm-ivory-dark: #E6E1D5;
-
-  --slate-navy: #0E1B33;
-  --slate-blue: #B0BECE;
-  --slate-blue-muted: #8E9BB5;
-
-  /* Aliases */
-  --primary: #F5F2EB;
-  --accent: #D4AF65;
-  --accent-hover: #C49E52;
-  --background: #040A18;
-  --background-alt: #020611;
-  --surface: #081226;
-  --surface-alt: #081226;
-  --dark: #020611;
-  --text-primary: #F5F2EB;
-  --text-secondary: #B0BECE;
-  --border: #122240;
-  --border-hover: #D4AF65;
-
-  --whatsapp: #25D366;                 /* Functional official WhatsApp green */
+  /* Functional WhatsApp Tokens */
+  --whatsapp: #25D366;
   --whatsapp-hover: #20BA59;
 }
 
 @theme {
-  --color-primary: var(--color-primary);
-  --color-accent: var(--color-accent);
-  --color-accent-hover: #C49E52;
-  --color-accent-soft: rgba(212, 175, 101, 0.15);
-  --color-white: var(--color-white);
-  --color-ivory: var(--color-ivory);
-  --color-secondary: var(--color-secondary);
-
-  --color-background: var(--color-background);
-  --color-background-alt: var(--color-background-alt);
-  --color-surface: var(--color-surface);
-  --color-surface-alt: var(--color-surface-alt);
-  --color-surface-dark: var(--color-surface-dark);
-  --color-border: var(--border);
-
-  /* Primary Brand Theme Tokens */
-  --color-midnight-navy: #040A18;
-  --color-midnight-navy-dark: #020611;
-  --color-midnight-navy-light: #081226;
-  --color-midnight-navy-elevated: #081226;
-  --color-champagne-gold: #D4AF65;
-  --color-champagne-gold-hover: #C49E52;
-  --color-champagne-gold-soft: rgba(212, 175, 101, 0.15);
+  --color-warm-beige: #F5F0E7;
+  --color-cream-beige: #EDE3D5;
+  --color-soft-ivory: #FAF8F3;
+  --color-light-brown: #C5A989;
+  --color-medium-brown: #A98968;
+  --color-dark-brown: #795C43;
+  --color-dark-brown-hover: #5D442E;
+  --color-primary-text: #352719;
+  --color-secondary-text: #756657;
+  --color-border-beige: #DED2C1;
   --color-pure-white: #FFFFFF;
-  --color-warm-ivory: #F5F2EB;
-  --color-slate-navy: #0E1B33;
-  --color-slate-blue: #B0BECE;
 
-  /* Backward compatibility aliases */
-  --color-brand-orange: #D4AF65;
-  --color-brand-orange-hover: #C49E52;
-  --color-brand-orange-soft: rgba(212, 175, 101, 0.15);
-  --color-brand-dark: #040A18;
-  --color-brand-surface: #081226;
+  --color-primary: #795C43;
+  --color-background: #F5F0E7;
+  --color-surface: #FAF8F3;
 
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
@@ -107,14 +92,14 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #040A18 !important;
-  color: #F5F2EB;
+  background-color: #F5F0E7 !important;
+  color: #352719;
 }
 
 body {
-  background-color: #040A18 !important;
+  background-color: #F5F0E7 !important;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #F5F2EB;
+  color: #352719;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01';
@@ -122,33 +107,33 @@ body {
 }
 
 #root {
-  background-color: #040A18 !important;
-  color: #F5F2EB;
+  background-color: #F5F0E7 !important;
+  color: #352719;
 }
 
 ::selection {
-  background: #D4AF65;
-  color: #040A18;
+  background: #C5A989;
+  color: #352719;
 }
 
 :focus-visible {
-  outline: 2px solid #D4AF65;
+  outline: 2px solid #795C43;
   outline-offset: 2px;
 }
 
 /* =========================================================================
-   MODERN ARCHITECTURAL BENTO CARDS & SURFACES (LUXURY NAVY & GOLD)
+   MODERN ARCHITECTURAL BENTO CARDS & SURFACES (PREMIUM BEIGE & LIGHT BROWN)
    ========================================================================= */
 
 .bento-card {
   position: relative;
-  background: #081226;
-  border: 1px solid #122240;
+  background: #FAF8F3;
+  border: 1px solid #DED2C1;
   border-radius: 1.5rem;
-  color: #F5F2EB;
+  color: #352719;
   box-shadow:
-    0 10px 30px -10px rgba(2, 6, 17, 0.6),
-    inset 0 1px 0 0 rgba(245, 242, 235, 0.05);
+    0 10px 30px -10px rgba(121, 92, 67, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -156,22 +141,22 @@ body {
 }
 
 .bento-card:hover {
-  border-color: #D4AF65;
+  border-color: #C5A989;
   box-shadow:
-    0 20px 45px -10px rgba(2, 6, 17, 0.8),
-    0 0 25px -4px rgba(212, 175, 101, 0.25);
+    0 20px 45px -10px rgba(121, 92, 67, 0.14),
+    0 0 25px -4px rgba(197, 169, 137, 0.25);
   transform: translateY(-4px);
 }
 
 .bento-card-dark {
   position: relative;
-  background: #020611;
-  border: 1px solid #122240;
+  background: #EDE3D5;
+  border: 1px solid #DED2C1;
   border-radius: 1.5rem;
-  color: #F5F2EB;
+  color: #352719;
   box-shadow:
-    0 20px 40px -12px rgba(2, 6, 17, 0.7),
-    inset 0 1px 0 0 rgba(245, 242, 235, 0.05);
+    0 10px 25px -8px rgba(121, 92, 67, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -179,97 +164,106 @@ body {
 }
 
 .bento-card-dark:hover {
-  border-color: #D4AF65;
+  border-color: #795C43;
   box-shadow:
-    0 24px 50px -12px rgba(2, 6, 17, 0.9),
-    0 0 25px -5px rgba(212, 175, 101, 0.28);
+    0 20px 40px -10px rgba(121, 92, 67, 0.16),
+    0 0 25px -5px rgba(121, 92, 67, 0.2);
   transform: translateY(-4px);
 }
 
 .card-clean {
-  background-color: #081226;
-  border: 1px solid #122240;
+  background-color: #FAF8F3;
+  border: 1px solid #DED2C1;
   border-radius: 1.25rem;
-  color: #F5F2EB;
-  box-shadow: 0 8px 24px -6px rgba(2, 6, 17, 0.5);
+  color: #352719;
+  box-shadow: 0 4px 20px -2px rgba(121, 92, 67, 0.06);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clean:hover {
-  border-color: #D4AF65;
+  border-color: #C5A989;
   box-shadow:
-    0 16px 36px -8px rgba(2, 6, 17, 0.7),
-    0 0 20px -4px rgba(212, 175, 101, 0.22);
+    0 14px 32px -6px rgba(121, 92, 67, 0.12),
+    0 0 20px -4px rgba(197, 169, 137, 0.2);
   transform: translateY(-3px);
 }
 
 .btn-primary {
-  background: #D4AF65;
-  color: #040A18;
+  background: #795C43;
+  color: #FFFFFF;
   font-weight: 800;
-  border: 1px solid #D4AF65;
+  border: 1px solid #795C43;
   border-radius: 9999px;
-  box-shadow: 0 4px 16px rgba(212, 175, 101, 0.3);
+  box-shadow: 0 4px 16px rgba(121, 92, 67, 0.25);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background: #C49E52;
-  border-color: #C49E52;
-  box-shadow: 0 8px 26px rgba(212, 175, 101, 0.45);
+  background: #5D442E;
+  border-color: #5D442E;
+  color: #FFFFFF;
+  box-shadow: 0 8px 26px rgba(121, 92, 67, 0.38);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background-color: #081226;
-  color: #F5F2EB;
-  border: 1px solid #122240;
+  background-color: #EDE3D5;
+  color: #352719;
+  border: 1px solid #DED2C1;
   border-radius: 9999px;
   font-weight: 700;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: #122240;
-  border-color: #D4AF65;
-  color: #D4AF65;
+  background-color: #FAF8F3;
+  border-color: #C5A989;
+  color: #795C43;
   transform: translateY(-2px);
 }
 
-/* Luxury Custom Scrollbar */
+/* Premium Warm Beige Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020611;
+  background: #EDE3D5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #122240;
+  background: #C5A989;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF65;
+  background: #795C43;
 }
 
 /* =========================================================================
-   LUXURY DARK THEME FORM CONTROLS & UTILITIES
+   PREMIUM BEIGE FORM CONTROLS & UTILITIES
    ========================================================================= */
 
 input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select {
-  background-color: #081226;
-  border-color: #122240;
-  color: #F5F2EB;
+  background-color: #FFFFFF;
+  border-color: #DED2C1;
+  color: #352719;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #795C43;
+  outline: none;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #B0BECE;
+  color: #756657;
+  opacity: 0.8;
 }
 
 /* Infinite Marquee */
@@ -290,10 +284,9 @@ textarea::placeholder {
 }
 
 /* =========================================================================
-   WEBSITE-WIDE LUXURY ANIMATION KEYFRAMES & UTILITIES
+   PREMIUM BEIGE & LIGHT BROWN ANIMATION KEYFRAMES & UTILITIES
    ========================================================================= */
 
-/* 1. Gentle Floating Animation */
 @keyframes onprint-float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
@@ -313,28 +306,18 @@ textarea::placeholder {
   will-change: transform;
 }
 
-/* 2. Soft Ambient Gold Pulse */
+/* Soft Ambient Pulse */
 @keyframes onprint-gold-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(214, 194, 154, 0.45);
+    box-shadow: 0 0 0 0 rgba(197, 169, 137, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(214, 194, 154, 0);
+    box-shadow: 0 0 0 10px rgba(197, 169, 137, 0);
   }
 }
 
 .animate-gold-pulse {
   animation: onprint-gold-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* 3. Metallic Light Sweep / Shimmer Across Cards & Buttons */
-@keyframes onprint-shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
 }
 
 .hover-shimmer {
@@ -349,9 +332,9 @@ textarea::placeholder {
   background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(214, 194, 154, 0.15) 40%,
-    rgba(245, 243, 238, 0.25) 50%,
-    rgba(214, 194, 154, 0.15) 60%,
+    rgba(197, 169, 137, 0.15) 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(197, 169, 137, 0.15) 60%,
     transparent 80%
   );
   transform: translateX(-100%) rotate(25deg);
@@ -363,7 +346,6 @@ textarea::placeholder {
   transform: translateX(100%) rotate(25deg);
 }
 
-/* 4. Luxury Card Hover Elevation */
 .card-hover-lift {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -372,11 +354,10 @@ textarea::placeholder {
 
 .card-hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 35px -10px rgba(2, 6, 17, 0.75), 0 0 25px -4px rgba(214, 194, 154, 0.25);
-  border-color: #D6C29A;
+  box-shadow: 0 16px 30px -8px rgba(121, 92, 67, 0.15), 0 0 20px -4px rgba(197, 169, 137, 0.2);
+  border-color: #C5A989;
 }
 
-/* 5. Smooth Image Zoom on Hover */
 .group:hover .img-hover-scale {
   transform: scale(1.05);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -394,10 +375,6 @@ body:has([dir="rtl"]),
   font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
 }
 
-/* =========================================================================
-   MOBILE SAFE-AREA, SCROLLBAR & ACCESSIBILITY (WCAG 2.2 AA) UTILITIES
-   ========================================================================= */
-
 .safe-area-bottom {
   padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
 }
@@ -411,7 +388,6 @@ body:has([dir="rtl"]),
   scrollbar-width: none;
 }
 
-/* Prevent iOS Safari auto-zoom on focus by ensuring >= 16px font-size on mobile inputs */
 @media (max-width: 640px) {
   input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
   select,
@@ -420,7 +396,6 @@ body:has([dir="rtl"]),
   }
 }
 
-/* Guarantee main page content is never stuck at opacity: 0 on mobile WebViews or reduced motion */
 @media (max-width: 1024px), (prefers-reduced-motion: reduce) {
   main [style*="opacity: 0"],
   main [style*="opacity:0"] {
@@ -429,7 +404,6 @@ body:has([dir="rtl"]),
   }
 }
 
-/* Prevent mobile Safari/Android GPU compositor VRAM exhaustion from excessive blur/will-change layers */
 @media (max-width: 768px) {
   .blur-2xl,
   .blur-3xl,
@@ -446,7 +420,6 @@ body:has([dir="rtl"]),
   }
 }
 
-/* Strictly honor user reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

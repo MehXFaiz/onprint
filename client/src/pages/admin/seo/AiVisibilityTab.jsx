@@ -98,17 +98,17 @@ export default function AiVisibilityTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-2.5 py-0.5 text-xs font-bold text-[#795C43]">
                 <Bot className="h-3.5 w-3.5" />
                 AI Search Monitor
               </span>
               <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 30</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               AI Engine Visibility Tracking (GEO)
             </h2>
             <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
@@ -158,7 +158,7 @@ export default function AiVisibilityTab({ showToast }) {
             className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
               categoryFilter === cat
                 ? 'bg-neutral-900 text-white shadow-xs'
-                : 'border border-[#122240] bg-[#081226] text-[#B8C2D9] hover:border-neutral-400'
+                : 'border border-[#DED2C1] bg-[#FAF8F3] text-[#B8C2D9] hover:border-neutral-400'
             }`}
           >
             {cat}
@@ -167,10 +167,10 @@ export default function AiVisibilityTab({ showToast }) {
       </div>
 
       {/* 13 Queries Table */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] overflow-hidden shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="border-b border-[#122240] bg-[#040A18]/80 text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+            <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
               <tr>
                 <th className="px-5 py-3">Category</th>
                 <th className="px-5 py-3">Tracked Search Query</th>
@@ -183,7 +183,7 @@ export default function AiVisibilityTab({ showToast }) {
               {loading ? (
                 <tr>
                   <td colSpan={5} className="px-5 py-8 text-center text-[#B8C2D9]">
-                    <RefreshCw className="h-5 w-5 animate-spin mx-auto text-[#D6C29A] mb-2" />
+                    <RefreshCw className="h-5 w-5 animate-spin mx-auto text-[#795C43] mb-2" />
                     Loading tracked queries…
                   </td>
                 </tr>
@@ -195,13 +195,13 @@ export default function AiVisibilityTab({ showToast }) {
                 </tr>
               ) : (
                 filteredItems.map((q) => (
-                  <tr key={q.id} className="hover:bg-[#040A18] transition-colors">
+                  <tr key={q.id} className="hover:bg-[#F5F0E7] transition-colors">
                     <td className="px-5 py-3.5 whitespace-nowrap">
-                      <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#F5F3EE]">
+                      <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#352719]">
                         {q.category}
                       </span>
                     </td>
-                    <td className="px-5 py-3.5 font-bold text-[#F5F3EE] max-w-md">
+                    <td className="px-5 py-3.5 font-bold text-[#352719] max-w-md">
                       {q.query}
                     </td>
                     <td className="px-5 py-3.5 text-[#B8C2D9] whitespace-nowrap">
@@ -214,7 +214,7 @@ export default function AiVisibilityTab({ showToast }) {
                       <span
                         className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
                           q.status?.includes('unavailable')
-                            ? 'bg-neutral-100 text-[#B8C2D9] border border-[#122240]'
+                            ? 'bg-neutral-100 text-[#B8C2D9] border border-[#DED2C1]'
                             : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                         }`}
                       >
@@ -230,10 +230,10 @@ export default function AiVisibilityTab({ showToast }) {
       </div>
 
       {/* Manual Citation Verification Logs Section */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+            <h3 className="font-display text-base font-bold text-[#352719]">
               Logged Real Citation Verifications
             </h3>
             <p className="text-xs text-[#B8C2D9]">
@@ -246,7 +246,7 @@ export default function AiVisibilityTab({ showToast }) {
         </div>
 
         {citationLogs.length === 0 ? (
-          <div className="p-8 text-center text-xs text-[#B8C2D9] bg-[#040A18] rounded-xl border border-[#122240]">
+          <div className="p-8 text-center text-xs text-[#B8C2D9] bg-[#F5F0E7] rounded-xl border border-[#DED2C1]">
             No citation verifications logged yet. Click &ldquo;Log Real Citation&rdquo; to record manual tests from Perplexity or ChatGPT.
           </div>
         ) : (
@@ -255,7 +255,7 @@ export default function AiVisibilityTab({ showToast }) {
               <div key={log.id} className="py-3 flex items-start justify-between gap-4">
                 <div className="space-y-1 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-[#F5F3EE]">{log.ai_engine}</span>
+                    <span className="font-bold text-[#352719]">{log.ai_engine}</span>
                     <span className="text-[#B8C2D9]/70">•</span>
                     <span className="text-[#B8C2D9]">{new Date(log.tested_at || Date.now()).toLocaleDateString()}</span>
                     {log.onprint_cited ? (
@@ -268,11 +268,11 @@ export default function AiVisibilityTab({ showToast }) {
                       </span>
                     )}
                   </div>
-                  <p className="font-medium text-[#F5F3EE]">
+                  <p className="font-medium text-[#352719]">
                     &ldquo;{log.query_prompt}&rdquo;
                   </p>
                   {log.extracted_snippet && (
-                    <p className="text-[#B8C2D9] bg-[#040A18] p-2 rounded-lg border border-[#122240] text-[11px]">
+                    <p className="text-[#B8C2D9] bg-[#F5F0E7] p-2 rounded-lg border border-[#DED2C1] text-[11px]">
                       {log.extracted_snippet}
                     </p>
                   )}
@@ -292,18 +292,18 @@ export default function AiVisibilityTab({ showToast }) {
           onClick={() => setShowLogModal(false)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setShowLogModal(false)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-xl font-black text-[#F5F3EE]">
+            <h3 className="font-display text-xl font-black text-[#352719]">
               Log Real Citation Verification
             </h3>
             <p className="mt-1 text-xs text-[#B8C2D9]">
@@ -313,11 +313,11 @@ export default function AiVisibilityTab({ showToast }) {
             <form onSubmit={handleCreateLog} className="mt-6 space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">AI Engine Tested</label>
+                  <label className="font-bold text-[#352719] block mb-1">AI Engine Tested</label>
                   <select
                     value={logFormData.ai_engine}
                     onChange={(e) => setLogFormData({ ...logFormData, ai_engine: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   >
                     <option value="Perplexity">Perplexity</option>
                     <option value="ChatGPT Search">ChatGPT Search</option>
@@ -328,11 +328,11 @@ export default function AiVisibilityTab({ showToast }) {
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Was ONPRINT Cited?</label>
+                  <label className="font-bold text-[#352719] block mb-1">Was ONPRINT Cited?</label>
                   <select
                     value={logFormData.onprint_cited}
                     onChange={(e) => setLogFormData({ ...logFormData, onprint_cited: Number(e.target.value) })}
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   >
                     <option value={1}>Yes, Cited with link or mention</option>
                     <option value={0}>No, Not cited in top results</option>
@@ -341,54 +341,54 @@ export default function AiVisibilityTab({ showToast }) {
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Exact Query Prompt Entered</label>
+                <label className="font-bold text-[#352719] block mb-1">Exact Query Prompt Entered</label>
                 <input
                   type="text"
                   value={logFormData.query_prompt}
                   onChange={(e) => setLogFormData({ ...logFormData, query_prompt: e.target.value })}
                   placeholder="e.g. Best commercial printing press in Al Quoz Dubai"
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Citation Rank / Position</label>
+                  <label className="font-bold text-[#352719] block mb-1">Citation Rank / Position</label>
                   <input
                     type="number"
                     value={logFormData.citation_rank}
                     onChange={(e) => setLogFormData({ ...logFormData, citation_rank: Number(e.target.value) })}
                     min={1}
                     max={10}
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Source URL Cited</label>
+                  <label className="font-bold text-[#352719] block mb-1">Source URL Cited</label>
                   <input
                     type="text"
                     value={logFormData.source_url_cited}
                     onChange={(e) => setLogFormData({ ...logFormData, source_url_cited: e.target.value })}
                     placeholder="https://www.0nprint.com/..."
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Extracted AI Snippet / Mention</label>
+                <label className="font-bold text-[#352719] block mb-1">Extracted AI Snippet / Mention</label>
                 <textarea
                   rows={3}
                   value={logFormData.extracted_snippet}
                   onChange={(e) => setLogFormData({ ...logFormData, extracted_snippet: e.target.value })}
                   placeholder="Paste snippet where ONPRINT was mentioned in the AI response..."
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                 />
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#122240]">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#DED2C1]">
                 <Button type="button" variant="outline" size="sm" onClick={() => setShowLogModal(false)}>
                   Cancel
                 </Button>

@@ -124,17 +124,17 @@ export default function SeoExperimentsTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-2.5 py-0.5 text-xs font-bold text-[#795C43]">
                 <Sliders className="h-3.5 w-3.5" />
                 CTR Optimization & A/B Engine
               </span>
               <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 4 & 34</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               SEO Title & Meta Experiments
             </h2>
             <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
@@ -148,7 +148,7 @@ export default function SeoExperimentsTab({ showToast }) {
               variant="accent"
               size="sm"
               onClick={() => setShowAddModal(true)}
-              className="text-xs font-bold bg-[#D6C29A] text-[#040A18] hover:bg-[#D6C29A]"
+              className="text-xs font-bold bg-[#C5A989] text-white hover:bg-[#C5A989]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               New Experiment
@@ -158,9 +158,9 @@ export default function SeoExperimentsTab({ showToast }) {
 
         {/* Summary Metric Cards */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <div className="rounded-xl border border-[#122240]/70 bg-[#040A18] p-4">
+          <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Tests</div>
-            <div className="mt-1 text-2xl font-black text-[#F5F3EE]">{summary.total}</div>
+            <div className="mt-1 text-2xl font-black text-[#352719]">{summary.total}</div>
             <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Tracked experiments</div>
           </div>
 
@@ -187,14 +187,14 @@ export default function SeoExperimentsTab({ showToast }) {
             placeholder="Search URL or hypothesis..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#DED2C1] bg-[#FAF8F3] focus:outline-none focus:border-[#C5A989]"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] text-[#F5F3EE] font-semibold focus:outline-none focus:border-[#D6C29A] w-full sm:w-auto"
+          className="px-3 py-2 text-xs rounded-xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] font-semibold focus:outline-none focus:border-[#C5A989] w-full sm:w-auto"
         >
           <option value="all">All Test Statuses</option>
           <option value="RUNNING">Running</option>
@@ -206,12 +206,12 @@ export default function SeoExperimentsTab({ showToast }) {
       {/* Experiments List Cards */}
       <div className="space-y-4">
         {loading ? (
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-12 text-center text-sm text-[#B8C2D9]">
-            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-sm text-[#B8C2D9]">
+            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading SEO experiments...
           </div>
         ) : filteredExperiments.length === 0 ? (
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-sm text-[#B8C2D9]">
             No experiments found for this view.
           </div>
         ) : (
@@ -225,9 +225,9 @@ export default function SeoExperimentsTab({ showToast }) {
             return (
               <div
                 key={exp.id}
-                className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4"
+                className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#122240] pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#DED2C1] pb-4">
                   <div>
                     <div className="flex items-center gap-2">
                       <span
@@ -239,12 +239,12 @@ export default function SeoExperimentsTab({ showToast }) {
                       >
                         {exp.status}
                       </span>
-                      <span className="font-mono text-xs font-bold text-[#F5F3EE] truncate max-w-md">
+                      <span className="font-mono text-xs font-bold text-[#352719] truncate max-w-md">
                         {exp.page_url}
                       </span>
                     </div>
                     <p className="text-xs text-[#B8C2D9] mt-1 font-medium">
-                      <span className="font-bold text-[#F5F3EE]">Hypothesis:</span> {exp.hypothesis}
+                      <span className="font-bold text-[#352719]">Hypothesis:</span> {exp.hypothesis}
                     </p>
                   </div>
 
@@ -274,7 +274,7 @@ export default function SeoExperimentsTab({ showToast }) {
                 {/* Variant A vs Variant B Visual Comparison */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Control / Variant A */}
-                  <div className="rounded-xl border border-[#122240] bg-[#040A18]/60 p-4 space-y-2">
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/60 p-4 space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-black uppercase tracking-wider text-[#B8C2D9]">
                         Variant A (Control)
@@ -289,14 +289,14 @@ export default function SeoExperimentsTab({ showToast }) {
                     </div>
                     <div>
                       <span className="text-[10px] text-[#B8C2D9]/70 font-bold block uppercase">Meta Description</span>
-                      <div className="text-xs text-[#F5F3EE]">{exp.control_meta}</div>
+                      <div className="text-xs text-[#352719]">{exp.control_meta}</div>
                     </div>
                   </div>
 
                   {/* Test / Variant B */}
-                  <div className="rounded-xl border border-[#D6C29A]/30 bg-[#D6C29A]/5 p-4 space-y-2">
+                  <div className="rounded-xl border border-[#C5A989]/30 bg-[#C5A989]/5 p-4 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+                      <span className="text-xs font-black uppercase tracking-wider text-[#795C43]">
                         Variant B (Tested Optimization)
                       </span>
                       <span className="text-[11px] font-bold text-emerald-700">
@@ -304,12 +304,12 @@ export default function SeoExperimentsTab({ showToast }) {
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#D6C29A]/70 font-bold block uppercase">SERP Title</span>
+                      <span className="text-[10px] text-[#795C43]/70 font-bold block uppercase">SERP Title</span>
                       <div className="text-xs font-semibold text-blue-700">{exp.variant_title}</div>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#D6C29A]/70 font-bold block uppercase">Meta Description</span>
-                      <div className="text-xs text-[#F5F3EE]">{exp.variant_meta}</div>
+                      <span className="text-[10px] text-[#795C43]/70 font-bold block uppercase">Meta Description</span>
+                      <div className="text-xs text-[#352719]">{exp.variant_meta}</div>
                     </div>
                   </div>
                 </div>
@@ -322,12 +322,12 @@ export default function SeoExperimentsTab({ showToast }) {
       {/* Add Experiment Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-[#081226] rounded-2xl max-w-xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#FAF8F3] rounded-2xl max-w-xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="font-black text-lg text-[#F5F3EE]">Launch SEO CTR Experiment</h3>
+              <h3 className="font-black text-lg text-[#352719]">Launch SEO CTR Experiment</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE]"
+                className="p-1 text-[#B8C2D9]/70 hover:text-[#352719]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -335,29 +335,29 @@ export default function SeoExperimentsTab({ showToast }) {
 
             <form onSubmit={handleSubmit} className="space-y-3.5 text-xs">
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Target Page URL *</label>
+                <label className="font-bold text-[#352719] block mb-1">Target Page URL *</label>
                 <input
                   type="url"
                   required
                   value={formData.page_url}
                   onChange={(e) => setFormData({ ...formData, page_url: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#122240] font-mono text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] font-mono text-xs focus:outline-none focus:border-[#C5A989]"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Hypothesis & Commercial Rationale *</label>
+                <label className="font-bold text-[#352719] block mb-1">Hypothesis & Commercial Rationale *</label>
                 <textarea
                   rows={2}
                   required
                   value={formData.hypothesis}
                   onChange={(e) => setFormData({ ...formData, hypothesis: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] text-xs focus:outline-none focus:border-[#C5A989]"
                 />
               </div>
 
               <div className="border-t pt-3 space-y-3">
-                <span className="font-bold text-[#F5F3EE] text-xs block">Control (Variant A - Current)</span>
+                <span className="font-bold text-[#352719] text-xs block">Control (Variant A - Current)</span>
                 <div>
                   <label className="text-[#B8C2D9] font-medium block mb-1">Current Title</label>
                   <input
@@ -365,7 +365,7 @@ export default function SeoExperimentsTab({ showToast }) {
                     required
                     value={formData.control_title}
                     onChange={(e) => setFormData({ ...formData, control_title: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
                 <div>
@@ -375,13 +375,13 @@ export default function SeoExperimentsTab({ showToast }) {
                     required
                     value={formData.control_meta}
                     onChange={(e) => setFormData({ ...formData, control_meta: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
               </div>
 
               <div className="border-t pt-3 space-y-3">
-                <span className="font-bold text-[#D6C29A] text-xs block">Test (Variant B - Optimized)</span>
+                <span className="font-bold text-[#795C43] text-xs block">Test (Variant B - Optimized)</span>
                 <div>
                   <label className="text-[#B8C2D9] font-medium block mb-1">Optimized Title (Include CTA / Location)</label>
                   <input
@@ -389,7 +389,7 @@ export default function SeoExperimentsTab({ showToast }) {
                     required
                     value={formData.variant_title}
                     onChange={(e) => setFormData({ ...formData, variant_title: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
                 <div>
@@ -399,7 +399,7 @@ export default function SeoExperimentsTab({ showToast }) {
                     required
                     value={formData.variant_meta}
                     onChange={(e) => setFormData({ ...formData, variant_meta: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
               </div>
@@ -419,7 +419,7 @@ export default function SeoExperimentsTab({ showToast }) {
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#D6C29A] text-[#040A18] hover:bg-[#D6C29A]"
+                  className="text-xs font-bold bg-[#C5A989] text-white hover:bg-[#C5A989]"
                 >
                   {actionLoading ? 'Creating...' : 'Start Experiment'}
                 </Button>

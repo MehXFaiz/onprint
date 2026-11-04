@@ -328,26 +328,26 @@ export default function QuickQuoteWhatsAppForm({
 
   return (
     <div
-      className={`rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-7 shadow-2xl text-[#F5F2EB] ${className}`}
+      className={`rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-5 sm:p-7 shadow-2xl text-[#352719] ${className}`}
     >
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-[#122240]">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-[#DED2C1]">
         <div>
           <div className="flex items-center gap-2">
             <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+            <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#795C43]">
               Instant WhatsApp Quotation
             </span>
           </div>
-          <h3 className="font-display text-xl sm:text-2xl font-black text-[#F5F2EB] mt-1">
+          <h3 className="font-display text-xl sm:text-2xl font-black text-[#352719] mt-1">
             Get Your Official Print Quote in &lt;15 Mins
           </h3>
-          <p className="text-xs sm:text-sm text-[#B0BECE] mt-0.5">
+          <p className="text-xs sm:text-sm text-[#756657] mt-0.5">
             Fill the details below to generate a prefilled message tailored to your project. Review it before sending on WhatsApp.
           </p>
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#040A18] border border-[#122240] text-[11px] text-[#B0BECE] shrink-0">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] text-[11px] text-[#756657] shrink-0">
           <ShieldCheck className="h-4 w-4 text-emerald-400" />
           <span>Verified Pressroom: <strong>{FORMATTED_PHONE}</strong></span>
         </div>
@@ -355,7 +355,7 @@ export default function QuickQuoteWhatsAppForm({
 
       {/* Result Status Card if Submitted */}
       {generatedResult ? (
-        <div className="mt-6 space-y-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 p-5 text-[#F5F2EB]">
+        <div className="mt-6 space-y-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 p-5 text-[#352719]">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
               <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0" />
@@ -384,9 +384,9 @@ export default function QuickQuoteWhatsAppForm({
             <button
               type="button"
               onClick={handleCopy}
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#122240] bg-[#040A18] px-4 py-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#122240] transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-4 py-3 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5] transition-all cursor-pointer"
             >
-              {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-[#D4AF65]" />}
+              {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-[#795C43]" />}
               <span>{copied ? 'Copied to Clipboard!' : 'Copy Inquiry Message'}</span>
             </button>
           </div>
@@ -396,11 +396,11 @@ export default function QuickQuoteWhatsAppForm({
             <span>Alternative ways to reach our Al Quoz pressroom:</span>
             <div className="flex items-center gap-3 font-semibold">
               <a href={`tel:+${WHATSAPP_PHONE}`} className="hover:text-white flex items-center gap-1">
-                <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
+                <Phone className="h-3.5 w-3.5 text-[#795C43]" />
                 <span>Call {FORMATTED_PHONE}</span>
               </a>
               <a href="mailto:0nprint183@gmail.com" className="hover:text-white flex items-center gap-1">
-                <Mail className="h-3.5 w-3.5 text-[#D4AF65]" />
+                <Mail className="h-3.5 w-3.5 text-[#795C43]" />
                 <span>0nprint183@gmail.com</span>
               </a>
             </div>
@@ -412,17 +412,17 @@ export default function QuickQuoteWhatsAppForm({
           {/* 1. Category & Quantity in 2 Columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="quote-category" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+              <label htmlFor="quote-category" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
                 1. Product Category <span className="text-red-400">*</span>
               </label>
               <select
                 id="quote-category"
                 value={category}
                 onChange={handleCategoryChange}
-                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-3 text-xs sm:text-sm font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-3 text-xs sm:text-sm font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
               >
                 {CATEGORIES.map((c) => (
-                  <option key={c.id} value={c.id} className="bg-[#040A18] text-[#F5F2EB]">
+                  <option key={c.id} value={c.id} className="bg-[#F5F0E7] text-[#352719]">
                     {c.label}
                   </option>
                 ))}
@@ -432,10 +432,10 @@ export default function QuickQuoteWhatsAppForm({
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label htmlFor="quote-quantity" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+                <label htmlFor="quote-quantity" className="block text-xs font-bold uppercase tracking-wider text-[#795C43]">
                   2. Quantity (Units) <span className="text-red-400">*</span>
                 </label>
-                <span className="text-[10px] text-[#B0BECE]">Tier discounts apply</span>
+                <span className="text-[10px] text-[#756657]">Tier discounts apply</span>
               </div>
               <input
                 id="quote-quantity"
@@ -446,7 +446,7 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setQuantity(e.target.value)}
                 placeholder="e.g. 500"
-                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm font-bold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs sm:text-sm font-bold text-[#352719] focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
               />
               {/* Quick Preset Buttons */}
               <div className="flex flex-wrap gap-1.5 mt-2">
@@ -457,8 +457,8 @@ export default function QuickQuoteWhatsAppForm({
                     onClick={() => { handleStart(); setQuantity(String(q)) }}
                     className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
                       String(quantity) === String(q)
-                        ? 'bg-[#D4AF65] text-[#040A18]'
-                        : 'border border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB]'
+                        ? 'bg-[#795C43] text-white'
+                        : 'border border-[#DED2C1] bg-[#F5F0E7] text-[#756657] hover:border-[#C5A989] hover:text-[#352719]'
                     }`}
                   >
                     {q}
@@ -472,7 +472,7 @@ export default function QuickQuoteWhatsAppForm({
           {/* 2. Dimensions & Material / Finish */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="quote-size" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+              <label htmlFor="quote-size" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
                 3. Size or Dimensions (Optional)
               </label>
               <input
@@ -482,12 +482,12 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setSize(e.target.value)}
                 placeholder="e.g. 90x55mm, 50x50mm, 85x200cm, A5..."
-                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs sm:text-sm text-[#352719] placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="quote-material" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+              <label htmlFor="quote-material" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
                 4. Paper, Material &amp; Finishes (Optional)
               </label>
               <input
@@ -497,24 +497,24 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setMaterialFinish(e.target.value)}
                 placeholder="e.g. 400 GSM Matte, 24K Gold Foil, Spot UV, Vinyl..."
-                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs sm:text-sm text-[#352719] placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           {/* 3. Delivery Location */}
           <div>
-            <label htmlFor="quote-location" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+            <label htmlFor="quote-location" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
               5. Delivery Location in UAE
             </label>
             <select
               id="quote-location"
               value={deliveryLocation}
               onChange={(e) => { handleStart(); setDeliveryLocation(e.target.value) }}
-              className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+              className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
             >
               {POPULAR_LOCATIONS.map((loc) => (
-                <option key={loc} value={loc} className="bg-[#040A18] text-[#F5F2EB]">
+                <option key={loc} value={loc} className="bg-[#F5F0E7] text-[#352719]">
                   {loc}
                 </option>
               ))}
@@ -524,7 +524,7 @@ export default function QuickQuoteWhatsAppForm({
           {/* 4. Optional Customer Name & Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="quote-name" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+              <label htmlFor="quote-name" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
                 Your Name <span className="text-[10px] text-slate-400 lowercase">(optional)</span>
               </label>
               <input
@@ -534,12 +534,12 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="e.g. Ahmed / Sarah"
-                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs sm:text-sm text-[#352719] placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="quote-phone" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+              <label htmlFor="quote-phone" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
                 Phone / WhatsApp <span className="text-[10px] text-slate-400 lowercase">(optional callback)</span>
               </label>
               <input
@@ -549,19 +549,19 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+971 50 123 4567"
-                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs sm:text-sm text-[#352719] placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           {/* 5. Artwork Upload & Explanation */}
-          <div className="rounded-2xl border border-dashed border-[#122240] bg-[#040A18]/60 p-4">
+          <div className="rounded-2xl border border-dashed border-[#DED2C1] bg-[#F5F0E7]/60 p-4">
             <div className="flex flex-col min-[420px]:flex-row items-start justify-between gap-3">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] block">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#795C43] block">
                   Artwork Upload (Optional)
                 </span>
-                <p className="text-[11px] text-[#B0BECE] mt-0.5">
+                <p className="text-[11px] text-[#756657] mt-0.5">
                   Supported formats: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP (Max 50MB).
                 </p>
                 <div className="mt-1 flex items-center gap-1.5 text-[10.5px] text-emerald-300">
@@ -570,8 +570,8 @@ export default function QuickQuoteWhatsAppForm({
                 </div>
               </div>
 
-              <label className="shrink-0 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-[#122240] bg-[#081226] hover:bg-[#122240] px-3.5 py-2 text-xs font-bold text-[#F5F2EB] transition-colors cursor-pointer">
-                <Upload className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <label className="shrink-0 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] px-3.5 py-2 text-xs font-bold text-[#352719] transition-colors cursor-pointer">
+                <Upload className="h-3.5 w-3.5 text-[#795C43]" />
                 <span>{isUploading ? 'Uploading...' : 'Choose File'}</span>
                 <input
                   type="file"
@@ -590,7 +590,7 @@ export default function QuickQuoteWhatsAppForm({
             )}
 
             {artworkFiles.length > 0 && (
-              <div className="mt-2.5 pt-2 border-t border-[#122240] space-y-1.5">
+              <div className="mt-2.5 pt-2 border-t border-[#DED2C1] space-y-1.5">
                 {artworkFiles.map((f, i) => (
                   <div key={i} className="flex items-center justify-between gap-2 text-[11px] text-slate-300">
                     <span className="truncate">📄 {f.name}</span>
@@ -613,7 +613,7 @@ export default function QuickQuoteWhatsAppForm({
 
           {/* 6. Additional Requirements */}
           <div>
-            <label htmlFor="quote-notes" className="block text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1.5">
+            <label htmlFor="quote-notes" className="block text-xs font-bold uppercase tracking-wider text-[#795C43] mb-1.5">
               Additional Requirements or Deadline urgency (Optional)
             </label>
             <textarea
@@ -623,7 +623,7 @@ export default function QuickQuoteWhatsAppForm({
               onFocus={handleStart}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. Need same-day turnaround for DWTC exhibition, single/double sided, custom Pantone code..."
-              className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+              className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs text-[#352719] placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
             />
           </div>
 
@@ -638,7 +638,7 @@ export default function QuickQuoteWhatsAppForm({
               <span>{isSubmitting ? 'Preparing WhatsApp Message...' : 'Send Inquiry on WhatsApp'}</span>
             </button>
 
-            <p className="text-center text-[11px] text-[#B0BECE] mt-2.5">
+            <p className="text-center text-[11px] text-[#756657] mt-2.5">
               Instant click-to-chat opens with your specifications prefilled. You review and click Send in WhatsApp.
             </p>
           </div>

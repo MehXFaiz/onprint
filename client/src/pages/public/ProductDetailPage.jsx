@@ -674,7 +674,7 @@ export default function ProductDetailPage() {
                   onClick={() => setViewMode('360')}
                   className={`flex min-h-[38px] items-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === '360'
-                      ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                      ? 'bg-[#795C43] text-white shadow-xs'
                       : 'text-secondary hover:text-primary'
                   }`}
                 >
@@ -686,7 +686,7 @@ export default function ProductDetailPage() {
                   onClick={() => setViewMode('photo')}
                   className={`flex min-h-[38px] items-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === 'photo'
-                      ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                      ? 'bg-[#795C43] text-white shadow-xs'
                       : 'text-secondary hover:text-primary'
                   }`}
                 >
@@ -696,7 +696,7 @@ export default function ProductDetailPage() {
               </div>
 
               {product.featured && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#040A18] shadow-xs">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#795C43] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
                   <Sparkles className="h-3 w-3" />
                   Featured
                 </span>
@@ -953,13 +953,13 @@ export default function ProductDetailPage() {
                       onClick={() => setQuantity(tier.qty)}
                       className={`flex flex-col items-center justify-center rounded-xl border p-2 text-center transition-all cursor-pointer ${
                         quantity === tier.qty
-                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#040A18] font-black shadow-xs ring-1 ring-[#D4AF65]'
-                          : 'border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB] font-semibold shadow-2xs'
+                          ? 'border-[#C5A989] bg-[#795C43] text-white font-black shadow-xs ring-1 ring-[#795C43]'
+                          : 'border-[#DED2C1] bg-[#F5F0E7] text-[#756657] hover:border-[#C5A989] hover:text-[#352719] font-semibold shadow-2xs'
                       }`}
                     >
                       <span className="text-xs">{tier.label}</span>
                       {tier.discount > 0 && (
-                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-[#040A18]/80' : 'text-emerald-600'}`}>-{tier.discount}%</span>
+                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-white/80' : 'text-emerald-600'}`}>-{tier.discount}%</span>
                       )}
                     </button>
                   ))}
@@ -997,7 +997,7 @@ export default function ProductDetailPage() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="font-display text-lg font-black text-[#D4AF65]">
+                    <span className="font-display text-lg font-black text-[#795C43]">
                       Instant Quote
                     </span>
                   </div>
@@ -1148,7 +1148,7 @@ export default function ProductDetailPage() {
                   onClick={() => { setActiveCategoryTab(idx); setCategoryLightbox(null) }}
                   className={`rounded-xl border px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     activeCategoryTab === idx
-                      ? 'border-[#D4AF65] bg-[#D4AF65] text-[#040A18] shadow-xs'
+                      ? 'border-[#C5A989] bg-[#795C43] text-white shadow-xs'
                       : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary'
                   }`}
                 >
@@ -1202,12 +1202,12 @@ export default function ProductDetailPage() {
                             <p className="text-[10px] font-extrabold uppercase tracking-wider text-white/80">{label}</p>
                             <p className="text-xs font-bold text-white mt-0.5">{cat.name}</p>
                           </div>
-                          <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-[#795C43] shadow-xs">
                             <ZoomIn className="h-3 w-3" />
                             View
                           </span>
                         </div>
-                        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-[#D4AF65]/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-[#795C43]/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
                           {imgIdx === 0 ? '01 / Hero' : imgIdx === 1 ? '02 / Detail' : '03 / Usage'}
                         </span>
                       </button>
@@ -1232,7 +1232,7 @@ export default function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => setCategoryLightbox(null)}
-                className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF65] text-white shadow-lg hover:bg-[#D4AF65] transition-colors cursor-pointer"
+                className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#795C43] text-white shadow-lg hover:bg-[#795C43] transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 ✕
@@ -1267,7 +1267,7 @@ export default function ProductDetailPage() {
                         onClick={() => setCategoryLightbox({ ...categoryLightbox, imgIdx: i })}
                         className={`aspect-square w-16 overflow-hidden rounded-xl border transition-all cursor-pointer ${
                           categoryLightbox.imgIdx === i
-                            ? 'border-[#D4AF65] ring-2 ring-[#D4AF65]/30 scale-105'
+                            ? 'border-[#C5A989] ring-2 ring-[#795C43]/30 scale-105'
                             : 'border-border hover:border-primary'
                         }`}
                       >
@@ -1288,7 +1288,7 @@ export default function ProductDetailPage() {
 
         {/* Structured Technical Specifications Table + GEO Answer Block */}
         <div className="mt-16 rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-xs">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#795C43] mb-2">
             <ShieldCheck className="h-4 w-4" />
             <span>Engineering &amp; Production Standards</span>
           </div>

@@ -30,14 +30,14 @@ const STATUS_CHOICES = [
 ]
 
 const STATUS_COLORS = {
-  Prospect: 'bg-neutral-100 text-[#F5F3EE] border-[#122240]',
+  Prospect: 'bg-neutral-100 text-[#352719] border-[#DED2C1]',
   Researching: 'bg-blue-50 text-blue-700 border-blue-200',
   Contacted: 'bg-amber-50 text-amber-700 border-amber-200',
   Submitted: 'bg-purple-50 text-purple-700 border-purple-200',
   Approved: 'bg-cyan-50 text-cyan-700 border-cyan-200',
   Published: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   Rejected: 'bg-red-50 text-red-700 border-red-200',
-  'Not Relevant': 'bg-neutral-100 text-[#B8C2D9]/70 border-[#122240]',
+  'Not Relevant': 'bg-neutral-100 text-[#B8C2D9]/70 border-[#DED2C1]',
 }
 
 const ATTRIBUTE_CHOICES = ['follow', 'nofollow', 'sponsored', 'ugc']
@@ -329,18 +329,18 @@ export default function BacklinkOpportunities200Tab({
   return (
     <div className="space-y-6">
       {/* Top Header Card */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-3 py-1 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-3 py-1 text-xs font-bold text-[#795C43]">
                 <Link2 className="h-3.5 w-3.5" /> Backlink Outreach CRM (200 Opportunities)
               </span>
               <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#B8C2D9]">
                 10 Strategic Clusters (B1–B10)
               </span>
             </div>
-            <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#F5F3EE]">
+            <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#352719]">
               Verified UAE Commercial Backlink Pipeline & Outreach CRM
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-[#B8C2D9] max-w-3xl leading-relaxed">
@@ -379,7 +379,7 @@ export default function BacklinkOpportunities200Tab({
         </div>
 
         {/* 8 Live Status Metrics */}
-        <div className="mt-5 pt-4 border-t border-[#122240] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 text-xs text-center">
+        <div className="mt-5 pt-4 border-t border-[#DED2C1] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 text-xs text-center">
           {STATUS_CHOICES.map((st) => {
             const count = rawItems.filter((i) => i.status === st).length
             return (
@@ -391,12 +391,12 @@ export default function BacklinkOpportunities200Tab({
                 }}
                 className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
                   statusFilter === st
-                    ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs'
-                    : 'border-[#122240]/70 bg-[#040A18] hover:bg-[#122240]/60'
+                    ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs'
+                    : 'border-[#DED2C1]/70 bg-[#F5F0E7] hover:bg-[#EDE3D5]/60'
                 }`}
               >
                 <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70 truncate">{st}</div>
-                <div className="text-lg font-black text-[#F5F3EE] mt-0.5">{count}</div>
+                <div className="text-lg font-black text-[#352719] mt-0.5">{count}</div>
               </button>
             )
           })}
@@ -414,7 +414,7 @@ export default function BacklinkOpportunities200Tab({
                 setSearch(e.target.value)
                 setCurrentPage(1)
               }}
-              className="w-full rounded-xl border border-[#122240] pl-9 pr-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+              className="w-full rounded-xl border border-[#DED2C1] pl-9 pr-3 py-2 text-xs focus:border-[#C5A989] focus:outline-none"
             />
           </div>
 
@@ -424,7 +424,7 @@ export default function BacklinkOpportunities200Tab({
               setIndustryFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs focus:border-[#C5A989] focus:outline-none"
           >
             <option value="all">All Industries / Clusters</option>
             {industries.map((ind) => (
@@ -440,7 +440,7 @@ export default function BacklinkOpportunities200Tab({
               setStatusFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs focus:border-[#C5A989] focus:outline-none"
           >
             <option value="all">All 8 Statuses</option>
             {STATUS_CHOICES.map((st) => (
@@ -456,7 +456,7 @@ export default function BacklinkOpportunities200Tab({
               setRelevanceFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs focus:border-[#C5A989] focus:outline-none"
           >
             <option value="all">All Relevances</option>
             <option value="High">High Relevance</option>
@@ -470,7 +470,7 @@ export default function BacklinkOpportunities200Tab({
               setAttributeFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs focus:border-[#C5A989] focus:outline-none"
           >
             <option value="all">All Link Attributes</option>
             {ATTRIBUTE_CHOICES.map((attr) => (
@@ -484,7 +484,7 @@ export default function BacklinkOpportunities200Tab({
         {/* Count overview */}
         <div className="mt-3 flex items-center justify-between text-xs text-[#B8C2D9]">
           <span>
-            Showing <strong className="text-[#F5F3EE]">{filteredItems.length}</strong> backlink opportunities (Page {currentPage} of {totalPages})
+            Showing <strong className="text-[#352719]">{filteredItems.length}</strong> backlink opportunities (Page {currentPage} of {totalPages})
           </span>
           {(search || industryFilter !== 'all' || statusFilter !== 'all' || relevanceFilter !== 'all' || attributeFilter !== 'all') && (
             <button
@@ -496,7 +496,7 @@ export default function BacklinkOpportunities200Tab({
                 setAttributeFilter('all')
                 setCurrentPage(1)
               }}
-              className="text-[#D6C29A] hover:underline font-semibold cursor-pointer"
+              className="text-[#795C43] hover:underline font-semibold cursor-pointer"
             >
               Reset Filters
             </button>
@@ -505,14 +505,14 @@ export default function BacklinkOpportunities200Tab({
       </div>
 
       {/* Main CRM Table */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] shadow-xs overflow-hidden">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           {paginatedItems.length > 0 ? (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-[#122240] bg-[#040A18]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
                   <th
-                    className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
+                    className="p-3.5 cursor-pointer hover:text-[#352719]"
                     onClick={() => handleSort('website')}
                   >
                     <div className="flex items-center gap-1">
@@ -520,7 +520,7 @@ export default function BacklinkOpportunities200Tab({
                     </div>
                   </th>
                   <th
-                    className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
+                    className="p-3.5 cursor-pointer hover:text-[#352719]"
                     onClick={() => handleSort('industry')}
                   >
                     <div className="flex items-center gap-1">
@@ -533,7 +533,7 @@ export default function BacklinkOpportunities200Tab({
                   <th className="p-3.5">Target Page</th>
                   <th className="p-3.5">Anchor Text</th>
                   <th
-                    className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
+                    className="p-3.5 cursor-pointer hover:text-[#352719]"
                     onClick={() => handleSort('status')}
                   >
                     <div className="flex items-center gap-1">
@@ -550,24 +550,24 @@ export default function BacklinkOpportunities200Tab({
                 {paginatedItems.map((item) => {
                   const statusClass =
                     STATUS_COLORS[item.status] ||
-                    'bg-neutral-100 text-[#B8C2D9] border-[#122240]'
+                    'bg-neutral-100 text-[#B8C2D9] border-[#DED2C1]'
 
                   const attr =
                     item.link_attribute ||
                     (item.follow_type ? item.follow_type.toLowerCase() : 'follow')
 
                   return (
-                    <tr key={item.id} className="hover:bg-[#040A18]/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#F5F0E7]/60 transition-colors">
                       {/* Website & Domain */}
                       <td className="p-3.5 max-w-[200px]">
-                        <div className="font-bold text-[#F5F3EE] truncate" title={item.website}>
+                        <div className="font-bold text-[#352719] truncate" title={item.website}>
                           {item.website || item.domain}
                         </div>
                         <a
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-[#B8C2D9] hover:text-[#D6C29A] truncate"
+                          className="inline-flex items-center gap-1 text-[11px] text-[#B8C2D9] hover:text-[#795C43] truncate"
                           title={item.url}
                         >
                           <span>{item.domain}</span>
@@ -576,7 +576,7 @@ export default function BacklinkOpportunities200Tab({
                       </td>
 
                       {/* Industry */}
-                      <td className="p-3.5 whitespace-nowrap text-[#F5F3EE] font-medium max-w-[140px] truncate" title={item.industry}>
+                      <td className="p-3.5 whitespace-nowrap text-[#352719] font-medium max-w-[140px] truncate" title={item.industry}>
                         {item.industry}
                       </td>
 
@@ -593,7 +593,7 @@ export default function BacklinkOpportunities200Tab({
                               ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                               : item.relevance === 'Medium'
                               ? 'bg-blue-50 text-blue-700 border-blue-200'
-                              : 'bg-[#040A18] text-[#B8C2D9] border-[#122240]'
+                              : 'bg-[#F5F0E7] text-[#B8C2D9] border-[#DED2C1]'
                           }`}
                         >
                           {item.relevance || 'High'}
@@ -601,7 +601,7 @@ export default function BacklinkOpportunities200Tab({
                       </td>
 
                       {/* Opportunity */}
-                      <td className="p-3.5 max-w-[150px] truncate text-[#F5F3EE] font-medium" title={item.link_opportunity}>
+                      <td className="p-3.5 max-w-[150px] truncate text-[#352719] font-medium" title={item.link_opportunity}>
                         {item.link_opportunity}
                       </td>
 
@@ -611,7 +611,7 @@ export default function BacklinkOpportunities200Tab({
                           href={item.target_onprint_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#B8C2D9] hover:text-[#D6C29A] font-medium inline-flex items-center gap-1"
+                          className="text-[#B8C2D9] hover:text-[#795C43] font-medium inline-flex items-center gap-1"
                           title={item.target_onprint_url}
                         >
                           <span className="truncate">
@@ -622,7 +622,7 @@ export default function BacklinkOpportunities200Tab({
                       </td>
 
                       {/* Anchor Text */}
-                      <td className="p-3.5 max-w-[150px] truncate font-medium text-[#F5F3EE]" title={item.anchor_text}>
+                      <td className="p-3.5 max-w-[150px] truncate font-medium text-[#352719]" title={item.anchor_text}>
                         <span className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-[11px]">
                           {item.anchor_text || 'ONPRINT'}
                         </span>
@@ -637,7 +637,7 @@ export default function BacklinkOpportunities200Tab({
                           className={`rounded-lg border px-2 py-1 text-[11px] font-bold cursor-pointer transition-all ${statusClass} focus:outline-none`}
                         >
                           {STATUS_CHOICES.map((st) => (
-                            <option key={st} value={st} className="bg-[#081226] text-[#F5F3EE] font-normal">
+                            <option key={st} value={st} className="bg-[#FAF8F3] text-[#352719] font-normal">
                               {st}
                             </option>
                           ))}
@@ -675,7 +675,7 @@ export default function BacklinkOpportunities200Tab({
                               href={item.submission_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors"
+                              className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
                               title="Direct Submission Portal"
                             >
                               <ExternalLink className="h-3.5 w-3.5" />
@@ -683,7 +683,7 @@ export default function BacklinkOpportunities200Tab({
                           )}
                           <button
                             onClick={() => handleOpenEdit(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
                             title="Edit Opportunity & Notes"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
@@ -705,7 +705,7 @@ export default function BacklinkOpportunities200Tab({
           ) : (
             <div className="py-16 text-center text-sm text-[#B8C2D9]">
               <Link2 className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
-              <p className="font-bold text-[#F5F3EE]">No backlink opportunities found</p>
+              <p className="font-bold text-[#352719]">No backlink opportunities found</p>
               <p className="text-xs text-[#B8C2D9]/70 mt-1">Try changing your filters or search keywords.</p>
             </div>
           )}
@@ -713,7 +713,7 @@ export default function BacklinkOpportunities200Tab({
 
         {/* Pagination Bar */}
         {totalPages > 1 && (
-          <div className="border-t border-[#122240] p-4 flex items-center justify-between text-xs">
+          <div className="border-t border-[#DED2C1] p-4 flex items-center justify-between text-xs">
             <span className="text-[#B8C2D9]">
               Showing {(currentPage - 1) * pageSize + 1} to{' '}
               {Math.min(currentPage * pageSize, filteredItems.length)} of {filteredItems.length}
@@ -722,7 +722,7 @@ export default function BacklinkOpportunities200Tab({
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                className="rounded-lg border border-[#122240] px-3 py-1.5 text-xs font-semibold hover:bg-[#040A18] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#DED2C1] px-3 py-1.5 text-xs font-semibold hover:bg-[#F5F0E7] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Previous
               </button>
@@ -732,7 +732,7 @@ export default function BacklinkOpportunities200Tab({
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                className="rounded-lg border border-[#122240] px-3 py-1.5 text-xs font-semibold hover:bg-[#040A18] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#DED2C1] px-3 py-1.5 text-xs font-semibold hover:bg-[#F5F0E7] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Next
               </button>
@@ -744,17 +744,17 @@ export default function BacklinkOpportunities200Tab({
       {/* EDIT / VIEW MODAL */}
       {editingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-xl rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+          <div className="w-full max-w-xl rounded-2xl bg-[#FAF8F3] p-6 shadow-2xl border border-[#DED2C1] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
               <div>
-                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-lg font-bold text-[#352719]">
                   Edit Backlink Opportunity
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">{editingItem.website || editingItem.domain}</p>
               </div>
               <button
                 onClick={() => setEditingItem(null)}
-                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE] cursor-pointer"
+                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -763,86 +763,86 @@ export default function BacklinkOpportunities200Tab({
             <form onSubmit={handleSaveEdit} className="mt-4 space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Website Name</label>
+                  <label className="block font-bold text-[#352719] mb-1">Website Name</label>
                   <input
                     type="text"
                     required
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Domain</label>
+                  <label className="block font-bold text-[#352719] mb-1">Domain</label>
                   <input
                     type="text"
                     required
                     value={formData.domain}
                     onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#F5F3EE] mb-1">Opportunity Page URL</label>
+                <label className="block font-bold text-[#352719] mb-1">Opportunity Page URL</label>
                 <input
                   type="url"
                   value={formData.url}
                   onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Industry / Category</label>
+                  <label className="block font-bold text-[#352719] mb-1">Industry / Category</label>
                   <input
                     type="text"
                     value={formData.industry}
                     onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Opportunity Type</label>
+                  <label className="block font-bold text-[#352719] mb-1">Opportunity Type</label>
                   <input
                     type="text"
                     value={formData.link_opportunity}
                     onChange={(e) => setFormData({ ...formData, link_opportunity: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Target ONPRINT Page</label>
+                  <label className="block font-bold text-[#352719] mb-1">Target ONPRINT Page</label>
                   <input
                     type="url"
                     value={formData.target_onprint_url}
                     onChange={(e) => setFormData({ ...formData, target_onprint_url: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Anchor Text</label>
+                  <label className="block font-bold text-[#352719] mb-1">Anchor Text</label>
                   <input
                     type="text"
                     value={formData.anchor_text}
                     onChange={(e) => setFormData({ ...formData, anchor_text: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none font-bold"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Status (CRM)</label>
+                  <label className="block font-bold text-[#352719] mb-1">Status (CRM)</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226] font-bold"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none bg-[#FAF8F3] font-bold"
                   >
                     {STATUS_CHOICES.map((st) => (
                       <option key={st} value={st}>
@@ -852,11 +852,11 @@ export default function BacklinkOpportunities200Tab({
                   </select>
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Attribute</label>
+                  <label className="block font-bold text-[#352719] mb-1">Attribute</label>
                   <select
                     value={formData.link_attribute}
                     onChange={(e) => setFormData({ ...formData, link_attribute: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none bg-[#FAF8F3]"
                   >
                     {ATTRIBUTE_CHOICES.map((attr) => (
                       <option key={attr} value={attr}>
@@ -866,38 +866,38 @@ export default function BacklinkOpportunities200Tab({
                   </select>
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Date</label>
+                  <label className="block font-bold text-[#352719] mb-1">Date</label>
                   <input
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#F5F3EE] mb-1">Live Published Link URL (if active)</label>
+                <label className="block font-bold text-[#352719] mb-1">Live Published Link URL (if active)</label>
                 <input
                   type="url"
                   placeholder="https://... URL where link is live"
                   value={formData.link_url}
                   onChange={(e) => setFormData({ ...formData, link_url: e.target.value })}
-                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-[#F5F3EE] mb-1">Outreach & Strategic Notes</label>
+                <label className="block font-bold text-[#352719] mb-1">Outreach & Strategic Notes</label>
                 <textarea
                   rows={3}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#122240]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#DED2C1]">
                 <Button
                   type="button"
                   variant="outline"
@@ -926,17 +926,17 @@ export default function BacklinkOpportunities200Tab({
       {/* ADD OPPORTUNITY MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-xl rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+          <div className="w-full max-w-xl rounded-2xl bg-[#FAF8F3] p-6 shadow-2xl border border-[#DED2C1] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
               <div>
-                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-lg font-bold text-[#352719]">
                   Add Backlink Opportunity
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">Register new legitimate UAE link target</p>
               </div>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE] cursor-pointer"
+                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -945,90 +945,90 @@ export default function BacklinkOpportunities200Tab({
             <form onSubmit={handleSaveAdd} className="mt-4 space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Website Name *</label>
+                  <label className="block font-bold text-[#352719] mb-1">Website Name *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Dubai Chamber Directory"
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Domain *</label>
+                  <label className="block font-bold text-[#352719] mb-1">Domain *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. dubaichamber.com"
                     value={formData.domain}
                     onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#F5F3EE] mb-1">Opportunity Page URL *</label>
+                <label className="block font-bold text-[#352719] mb-1">Opportunity Page URL *</label>
                 <input
                   type="url"
                   required
                   placeholder="https://..."
                   value={formData.url}
                   onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Industry / Category</label>
+                  <label className="block font-bold text-[#352719] mb-1">Industry / Category</label>
                   <input
                     type="text"
                     value={formData.industry}
                     onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Opportunity Type</label>
+                  <label className="block font-bold text-[#352719] mb-1">Opportunity Type</label>
                   <input
                     type="text"
                     value={formData.link_opportunity}
                     onChange={(e) => setFormData({ ...formData, link_opportunity: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Target ONPRINT Page</label>
+                  <label className="block font-bold text-[#352719] mb-1">Target ONPRINT Page</label>
                   <input
                     type="url"
                     value={formData.target_onprint_url}
                     onChange={(e) => setFormData({ ...formData, target_onprint_url: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Anchor Text</label>
+                  <label className="block font-bold text-[#352719] mb-1">Anchor Text</label>
                   <input
                     type="text"
                     value={formData.anchor_text}
                     onChange={(e) => setFormData({ ...formData, anchor_text: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none font-bold"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Status (CRM)</label>
+                  <label className="block font-bold text-[#352719] mb-1">Status (CRM)</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226] font-bold"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none bg-[#FAF8F3] font-bold"
                   >
                     {STATUS_CHOICES.map((st) => (
                       <option key={st} value={st}>
@@ -1038,11 +1038,11 @@ export default function BacklinkOpportunities200Tab({
                   </select>
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Attribute</label>
+                  <label className="block font-bold text-[#352719] mb-1">Attribute</label>
                   <select
                     value={formData.link_attribute}
                     onChange={(e) => setFormData({ ...formData, link_attribute: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none bg-[#FAF8F3]"
                   >
                     {ATTRIBUTE_CHOICES.map((attr) => (
                       <option key={attr} value={attr}>
@@ -1052,28 +1052,28 @@ export default function BacklinkOpportunities200Tab({
                   </select>
                 </div>
                 <div>
-                  <label className="block font-bold text-[#F5F3EE] mb-1">Date</label>
+                  <label className="block font-bold text-[#352719] mb-1">Date</label>
                   <input
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#F5F3EE] mb-1">Strategic & Outreach Notes</label>
+                <label className="block font-bold text-[#352719] mb-1">Strategic & Outreach Notes</label>
                 <textarea
                   rows={2}
                   placeholder="Submission instructions, requirement details..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] p-2.5 focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#122240]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#DED2C1]">
                 <Button
                   type="button"
                   variant="outline"

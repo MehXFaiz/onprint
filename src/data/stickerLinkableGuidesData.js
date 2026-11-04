@@ -71,7 +71,7 @@ const STICKER_LINKABLE_GUIDES = [
       <h3>2. Roll Labels vs Individual Die-Cut Handouts</h3>
       <p>For operations fulfilling over 500 orders per week, <a href="${SITE_URL}/products/custom-roll-labels">Custom Roll Labels</a> dramatically reduce packing time compared to individual peelable handouts.</p>
 
-      <p class="mt-6"><a class="font-bold text-[#D4AF65] underline" href="${SITE_URL}/sticker-printing-dubai">Configure custom packaging stickers and get a WhatsApp quotation →</a></p>
+      <p class="mt-6"><a class="font-bold text-[#795C43] underline" href="${SITE_URL}/sticker-printing-dubai">Configure custom packaging stickers and get a WhatsApp quotation →</a></p>
     `,
   },
 
@@ -157,7 +157,7 @@ const STICKER_LINKABLE_GUIDES = [
         </tbody>
       </table>
 
-      <p class="mt-6"><a class="font-bold text-[#D4AF65] underline" href="${SITE_URL}/products/waterproof-vinyl-stickers">Explore Waterproof Vinyl Stickers at ONPRINT →</a></p>
+      <p class="mt-6"><a class="font-bold text-[#795C43] underline" href="${SITE_URL}/products/waterproof-vinyl-stickers">Explore Waterproof Vinyl Stickers at ONPRINT →</a></p>
     `,
   },
 
@@ -219,7 +219,7 @@ const STICKER_LINKABLE_GUIDES = [
         <li><strong>Cutline Layer:</strong> Name the layer "CutContour" with a 1pt 100% Magenta spot color stroke.</li>
       </ol>
 
-      <p class="mt-6"><a class="font-bold text-[#D4AF65] underline" href="${SITE_URL}/sticker-printing-dubai">Upload your artwork to our Dubai press team on WhatsApp for free verification proof →</a></p>
+      <p class="mt-6"><a class="font-bold text-[#795C43] underline" href="${SITE_URL}/sticker-printing-dubai">Upload your artwork to our Dubai press team on WhatsApp for free verification proof →</a></p>
     `,
   },
 
@@ -279,7 +279,7 @@ const STICKER_LINKABLE_GUIDES = [
         <li><strong>Chilled Food & Condiments:</strong> Freezer-grade adhesives rated to withstand -20°C temperatures without adhesive failure.</li>
       </ul>
 
-      <p class="mt-6"><a class="font-bold text-[#D4AF65] underline" href="${SITE_URL}/products/cosmetic-bottle-labels">Browse Cosmetic Bottle & Jar Labels at ONPRINT →</a></p>
+      <p class="mt-6"><a class="font-bold text-[#795C43] underline" href="${SITE_URL}/products/cosmetic-bottle-labels">Browse Cosmetic Bottle & Jar Labels at ONPRINT →</a></p>
     `,
   },
 
@@ -341,7 +341,7 @@ const STICKER_LINKABLE_GUIDES = [
         <li><strong>Specialty Finishing:</strong> 24K hot foil stamping or raised 3D Spot UV require additional press passes.</li>
       </ol>
 
-      <p class="mt-6"><a class="font-bold text-[#D4AF65] underline" href="${SITE_URL}/sticker-printing-dubai#calculator-section">Calculate your exact sticker quote with our interactive pricing tool →</a></p>
+      <p class="mt-6"><a class="font-bold text-[#795C43] underline" href="${SITE_URL}/sticker-printing-dubai#calculator-section">Calculate your exact sticker quote with our interactive pricing tool →</a></p>
     `,
   },
 
@@ -403,7 +403,7 @@ const STICKER_LINKABLE_GUIDES = [
         <li><strong>Iridescent Holographic:</strong> Futuristic, dynamic color-shifting. Popular with streetwear apparel, crypto brands, and youth culture.</li>
       </ul>
 
-      <p class="mt-6"><a class="font-bold text-[#D4AF65] underline" href="${SITE_URL}/products/gold-foil-stickers">Explore Luxury Gold Foil Stamped Stickers at ONPRINT →</a></p>
+      <p class="mt-6"><a class="font-bold text-[#795C43] underline" href="${SITE_URL}/products/gold-foil-stickers">Explore Luxury Gold Foil Stamped Stickers at ONPRINT →</a></p>
     `,
   },
 ]

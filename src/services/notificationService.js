@@ -26,10 +26,10 @@ function buildEmailTemplate({ title, subtitle, badgeText, contentHtml, ctaText, 
           
           <!-- Header Banner (Midnight Navy & Gold) -->
           <tr>
-            <td style="background-color: #101D35; padding: 32px 40px; text-align: center; border-bottom: 3px solid #D4AF65;">
+            <td style="background-color: #795C43; padding: 32px 40px; text-align: center; border-bottom: 3px solid #C5A989;">
               <a href="${SITE_URL}" style="text-decoration: none; display: inline-block;">
                 <span style="font-size: 26px; font-weight: 900; letter-spacing: 2px; color: #ffffff;">
-                  ON<span style="color: #D4AF65;">PRINT</span>
+                  ON<span style="color: #795C43;">PRINT</span>
                 </span>
               </a>
               <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: #94a3b8; margin-top: 6px; font-weight: 600;">
@@ -45,12 +45,12 @@ function buildEmailTemplate({ title, subtitle, badgeText, contentHtml, ctaText, 
               <span style="display: inline-block; background-color: #fcf8ee; color: #b89245; border: 1px solid #ebd9a9; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 6px 16px; border-radius: 9999px; margin-bottom: 16px;">
                 ${badgeText}
               </span>` : ''}
-              <h1 style="margin: 0 0 10px 0; font-size: 24px; font-weight: 800; color: #101D35; line-height: 1.3;">
+              <h1 style="margin: 0 0 10px 0; font-size: 24px; font-weight: 800; color: #FFFFFF; line-height: 1.3;">
                 ${title}
               </h1>
               ${subtitle ? `<p style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">${subtitle}</p>` : ''}
               ${referenceNumber ? `
-              <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: #101D35; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 8px 14px; display: inline-block;">
+              <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: #FFFFFF; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 8px 14px; display: inline-block;">
                 Reference: <span style="color: #b89245;">${referenceNumber}</span>
               </div>` : ''}
             </td>
@@ -67,7 +67,7 @@ function buildEmailTemplate({ title, subtitle, badgeText, contentHtml, ctaText, 
           ${ctaText && ctaUrl ? `
           <tr>
             <td style="padding: 0 40px 36px 40px; text-align: center;">
-              <a href="${ctaUrl}" style="display: inline-block; background-color: #D4AF65; color: #101D35; text-decoration: none; font-weight: 800; font-size: 14px; padding: 14px 32px; border-radius: 8px; box-shadow: 0 4px 14px rgba(212,175,101,0.4); text-transform: uppercase; letter-spacing: 0.5px;">
+              <a href="${ctaUrl}" style="display: inline-block; background-color: #795C43; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 14px; padding: 14px 32px; border-radius: 8px; box-shadow: 0 4px 14px rgba(121,92,67,0.3); text-transform: uppercase; letter-spacing: 0.5px;">
                 ${ctaText}
               </a>
             </td>
@@ -76,7 +76,7 @@ function buildEmailTemplate({ title, subtitle, badgeText, contentHtml, ctaText, 
           <!-- Direct WhatsApp Support Banner -->
           <tr>
             <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 24px 40px; text-align: center;">
-              <div style="font-size: 13px; font-weight: 700; color: #101D35; margin-bottom: 6px;">
+              <div style="font-size: 13px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">
                 Need direct assistance with your order?
               </div>
               <div style="font-size: 12px; color: #64748b; margin-bottom: 12px;">
@@ -90,10 +90,10 @@ function buildEmailTemplate({ title, subtitle, badgeText, contentHtml, ctaText, 
 
           <!-- Footer -->
           <tr>
-            <td style="background-color: #101D35; color: #94a3b8; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.6;">
+            <td style="background-color: #795C43; color: #94a3b8; padding: 24px 40px; text-align: center; font-size: 11px; line-height: 1.6;">
               <strong style="color: #ffffff;">ONPRINT Commercial Pressroom</strong><br />
               Industrial Area 3, Al Quoz, Dubai, United Arab Emirates<br />
-              Email: <a href="mailto:${SUPPORT_EMAIL}" style="color: #D4AF65; text-decoration: none;">${SUPPORT_EMAIL}</a> | Web: <a href="${SITE_URL}" style="color: #D4AF65; text-decoration: none;">www.0nprint.com</a>
+              Email: <a href="mailto:${SUPPORT_EMAIL}" style="color: #795C43; text-decoration: none;">${SUPPORT_EMAIL}</a> | Web: <a href="${SITE_URL}" style="color: #795C43; text-decoration: none;">www.0nprint.com</a>
               <div style="margin-top: 12px; font-size: 10px; color: #64748b;">
                 © ${new Date().getFullYear()} ONPRINT. All rights reserved. ISO 12647-2 Certified Commercial Printing.
               </div>
@@ -157,7 +157,7 @@ async function sendNotification({
       contentHtml = `
         <p>Dear <strong>${recipientName}</strong>,</p>
         <p>Thank you for submitting your custom printing request to <strong>ONPRINT</strong>. Our Al Quoz production team has received your specifications and will provide an itemized quote within 2–4 business hours.</p>
-        <div style="background: #f8fafc; border-left: 4px solid #D4AF65; padding: 14px 18px; margin: 18px 0; border-radius: 0 8px 8px 0;">
+        <div style="background: #f8fafc; border-left: 4px solid #795C43; padding: 14px 18px; margin: 18px 0; border-radius: 0 8px 8px 0;">
           <strong>Product:</strong> ${payload.productName || 'Custom Print Job'}<br />
           <strong>Quantity:</strong> ${payload.quantity || 'Specified in form'} units<br />
           <strong>Delivery Location:</strong> ${payload.deliveryLocation || 'UAE Doorstep Delivery'}
@@ -177,7 +177,7 @@ async function sendNotification({
         <p>Dear <strong>${recipientName}</strong>,</p>
         <p>Your custom quotation <strong>${referenceNumber}</strong> has been prepared by our estimation desk.</p>
         <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 18px 0;">
-          <p style="margin: 0 0 8px 0;"><strong>Estimated Amount:</strong> <span style="font-size: 18px; color: #101D35; font-weight: 900;">AED ${payload.amount || 'Custom Quoted'}</span> (incl. 5% UAE VAT)</p>
+          <p style="margin: 0 0 8px 0;"><strong>Estimated Amount:</strong> <span style="font-size: 18px; color: #FFFFFF; font-weight: 900;">AED ${payload.amount || 'Custom Quoted'}</span> (incl. 5% UAE VAT)</p>
           <p style="margin: 0; font-size: 13px; color: #64748b;">${payload.summary || 'Includes 300 DPI prepress check, premium paper stocks, and tracked courier dispatch.'}</p>
         </div>
         <p>To lock in this pricing and proceed with digital PDF proof generation, click the button below or contact our sales team.</p>

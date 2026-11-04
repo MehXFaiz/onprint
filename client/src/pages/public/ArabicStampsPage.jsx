@@ -90,7 +90,7 @@ export default function ArabicStampsPage() {
   }, [selectedType, selectedQuantity, selectedSize, selectedInk, selectedCasing, selectedLocation, licenseConfirmed, customNotes])
 
   return (
-    <div className="bg-[#040A18] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#040A18]" dir="rtl">
+    <div className="bg-[#F5F0E7] text-[#352719] font-arabic antialiased selection:bg-[#C5A989] selection:text-[#352719]" dir="rtl">
       <SEOHead
         title="صناعة وطباعة أختام الشركات في دبي | أختام أوتوماتيكية معتمدة | ONPRINT"
         description="صناع أختام شركات في دبي معتمدة من ONPRINT. أختام ذاتية التحبير دائرية ومستطيلة، أختام تواريخ، وأختام الرقم الضريبي TRN بجودة تروادت الأصلية مع توصيل سريع لكافة الإمارات."
@@ -100,28 +100,28 @@ export default function ArabicStampsPage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#122240] bg-gradient-to-b from-[#020611] via-[#040A18] to-[#040A18]">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#081226]/60 blur-3xl" />
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#DED2C1] bg-gradient-to-b from-[#EDE3D5] via-[#F5F0E7] to-[#F5F0E7]">
+        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#795C43]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#FAF8F3]/60 blur-3xl" />
 
         <Container className="relative z-10">
-          <nav className="mb-6 flex items-center gap-2 text-xs text-[#B0BECE]">
-            <Link to="/ar" className="hover:text-[#D4AF65] transition-colors">الرئيسية</Link>
+          <nav className="mb-6 flex items-center gap-2 text-xs text-[#756657]">
+            <Link to="/ar" className="hover:text-[#795C43] transition-colors">الرئيسية</Link>
             <span>/</span>
-            <span className="text-[#D4AF65] font-bold">أختام الشركات الرسمية دبي</span>
+            <span className="text-[#795C43] font-bold">أختام الشركات الرسمية دبي</span>
           </nav>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#D4AF65]/10 px-4 py-1.5 text-xs font-bold text-[#D4AF65]">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/30 bg-[#795C43]/10 px-4 py-1.5 text-xs font-bold text-[#795C43]">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#795C43]" />
               <span>صناعة أختام شركات معتمدة ورسمية • القوز، دبي</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#F5F2EB] tracking-tight leading-[1.25]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#352719] tracking-tight leading-[1.25]">
               صناعة وطباعة أختام الشركات في دبي
             </h1>
 
-            <p className="text-base sm:text-lg text-[#B0BECE] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#756657] leading-relaxed">
               توفر <strong>ONPRINT</strong> أختام شركات ذاتية التحبير بآليات تروادت Trodat وكولوب Colop النمساوية الأصلية. أختام دائرية معتمدة للبنوك، أختام مستطيلة للمكاتب، وأختام التاريخ والرقم الضريبي مع تسليم فوري في دبي وتوصيل لجميع الإمارات.
             </p>
 
@@ -154,9 +154,9 @@ export default function ArabicStampsPage() {
 
               <a
                 href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-5 py-3.5 text-sm font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all"
+                className="inline-flex items-center gap-2 rounded-full border border-[#DED2C1] bg-[#FAF8F3] px-5 py-3.5 text-sm font-bold text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-all"
               >
-                <Phone className="h-4 w-4 text-[#D4AF65]" />
+                <Phone className="h-4 w-4 text-[#795C43]" />
                 <span>استفسار فوري: {FORMATTED_PHONE}</span>
               </a>
             </div>
@@ -165,22 +165,22 @@ export default function ArabicStampsPage() {
       </section>
 
       {/* 2. SPECIFICATION CALCULATOR */}
-      <section className="py-16 sm:py-20 border-b border-[#122240]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 rounded-3xl border border-[#122240] bg-[#081226]/70 p-6 sm:p-8 space-y-6">
+            <div className="lg:col-span-7 rounded-3xl border border-[#DED2C1] bg-[#FAF8F3]/70 p-6 sm:p-8 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
                   حاسبة طلب الختم الرسمي
                 </span>
-                <h2 className="text-2xl font-black text-[#F5F2EB] mt-1">
+                <h2 className="text-2xl font-black text-[#352719] mt-1">
                   حدد نوع الختم والمقاس المطلوب
                 </h2>
               </div>
 
               {/* 1. Stamp Type */}
               <div className="space-y-2.5">
-                <label className="text-xs font-bold text-[#F5F2EB] block">
+                <label className="text-xs font-bold text-[#352719] block">
                   1. نوع وشكل الختم (Stamp Type):
                 </label>
                 <div className="space-y-2">
@@ -190,23 +190,23 @@ export default function ArabicStampsPage() {
                       onClick={() => setSelectedType(t.name)}
                       className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                         selectedType === t.name
-                          ? 'border-[#D4AF65] bg-[#040A18] shadow-xs'
-                          : 'border-[#122240] bg-[#040A18]/50 hover:border-[#122240]/80'
+                          ? 'border-[#C5A989] bg-[#F5F0E7] shadow-xs'
+                          : 'border-[#DED2C1] bg-[#F5F0E7]/50 hover:border-[#DED2C1]/80'
                       }`}
                     >
                       <div className="space-y-0.5">
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-[#F5F2EB]">{t.name}</span>
-                          <span className="rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-2 py-0.2 text-[10px] text-[#D4AF65] font-semibold">
+                          <span className="text-xs font-bold text-[#352719]">{t.name}</span>
+                          <span className="rounded-full bg-[#795C43]/10 border border-[#C5A989]/30 px-2 py-0.2 text-[10px] text-[#795C43] font-semibold">
                             {t.badge}
                           </span>
                         </div>
-                        <p className="text-[11px] text-[#B0BECE]">{t.desc}</p>
+                        <p className="text-[11px] text-[#756657]">{t.desc}</p>
                       </div>
                       <div className={`h-4 w-4 rounded-full border flex items-center justify-center shrink-0 ${
-                        selectedType === t.name ? 'border-[#D4AF65] bg-[#D4AF65]' : 'border-[#122240]'
+                        selectedType === t.name ? 'border-[#C5A989] bg-[#795C43]' : 'border-[#DED2C1]'
                       }`}>
-                        {selectedType === t.name && <div className="h-1.5 w-1.5 rounded-full bg-[#040A18]" />}
+                        {selectedType === t.name && <div className="h-1.5 w-1.5 rounded-full bg-[#F5F0E7]" />}
                       </div>
                     </div>
                   ))}
@@ -215,7 +215,7 @@ export default function ArabicStampsPage() {
 
               {/* 2. Casing Brand */}
               <div className="space-y-2.5">
-                <label className="text-xs font-bold text-[#F5F2EB] block">
+                <label className="text-xs font-bold text-[#352719] block">
                   2. ماركة وهيكل الختم (Hardware Brand):
                 </label>
                 <div className="space-y-2">
@@ -225,12 +225,12 @@ export default function ArabicStampsPage() {
                       onClick={() => setSelectedCasing(c.name)}
                       className={`p-3 rounded-2xl border transition-all cursor-pointer ${
                         selectedCasing === c.name
-                          ? 'border-[#D4AF65] bg-[#040A18] shadow-xs'
-                          : 'border-[#122240] bg-[#040A18]/50 hover:border-[#122240]/80'
+                          ? 'border-[#C5A989] bg-[#F5F0E7] shadow-xs'
+                          : 'border-[#DED2C1] bg-[#F5F0E7]/50 hover:border-[#DED2C1]/80'
                       }`}
                     >
-                      <div className="text-xs font-bold text-[#F5F2EB]">{c.name}</div>
-                      <p className="text-[11px] text-[#B0BECE] mt-0.5">{c.desc}</p>
+                      <div className="text-xs font-bold text-[#352719]">{c.name}</div>
+                      <p className="text-[11px] text-[#756657] mt-0.5">{c.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -239,11 +239,11 @@ export default function ArabicStampsPage() {
               {/* 3. Size & Ink Color */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#F5F2EB] block">3. المقاس:</label>
+                  <label className="text-xs font-bold text-[#352719] block">3. المقاس:</label>
                   <select
                     value={selectedSize}
                     onChange={(e) => setSelectedSize(e.target.value)}
-                    className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full bg-[#F5F0E7] border border-[#DED2C1] rounded-xl px-3 py-2 text-xs text-[#352719] focus:outline-none focus:border-[#C5A989]"
                   >
                     {SIZES.map((s) => (
                       <option key={s} value={s}>{s}</option>
@@ -252,11 +252,11 @@ export default function ArabicStampsPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#F5F2EB] block">4. لون الحبر:</label>
+                  <label className="text-xs font-bold text-[#352719] block">4. لون الحبر:</label>
                   <select
                     value={selectedInk}
                     onChange={(e) => setSelectedInk(e.target.value)}
-                    className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full bg-[#F5F0E7] border border-[#DED2C1] rounded-xl px-3 py-2 text-xs text-[#352719] focus:outline-none focus:border-[#C5A989]"
                   >
                     {INK_COLORS.map((i) => (
                       <option key={i} value={i}>{i}</option>
@@ -268,11 +268,11 @@ export default function ArabicStampsPage() {
               {/* 4. Quantity & Delivery */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#F5F2EB] block">5. عدد الأختام:</label>
+                  <label className="text-xs font-bold text-[#352719] block">5. عدد الأختام:</label>
                   <select
                     value={selectedQuantity}
                     onChange={(e) => setSelectedQuantity(e.target.value)}
-                    className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full bg-[#F5F0E7] border border-[#DED2C1] rounded-xl px-3 py-2 text-xs text-[#352719] focus:outline-none focus:border-[#C5A989]"
                   >
                     {QUANTITIES.map((q) => (
                       <option key={q} value={q}>{q}</option>
@@ -281,11 +281,11 @@ export default function ArabicStampsPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#F5F2EB] block">6. منطقة التوصيل:</label>
+                  <label className="text-xs font-bold text-[#352719] block">6. منطقة التوصيل:</label>
                   <select
                     value={selectedLocation}
                     onChange={(e) => setSelectedLocation(e.target.value)}
-                    className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full bg-[#F5F0E7] border border-[#DED2C1] rounded-xl px-3 py-2 text-xs text-[#352719] focus:outline-none focus:border-[#C5A989]"
                   >
                     {LOCATIONS.map((loc) => (
                       <option key={loc} value={loc}>{loc}</option>
@@ -295,30 +295,30 @@ export default function ArabicStampsPage() {
               </div>
 
               {/* Legal Confirmation Checkbox */}
-              <div className="p-3.5 rounded-2xl bg-[#040A18] border border-[#122240] flex items-center gap-3 cursor-pointer"
+              <div className="p-3.5 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] flex items-center gap-3 cursor-pointer"
                    onClick={() => setLicenseConfirmed(!licenseConfirmed)}>
                 <input
                   type="checkbox"
                   checked={licenseConfirmed}
                   onChange={(e) => setLicenseConfirmed(e.target.checked)}
-                  className="h-4 w-4 rounded accent-[#D4AF65] cursor-pointer"
+                  className="h-4 w-4 rounded accent-[#795C43] cursor-pointer"
                 />
-                <span className="text-xs text-[#F5F2EB] font-medium leading-relaxed">
+                <span className="text-xs text-[#352719] font-medium leading-relaxed">
                   أؤكد توفر صورة سارية من الرخصة التجارية للشخص المخول وجاهزيتها للإرسال عبر واتساب للمراجعة.
                 </span>
               </div>
             </div>
 
             {/* Right Column: WhatsApp Preview */}
-            <div className="lg:col-span-5 rounded-3xl border border-[#122240] bg-[#040A18] p-6 sm:p-8 space-y-5 sticky top-28">
-              <div className="flex items-center gap-2 pb-3 border-b border-[#122240]">
+            <div className="lg:col-span-5 rounded-3xl border border-[#DED2C1] bg-[#F5F0E7] p-6 sm:p-8 space-y-5 sticky top-28">
+              <div className="flex items-center gap-2 pb-3 border-b border-[#DED2C1]">
                 <WhatsAppIcon className="h-5 w-5 text-emerald-400" />
-                <h3 className="text-base font-bold text-[#F5F2EB]">
+                <h3 className="text-base font-bold text-[#352719]">
                   معاينة طلب الختم عبر واتساب
                 </h3>
               </div>
 
-              <div className="rounded-2xl bg-[#020611] border border-[#122240] p-4 text-xs font-mono text-[#F5F2EB] leading-relaxed whitespace-pre-line select-all">
+              <div className="rounded-2xl bg-[#EDE3D5] border border-[#DED2C1] p-4 text-xs font-mono text-[#352719] leading-relaxed whitespace-pre-line select-all">
                 {`مرحباً ONPRINT، أود الحصول على عرض سعر لختم شركة رسمي.
 
 نوع الختم: ${selectedType}
@@ -351,7 +351,7 @@ export default function ArabicStampsPage() {
                   <span>إرسال مواصفات الختم لواتساب</span>
                 </a>
 
-                <p className="text-[11px] text-center text-[#B0BECE] leading-snug">
+                <p className="text-[11px] text-center text-[#756657] leading-snug">
                   ✓ سنرسل لك بروفة رقمية مجانية للختم بمقاسه الحقيقي للتأكد من الأسماء واللغات قبل الحفر بالليزر.
                 </p>
               </div>
@@ -361,14 +361,14 @@ export default function ArabicStampsPage() {
       </section>
 
       {/* 3. ARABIC FAQS */}
-      <section className="py-16 sm:py-20 border-b border-[#122240]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
                 الأسئلة الشائعة حول أختام الشركات في الإمارات
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#F5F2EB] mt-1">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#352719] mt-1">
                 إجابات شاملة لمتطلبات الترخيص والإصدار
               </h2>
             </div>
@@ -377,16 +377,16 @@ export default function ArabicStampsPage() {
               {ARABIC_STAMP_FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#122240] bg-[#081226]/70 overflow-hidden"
+                  className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/70 overflow-hidden"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                    className="w-full p-4 sm:p-5 text-right flex items-center justify-between gap-3 text-sm font-bold text-[#F5F2EB] hover:text-[#D4AF65] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-right flex items-center justify-between gap-3 text-sm font-bold text-[#352719] hover:text-[#795C43] transition-colors cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-4 w-4 text-[#D4AF65] shrink-0 transition-transform duration-200 ${
+                      className={`h-4 w-4 text-[#795C43] shrink-0 transition-transform duration-200 ${
                         openFaq === idx ? 'rotate-180' : ''
                       }`}
                     />
@@ -400,7 +400,7 @@ export default function ArabicStampsPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#122240]/60">
+                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#756657] leading-relaxed border-t border-[#DED2C1]/60">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -414,13 +414,13 @@ export default function ArabicStampsPage() {
       </section>
 
       {/* 4. FOOTER CONVERSION */}
-      <section className="py-14 bg-[#020611] text-center">
+      <section className="py-14 bg-[#EDE3D5] text-center">
         <Container>
           <div className="max-w-xl mx-auto space-y-4">
-            <h3 className="text-xl sm:text-2xl font-black text-[#F5F2EB]">
+            <h3 className="text-xl sm:text-2xl font-black text-[#352719]">
               هل تحتاج ختماً مستعجلاً خلال ساعتين في دبي؟
             </h3>
-            <p className="text-xs sm:text-sm text-[#B0BECE]">
+            <p className="text-xs sm:text-sm text-[#756657]">
               تواصل مع فريق الطوارئ الفنية عبر واتساب الآن وأرسل صورة الرخصة، وسنبدأ التجهيز فوراً.
             </p>
             <a

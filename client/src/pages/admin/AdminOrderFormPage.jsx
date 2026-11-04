@@ -95,28 +95,28 @@ export default function AdminOrderFormPage() {
     <div className="space-y-6 max-w-4xl">
       {/* Breadcrumbs */}
       <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
-        <Link to="/admin" className="hover:text-[#F5F3EE] transition-colors">
+        <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Admin
         </Link>
         <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
-        <Link to="/admin/orders" className="hover:text-[#F5F3EE] transition-colors">
+        <Link to="/admin/orders" className="hover:text-[#352719] transition-colors">
           Orders
         </Link>
         <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
-        <span className="text-[#F5F3EE] font-bold">{isEdit ? 'Edit Order' : 'Create New Order'}</span>
+        <span className="text-[#352719] font-bold">{isEdit ? 'Edit Order' : 'Create New Order'}</span>
       </nav>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#122240] pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DED2C1] pb-6">
         <div>
           <Link
             to="/admin/orders"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D6C29A] hover:underline mb-2"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#795C43] hover:underline mb-2"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Orders
           </Link>
-          <h1 className="font-display text-2xl font-black text-[#F5F3EE]">
+          <h1 className="font-display text-2xl font-black text-[#352719]">
             {isEdit ? `Edit Order: ${form.orderNumber}` : 'Create Manual Production Order'}
           </h1>
           <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -133,10 +133,10 @@ export default function AdminOrderFormPage() {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#122240] pb-4">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
-              <ShoppingBag className="h-4 w-4 text-[#D6C29A]" />
+        <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#DED2C1] pb-4">
+            <h3 className="font-display text-base font-bold text-[#352719] flex items-center gap-2">
+              <ShoppingBag className="h-4 w-4 text-[#795C43]" />
               Order Specifications
             </h3>
             <p className="text-xs text-[#B8C2D9]">Customer information and ordered items.</p>
@@ -144,7 +144,7 @@ export default function AdminOrderFormPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Customer Name *
               </label>
               <input
@@ -153,12 +153,12 @@ export default function AdminOrderFormPage() {
                 value={form.customerName}
                 onChange={(e) => setForm({ ...form, customerName: e.target.value })}
                 placeholder="Ahmed Al Mansoori"
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Customer Email
               </label>
               <input
@@ -166,14 +166,14 @@ export default function AdminOrderFormPage() {
                 value={form.customerEmail}
                 onChange={(e) => setForm({ ...form, customerEmail: e.target.value })}
                 placeholder="ahmed@emirateslogistics.ae"
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Ordered Item / Product *
               </label>
               <input
@@ -182,12 +182,12 @@ export default function AdminOrderFormPage() {
                 value={form.productName}
                 onChange={(e) => setForm({ ...form, productName: e.target.value })}
                 placeholder="Custom Water Bottles Printing in Dubai"
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Company Name
               </label>
               <input
@@ -195,44 +195,44 @@ export default function AdminOrderFormPage() {
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 placeholder="Emirates Logistics"
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Quantity (Units)
               </label>
               <input
                 type="number"
                 value={form.quantity}
                 onChange={(e) => setForm({ ...form, quantity: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Total Price (AED)
               </label>
               <input
                 type="number"
                 value={form.totalPrice}
                 onChange={(e) => setForm({ ...form, totalPrice: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Production Status
               </label>
               <select
                 value={form.status}
                 onChange={(e) => setForm({ ...form, status: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] focus:border-[#C5A989] focus:outline-none cursor-pointer"
               >
                 <option value="Pending">Pending</option>
                 <option value="Processing">Processing</option>
@@ -245,7 +245,7 @@ export default function AdminOrderFormPage() {
           </div>
 
           <div>
-            <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
               Print Notes & Vector Artwork Links
             </label>
             <textarea
@@ -253,16 +253,16 @@ export default function AdminOrderFormPage() {
               value={form.notes}
               onChange={(e) => setForm({ ...form, notes: e.target.value })}
               placeholder="Special debossing, spot UV, or courier delivery notes..."
-              className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
             />
           </div>
         </div>
 
         {/* Footer Actions */}
-        <div className="flex flex-wrap items-center justify-end gap-3 rounded-2xl bg-[#081226] p-4 border border-[#122240] shadow-xs">
+        <div className="flex flex-wrap items-center justify-end gap-3 rounded-2xl bg-[#FAF8F3] p-4 border border-[#DED2C1] shadow-xs">
           <Link
             to="/admin/orders"
-            className="w-full sm:w-auto text-center rounded-xl border border-[#122240] px-5 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18] transition-colors"
+            className="w-full sm:w-auto text-center rounded-xl border border-[#DED2C1] px-5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] transition-colors"
           >
             Cancel
           </Link>

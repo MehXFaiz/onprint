@@ -213,7 +213,7 @@ export default function SeoTasksTab({ showToast }) {
       case 'medium':
         return 'bg-blue-50 text-blue-700 border-blue-200'
       default:
-        return 'bg-neutral-100 text-[#B8C2D9] border-[#122240]'
+        return 'bg-neutral-100 text-[#B8C2D9] border-[#DED2C1]'
     }
   }
 
@@ -232,24 +232,24 @@ export default function SeoTasksTab({ showToast }) {
       case 'content':
         return 'bg-amber-50 text-amber-700 border-amber-200'
       default:
-        return 'bg-neutral-100 text-[#F5F3EE] border-[#122240]'
+        return 'bg-neutral-100 text-[#352719] border-[#DED2C1]'
     }
   }
 
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-2.5 py-0.5 text-xs font-bold text-[#795C43]">
                 <Layers className="h-3.5 w-3.5" />
                 Workflow Engine
               </span>
               <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 22 &amp; 38</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#F5F3EE]">
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               SEO Action Tasks &amp; Execution Queue
             </h2>
             <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
@@ -262,9 +262,9 @@ export default function SeoTasksTab({ showToast }) {
               size="sm"
               onClick={handleGenerate}
               disabled={generating}
-              className="flex items-center gap-1.5 border-[#122240] text-[#F5F3EE] hover:border-[#D6C29A]"
+              className="flex items-center gap-1.5 border-[#DED2C1] text-[#352719] hover:border-[#C5A989]"
             >
-              <Sparkles className={`h-4 w-4 text-[#D6C29A] ${generating ? 'animate-spin' : ''}`} />
+              <Sparkles className={`h-4 w-4 text-[#795C43] ${generating ? 'animate-spin' : ''}`} />
               <span>{generating ? 'Scanning…' : 'Auto-Generate Tasks'}</span>
             </Button>
             <Button
@@ -295,11 +295,11 @@ export default function SeoTasksTab({ showToast }) {
 
         {/* KPI Summary Cards */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
+          <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
             <span className="text-[11px] font-bold text-[#B8C2D9] uppercase tracking-wider block mb-1">
               Total Tasks
             </span>
-            <div className="text-2xl font-black text-[#F5F3EE]">{totalTasks}</div>
+            <div className="text-2xl font-black text-[#352719]">{totalTasks}</div>
           </div>
           <div className="rounded-xl border border-amber-200 bg-amber-50/40 p-4">
             <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider block mb-1">
@@ -332,7 +332,7 @@ export default function SeoTasksTab({ showToast }) {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
@@ -341,7 +341,7 @@ export default function SeoTasksTab({ showToast }) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search tasks, descriptions..."
-              className="w-full rounded-xl border border-[#122240] pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#DED2C1] pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
             />
           </div>
 
@@ -349,7 +349,7 @@ export default function SeoTasksTab({ showToast }) {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
             >
               {CATEGORIES.map((c) => (
                 <option key={c.value} value={c.value}>
@@ -363,7 +363,7 @@ export default function SeoTasksTab({ showToast }) {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
             >
               {PRIORITIES.map((p) => (
                 <option key={p.value} value={p.value}>
@@ -377,7 +377,7 @@ export default function SeoTasksTab({ showToast }) {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
             >
               {STATUSES.map((s) => (
                 <option key={s.value} value={s.value}>
@@ -392,12 +392,12 @@ export default function SeoTasksTab({ showToast }) {
       {/* Task List Table */}
       <div className="space-y-3">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
-            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading SEO task queue…
           </div>
         ) : filteredTasks.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             No SEO tasks match your filter criteria. Click "Auto-Generate Tasks" to analyze audit issues.
           </div>
         ) : (
@@ -406,8 +406,8 @@ export default function SeoTasksTab({ showToast }) {
             return (
               <div
                 key={task.id}
-                className={`rounded-2xl border transition-all duration-200 bg-[#081226] p-5 shadow-2xs hover:border-[#122240] ${
-                  isCompleted ? 'bg-[#040A18]/60 opacity-80' : ''
+                className={`rounded-2xl border transition-all duration-200 bg-[#FAF8F3] p-5 shadow-2xs hover:border-[#DED2C1] ${
+                  isCompleted ? 'bg-[#F5F0E7]/60 opacity-80' : ''
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -418,7 +418,7 @@ export default function SeoTasksTab({ showToast }) {
                       className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border transition-colors cursor-pointer ${
                         isCompleted
                           ? 'border-emerald-600 bg-emerald-600 text-white'
-                          : 'border-[#122240] hover:border-[#D6C29A] text-transparent hover:text-neutral-300'
+                          : 'border-[#DED2C1] hover:border-[#C5A989] text-transparent hover:text-neutral-300'
                       }`}
                       title={isCompleted ? 'Mark as incomplete' : 'Mark as completed'}
                     >
@@ -455,7 +455,7 @@ export default function SeoTasksTab({ showToast }) {
                       </div>
 
                       <h3
-                        className={`font-display text-sm font-bold text-[#F5F3EE] ${
+                        className={`font-display text-sm font-bold text-[#352719] ${
                           isCompleted ? 'line-through text-[#B8C2D9]' : ''
                         }`}
                       >
@@ -495,7 +495,7 @@ export default function SeoTasksTab({ showToast }) {
                     <button
                       type="button"
                       onClick={() => openEdit(task)}
-                      className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] hover:bg-[#122240] rounded-lg transition-colors cursor-pointer"
+                      className="p-2 text-[#B8C2D9]/70 hover:text-[#352719] hover:bg-[#EDE3D5] rounded-lg transition-colors cursor-pointer"
                       title="Edit task"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -528,7 +528,7 @@ export default function SeoTasksTab({ showToast }) {
           }}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -537,12 +537,12 @@ export default function SeoTasksTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-xl font-black text-[#F5F3EE]">
+            <h3 className="font-display text-xl font-black text-[#352719]">
               {editingItem ? 'Edit SEO Task' : 'Create SEO Task'}
             </h3>
             <p className="mt-1 text-xs text-[#B8C2D9]">
@@ -551,35 +551,35 @@ export default function SeoTasksTab({ showToast }) {
 
             <form onSubmit={handleSave} className="mt-5 space-y-4 text-xs">
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Task Title *</label>
+                <label className="font-bold text-[#352719] block mb-1">Task Title *</label>
                 <input
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="e.g. Audit striking-distance queries for Business Cards Dubai"
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   required
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Description &amp; Action Plan</label>
+                <label className="font-bold text-[#352719] block mb-1">Description &amp; Action Plan</label>
                 <textarea
                   rows={3}
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Specific optimization guidelines, test hypotheses, or checklist items..."
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Category</label>
+                  <label className="font-bold text-[#352719] block mb-1">Category</label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   >
                     <option value="onpage">On-Page SEO</option>
                     <option value="technical">Technical SEO</option>
@@ -591,11 +591,11 @@ export default function SeoTasksTab({ showToast }) {
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Priority</label>
+                  <label className="font-bold text-[#352719] block mb-1">Priority</label>
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   >
                     <option value="critical">Critical</option>
                     <option value="high">High</option>
@@ -607,11 +607,11 @@ export default function SeoTasksTab({ showToast }) {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Status</label>
+                  <label className="font-bold text-[#352719] block mb-1">Status</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   >
                     <option value="pending">Pending</option>
                     <option value="in_progress">In Progress</option>
@@ -620,28 +620,28 @@ export default function SeoTasksTab({ showToast }) {
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Assigned To</label>
+                  <label className="font-bold text-[#352719] block mb-1">Assigned To</label>
                   <input
                     type="text"
                     value={formData.assigned_to}
                     onChange={(e) => setFormData({ ...formData, assigned_to: e.target.value })}
                     placeholder="e.g. SEO Specialist, Lead Tech"
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">Target Due Date</label>
+                <label className="font-bold text-[#352719] block mb-1">Target Due Date</label>
                 <input
                   type="date"
                   value={formData.due_date}
                   onChange={(e) => setFormData({ ...formData, due_date: e.target.value })}
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                 />
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#122240]">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#DED2C1]">
                 <Button
                   type="button"
                   variant="outline"
@@ -669,11 +669,11 @@ export default function SeoTasksTab({ showToast }) {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in"
         >
-          <div className="relative w-full max-w-md rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl">
-            <h3 className="font-display text-lg font-black text-[#F5F3EE]">Delete SEO Task?</h3>
+          <div className="relative w-full max-w-md rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl">
+            <h3 className="font-display text-lg font-black text-[#352719]">Delete SEO Task?</h3>
             <p className="mt-2 text-xs text-[#B8C2D9]">
               Are you sure you want to permanently delete{' '}
-              <strong className="text-[#F5F3EE] font-bold">"{deletingItem.title}"</strong>? This action cannot be undone.
+              <strong className="text-[#352719] font-bold">"{deletingItem.title}"</strong>? This action cannot be undone.
             </p>
             <div className="mt-6 flex justify-end gap-3">
               <Button variant="outline" size="sm" onClick={() => setDeletingItem(null)} disabled={actionLoading}>

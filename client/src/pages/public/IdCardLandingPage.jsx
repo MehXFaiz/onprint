@@ -389,7 +389,7 @@ export default function IdCardLandingPage() {
         ogImage={idCardsImg}
       />
 
-      <div className="min-h-screen bg-[#040A18] text-[#F5F2EB]">
+      <div className="min-h-screen bg-[#F5F0E7] text-[#352719]">
         <Container>
           <Breadcrumbs items={breadcrumbs} />
 
@@ -402,8 +402,8 @@ export default function IdCardLandingPage() {
                 transition={{ duration: 0.6 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#081226] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65] mb-6">
-                  <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/40 bg-[#FAF8F3] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#795C43] mb-6">
+                  <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
                   Professional UV ID Card Solutions
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -435,9 +435,9 @@ export default function IdCardLandingPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-[#081226] rounded-xl p-6 shadow-sm border border-[#122240] hover:border-[#D4AF65] transition-all"
+                    className="bg-[#FAF8F3] rounded-xl p-6 shadow-sm border border-[#DED2C1] hover:border-[#C5A989] transition-all"
                   >
-                    <feature.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
+                    <feature.icon className="h-10 w-10 text-[#795C43] mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
                     <p className="text-slate-300">{feature.desc}</p>
                   </motion.div>
@@ -456,8 +456,8 @@ export default function IdCardLandingPage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       selectedCategory === cat.id
-                        ? 'bg-[#D4AF65] text-[#040A18] font-bold'
-                        : 'bg-[#081226] text-slate-200 border border-[#122240] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                        ? 'bg-[#795C43] text-white font-bold'
+                        : 'bg-[#FAF8F3] text-slate-200 border border-[#DED2C1] hover:border-[#C5A989] hover:text-[#795C43]'
                     }`}
                   >
                     {cat.name}
@@ -480,9 +480,9 @@ export default function IdCardLandingPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-[#081226] rounded-xl overflow-hidden shadow-sm border border-[#122240] hover:border-[#D4AF65] transition-all group"
+                    className="bg-[#FAF8F3] rounded-xl overflow-hidden shadow-sm border border-[#DED2C1] hover:border-[#C5A989] transition-all group"
                   >
-                    <div className="aspect-[4/3] bg-[#040A18] overflow-hidden">
+                    <div className="aspect-[4/3] bg-[#F5F0E7] overflow-hidden">
                       <img
                         src={card.image}
                         alt={card.title}
@@ -491,7 +491,7 @@ export default function IdCardLandingPage() {
                     </div>
                     <div className="p-5">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-semibold text-[#D4AF65]">{card.badge}</span>
+                        <span className="text-xs font-semibold text-[#795C43]">{card.badge}</span>
                         <span className="text-xs font-medium text-slate-400">{card.thickness}</span>
                       </div>
                       <h3 className="text-lg font-bold text-white mb-2">{card.title}</h3>
@@ -499,10 +499,10 @@ export default function IdCardLandingPage() {
                       <div className="text-xs text-slate-400 mb-3">
                         <p className="font-medium text-slate-300 mb-1">{card.specs}</p>
                       </div>
-                      <p className="text-sm font-semibold text-[#D4AF65] mb-3">{card.priceHint}</p>
+                      <p className="text-sm font-semibold text-[#795C43] mb-3">{card.priceHint}</p>
                       <div className="flex flex-wrap gap-1 mb-3">
                         {card.features.slice(0, 3).map((feature) => (
-                          <span key={feature} className="text-xs bg-[#040A18] text-slate-300 border border-[#122240] px-2 py-1 rounded">
+                          <span key={feature} className="text-xs bg-[#F5F0E7] text-slate-300 border border-[#DED2C1] px-2 py-1 rounded">
                             {feature}
                           </span>
                         ))}
@@ -525,7 +525,7 @@ export default function IdCardLandingPage() {
 
           {/* Industry Solutions */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#081226]/50 border border-[#122240] rounded-2xl p-6 sm:p-10">
+            <section className="py-16 mb-16 bg-[#FAF8F3]/50 border border-[#DED2C1] rounded-2xl p-6 sm:p-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
                 Industry Solutions
               </h2>
@@ -536,12 +536,12 @@ export default function IdCardLandingPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-[#081226] rounded-xl p-6 shadow-sm border border-[#122240]"
+                    className="bg-[#FAF8F3] rounded-xl p-6 shadow-sm border border-[#DED2C1]"
                   >
-                    <solution.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
+                    <solution.icon className="h-10 w-10 text-[#795C43] mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">{solution.title}</h3>
                     <p className="text-sm text-slate-300 mb-3">{solution.desc}</p>
-                    <div className="text-xs font-semibold text-[#D4AF65] bg-[#040A18] border border-[#122240] p-2 rounded">
+                    <div className="text-xs font-semibold text-[#795C43] bg-[#F5F0E7] border border-[#DED2C1] p-2 rounded">
                       {solution.recommended}
                     </div>
                   </motion.div>
@@ -552,7 +552,7 @@ export default function IdCardLandingPage() {
 
           {/* Why Choose Us */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#081226] rounded-2xl p-8 lg:p-12 border border-[#122240]">
+            <section className="py-16 mb-16 bg-[#FAF8F3] rounded-2xl p-8 lg:p-12 border border-[#DED2C1]">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
                 Why Choose ONPRINT for ID Cards?
               </h2>
@@ -574,7 +574,7 @@ export default function IdCardLandingPage() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="h-6 w-6 text-[#D4AF65] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-6 w-6 text-[#795C43] shrink-0 mt-0.5" />
                     <span className="text-slate-200">{item}</span>
                   </motion.div>
                 ))}
@@ -619,7 +619,7 @@ export default function IdCardLandingPage() {
 
           {/* Contact Info */}
           <Reveal>
-            <section className="py-12 border-t border-[#122240]">
+            <section className="py-12 border-t border-[#DED2C1]">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <WhatsAppIcon className="h-8 w-8 fill-[#25D366] mx-auto mb-3" />
@@ -645,12 +645,12 @@ export default function IdCardLandingPage() {
                   </a>
                 </div>
                 <div>
-                  <Mail className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
+                  <Mail className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
                   <h3 className="font-semibold text-white mb-1">Email Us</h3>
                   <p className="text-slate-300">0nprint183@gmail.com</p>
                 </div>
                 <div>
-                  <Clock className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
+                  <Clock className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
                   <h3 className="font-semibold text-white mb-1">Working Hours</h3>
                   <p className="text-slate-300">Mon - Sat: 8:30 AM - 6:30 PM</p>
                 </div>

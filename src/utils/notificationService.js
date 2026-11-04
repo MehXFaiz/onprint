@@ -244,9 +244,9 @@ async function notifyCorporateQuote(corpQuote) {
 
   const html = `
     <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #D4AF65; border-radius: 12px; overflow: hidden;">
-      <div style="background-color: #101D35; padding: 24px; text-align: center; border-bottom: 3px solid #D4AF65;">
+      <div style="background-color: #795C43; padding: 24px; text-align: center; border-bottom: 3px solid #C5A989;">
         <h1 style="color: #ffffff; margin: 0; font-size: 20px;">ONPRINT DUBAI</h1>
-        <p style="color: #D4AF65; margin: 4px 0 0; font-size: 12px; font-weight: 700; text-transform: uppercase;">Corporate Procurement RFQ Alert</p>
+        <p style="color: #795C43; margin: 4px 0 0; font-size: 12px; font-weight: 700; text-transform: uppercase;">Corporate Procurement RFQ Alert</p>
       </div>
       <div style="padding: 24px; color: #1e293b;">
         <p><strong>Reference:</strong> ${ref}</p>

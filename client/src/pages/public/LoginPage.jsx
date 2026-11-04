@@ -49,43 +49,43 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="py-16 sm:py-24 bg-[#040A18] min-h-[calc(100vh-200px)] flex items-center">
+    <div className="py-16 sm:py-24 bg-[#F5F0E7] min-h-[calc(100vh-200px)] flex items-center">
       <Container className="flex flex-col items-center justify-center">
-        <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-8 shadow-2xl sm:p-10 text-[#F5F2EB]">
+        <div className="w-full max-w-md rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 shadow-2xl sm:p-10 text-[#352719]">
           <div className="text-center">
             <Link to="/" className="inline-block">
               <Logo size="md" />
             </Link>
-            <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+            <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#795C43]">
               <Lock className="h-3.5 w-3.5" />
               <span>Portal Sign In</span>
             </div>
-            <h1 className="font-display mt-2 text-2xl font-black tracking-tight text-[#F5F2EB]">
+            <h1 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               Welcome Back
             </h1>
-            <p className="mt-1 text-xs text-[#A0AEC0]">
+            <p className="mt-1 text-xs text-[#756657]">
               Sign in to your ONPRINT account or administrative portal.
             </p>
           </div>
 
           {/* Quick Demo Credentials Assistant */}
-          <div className="mt-6 rounded-2xl border border-[#122240] bg-[#040A18] p-3.5">
-            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
+          <div className="mt-6 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-3.5">
+            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#795C43] mb-2">
               <span className="flex items-center gap-1">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF65]" />
+                <ShieldCheck className="h-3.5 w-3.5 text-[#795C43]" />
                 Admin Credentials (1-Click Fill)
               </span>
             </div>
             <button
               type="button"
               onClick={handleFillAdmin}
-              className="flex w-full items-center justify-between rounded-xl border border-[#122240] bg-[#081226] p-2.5 text-left text-xs font-semibold text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#1B2C4D] cursor-pointer"
+              className="flex w-full items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5 text-left text-xs font-semibold text-[#352719] transition-all hover:border-[#C5A989] hover:bg-[#1B2C4D] cursor-pointer"
             >
               <div>
-                <div className="font-bold text-[#F5F2EB]">admin@onprint.ae</div>
-                <div className="text-[10px] text-[#A0AEC0]">Password: admin123</div>
+                <div className="font-bold text-[#352719]">admin@onprint.ae</div>
+                <div className="text-[10px] text-[#756657]">Password: admin123</div>
               </div>
-              <ArrowRight className="h-4 w-4 text-[#D4AF65]" />
+              <ArrowRight className="h-4 w-4 text-[#795C43]" />
             </button>
           </div>
 
@@ -97,7 +97,7 @@ export default function LoginPage() {
             )}
 
             <div>
-              <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
+              <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Email Address
               </label>
               <input
@@ -107,12 +107,12 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@company.com"
-                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-sm text-[#352719] placeholder-slate-500 focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
+              <label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Password
               </label>
               <input
@@ -122,7 +122,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-sm text-[#352719] placeholder-slate-500 focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
               />
             </div>
 
@@ -131,7 +131,7 @@ export default function LoginPage() {
               variant="accent"
               size="lg"
               icon={false}
-              className="w-full justify-center mt-2 shadow-md shadow-[#D4AF65]/20 font-bold"
+              className="w-full justify-center mt-2 shadow-md shadow-[#795C43]/20 font-bold"
             >
               {loading ? 'Authenticating...' : 'Sign In to Portal'}
             </Button>

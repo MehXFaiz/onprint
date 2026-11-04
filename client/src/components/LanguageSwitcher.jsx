@@ -74,13 +74,13 @@ export default function LanguageSwitcher({ className = '', variant = 'pill' }) {
         onClick={toggleLanguage}
         className={`${className.includes('hidden') ? '' : 'inline-flex '}items-center gap-1.5 text-xs font-bold transition-all cursor-pointer ${
           isArabic
-            ? 'text-[#D4AF65] hover:text-white'
-            : 'text-[#F5F2EB] hover:text-[#D4AF65]'
+            ? 'text-[#795C43] hover:text-white'
+            : 'text-[#352719] hover:text-[#795C43]'
         } ${className}`}
         title={isArabic ? 'Switch to English' : 'التحويل إلى اللغة العربية'}
         aria-label={isArabic ? 'Switch to English' : 'التحويل إلى اللغة العربية'}
       >
-        <Globe className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
+        <Globe className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
         <span className="font-semibold">{isArabic ? 'English' : 'عربي'}</span>
       </button>
     )
@@ -92,13 +92,13 @@ export default function LanguageSwitcher({ className = '', variant = 'pill' }) {
       onClick={toggleLanguage}
       className={`${className.includes('hidden') ? '' : 'inline-flex '}items-center gap-1.5 h-8.5 px-3 rounded-full border transition-all cursor-pointer shadow-2xs ${
         isArabic
-          ? 'bg-[#081226] border-[#D4AF65] text-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#040A18]'
-          : 'bg-[#040A18] border-[#122240] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+          ? 'bg-[#FAF8F3] border-[#C5A989] text-[#795C43] hover:bg-[#795C43] hover:text-white'
+          : 'bg-[#F5F0E7] border-[#DED2C1] text-[#352719] hover:border-[#C5A989] hover:text-[#795C43]'
       } text-xs font-bold shrink-0 ${className}`}
       title={isArabic ? 'Switch to English version' : 'التبديل إلى النسخة العربية'}
       aria-label={isArabic ? 'Switch to English' : 'التبديل إلى النسخة العربية'}
     >
-      <Globe className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
+      <Globe className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
       <span className="tracking-wide">{isArabic ? 'EN' : 'عربي'}</span>
     </button>
   )

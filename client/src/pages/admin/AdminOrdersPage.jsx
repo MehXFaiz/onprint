@@ -5,7 +5,7 @@ import Button from '../../components/Button'
 import { getStoredOrders, fetchOrders, updateOrderStatus, deleteOrder, deleteOrders } from '../../services/orders'
 
 function StatusBadge({ status }) {
-  let style = 'bg-neutral-100 text-[#F5F3EE] border-[#122240]'
+  let style = 'bg-neutral-100 text-[#352719] border-[#DED2C1]'
   let Icon = Clock
 
   if (status === 'Pending') {
@@ -138,13 +138,13 @@ export default function AdminOrdersPage() {
   return (
     <div className="space-y-8 pb-16">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#FAF8F3] p-6 rounded-3xl border border-[#DED2C1] shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#795C43]">
             <ShoppingBag className="h-4 w-4" />
             <span>Workflow & Dispatch</span>
           </div>
-          <h1 className="font-display mt-1 text-2xl font-black text-[#F5F3EE]">
+          <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Order Management
           </h1>
           <p className="mt-0.5 text-xs text-[#B8C2D9]">
@@ -177,26 +177,26 @@ export default function AdminOrdersPage() {
 
       {/* KPI Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 sm:p-5 shadow-xs">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs">
           <div className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Total Orders</div>
-          <div className="mt-2 text-2xl sm:text-3xl font-black text-[#F5F3EE]">{orders.length}</div>
+          <div className="mt-2 text-2xl sm:text-3xl font-black text-[#352719]">{orders.length}</div>
         </div>
 
-        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 sm:p-5 shadow-xs">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs">
           <div className="text-xs font-bold uppercase tracking-wider text-amber-600">Pending Approval</div>
           <div className="mt-2 text-2xl sm:text-3xl font-black text-amber-600">
             {orders.filter((o) => o.status === 'Pending').length}
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 sm:p-5 shadow-xs">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs">
           <div className="text-xs font-bold uppercase tracking-wider text-purple-600">In Production</div>
           <div className="mt-2 text-2xl sm:text-3xl font-black text-purple-600">
             {orders.filter((o) => o.status === 'In Production').length}
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 sm:p-5 shadow-xs">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs">
           <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">Delivered</div>
           <div className="mt-2 text-2xl sm:text-3xl font-black text-emerald-600">
             {orders.filter((o) => o.status === 'Delivered').length}
@@ -205,7 +205,7 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Filter Controls & Bulk Action Header */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
           <div className="relative w-full sm:w-80">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
@@ -214,7 +214,7 @@ export default function AdminOrdersPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by order #, customer, or quote #..."
-              className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+              className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] pl-10 pr-4 py-2 text-xs font-medium text-[#352719] focus:border-[#C5A989] focus:outline-none"
             />
           </div>
 
@@ -246,7 +246,7 @@ export default function AdminOrdersPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full sm:w-auto rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs font-bold text-[#352719] focus:border-[#C5A989] focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Statuses</option>
             <option value="Pending">Pending</option>
@@ -259,10 +259,10 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Orders Table */}
-      <div className="w-full overflow-x-auto rounded-3xl border border-[#122240] bg-[#081226] shadow-xs">
+      <div className="w-full overflow-x-auto rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
         <table className="w-full min-w-[750px] text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-[#122240] bg-[#040A18] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+            <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
               <th className="py-3.5 px-4 w-10 text-center">
                 <input
                   type="checkbox"
@@ -272,7 +272,7 @@ export default function AdminOrdersPage() {
                   }}
                   onChange={toggleSelectAll}
                   aria-label="Select all orders"
-                  className="h-4 w-4 rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
+                  className="h-4 w-4 rounded border-[#DED2C1] text-[#795C43] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
                 />
               </th>
               <th className="py-3.5 px-4">Order #</th>
@@ -284,12 +284,12 @@ export default function AdminOrdersPage() {
               <th className="py-3.5 px-4 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-neutral-100 font-medium text-[#F5F3EE]">
+          <tbody className="divide-y divide-neutral-100 font-medium text-[#352719]">
             {filteredOrders.length === 0 ? (
               <tr>
                 <td colSpan="8" className="py-12 text-center text-xs text-[#B8C2D9]">
                   <ShoppingBag className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
-                  <p className="font-bold text-[#F5F3EE]">No orders recorded in database yet</p>
+                  <p className="font-bold text-[#352719]">No orders recorded in database yet</p>
                   <p className="mt-1 text-[#B8C2D9]/70">
                     When a client quote request is approved or placed on the website, it will show up here.
                   </p>
@@ -304,7 +304,7 @@ export default function AdminOrdersPage() {
                   <tr
                     key={orderId}
                     className={`transition-colors ${
-                      isSelected ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-[#040A18]/60'
+                      isSelected ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-[#F5F0E7]/60'
                     }`}
                   >
                     <td className="py-3 px-4 w-10 text-center">
@@ -313,11 +313,11 @@ export default function AdminOrdersPage() {
                         checked={isSelected}
                         onChange={() => toggleSelectOrder(orderId)}
                         aria-label={`Select order ${o.orderNumber}`}
-                        className="h-4 w-4 rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
+                        className="h-4 w-4 rounded border-[#DED2C1] text-[#795C43] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
                       />
                     </td>
                     <td className="py-3 px-4">
-                      <div className="font-mono font-bold text-[#F5F3EE]">{o.orderNumber}</div>
+                      <div className="font-mono font-bold text-[#352719]">{o.orderNumber}</div>
                       {o.quoteNumber && (
                         <div className="inline-flex items-center gap-1 text-[9px] font-bold text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200 mt-0.5">
                           Quote: {o.quoteNumber}
@@ -325,20 +325,20 @@ export default function AdminOrdersPage() {
                       )}
                     </td>
                     <td className="py-3 px-4">
-                      <div className="font-bold text-[#F5F3EE]">{o.customerName}</div>
+                      <div className="font-bold text-[#352719]">{o.customerName}</div>
                       <div className="text-[10px] text-[#B8C2D9]">{o.company || o.customerEmail || 'Client'}</div>
                     </td>
                     <td className="py-3 px-4 max-w-xs">
-                      <div className="font-bold text-[#F5F3EE] truncate">{o.productName}</div>
+                      <div className="font-bold text-[#352719] truncate">{o.productName}</div>
                       {o.specs && <div className="text-[10px] text-[#B8C2D9] truncate">{o.specs}</div>}
                       {o.artworkFile && (
-                        <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#D6C29A] bg-red-50 px-1.5 py-0.5 rounded">
+                        <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#795C43] bg-red-50 px-1.5 py-0.5 rounded">
                           📎 {o.artworkFile}
                         </div>
                       )}
                     </td>
-                    <td className="py-3 px-4 font-bold text-[#F5F3EE]">{o.quantity}</td>
-                    <td className="py-3 px-4 font-black text-[#F5F3EE]">AED {o.totalPrice?.toLocaleString()}</td>
+                    <td className="py-3 px-4 font-bold text-[#352719]">{o.quantity}</td>
+                    <td className="py-3 px-4 font-black text-[#352719]">AED {o.totalPrice?.toLocaleString()}</td>
                     <td className="py-3 px-4">
                       <StatusBadge status={o.status} />
                     </td>
@@ -347,7 +347,7 @@ export default function AdminOrdersPage() {
                         <select
                           value={o.status}
                           onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
-                          className="rounded-lg border border-[#122240] bg-[#040A18] px-2 py-1 text-[10px] font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
+                          className="rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-2 py-1 text-[10px] font-bold text-[#352719] focus:border-[#C5A989] focus:outline-none cursor-pointer"
                         >
                           <option value="Pending">Pending</option>
                           <option value="Processing">Processing</option>
@@ -359,7 +359,7 @@ export default function AdminOrdersPage() {
                           type="button"
                           onClick={() => setDeletingOrder(o)}
                           title="Delete order"
-                          className="rounded-lg border border-[#122240] p-1 text-[#B8C2D9]/70 hover:border-red-200 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                          className="rounded-lg border border-[#DED2C1] p-1 text-[#B8C2D9]/70 hover:border-red-200 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                         </button>
@@ -374,29 +374,29 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#B8C2D9]">
         <div>
-          Showing <span className="font-bold text-[#F5F3EE]">{filteredOrders.length}</span> of{' '}
-          <span className="font-bold text-[#F5F3EE]">{orders.length}</span> orders
+          Showing <span className="font-bold text-[#352719]">{filteredOrders.length}</span> of{' '}
+          <span className="font-bold text-[#352719]">{orders.length}</span> orders
           {selectedOrderIds.length > 0 && (
-            <span className="ml-2 text-[#D6C29A] font-bold">({selectedOrderIds.length} selected)</span>
+            <span className="ml-2 text-[#795C43] font-bold">({selectedOrderIds.length} selected)</span>
           )}
         </div>
         <div className="flex items-center gap-1.5">
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#D6C29A] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#C5A989] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -407,7 +407,7 @@ export default function AdminOrdersPage() {
       {selectedOrderIds.length > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex w-[calc(100vw-2rem)] sm:w-auto max-w-full flex-wrap justify-center items-center gap-3 bg-neutral-900 text-white px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-2xl shadow-2xl border border-neutral-700">
           <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D6C29A] text-xs font-bold text-white">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C5A989] text-xs font-bold text-white">
               {selectedOrderIds.length}
             </span>
             <span className="text-xs font-semibold">
@@ -436,24 +436,24 @@ export default function AdminOrdersPage() {
       {/* Single Delete Confirmation Modal */}
       {deletingOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-4 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Delete Order?</h3>
+                <h3 className="font-display text-lg font-bold text-[#352719]">Delete Order?</h3>
                 <p className="text-xs text-[#B8C2D9]">
                   Are you sure you want to delete order &quot;{deletingOrder.orderNumber}&quot;?
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#122240]">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#DED2C1]">
               <button
                 type="button"
                 onClick={() => setDeletingOrder(null)}
-                className="rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18] cursor-pointer"
+                className="rounded-xl border border-[#DED2C1] px-4 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] cursor-pointer"
               >
                 Cancel
               </button>
@@ -472,13 +472,13 @@ export default function AdminOrdersPage() {
       {/* Bulk Delete Confirmation Modal */}
       {isBulkDeleting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-4 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-start gap-3 text-red-600">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 mt-0.5">
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-lg font-bold text-[#352719]">
                   Delete {selectedOrderIds.length} Order{selectedOrderIds.length > 1 ? 's' : ''}?
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-1">
@@ -487,26 +487,26 @@ export default function AdminOrdersPage() {
               </div>
             </div>
 
-            <div className="max-h-40 overflow-y-auto rounded-2xl bg-[#040A18] p-3 border border-[#122240] text-xs space-y-1.5">
+            <div className="max-h-40 overflow-y-auto rounded-2xl bg-[#F5F0E7] p-3 border border-[#DED2C1] text-xs space-y-1.5">
               {orders
                 .filter((o) => selectedOrderIds.includes(getOrderId(o)))
                 .map((o) => (
                   <div
                     key={getOrderId(o)}
-                    className="flex items-center justify-between font-medium text-[#F5F3EE] py-1 border-b border-[#122240] last:border-0"
+                    className="flex items-center justify-between font-medium text-[#352719] py-1 border-b border-[#DED2C1] last:border-0"
                   >
-                    <span className="font-mono font-bold text-[#F5F3EE]">{o.orderNumber}</span>
+                    <span className="font-mono font-bold text-[#352719]">{o.orderNumber}</span>
                     <span className="text-[#B8C2D9] truncate max-w-[150px]">{o.customerName || 'Client'}</span>
-                    <span className="font-bold text-[#F5F3EE]">AED {o.totalPrice?.toLocaleString()}</span>
+                    <span className="font-bold text-[#352719]">AED {o.totalPrice?.toLocaleString()}</span>
                   </div>
                 ))}
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#122240]">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#DED2C1]">
               <button
                 type="button"
                 onClick={() => setIsBulkDeleting(false)}
-                className="rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18] cursor-pointer"
+                className="rounded-xl border border-[#DED2C1] px-4 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] cursor-pointer"
               >
                 Cancel
               </button>

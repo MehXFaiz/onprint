@@ -127,7 +127,7 @@ export default function BusinessCardSeoTab({ showToast }) {
       {/* Top Banner / Key Stat Cards */}
       <div className="rounded-3xl border border-amber-900/20 bg-gradient-to-br from-neutral-900 via-[#181310] to-neutral-950 p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#D4AF37]/15 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-[#D6C29A]/20 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-[#C5A989]/20 blur-3xl" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
@@ -157,7 +157,7 @@ export default function BusinessCardSeoTab({ showToast }) {
               href="/business-card-printing-dubai"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#081226]/10 hover:bg-[#081226]/20 border border-white/20 px-4 py-2.5 text-xs font-bold text-white transition-all"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#FAF8F3]/10 hover:bg-[#FAF8F3]/20 border border-white/20 px-4 py-2.5 text-xs font-bold text-white transition-all"
             >
               <span>View Landing Page</span>
               <ExternalLink className="h-3.5 w-3.5" />
@@ -165,7 +165,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             <a
               href="/api/seo/business-cards-link-building/export-prospects-csv"
               download="dubai-business-card-backlink-prospects.csv"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#D6C29A] hover:bg-[#D6C29A] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#D6C29A]/30 transition-all"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#C5A989] hover:bg-[#C5A989] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#D6C29A]/30 transition-all"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Export Prospects CSV</span>
@@ -173,7 +173,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             <a
               href="/api/seo/business-cards-link-building/export-keywords-csv"
               download="dubai-business-card-keywords-research.csv"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#081226]/10 hover:bg-[#081226]/20 border border-white/20 px-4 py-2.5 text-xs font-bold text-white transition-all"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#FAF8F3]/10 hover:bg-[#FAF8F3]/20 border border-white/20 px-4 py-2.5 text-xs font-bold text-white transition-all"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Export Keywords CSV</span>
@@ -183,37 +183,37 @@ export default function BusinessCardSeoTab({ showToast }) {
 
         {/* Quick KPI Strip */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-white/10">
-          <div className="rounded-2xl bg-[#081226]/5 p-3.5 border border-white/10">
+          <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Priority Keywords</span>
             <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">{summary.total_keywords}</span>
             <span className="text-[10px] text-[#B8C2D9]/70">Zero Fabricated Metrics</span>
           </div>
 
-          <div className="rounded-2xl bg-[#081226]/5 p-3.5 border border-white/10">
+          <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Qualified Prospects</span>
             <span className="mt-1 block font-mono text-xl font-black text-emerald-400">{summary.qualified_prospects}</span>
             <span className="text-[10px] text-[#B8C2D9]/70">Vetted UAE Domains</span>
           </div>
 
-          <div className="rounded-2xl bg-[#081226]/5 p-3.5 border border-white/10">
+          <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Rejected / Blocked</span>
             <span className="mt-1 block font-mono text-xl font-black text-rose-400">{summary.rejected_prospects}</span>
             <span className="text-[10px] text-[#B8C2D9]/70">Scrapers &amp; PBNs</span>
           </div>
 
-          <div className="rounded-2xl bg-[#081226]/5 p-3.5 border border-white/10">
+          <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Owner Approved</span>
             <span className="mt-1 block font-mono text-xl font-black text-white">{summary.approved_for_outreach}</span>
             <span className="text-[10px] text-[#B8C2D9]/70">Cleared for Outreach</span>
           </div>
 
-          <div className="rounded-2xl bg-[#081226]/5 p-3.5 border border-white/10">
+          <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Verified Acquired</span>
             <span className="mt-1 block font-mono text-xl font-black text-emerald-400">{summary.verified_acquired_links}</span>
             <span className="text-[10px] text-[#B8C2D9]/70">Live URL Confirmed</span>
           </div>
 
-          <div className="rounded-2xl bg-[#081226]/5 p-3.5 border border-white/10">
+          <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Linkable Guides</span>
             <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">{summary.link_worthy_guides_published}</span>
             <span className="text-[10px] text-[#B8C2D9]/70">Published on /blog</span>
@@ -222,7 +222,7 @@ export default function BusinessCardSeoTab({ showToast }) {
       </div>
 
       {/* Sub-Tab Navigation */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-[#122240] pb-3">
+      <div className="flex flex-wrap items-center gap-2 border-b border-[#DED2C1] pb-3">
         {[
           { id: 'prospects', label: '1. Risk-Assessed Backlink Prospects CRM', icon: Link2 },
           { id: 'keywords', label: '2. Target Business Card Keywords (20)', icon: Target },
@@ -251,7 +251,7 @@ export default function BusinessCardSeoTab({ showToast }) {
       </div>
 
       {loading && !data ? (
-        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-8 text-center text-xs text-[#B8C2D9]">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-8 text-center text-xs text-[#B8C2D9]">
           Loading Dubai Business Card SEO &amp; White-Hat Backlink Strategy...
         </div>
       ) : null}
@@ -266,7 +266,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#040A18] p-4 rounded-2xl border border-[#122240]">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#F5F0E7] p-4 rounded-2xl border border-[#DED2C1]">
             <div className="relative flex-1">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
               <input
@@ -274,7 +274,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                 placeholder="Search domain, category, or contribution angle..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-xl border border-[#122240] bg-[#081226] pl-9 pr-4 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] pl-9 pr-4 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
@@ -290,8 +290,8 @@ export default function BusinessCardSeoTab({ showToast }) {
                   onClick={() => setProspectFilter(btn.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-bold cursor-pointer transition-all ${
                     prospectFilter === btn.id
-                      ? 'bg-[#D6C29A] text-[#040A18]'
-                      : 'bg-[#081226] border border-[#122240] text-[#F5F3EE] hover:bg-[#122240]'
+                      ? 'bg-[#C5A989] text-white'
+                      : 'bg-[#FAF8F3] border border-[#DED2C1] text-[#352719] hover:bg-[#EDE3D5]'
                   }`}
                 >
                   {btn.label}
@@ -310,10 +310,10 @@ export default function BusinessCardSeoTab({ showToast }) {
                   className={`rounded-2xl border p-5 shadow-xs transition-all ${
                     isRejected
                       ? 'border-rose-200 bg-rose-50/40'
-                      : 'border-[#122240] bg-[#081226]'
+                      : 'border-[#DED2C1] bg-[#FAF8F3]'
                   }`}
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#122240] pb-4">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#DED2C1] pb-4">
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="font-mono text-sm font-black text-neutral-950">{prospect.domain}</span>
@@ -326,7 +326,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                         >
                           {isRejected ? 'Disqualified / Rejected' : 'Qualified UAE Prospect'}
                         </span>
-                        <span className="rounded-md bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#F5F3EE]">
+                        <span className="rounded-md bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#352719]">
                           {prospect.website_category}
                         </span>
                         <span
@@ -346,14 +346,14 @@ export default function BusinessCardSeoTab({ showToast }) {
 
                     {!isRejected && (
                       <div className="flex flex-wrap items-center gap-3">
-                        <label className="inline-flex items-center gap-2 text-xs font-bold text-[#F5F3EE] cursor-pointer bg-neutral-100 px-3 py-1.5 rounded-xl">
+                        <label className="inline-flex items-center gap-2 text-xs font-bold text-[#352719] cursor-pointer bg-neutral-100 px-3 py-1.5 rounded-xl">
                           <input
                             type="checkbox"
                             checked={Boolean(prospect.approved_by_owner)}
                             onChange={(e) =>
                               handleProspectUpdate(prospect, { approved_by_owner: e.target.checked })
                             }
-                            className="rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]"
+                            className="rounded border-[#DED2C1] text-[#795C43] focus:ring-[#D6C29A]"
                           />
                           <span>Owner Approved</span>
                         </label>
@@ -363,7 +363,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                           onChange={(e) =>
                             handleProspectUpdate(prospect, { outreach_status: e.target.value })
                           }
-                          className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-1.5 text-xs font-bold text-[#F5F3EE] focus:outline-none"
+                          className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-1.5 text-xs font-bold text-[#352719] focus:outline-none"
                         >
                           <option value="Pending Owner Approval">Pending Owner Approval</option>
                           <option value="Ready for Outreach">Ready for Outreach</option>
@@ -377,17 +377,17 @@ export default function BusinessCardSeoTab({ showToast }) {
 
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <span className="font-bold text-[#F5F3EE] block mb-1">Proposed Contribution / Reason:</span>
+                      <span className="font-bold text-[#352719] block mb-1">Proposed Contribution / Reason:</span>
                       <p className="text-[#B8C2D9] leading-relaxed">{prospect.proposed_contribution}</p>
                       <p className="mt-1.5 text-[11px] text-[#B8C2D9]">
-                        <span className="font-semibold text-[#F5F3EE]">Inclusion/Rejection Rationale:</span> {prospect.inclusion_or_rejection_reason}
+                        <span className="font-semibold text-[#352719]">Inclusion/Rejection Rationale:</span> {prospect.inclusion_or_rejection_reason}
                       </p>
                     </div>
 
                     <div>
-                      <span className="font-bold text-[#F5F3EE] block mb-1">Target Page &amp; Suggested Anchor:</span>
-                      <p className="font-mono text-[11px] text-[#D6C29A] break-all">{prospect.target_landing_page}</p>
-                      <p className="mt-1 text-[#F5F3EE]">
+                      <span className="font-bold text-[#352719] block mb-1">Target Page &amp; Suggested Anchor:</span>
+                      <p className="font-mono text-[11px] text-[#795C43] break-all">{prospect.target_landing_page}</p>
+                      <p className="mt-1 text-[#352719]">
                         Anchor: <span className="font-semibold">"{prospect.suggested_anchor_text}"</span>{' '}
                         <span className="text-[10px] uppercase bg-neutral-100 px-1.5 py-0.5 rounded text-[#B8C2D9]">
                           {prospect.anchor_type}
@@ -399,7 +399,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                     </div>
 
                     <div>
-                      <span className="font-bold text-[#F5F3EE] block mb-1">Risk Assessment &amp; Verification:</span>
+                      <span className="font-bold text-[#352719] block mb-1">Risk Assessment &amp; Verification:</span>
                       <p className="text-[#B8C2D9] leading-relaxed">{prospect.risk_assessment}</p>
                       {!isRejected && (
                         <div className="mt-2 flex items-center gap-2">
@@ -410,7 +410,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                             onChange={(e) =>
                               setLiveUrlDrafts((prev) => ({ ...prev, [prospect.id]: e.target.value }))
                             }
-                            className="flex-1 rounded-lg border border-[#122240] px-2.5 py-1 text-[11px] font-mono"
+                            className="flex-1 rounded-lg border border-[#DED2C1] px-2.5 py-1 text-[11px] font-mono"
                           />
                           <button
                             type="button"
@@ -447,7 +447,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#040A18] p-4 rounded-2xl border border-[#122240]">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#F5F0E7] p-4 rounded-2xl border border-[#DED2C1]">
             <div className="relative flex-1">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
               <input
@@ -455,14 +455,14 @@ export default function BusinessCardSeoTab({ showToast }) {
                 placeholder="Filter 20 target business card keywords..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-xl border border-[#122240] bg-[#081226] pl-9 pr-4 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] pl-9 pr-4 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <select
               value={intentFilter}
               onChange={(e) => setIntentFilter(e.target.value)}
-              className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs text-[#F5F3EE] focus:outline-none"
+              className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs text-[#352719] focus:outline-none"
             >
               <option value="all">All Search Intents</option>
               <option value="transactional">Transactional</option>
@@ -471,9 +471,9 @@ export default function BusinessCardSeoTab({ showToast }) {
             </select>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-[#122240] bg-[#081226] shadow-xs">
+          <div className="overflow-x-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
             <table className="w-full text-left text-xs">
-              <thead className="border-b border-[#122240] bg-[#040A18]/80 font-bold text-[#B8C2D9] uppercase tracking-wider">
+              <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 font-bold text-[#B8C2D9] uppercase tracking-wider">
                 <tr>
                   <th className="py-3 px-4">#</th>
                   <th className="py-3 px-4">Target Keyword</th>
@@ -486,7 +486,7 @@ export default function BusinessCardSeoTab({ showToast }) {
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 {filteredKeywords.map((item) => (
-                  <tr key={item.id} className="hover:bg-[#040A18]/80 transition-colors">
+                  <tr key={item.id} className="hover:bg-[#F5F0E7]/80 transition-colors">
                     <td className="py-3 px-4 font-mono text-[#B8C2D9]/70">{item.id}</td>
                     <td className="py-3 px-4 font-bold text-neutral-950">{item.keyword}</td>
                     <td className="py-3 px-4">
@@ -498,7 +498,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                       <span
                         className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-black uppercase ${
                           item.priority === 'Critical'
-                            ? 'bg-[#D6C29A] text-[#040A18]'
+                            ? 'bg-[#C5A989] text-white'
                             : 'bg-neutral-900 text-white'
                         }`}
                       >
@@ -508,12 +508,12 @@ export default function BusinessCardSeoTab({ showToast }) {
                     <td className="py-3 px-4 font-mono text-[11px] text-amber-800">
                       {item.search_volume_status}
                     </td>
-                    <td className="py-3 px-4 font-mono text-[11px] text-[#D6C29A]">
+                    <td className="py-3 px-4 font-mono text-[11px] text-[#795C43]">
                       <a href={item.target_url} target="_blank" rel="noreferrer" className="underline">
                         {item.target_url}
                       </a>
                     </td>
-                    <td className="py-3 px-4 text-[#F5F3EE] font-medium">{item.recommended_anchor}</td>
+                    <td className="py-3 px-4 text-[#352719] font-medium">{item.recommended_anchor}</td>
                   </tr>
                 ))}
               </tbody>
@@ -527,22 +527,22 @@ export default function BusinessCardSeoTab({ showToast }) {
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {(anchorStrategy.distribution_targets || []).map((bucket, idx) => (
-              <div key={idx} className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs space-y-2">
+              <div key={idx} className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                     {bucket.category}
                   </span>
-                  <span className="font-mono text-xl font-black text-[#D6C29A]">
+                  <span className="font-mono text-xl font-black text-[#795C43]">
                     {bucket.target_percentage}%
                   </span>
                 </div>
                 <p className="text-xs text-[#B8C2D9] leading-relaxed">{bucket.rationale}</p>
-                <div className="pt-2 border-t border-[#122240] space-y-1">
+                <div className="pt-2 border-t border-[#DED2C1] space-y-1">
                   <span className="text-[10px] font-bold uppercase text-[#B8C2D9]/70 block">Approved Examples:</span>
                   {(bucket.examples || []).map((ex, i) => (
                     <span
                       key={i}
-                      className="inline-block mr-1.5 mb-1 rounded bg-neutral-100 px-2 py-0.5 font-mono text-[10px] text-[#F5F3EE]"
+                      className="inline-block mr-1.5 mb-1 rounded bg-neutral-100 px-2 py-0.5 font-mono text-[10px] text-[#352719]"
                     >
                       {ex}
                     </span>
@@ -552,13 +552,13 @@ export default function BusinessCardSeoTab({ showToast }) {
             ))}
           </div>
 
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
             <h3 className="font-display text-base font-black text-neutral-950">
               Target Landing Page &amp; Anchor Text Allocation Matrix
             </h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-[#122240] bg-[#040A18] font-bold text-[#B8C2D9] uppercase">
+                <thead className="border-b border-[#DED2C1] bg-[#F5F0E7] font-bold text-[#B8C2D9] uppercase">
                   <tr>
                     <th className="py-3 px-4">Target Page URL</th>
                     <th className="py-3 px-4">Page Role</th>
@@ -570,10 +570,10 @@ export default function BusinessCardSeoTab({ showToast }) {
                 <tbody className="divide-y divide-neutral-100">
                   {(anchorStrategy.target_page_mapping || []).map((row, idx) => (
                     <tr key={idx}>
-                      <td className="py-3 px-4 font-mono font-bold text-[#D6C29A]">{row.target_page}</td>
-                      <td className="py-3 px-4 font-semibold text-[#F5F3EE]">{row.role}</td>
-                      <td className="py-3 px-4 font-mono font-bold text-[#F5F3EE]">{row.recommended_share_of_links}</td>
-                      <td className="py-3 px-4 text-[#F5F3EE]">{(row.allowed_anchors || []).join(' • ')}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-[#795C43]">{row.target_page}</td>
+                      <td className="py-3 px-4 font-semibold text-[#352719]">{row.role}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-[#352719]">{row.recommended_share_of_links}</td>
+                      <td className="py-3 px-4 text-[#352719]">{(row.allowed_anchors || []).join(' • ')}</td>
                       <td className="py-3 px-4 text-rose-700 font-medium">{row.prohibited}</td>
                     </tr>
                   ))}
@@ -587,13 +587,13 @@ export default function BusinessCardSeoTab({ showToast }) {
       {/* TAB 4: LINK-WORTHY CONTENT ASSETS & PERSONALIZED OUTREACH TEMPLATES */}
       {selectedSubTab === 'content_outreach' && (
         <div className="space-y-6">
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
             <h3 className="font-display text-base font-black text-neutral-950">
               5 Published Link-Worthy Business Card Guides (Live on /blog)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {contentAssets.map((asset) => (
-                <div key={asset.id} className="rounded-2xl border border-[#122240] bg-[#040A18]/60 p-4 flex flex-col justify-between space-y-3">
+                <div key={asset.id} className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7]/60 p-4 flex flex-col justify-between space-y-3">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <span className="rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
@@ -603,7 +603,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                         href={asset.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-[#D6C29A] hover:underline"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-[#795C43] hover:underline"
                       >
                         <span>Read Live</span>
                         <ExternalLink className="h-3 w-3" />
@@ -612,9 +612,9 @@ export default function BusinessCardSeoTab({ showToast }) {
                     <h4 className="font-bold text-sm text-neutral-950 leading-snug">{asset.title}</h4>
                     <p className="mt-1.5 text-xs text-[#B8C2D9] leading-relaxed">{asset.link_magnet_value}</p>
                   </div>
-                  <div className="pt-2 border-t border-[#122240] text-[11px] text-[#B8C2D9]">
+                  <div className="pt-2 border-t border-[#DED2C1] text-[11px] text-[#B8C2D9]">
                     Internal Links:{' '}
-                    <span className="font-mono text-[#F5F3EE]">
+                    <span className="font-mono text-[#352719]">
                       {(asset.internal_links_to || []).join(', ')}
                     </span>
                   </div>
@@ -623,16 +623,16 @@ export default function BusinessCardSeoTab({ showToast }) {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
             <h3 className="font-display text-base font-black text-neutral-950">
               Personalized White-Hat Outreach Email Templates (Manual Approval Only)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {outreachTemplates.map((tpl) => (
-                <div key={tpl.id} className="rounded-2xl border border-[#122240] bg-[#040A18] p-5 space-y-3">
+                <div key={tpl.id} className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-5 space-y-3">
                   <div className="flex items-center justify-between gap-2">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#D6C29A] block">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#795C43] block">
                         {tpl.target_category}
                       </span>
                       <h4 className="font-bold text-sm text-neutral-950">{tpl.title}</h4>
@@ -646,11 +646,11 @@ export default function BusinessCardSeoTab({ showToast }) {
                       <span>{copiedId === tpl.id ? 'Copied' : 'Copy Email'}</span>
                     </button>
                   </div>
-                  <div className="rounded-xl bg-[#081226] border border-[#122240] p-3 text-xs font-mono text-[#F5F3EE]">
-                    <div className="font-bold text-neutral-950 border-b border-[#122240] pb-1.5 mb-2">
+                  <div className="rounded-xl bg-[#FAF8F3] border border-[#DED2C1] p-3 text-xs font-mono text-[#352719]">
+                    <div className="font-bold text-neutral-950 border-b border-[#DED2C1] pb-1.5 mb-2">
                       Subject: {tpl.subject}
                     </div>
-                    <pre className="whitespace-pre-wrap font-sans text-xs text-[#F5F3EE] leading-relaxed">
+                    <pre className="whitespace-pre-wrap font-sans text-xs text-[#352719] leading-relaxed">
                       {tpl.body}
                     </pre>
                   </div>
@@ -666,12 +666,12 @@ export default function BusinessCardSeoTab({ showToast }) {
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {roadmap.map((phase, idx) => (
-              <div key={idx} className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs space-y-3">
-                <span className="inline-block rounded-lg bg-[#D6C29A]/10 px-2.5 py-1 text-xs font-black text-[#D6C29A]">
+              <div key={idx} className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs space-y-3">
+                <span className="inline-block rounded-lg bg-[#C5A989]/10 px-2.5 py-1 text-xs font-black text-[#795C43]">
                   {phase.phase}
                 </span>
                 <h4 className="font-display text-base font-black text-neutral-950">{phase.focus}</h4>
-                <ul className="space-y-2 text-xs text-[#F5F3EE]">
+                <ul className="space-y-2 text-xs text-[#352719]">
                   {(phase.actions || []).map((act, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
@@ -679,7 +679,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                     </li>
                   ))}
                 </ul>
-                <div className="pt-3 border-t border-[#122240] text-[11px] font-semibold text-[#B8C2D9]">
+                <div className="pt-3 border-t border-[#DED2C1] text-[11px] font-semibold text-[#B8C2D9]">
                   KPI: {phase.kpis}
                 </div>
               </div>
@@ -687,7 +687,7 @@ export default function BusinessCardSeoTab({ showToast }) {
           </div>
 
           {technicalAudit && (
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs space-y-4">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="font-display text-base font-black text-neutral-950">
@@ -704,7 +704,7 @@ export default function BusinessCardSeoTab({ showToast }) {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {Object.entries(technicalAudit.checks || {}).map(([key, check]) => (
-                  <div key={key} className="rounded-xl border border-[#122240] bg-[#040A18] p-3.5 flex items-start gap-3">
+                  <div key={key} className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3.5 flex items-start gap-3">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                     <div className="text-xs">
                       <span className="font-bold text-neutral-950 uppercase tracking-wider block">

@@ -43,13 +43,13 @@ export default function AdminSettingsPage() {
       )}
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#FAF8F3] p-6 rounded-3xl border border-[#DED2C1] shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#795C43]">
             <Settings className="h-4 w-4" />
             <span>Platform Configuration</span>
           </div>
-          <h1 className="font-display mt-1 text-2xl font-black text-[#F5F3EE]">
+          <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Website & Studio Settings
           </h1>
           <p className="mt-0.5 text-xs text-[#B8C2D9]">
@@ -60,10 +60,10 @@ export default function AdminSettingsPage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Section 1: Studio Identity */}
-        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#122240] pb-4">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
-              <Building className="h-4 w-4 text-[#D6C29A]" />
+        <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#DED2C1] pb-4">
+            <h3 className="font-display text-base font-bold text-[#352719] flex items-center gap-2">
+              <Building className="h-4 w-4 text-[#795C43]" />
               Studio Branding & Identity
             </h3>
             <p className="text-xs text-[#B8C2D9]">Business identity shown in footers, invoices, and customer communications.</p>
@@ -71,7 +71,7 @@ export default function AdminSettingsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Studio / Business Name *
               </label>
               <input
@@ -79,19 +79,19 @@ export default function AdminSettingsPage() {
                 required
                 value={form.studioName}
                 onChange={(e) => setForm({ ...form, studioName: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Brand Tagline
               </label>
               <input
                 type="text"
                 value={form.tagline}
                 onChange={(e) => setForm({ ...form, tagline: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
@@ -116,10 +116,10 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Section 2: Contact Information */}
-        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#122240] pb-4">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
-              <Mail className="h-4 w-4 text-[#D6C29A]" />
+        <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#DED2C1] pb-4">
+            <h3 className="font-display text-base font-bold text-[#352719] flex items-center gap-2">
+              <Mail className="h-4 w-4 text-[#795C43]" />
               Customer Contact & Dispatch Info
             </h3>
             <p className="text-xs text-[#B8C2D9]">Email addresses and phone numbers displayed on the website contact page.</p>
@@ -127,74 +127,74 @@ export default function AdminSettingsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Support Email Address
               </label>
               <input
                 type="email"
                 value={form.supportEmail}
                 onChange={(e) => setForm({ ...form, supportEmail: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Sales & Quotes Email
               </label>
               <input
                 type="email"
                 value={form.salesEmail}
                 onChange={(e) => setForm({ ...form, salesEmail: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Landline Phone
               </label>
               <input
                 type="text"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 WhatsApp Hotline
               </label>
               <input
                 type="text"
                 value={form.whatsapp}
                 onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
               Dubai Studio Physical Address
             </label>
             <input
               type="text"
               value={form.address}
               onChange={(e) => setForm({ ...form, address: e.target.value })}
-              className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
             />
           </div>
         </div>
 
         {/* Section 3: Commercial Parameters */}
-        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#122240] pb-4">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
-              <Globe className="h-4 w-4 text-[#D6C29A]" />
+        <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#DED2C1] pb-4">
+            <h3 className="font-display text-base font-bold text-[#352719] flex items-center gap-2">
+              <Globe className="h-4 w-4 text-[#795C43]" />
               Commercial & Tax Parameters
             </h3>
             <p className="text-xs text-[#B8C2D9]">VAT calculations, default currency, and quote submission controls.</p>
@@ -202,38 +202,38 @@ export default function AdminSettingsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Default Currency
               </label>
               <input
                 type="text"
                 readOnly
                 value={form.currency}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-neutral-100 px-3.5 py-2.5 text-xs font-bold text-[#F5F3EE] cursor-not-allowed"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-neutral-100 px-3.5 py-2.5 text-xs font-bold text-[#352719] cursor-not-allowed"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 UAE VAT Rate (%)
               </label>
               <input
                 type="number"
                 value={form.vatRate}
                 onChange={(e) => setForm({ ...form, vatRate: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#352719]">
                 Minimum Order Amount (AED)
               </label>
               <input
                 type="number"
                 value={form.minOrderAmount}
                 onChange={(e) => setForm({ ...form, minOrderAmount: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
               />
             </div>
           </div>
@@ -244,15 +244,15 @@ export default function AdminSettingsPage() {
                 type="checkbox"
                 checked={form.enableOnlineQuote}
                 onChange={(e) => setForm({ ...form, enableOnlineQuote: e.target.checked })}
-                className="h-4 w-4 rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]"
+                className="h-4 w-4 rounded border-[#DED2C1] text-[#795C43] focus:ring-[#D6C29A]"
               />
-              <span className="text-xs font-bold text-[#F5F3EE]">Allow Online Custom Quote Requests</span>
+              <span className="text-xs font-bold text-[#352719]">Allow Online Custom Quote Requests</span>
             </label>
           </div>
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-end gap-3 rounded-2xl bg-[#081226] p-4 border border-[#122240] shadow-xs">
+        <div className="flex items-center justify-end gap-3 rounded-2xl bg-[#FAF8F3] p-4 border border-[#DED2C1] shadow-xs">
           <Button
             type="submit"
             variant="accent"

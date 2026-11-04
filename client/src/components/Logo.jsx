@@ -57,7 +57,7 @@ export default function Logo({
           src={iconSrc}
           alt="ONPRINT Dubai Logo"
           loading="eager"
-          className={`${currentSize.icon} object-contain shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(214,188,138,0.55)] drop-shadow-xs`}
+          className={`${currentSize.icon} object-contain shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(197,169,137,0.4)] drop-shadow-xs`}
         />
       </div>
 
@@ -65,9 +65,9 @@ export default function Logo({
       {!isIcon && (
         <div className="flex flex-col justify-center leading-none">
           <span
-            className={`font-black uppercase font-display select-none transition-colors duration-200 text-[#F5F2EB] ${currentSize.text} ${currentSize.tracking}`}
+            className={`font-black uppercase font-display select-none transition-colors duration-200 text-[#352719] ${currentSize.text} ${currentSize.tracking}`}
           >
-            ON<span className="text-[#D4AF65]">PRINT</span>
+            ON<span className="text-[#795C43]">PRINT</span>
           </span>
         </div>
       )}

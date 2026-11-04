@@ -16,16 +16,16 @@ export default function EmptyState({
     if (React.isValidElement(Icon)) return Icon
     if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon !== null && Icon.$$typeof)) {
       const IconComp = Icon
-      return <IconComp className="h-8 w-8 text-[#D4AF65]" strokeWidth={1.5} aria-hidden="true" />
+      return <IconComp className="h-8 w-8 text-[#795C43]" strokeWidth={1.5} aria-hidden="true" />
     }
     return null
   }
 
   return (
-    <div className={`flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#122240] bg-[#081226] px-6 py-16 text-center text-[#F5F2EB] ${className}`}>
+    <div className={`flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#DED2C1] bg-[#FAF8F3] px-6 py-16 text-center text-[#352719] ${className}`}>
       {renderIcon()}
-      <p className="font-display text-base font-bold text-[#F5F2EB]">{title}</p>
-      {note && <p className="max-w-sm text-sm text-[#B0BECE] leading-relaxed">{note}</p>}
+      <p className="font-display text-base font-bold text-[#352719]">{title}</p>
+      {note && <p className="max-w-sm text-sm text-[#756657] leading-relaxed">{note}</p>}
       {(actionLabel && (actionTo || onAction)) && (
         <div className="mt-2">
           {actionTo ? (

@@ -128,7 +128,7 @@ export default function LoadingScreen() {
         <motion.div
           key="onprint-luxury-splash"
           onClick={() => setVisible(false)}
-          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#040A18] text-white overflow-hidden select-none cursor-pointer"
+          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#F5F0E7] text-white overflow-hidden select-none cursor-pointer"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
@@ -143,7 +143,7 @@ export default function LoadingScreen() {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(16, 29, 53, 0.95) 65%, #020611 100%)',
+                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(121, 92, 67, 0.1) 65%, #EDE3D5 100%)',
             }}
           />
 
@@ -193,7 +193,7 @@ export default function LoadingScreen() {
                 {/* Official ONPRINT Brand Wordmark */}
                 <div className="flex flex-col justify-center leading-none">
                   <span className="font-black uppercase font-display text-3xl sm:text-4xl md:text-5xl tracking-widest text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]">
-                    ON<span className="text-[#D4AF65]">PRINT</span>
+                    ON<span className="text-[#795C43]">PRINT</span>
                   </span>
                 </div>
 
@@ -202,7 +202,7 @@ export default function LoadingScreen() {
                   className="pointer-events-none absolute inset-0 z-20"
                   style={{
                     background:
-                      'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(212, 175, 101, 0.55) 52%, transparent 80%)',
+                      'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(121, 92, 67, 0.55) 52%, transparent 80%)',
                     transform: 'skewX(-22deg)',
                   }}
                   initial={{ x: '-160%', opacity: 0 }}
@@ -223,9 +223,9 @@ export default function LoadingScreen() {
                 className="pointer-events-none absolute top-0 bottom-0 w-[2px] z-30"
                 style={{
                   background:
-                    'linear-gradient(180deg, transparent 0%, #D4AF65 25%, #FFFFFF 50%, #D4AF65 75%, transparent 100%)',
+                    'linear-gradient(180deg, transparent 0%, #795C43 25%, #FFFFFF 50%, #795C43 75%, transparent 100%)',
                   boxShadow:
-                    '0 0 10px rgba(212, 175, 101, 0.9), 0 0 20px rgba(212, 175, 101, 0.5)',
+                    '0 0 10px rgba(121, 92, 67, 0.9), 0 0 20px rgba(121, 92, 67, 0.5)',
                 }}
                 initial={{ left: '0%', opacity: 0 }}
                 animate={
@@ -248,8 +248,8 @@ export default function LoadingScreen() {
                 className="h-full w-full rounded-full"
                 style={{
                   background:
-                    'linear-gradient(90deg, transparent 0%, #D4AF65 20%, #D4AF65 80%, transparent 100%)',
-                  boxShadow: '0 0 12px rgba(212, 175, 101, 0.75)',
+                    'linear-gradient(90deg, transparent 0%, #795C43 20%, #795C43 80%, transparent 100%)',
+                  boxShadow: '0 0 12px rgba(121, 92, 67, 0.75)',
                 }}
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={

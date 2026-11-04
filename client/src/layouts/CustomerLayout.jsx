@@ -12,12 +12,12 @@ const navLinks = [
 
 export default function CustomerLayout() {
   return (
-    <div className="flex min-h-screen bg-[#040A18] text-[#F5F3EE]">
-      <aside className="hidden w-64 shrink-0 flex-col border-r border-[#122240] bg-[#020611] p-6 md:flex max-h-screen overflow-y-auto">
+    <div className="flex min-h-screen bg-[#F5F0E7] text-[#352719]">
+      <aside className="hidden w-64 shrink-0 flex-col border-r border-[#DED2C1] bg-[#EDE3D5] p-6 md:flex max-h-screen overflow-y-auto">
         <Link to="/">
           <Logo size="sm" />
         </Link>
-        <div className="mt-2 text-[11px] font-bold uppercase tracking-wider text-[#D6C29A]">Customer Portal</div>
+        <div className="mt-2 text-[11px] font-bold uppercase tracking-wider text-[#795C43]">Customer Portal</div>
 
         <nav className="mt-8 flex flex-col gap-1.5">
           {navLinks.map((link) => {
@@ -39,8 +39,8 @@ export default function CustomerLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-[#D6C29A] text-[#040A18] font-black shadow-xs'
-                      : 'text-[#B8C2D9] hover:bg-[#081226] hover:text-[#F5F3EE]'
+                      ? 'bg-[#C5A989] text-white font-black shadow-xs'
+                      : 'text-[#B8C2D9] hover:bg-[#FAF8F3] hover:text-[#352719]'
                   }`
                 }
               >
@@ -51,10 +51,10 @@ export default function CustomerLayout() {
           })}
         </nav>
 
-        <div className="mt-auto pt-10 border-t border-[#122240]">
+        <div className="mt-auto pt-10 border-t border-[#DED2C1]">
           <Link
             to="/"
-            className="flex items-center gap-2 text-xs font-semibold text-[#B8C2D9] hover:text-[#D6C29A] transition-colors"
+            className="flex items-center gap-2 text-xs font-semibold text-[#B8C2D9] hover:text-[#795C43] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Website
@@ -64,14 +64,14 @@ export default function CustomerLayout() {
 
       <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-10">
         {/* Mobile quick navbar */}
-        <div className="mb-6 flex flex-col gap-3 border-b border-[#122240] pb-4 md:hidden">
+        <div className="mb-6 flex flex-col gap-3 border-b border-[#DED2C1] pb-4 md:hidden">
           <div className="flex items-center justify-between">
             <Link to="/">
               <Logo size="sm" />
             </Link>
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#B8C2D9] hover:text-[#D6C29A] transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-[#B8C2D9] hover:text-[#795C43] transition-colors"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Website
@@ -85,7 +85,7 @@ export default function CustomerLayout() {
                 end={link.to === '/account'}
                 className={({ isActive }) =>
                   `shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${
-                    isActive ? 'bg-[#D6C29A] text-[#040A18] font-black shadow-xs' : 'text-[#B8C2D9] hover:bg-[#081226]'
+                    isActive ? 'bg-[#C5A989] text-white font-black shadow-xs' : 'text-[#B8C2D9] hover:bg-[#FAF8F3]'
                   }`
                 }
               >

@@ -129,7 +129,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
           <ul style="line-height: 1.8; color: #475569;">
             ${productData.price ? `<li><strong>Starting Price:</strong> AED ${escapeHtml(productData.price)}</li>` : ''}
             ${productData.minimumQuantity ? `<li><strong>Minimum Order Quantity (MOQ):</strong> ${escapeHtml(productData.minimumQuantity)} units</li>` : ''}
-            ${productData.category?.name ? `<li><strong>Category:</strong> <a href="/categories/${escapeHtml(productData.category.slug || '')}" style="color: #D4AF65;">${escapeHtml(productData.category.name)}</a></li>` : ''}
+            ${productData.category?.name ? `<li><strong>Category:</strong> <a href="/categories/${escapeHtml(productData.category.slug || '')}" style="color: #795C43;">${escapeHtml(productData.category.name)}</a></li>` : ''}
             <li><strong>Production Hub:</strong> Al Quoz Central Pressroom, Dubai, UAE</li>
             <li><strong>Turnaround:</strong> Express Same-Day Rush or Standard 24–48 Hours across Dubai, Abu Dhabi &amp; all Emirates</li>
           </ul>
@@ -170,7 +170,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
           <ul style="line-height: 2;">
             ${matchingProducts.map(p => `
               <li>
-                <a href="/products/${escapeHtml(p.slug)}" style="color: #D4AF65; font-weight: 600; text-decoration: underline;">${escapeHtml(p.name)}</a>
+                <a href="/products/${escapeHtml(p.slug)}" style="color: #795C43; font-weight: 600; text-decoration: underline;">${escapeHtml(p.name)}</a>
                 ${p.shortDescription ? ` — <span style="color: #64748b;">${escapeHtml(p.shortDescription)}</span>` : ''}
               </li>
             `).join('')}
@@ -441,28 +441,28 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   }
 
   return `
-    <div style="font-family: system-ui, -apple-system, sans-serif; color: #F5F2EB; background: #040A18; max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="font-family: system-ui, -apple-system, sans-serif; color: #352719; background: #F5F0E7; max-width: 1200px; margin: 0 auto; padding: 20px;">
       <header style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #101D35; text-decoration: none; letter-spacing: 0.1em;">
-          ON<span style="color: #D4AF65;">PRINT</span>
+        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #FFFFFF; text-decoration: none; letter-spacing: 0.1em;">
+          ON<span style="color: #795C43;">PRINT</span>
         </a>
         <nav style="display: flex; gap: 14px; font-size: 0.875rem; font-weight: 600; flex-wrap: wrap;">
-          <a href="/" style="color: #101D35; text-decoration: none;">Home</a>
-          <a href="/products" style="color: #101D35; text-decoration: none;">Products</a>
-          <a href="/categories" style="color: #101D35; text-decoration: none;">Categories</a>
-          <a href="/business-card-printing-dubai" style="color: #D4AF65; text-decoration: none; font-weight: 700;">Business Cards</a>
-          <a href="/categories/letterheads-printing-dubai" style="color: #101D35; text-decoration: none;">Stationery</a>
-          <a href="/services" style="color: #101D35; text-decoration: none;">Services</a>
-          <a href="/blog" style="color: #101D35; text-decoration: none;">Guides</a>
-          <a href="/about" style="color: #101D35; text-decoration: none;">About</a>
-          <a href="/contact" style="color: #101D35; text-decoration: none;">Contact</a>
-          <a href="/get-a-quote" style="color: #101D35; background: #D4AF65; font-weight: 700; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
+          <a href="/" style="color: #FFFFFF; text-decoration: none;">Home</a>
+          <a href="/products" style="color: #FFFFFF; text-decoration: none;">Products</a>
+          <a href="/categories" style="color: #FFFFFF; text-decoration: none;">Categories</a>
+          <a href="/business-card-printing-dubai" style="color: #795C43; text-decoration: none; font-weight: 700;">Business Cards</a>
+          <a href="/categories/letterheads-printing-dubai" style="color: #FFFFFF; text-decoration: none;">Stationery</a>
+          <a href="/services" style="color: #FFFFFF; text-decoration: none;">Services</a>
+          <a href="/blog" style="color: #FFFFFF; text-decoration: none;">Guides</a>
+          <a href="/about" style="color: #FFFFFF; text-decoration: none;">About</a>
+          <a href="/contact" style="color: #FFFFFF; text-decoration: none;">Contact</a>
+          <a href="/get-a-quote" style="color: #FFFFFF; background: #795C43; color: #FFFFFF; font-weight: 700; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
         </nav>
       </header>
 
       <main id="main-content">
         <article>
-          <h1 style="font-size: 2.25rem; font-weight: 800; color: #101D35; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
           <p style="font-size: 1.125rem; color: #343D4F; line-height: 1.6; margin-bottom: 2rem;">${escapeHtml(metaDesc)}</p>
           ${dynamicBody}
         </article>
@@ -472,7 +472,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         <div>
           <strong>ONPRINT Printing &amp; Branding Solutions</strong><br />
           Al Quoz, Dubai, United Arab Emirates<br />
-          Email: <a href="mailto:0nprint183@gmail.com" style="color: #D4AF65;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #D4AF65;">+${WHATSAPP_NUMBER}</a>
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #795C43;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #795C43;">+${WHATSAPP_NUMBER}</a>
         </div>
         <div>
           <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>
@@ -1082,7 +1082,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     if (rootClosing > rootStart) {
       rendered =
         rendered.slice(0, rootStart) +
-        `<div id="root" style="background-color: #040A18; color: #F5F3EE; min-height: 100vh;"><div id="ssr-seo-content">${prerenderedBody}</div></div>` +
+        `<div id="root" style="background-color: #F5F0E7; color: #352719; min-height: 100vh;"><div id="ssr-seo-content">${prerenderedBody}</div></div>` +
         rendered.slice(rootClosing + 6)
     }
   } else if (rendered.includes('<div id="root"></div>')) {

@@ -13,9 +13,9 @@ import { trackWhatsAppClick } from '../../utils/analytics'
 
 function PortfolioTile({ item, onSelectCaseStudy }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#122240] bg-[#081226] shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D4AF65] hover:shadow-xl text-[#F5F2EB]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#C5A989] hover:shadow-xl text-[#352719]">
       {/* Project Photography */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#040A18]">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5F0E7]">
         <img
           src={item.image}
           alt={item.title}
@@ -40,7 +40,7 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
         <button
           type="button"
           onClick={() => onSelectCaseStudy(item)}
-          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#D4AF65] text-white opacity-100 sm:opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 sm:group-hover:opacity-100 cursor-pointer"
+          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#795C43] text-white opacity-100 sm:opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 sm:group-hover:opacity-100 cursor-pointer"
           title="View full case study"
         >
           <ArrowUpRight className="h-4 w-4" />
@@ -51,33 +51,33 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
       <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
         <div>
           <div className="flex items-center justify-between">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF65]">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#795C43]">
               Dubai Press Production
             </p>
             <span className="text-[10px] font-semibold text-neutral-400">Case Study</span>
           </div>
-          <h3 className="font-display mt-1.5 text-lg font-black tracking-tight text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
+          <h3 className="font-display mt-1.5 text-lg font-black tracking-tight text-[#352719] group-hover:text-[#795C43] transition-colors">
             {item.title}
           </h3>
           {item.specs && (
-            <p className="mt-2.5 text-xs font-semibold leading-relaxed text-[#B0BECE]">
+            <p className="mt-2.5 text-xs font-semibold leading-relaxed text-[#756657]">
               {item.specs}
             </p>
           )}
           {item.challenge && (
-            <p className="mt-2 text-xs text-[#B0BECE]/70 line-clamp-2 leading-relaxed">
-              <strong className="text-[#F5F2EB]">Challenge:</strong> {item.challenge}
+            <p className="mt-2 text-xs text-[#756657]/70 line-clamp-2 leading-relaxed">
+              <strong className="text-[#352719]">Challenge:</strong> {item.challenge}
             </p>
           )}
         </div>
 
-        <div className="mt-5 space-y-2.5 border-t border-[#122240] pt-4">
+        <div className="mt-5 space-y-2.5 border-t border-[#DED2C1] pt-4">
           {item.relatedProduct && (
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-neutral-500">Matching Product:</span>
               <Link
                 to={item.relatedProduct.url}
-                className="inline-flex items-center gap-1 font-extrabold text-[#F5F2EB] hover:text-[#D4AF65] hover:underline"
+                className="inline-flex items-center gap-1 font-extrabold text-[#352719] hover:text-[#795C43] hover:underline"
               >
                 <span>{item.relatedProduct.name}</span>
                 <ArrowUpRight className="h-3 w-3" />
@@ -88,7 +88,7 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
             <button
               type="button"
               onClick={() => onSelectCaseStudy(item)}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF65] hover:text-[#D4AF65]/80 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#795C43] hover:text-[#795C43]/80 transition-colors cursor-pointer"
             >
               <span>Read Case Study</span>
               <ChevronRight className="h-3 w-3" />
@@ -225,14 +225,14 @@ export default function PortfolioPage() {
           onClick={() => setSelectedCaseStudy(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-5 sm:p-8 shadow-2xl text-white"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 sm:p-8 shadow-2xl text-white"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setSelectedCaseStudy(null)}
-              className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#040A18] text-slate-300 hover:text-white transition-colors cursor-pointer border border-[#122240]"
+              className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#F5F0E7] text-slate-300 hover:text-white transition-colors cursor-pointer border border-[#DED2C1]"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -241,23 +241,23 @@ export default function PortfolioPage() {
             {/* Modal Header */}
             <div className="pr-10">
               <div className="flex flex-wrap items-center gap-2 text-xs">
-                <span className="rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 font-extrabold uppercase text-[#D4AF65]">
+                <span className="rounded-full bg-[#795C43]/10 px-2.5 py-0.5 font-extrabold uppercase text-[#795C43]">
                   {selectedCaseStudy.category}
                 </span>
-                <span className="rounded-full bg-[#040A18] border border-[#122240] px-2.5 py-0.5 font-bold text-slate-300">
+                <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2.5 py-0.5 font-bold text-slate-300">
                   Industry: {selectedCaseStudy.industry || selectedCaseStudy.clientSector}
                 </span>
               </div>
               <h2 className="font-display mt-3 text-2xl sm:text-3xl font-black text-white">
                 {selectedCaseStudy.projectName || selectedCaseStudy.title}
               </h2>
-              <p className="mt-1 text-sm font-semibold text-[#D4AF65]">
+              <p className="mt-1 text-sm font-semibold text-[#795C43]">
                 Service: {selectedCaseStudy.serviceProvided || selectedCaseStudy.title}
               </p>
             </div>
 
             {/* Case Study Image */}
-            <div className="mt-6 aspect-[16/9] overflow-hidden rounded-xl bg-[#040A18] border border-[#122240]">
+            <div className="mt-6 aspect-[16/9] overflow-hidden rounded-xl bg-[#F5F0E7] border border-[#DED2C1]">
               <img
                 src={selectedCaseStudy.image}
                 alt={selectedCaseStudy.title}
@@ -268,9 +268,9 @@ export default function PortfolioPage() {
             {/* Structured Case Study Grid */}
             <div className="mt-8 space-y-6">
               {/* Challenge */}
-              <div className="rounded-xl border border-[#122240] bg-[#040A18] p-5">
+              <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
-                  <Briefcase className="h-4 w-4 text-[#D4AF65]" />
+                  <Briefcase className="h-4 w-4 text-[#795C43]" />
                   <span>The Project Challenge</span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-300">
@@ -279,9 +279,9 @@ export default function PortfolioPage() {
               </div>
 
               {/* Solution */}
-              <div className="rounded-xl border border-[#122240] bg-[#040A18] p-5">
+              <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
-                  <FileText className="h-4 w-4 text-[#D4AF65]" />
+                  <FileText className="h-4 w-4 text-[#795C43]" />
                   <span>The Engineering &amp; Press Solution</span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-300">
@@ -290,9 +290,9 @@ export default function PortfolioPage() {
               </div>
 
               {/* Materials & Finishes */}
-              <div className="rounded-xl border border-[#122240] bg-[#040A18] p-5">
+              <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
-                  <Layers className="h-4 w-4 text-[#D4AF65]" />
+                  <Layers className="h-4 w-4 text-[#795C43]" />
                   <span>Materials &amp; Finishes Used</span>
                 </div>
                 <p className="mt-2 text-sm font-semibold text-slate-200">
@@ -313,7 +313,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* Modal Actions */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#122240] pt-6">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#DED2C1] pt-6">
               <span className="text-xs text-slate-400">
                 Facility: Al Quoz, Dubai
               </span>

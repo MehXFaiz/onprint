@@ -121,17 +121,17 @@ export default function GeoScorecardTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-2.5 py-0.5 text-xs font-bold text-[#795C43]">
                 <ShieldCheck className="h-3.5 w-3.5" />
                 GEO &amp; AEO Quality Audit
               </span>
               <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 41</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               GEO 9-Pillar Readiness Scorecard
             </h2>
             <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
@@ -142,7 +142,7 @@ export default function GeoScorecardTab({ showToast }) {
           <div className="flex items-center gap-6">
             <div className="text-center sm:text-right">
               <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9] block">Overall GEO Score</span>
-              <div className="font-display text-4xl sm:text-5xl font-black text-[#D6C29A] mt-1">
+              <div className="font-display text-4xl sm:text-5xl font-black text-[#795C43] mt-1">
                 {overallScore}%
               </div>
               <span className="text-[11px] font-extrabold text-emerald-600 uppercase tracking-widest mt-0.5 block">
@@ -170,15 +170,15 @@ export default function GeoScorecardTab({ showToast }) {
           return (
             <div
               key={pillar.pillar_id || idx}
-              className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs hover:border-[#D6C29A]/30 transition-all flex flex-col justify-between"
+              className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs hover:border-[#C5A989]/30 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D6C29A]/10 text-[#D6C29A]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C5A989]/10 text-[#795C43]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="text-right">
-                    <span className="font-display text-xl font-black text-[#F5F3EE]">
+                    <span className="font-display text-xl font-black text-[#352719]">
                       {pillar.score}%
                     </span>
                     <span className="block text-[10px] font-bold text-emerald-600 uppercase">
@@ -187,14 +187,14 @@ export default function GeoScorecardTab({ showToast }) {
                   </div>
                 </div>
 
-                <h3 className="font-display mt-4 text-base font-bold text-[#F5F3EE] leading-snug">
+                <h3 className="font-display mt-4 text-base font-bold text-[#352719] leading-snug">
                   {pillar.name}
                 </h3>
 
                 {/* Progress Bar */}
                 <div className="mt-3 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-[#D6C29A] transition-all duration-500"
+                    className="h-full rounded-full bg-[#C5A989] transition-all duration-500"
                     style={{ width: `${pillar.score}%` }}
                   />
                 </div>
@@ -204,7 +204,7 @@ export default function GeoScorecardTab({ showToast }) {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#122240] flex items-center justify-between text-[11px] text-[#B8C2D9]">
+              <div className="mt-4 pt-3 border-t border-[#DED2C1] flex items-center justify-between text-[11px] text-[#B8C2D9]">
                 <span>Pillar 0{idx + 1} of 09</span>
                 <span className="text-emerald-700 font-semibold flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5" />
@@ -217,8 +217,8 @@ export default function GeoScorecardTab({ showToast }) {
       </div>
 
       {/* Transparency Guarantee Note */}
-      <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-6 text-xs text-[#B8C2D9]">
-        <h4 className="font-bold text-[#F5F3EE] uppercase tracking-wider text-[11px] mb-1">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-6 text-xs text-[#B8C2D9]">
+        <h4 className="font-bold text-[#352719] uppercase tracking-wider text-[11px] mb-1">
           Strict GEO Compliance &amp; Honest Scoring Guarantee
         </h4>
         <p className="leading-relaxed">

@@ -108,29 +108,29 @@ export default function LuxuryFinishesShowcase() {
   const activeFinish = luxuryFinishes.find((f) => f.id === selectedId) || luxuryFinishes[0]
 
   return (
-    <section className="bg-[#040A18] py-16 sm:py-24 text-[#F5F2EB]">
+    <section className="bg-[#F5F0E7] py-16 sm:py-24 text-[#352719]">
       <Container>
         {/* Section Header */}
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#081226] border border-[#122240] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
-              <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#FAF8F3] border border-[#DED2C1] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#795C43]">
+              <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
               <span>Signature Dubai Pressroom Finishes</span>
             </div>
-            <h2 className="mt-2.5 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#F5F2EB]">
+            <h2 className="mt-2.5 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#352719]">
               Mastery of Light, Texture &amp; Substrate
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-[#A0AEC0] leading-relaxed">
+            <p className="mt-2 max-w-2xl text-sm text-[#756657] leading-relaxed">
               Every detail is engineered on our Al Quoz press floor using precision German Heidelberg machinery, heated brass dies, and European archival stocks.
             </p>
           </div>
 
           <Link
             to="/get-a-quote?service=Luxury+Finishing"
-            className="shrink-0 inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-5 py-2.5 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:bg-[#122240] transition-all cursor-pointer shadow-xs"
+            className="shrink-0 inline-flex items-center gap-2 rounded-full border border-[#DED2C1] bg-[#FAF8F3] px-5 py-2.5 text-xs font-bold text-[#352719] hover:border-[#C5A989] hover:bg-[#EDE3D5] transition-all cursor-pointer shadow-xs"
           >
             <span>Request Finish Swatches</span>
-            <ArrowRight className="h-4 w-4 text-[#D4AF65]" />
+            <ArrowRight className="h-4 w-4 text-[#795C43]" />
           </Link>
         </div>
 
@@ -147,19 +147,19 @@ export default function LuxuryFinishesShowcase() {
                 onClick={() => setSelectedId(finish.id)}
                 className={`group relative flex flex-col items-start justify-between rounded-2xl border p-3.5 text-left transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? 'border-[#D4AF65] bg-[#040A18] text-[#D4AF65] shadow-xs ring-1 ring-[#D4AF65]/40'
-                    : 'border-[#122240] bg-[#081226] hover:bg-[#040A18] hover:border-[#D4AF65] text-[#F5F2EB]'
+                    ? 'border-[#C5A989] bg-[#F5F0E7] text-[#795C43] shadow-xs ring-1 ring-[#795C43]/40'
+                    : 'border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#F5F0E7] hover:border-[#C5A989] text-[#352719]'
                 }`}
               >
                 <div className="flex w-full items-center justify-between">
                   <span
-                    className={`h-2 w-2 rounded-full ${isSelected ? 'bg-[#D4AF65]' : 'bg-[#52647D]'}`}
+                    className={`h-2 w-2 rounded-full ${isSelected ? 'bg-[#795C43]' : 'bg-[#52647D]'}`}
                   />
-                  <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#D4AF65]' : 'text-[#6B7C96]'}`}>
+                  <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#795C43]' : 'text-[#6B7C96]'}`}>
                     {finish.badge}
                   </span>
                 </div>
-                <span className={`mt-3 block text-xs font-bold transition-colors leading-tight line-clamp-2 ${isSelected ? 'text-[#D4AF65]' : 'text-[#F5F2EB] group-hover:text-[#D4AF65]'}`}>
+                <span className={`mt-3 block text-xs font-bold transition-colors leading-tight line-clamp-2 ${isSelected ? 'text-[#795C43]' : 'text-[#352719] group-hover:text-[#795C43]'}`}>
                   {finish.title}
                 </span>
               </motion.button>
@@ -175,12 +175,12 @@ export default function LuxuryFinishesShowcase() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.99 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-lg"
+            className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-lg"
           >
             <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
               {/* Left Column: Macro Image */}
               <div className="lg:col-span-6 relative">
-                <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl border border-[#122240] bg-[#040A18] shadow-xs group">
+                <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] shadow-xs group">
                   <picture>
                     {activeFinish.image.endsWith('.jpg') && (
                       <source
@@ -200,10 +200,10 @@ export default function LuxuryFinishesShowcase() {
                   </picture>
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                    <span className="rounded-lg bg-[#F5F0E7]/90 border border-[#DED2C1] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#352719] backdrop-blur-xs shadow-xs">
                       {activeFinish.badge}
                     </span>
-                    <span className="text-[10px] font-bold text-[#D4AF65] bg-[#040A18]/90 border border-[#122240] px-2.5 py-1 rounded-lg shadow-xs">
+                    <span className="text-[10px] font-bold text-[#795C43] bg-[#F5F0E7]/90 border border-[#DED2C1] px-2.5 py-1 rounded-lg shadow-xs">
                       100% QC PASS • DUBAI
                     </span>
                   </div>
@@ -213,13 +213,13 @@ export default function LuxuryFinishesShowcase() {
               {/* Right Column: Finish Specifications & Details */}
               <div className="lg:col-span-6 space-y-4">
                 <div>
-                  <span className="inline-block rounded-md bg-[#040A18] border border-[#122240] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] shadow-2xs">
+                  <span className="inline-block rounded-md bg-[#F5F0E7] border border-[#DED2C1] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#795C43] shadow-2xs">
                     {activeFinish.tagline}
                   </span>
-                  <h3 className="mt-2 text-2xl sm:text-3xl font-black text-[#F5F2EB]">
+                  <h3 className="mt-2 text-2xl sm:text-3xl font-black text-[#352719]">
                     {activeFinish.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#A0AEC0] leading-relaxed">
+                  <p className="mt-2 text-sm text-[#756657] leading-relaxed">
                     {activeFinish.description}
                   </p>
                 </div>
@@ -229,20 +229,20 @@ export default function LuxuryFinishesShowcase() {
                   {activeFinish.specs.map((spec) => (
                     <span
                       key={spec}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#122240] bg-[#040A18] px-3 py-1 text-xs font-semibold text-[#F5F2EB] shadow-2xs"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1 text-xs font-semibold text-[#352719] shadow-2xs"
                     >
-                      <Check className="h-3.5 w-3.5 text-[#D4AF65]" />
+                      <Check className="h-3.5 w-3.5 text-[#795C43]" />
                       <span>{spec}</span>
                     </span>
                   ))}
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 border-y border-[#122240] py-3.5 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 border-y border-[#DED2C1] py-3.5 text-xs">
                   <div>
                     <span className="block uppercase tracking-wider text-[#94A3B8] font-bold text-[9.5px]">
                       Recommended Stock Weight
                     </span>
-                    <span className="mt-1 block font-bold text-[#F5F2EB]">
+                    <span className="mt-1 block font-bold text-[#352719]">
                       {activeFinish.stockCompatibility}
                     </span>
                   </div>
@@ -250,7 +250,7 @@ export default function LuxuryFinishesShowcase() {
                     <span className="block uppercase tracking-wider text-[#94A3B8] font-bold text-[9.5px]">
                       Signature Application
                     </span>
-                    <span className="mt-1 block font-bold text-[#F5F2EB]">
+                    <span className="mt-1 block font-bold text-[#352719]">
                       {activeFinish.idealFor}
                     </span>
                   </div>
@@ -260,14 +260,14 @@ export default function LuxuryFinishesShowcase() {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                   <Link
                     to={`/get-a-quote?service=${encodeURIComponent(activeFinish.title)}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C8B185] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#040A18] shadow-xs transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#795C43] hover:bg-[#5D442E] px-6 py-3 text-xs font-black uppercase tracking-wider text-white shadow-xs transition-all cursor-pointer"
                   >
                     <span>Quote With {activeFinish.title}</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:bg-[#081226] px-5 py-3 text-xs font-bold text-[#F5F2EB] transition-all cursor-pointer shadow-xs"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] hover:bg-[#FAF8F3] px-5 py-3 text-xs font-bold text-[#352719] transition-all cursor-pointer shadow-xs"
                   >
                     <span>Book VIP Consultation</span>
                   </Link>

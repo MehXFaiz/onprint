@@ -84,7 +84,7 @@ export default function ArabicPrintingServicesPage() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
-    <div className="bg-[#040A18] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#040A18]" dir="rtl">
+    <div className="bg-[#F5F0E7] text-[#352719] font-arabic antialiased selection:bg-[#C5A989] selection:text-[#352719]" dir="rtl">
       <SEOHead
         title="خدمات الطباعة التجارية والشركات في دبي | مطبعة متكاملة | ONPRINT"
         description="خدمات طباعة متكاملة للشركات في دبي من ONPRINT. طباعة بروشورات وفلايرات، رول اب بانر، مطبوعات مكتبية، وأكياس وهدايا ترويجية مع توصيل سريع في دبي وأبوظبي والإمارات."
@@ -94,28 +94,28 @@ export default function ArabicPrintingServicesPage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#122240] bg-gradient-to-b from-[#020611] via-[#040A18] to-[#040A18]">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#081226]/60 blur-3xl" />
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#DED2C1] bg-gradient-to-b from-[#EDE3D5] via-[#F5F0E7] to-[#F5F0E7]">
+        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#795C43]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#FAF8F3]/60 blur-3xl" />
 
         <Container className="relative z-10">
-          <nav className="mb-6 flex items-center gap-2 text-xs text-[#B0BECE]">
-            <Link to="/ar" className="hover:text-[#D4AF65] transition-colors">الرئيسية</Link>
+          <nav className="mb-6 flex items-center gap-2 text-xs text-[#756657]">
+            <Link to="/ar" className="hover:text-[#795C43] transition-colors">الرئيسية</Link>
             <span>/</span>
-            <span className="text-[#D4AF65] font-bold">خدمات الطباعة التجارية دبي</span>
+            <span className="text-[#795C43] font-bold">خدمات الطباعة التجارية دبي</span>
           </nav>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#D4AF65]/10 px-4 py-1.5 text-xs font-bold text-[#D4AF65]">
-              <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/30 bg-[#795C43]/10 px-4 py-1.5 text-xs font-bold text-[#795C43]">
+              <Layers className="h-3.5 w-3.5 text-[#795C43]" />
               <span>خدمات الطباعة التجارية والأوفست للشركات في دبي</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#F5F2EB] tracking-tight leading-[1.25]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#352719] tracking-tight leading-[1.25]">
               خدمات الطباعة التجارية والشركات في دبي
             </h1>
 
-            <p className="text-base sm:text-lg text-[#B0BECE] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#756657] leading-relaxed">
               تقدم <strong>ONPRINT</strong> حلولاً متكاملة لكافة متطلبات الشركات والمؤسسات في دبي والإمارات. من الكروت الشخصية والبروشورات الترويجية، وحتى البانرات الإعلانية ومطبوعات الهوية المؤسسية الكاملة بأعلى جودة ألوان وسرعة إنجاز.
             </p>
 
@@ -139,9 +139,9 @@ export default function ArabicPrintingServicesPage() {
 
               <a
                 href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-5 py-3.5 text-sm font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all"
+                className="inline-flex items-center gap-2 rounded-full border border-[#DED2C1] bg-[#FAF8F3] px-5 py-3.5 text-sm font-bold text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-all"
               >
-                <Phone className="h-4 w-4 text-[#D4AF65]" />
+                <Phone className="h-4 w-4 text-[#795C43]" />
                 <span>مكتب المبيعات: {FORMATTED_PHONE}</span>
               </a>
             </div>
@@ -150,13 +150,13 @@ export default function ArabicPrintingServicesPage() {
       </section>
 
       {/* 2. SERVICES CATALOG GRID */}
-      <section className="py-16 sm:py-20 border-b border-[#122240]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
               باقة الخدمات التجارية المتكاملة
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#F5F2EB] mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#352719] mt-1">
               حلول طباعة شاملة تحت سقف واحد في دبي
             </h2>
           </div>
@@ -165,29 +165,29 @@ export default function ArabicPrintingServicesPage() {
             {SERVICES.map((srv) => (
               <div
                 key={srv.id}
-                className="rounded-3xl border border-[#122240] bg-[#081226]/70 hover:bg-[#081226] hover:border-[#D4AF65]/60 transition-all p-6 flex flex-col justify-between"
+                className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3]/70 hover:bg-[#FAF8F3] hover:border-[#C5A989]/60 transition-all p-6 flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <span className="rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-3 py-1 text-[10px] font-bold text-[#D4AF65] inline-block">
+                  <span className="rounded-full bg-[#795C43]/10 border border-[#C5A989]/30 px-3 py-1 text-[10px] font-bold text-[#795C43] inline-block">
                     {srv.badge}
                   </span>
-                  <h3 className="text-lg font-black text-[#F5F2EB] leading-snug">
+                  <h3 className="text-lg font-black text-[#352719] leading-snug">
                     {srv.title}
                   </h3>
-                  <p className="text-xs text-[#B0BECE] leading-relaxed">
+                  <p className="text-xs text-[#756657] leading-relaxed">
                     {srv.desc}
                   </p>
-                  <div className="pt-2 border-t border-[#122240] space-y-1">
+                  <div className="pt-2 border-t border-[#DED2C1] space-y-1">
                     {srv.features.map((f, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-[#F5F2EB]">
-                        <CheckCircle2 className="h-3 w-3 text-[#D4AF65] shrink-0" />
+                      <div key={i} className="flex items-center gap-2 text-xs text-[#352719]">
+                        <CheckCircle2 className="h-3 w-3 text-[#795C43] shrink-0" />
                         <span>{f}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-[#122240]">
+                <div className="pt-5 mt-5 border-t border-[#DED2C1]">
                   <a
                     href={getArabicWhatsAppUrl('general', { service: srv.title })}
                     target="_blank"
@@ -199,7 +199,7 @@ export default function ArabicPrintingServicesPage() {
                         language: 'ar',
                       })
                     }
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#040A18] hover:bg-[#25D366] hover:text-white border border-[#122240] hover:border-emerald-500 py-2.5 text-xs font-bold text-[#D4AF65] transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#F5F0E7] hover:bg-[#25D366] hover:text-white border border-[#DED2C1] hover:border-emerald-500 py-2.5 text-xs font-bold text-[#795C43] transition-all"
                   >
                     <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
                     <span>طلب عرض سعر عبر واتساب</span>
@@ -212,14 +212,14 @@ export default function ArabicPrintingServicesPage() {
       </section>
 
       {/* 3. ARABIC FAQS */}
-      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#020611]">
+      <section className="py-16 sm:py-20 border-b border-[#DED2C1] bg-[#EDE3D5]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#795C43]">
                 الأسئلة الشائعة حول عقود وطلبات الطباعة التجارية
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#F5F2EB] mt-1">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#352719] mt-1">
                 إجابات شاملة لمدراء المشتريات والتسويق
               </h2>
             </div>
@@ -228,16 +228,16 @@ export default function ArabicPrintingServicesPage() {
               {ARABIC_SERVICES_FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#122240] bg-[#040A18] overflow-hidden"
+                  className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] overflow-hidden"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                    className="w-full p-4 sm:p-5 text-right flex items-center justify-between gap-3 text-sm font-bold text-[#F5F2EB] hover:text-[#D4AF65] transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-right flex items-center justify-between gap-3 text-sm font-bold text-[#352719] hover:text-[#795C43] transition-colors cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-4 w-4 text-[#D4AF65] shrink-0 transition-transform duration-200 ${
+                      className={`h-4 w-4 text-[#795C43] shrink-0 transition-transform duration-200 ${
                         openFaq === idx ? 'rotate-180' : ''
                       }`}
                     />
@@ -251,7 +251,7 @@ export default function ArabicPrintingServicesPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#122240]/60">
+                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#756657] leading-relaxed border-t border-[#DED2C1]/60">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -265,13 +265,13 @@ export default function ArabicPrintingServicesPage() {
       </section>
 
       {/* 4. FOOTER CONVERSION */}
-      <section className="py-14 bg-[#040A18] text-center">
+      <section className="py-14 bg-[#F5F0E7] text-center">
         <Container>
           <div className="max-w-xl mx-auto space-y-4">
-            <h3 className="text-xl sm:text-2xl font-black text-[#F5F2EB]">
+            <h3 className="text-xl sm:text-2xl font-black text-[#352719]">
               هل لديك مناقصة أو كميات كبيرة لشركتك؟
             </h3>
-            <p className="text-xs sm:text-sm text-[#B0BECE]">
+            <p className="text-xs sm:text-sm text-[#756657]">
               تواصل مع إدارة مبيعات الشركات للحصول على أسعار الجملة المباشرة وجدول التسليم المعتمد.
             </p>
             <a

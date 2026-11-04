@@ -158,17 +158,17 @@ export default function GeoContentManagerTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-2.5 py-0.5 text-xs font-bold text-[#795C43]">
                 <FileText className="h-3.5 w-3.5" />
                 Knowledge Graph Engine
               </span>
               <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 28</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#F5F3EE]">
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               GEO Content &amp; Entity Knowledge Manager
             </h2>
             <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
@@ -202,10 +202,10 @@ export default function GeoContentManagerTab({ showToast }) {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#122240] pt-4 text-xs">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#DED2C1] pt-4 text-xs">
           <div>
             <span className="text-[#B8C2D9] block">Verified Knowledge Records</span>
-            <span className="text-lg font-black text-[#F5F3EE]">{items.length}</span>
+            <span className="text-lg font-black text-[#352719]">{items.length}</span>
           </div>
           <div>
             <span className="text-[#B8C2D9] block">Active Entities</span>
@@ -215,11 +215,11 @@ export default function GeoContentManagerTab({ showToast }) {
           </div>
           <div>
             <span className="text-[#B8C2D9] block">Schema Compatibility</span>
-            <span className="text-lg font-black text-[#D6C29A]">100% Valid JSON-LD</span>
+            <span className="text-lg font-black text-[#795C43]">100% Valid JSON-LD</span>
           </div>
           <div>
             <span className="text-[#B8C2D9] block">Entity Consistency</span>
-            <span className="text-lg font-black text-[#F5F3EE]">Al Quoz, Dubai</span>
+            <span className="text-lg font-black text-[#352719]">Al Quoz, Dubai</span>
           </div>
         </div>
       </div>
@@ -232,19 +232,19 @@ export default function GeoContentManagerTab({ showToast }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search knowledge records, keys, or direct answers…"
-          className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A] transition-colors"
+          className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#DED2C1] bg-[#FAF8F3] focus:outline-none focus:border-[#C5A989] transition-colors"
         />
       </div>
 
       {/* Content Records List */}
       <div className="space-y-4">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
-            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading Knowledge Database…
           </div>
         ) : filteredItems.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             No knowledge records found.
           </div>
         ) : (
@@ -263,8 +263,8 @@ export default function GeoContentManagerTab({ showToast }) {
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl border transition-all duration-200 bg-[#081226] ${
-                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#122240] hover:border-[#122240] shadow-2xs'
+                className={`rounded-2xl border transition-all duration-200 bg-[#FAF8F3] ${
+                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#DED2C1] hover:border-[#DED2C1] shadow-2xs'
                 }`}
               >
                 <div className="p-5">
@@ -281,11 +281,11 @@ export default function GeoContentManagerTab({ showToast }) {
                         )}
                       </div>
 
-                      <h3 className="font-display text-base font-bold text-[#F5F3EE] pt-1">
+                      <h3 className="font-display text-base font-bold text-[#352719] pt-1">
                         {item.title}
                       </h3>
 
-                      <p className="text-xs text-[#F5F3EE] leading-relaxed bg-[#040A18] p-3 rounded-xl border border-[#122240]">
+                      <p className="text-xs text-[#352719] leading-relaxed bg-[#F5F0E7] p-3 rounded-xl border border-[#DED2C1]">
                         {item.direct_answer}
                       </p>
                     </div>
@@ -294,7 +294,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setSchemaPreviewItem(item)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240] transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="View JSON-LD Structure"
                       >
                         <Code className="h-4 w-4" />
@@ -302,7 +302,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => openEditModal(item)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#122240] transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="Edit Knowledge Record"
                       >
                         <Edit3 className="h-4 w-4" />
@@ -318,7 +318,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : item.id)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240] transition-colors"
+                        className="p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="Toggle JSON Data"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -328,9 +328,9 @@ export default function GeoContentManagerTab({ showToast }) {
 
                   {/* Expanded Structured Data Viewer */}
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-[#122240] space-y-3 text-xs">
+                    <div className="mt-4 pt-4 border-t border-[#DED2C1] space-y-3 text-xs">
                       <div>
-                        <span className="font-bold text-[#F5F3EE] block mb-1">
+                        <span className="font-bold text-[#352719] block mb-1">
                           Structured Specifications:
                         </span>
                         <div className="rounded-xl bg-neutral-900 p-4 text-emerald-400 font-mono text-xs overflow-x-auto">
@@ -341,7 +341,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       {item.citations && (
                         <div>
                           <span className="font-semibold text-[#B8C2D9] block mb-1">Citations &amp; Primary URLs:</span>
-                          <span className="text-[#F5F3EE] font-mono text-[11px] bg-neutral-100 px-2 py-1 rounded">
+                          <span className="text-[#352719] font-mono text-[11px] bg-neutral-100 px-2 py-1 rounded">
                             {typeof item.citations === 'string' ? item.citations : JSON.stringify(item.citations)}
                           </span>
                         </div>
@@ -367,7 +367,7 @@ export default function GeoContentManagerTab({ showToast }) {
           }}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -376,12 +376,12 @@ export default function GeoContentManagerTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-xl font-black text-[#F5F3EE]">
+            <h3 className="font-display text-xl font-black text-[#352719]">
               {editingItem ? 'Edit Knowledge Record' : 'Add Knowledge Record'}
             </h3>
             <p className="mt-1 text-xs text-[#B8C2D9]">
@@ -391,32 +391,32 @@ export default function GeoContentManagerTab({ showToast }) {
             <form onSubmit={editingItem ? handleUpdate : handleCreate} className="mt-6 space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Entity Key (Unique Identifier)</label>
+                  <label className="font-bold text-[#352719] block mb-1">Entity Key (Unique Identifier)</label>
                   <input
                     type="text"
                     value={formData.entity_key}
                     onChange={(e) => setFormData({ ...formData, entity_key: e.target.value })}
                     placeholder="e.g. business_hours, paper_substrates"
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#C5A989]"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Knowledge Title</label>
+                  <label className="font-bold text-[#352719] block mb-1">Knowledge Title</label>
                   <input
                     type="text"
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="e.g. Paper Substrates &amp; Weights"
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">
+                <label className="font-bold text-[#352719] block mb-1">
                   Direct Truthful Answer (LLM Snippet)
                 </label>
                 <textarea
@@ -424,13 +424,13 @@ export default function GeoContentManagerTab({ showToast }) {
                   value={formData.direct_answer}
                   onChange={(e) => setFormData({ ...formData, direct_answer: e.target.value })}
                   placeholder="Clear direct factual answer..."
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   required
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#F5F3EE] block mb-1">
+                <label className="font-bold text-[#352719] block mb-1">
                   Structured Data (JSON format)
                 </label>
                 <textarea
@@ -438,36 +438,36 @@ export default function GeoContentManagerTab({ showToast }) {
                   value={formData.structured_data}
                   onChange={(e) => setFormData({ ...formData, structured_data: e.target.value })}
                   placeholder='{\n  "key": "value"\n}'
-                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#C5A989]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-[#F5F3EE] block mb-1">Citations (JSON Array of URLs)</label>
+                  <label className="font-bold text-[#352719] block mb-1">Citations (JSON Array of URLs)</label>
                   <input
                     type="text"
                     value={formData.citations}
                     onChange={(e) => setFormData({ ...formData, citations: e.target.value })}
                     placeholder='["https://www.0nprint.com/"]'
-                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#C5A989]"
                   />
                 </div>
 
                 <div className="flex items-center gap-4 pt-5">
-                  <label className="flex items-center gap-2 cursor-pointer font-bold text-[#F5F3EE]">
+                  <label className="flex items-center gap-2 cursor-pointer font-bold text-[#352719]">
                     <input
                       type="checkbox"
                       checked={Boolean(formData.is_active)}
                       onChange={(e) => setFormData({ ...formData, is_active: e.target.checked ? 1 : 0 })}
-                      className="rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]"
+                      className="rounded border-[#DED2C1] text-[#795C43] focus:ring-[#D6C29A]"
                     />
                     <span>Active Entity</span>
                   </label>
                 </div>
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#122240]">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#DED2C1]">
                 <Button
                   type="button"
                   variant="outline"
@@ -495,8 +495,8 @@ export default function GeoContentManagerTab({ showToast }) {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
         >
-          <div className="w-full max-w-md rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl">
-            <h4 className="font-display text-lg font-black text-[#F5F3EE]">Delete Knowledge Record?</h4>
+          <div className="w-full max-w-md rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl">
+            <h4 className="font-display text-lg font-black text-[#352719]">Delete Knowledge Record?</h4>
             <p className="mt-2 text-xs text-[#B8C2D9]">
               Are you sure you want to delete: <strong>&ldquo;{deletingItem.title}&rdquo;</strong>?
             </p>
@@ -527,18 +527,18 @@ export default function GeoContentManagerTab({ showToast }) {
           onClick={() => setSchemaPreviewItem(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setSchemaPreviewItem(null)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-lg font-black text-[#F5F3EE]">
+            <h3 className="font-display text-lg font-black text-[#352719]">
               Knowledge Entity JSON Structure
             </h3>
             <p className="mt-1 text-xs text-[#B8C2D9]">

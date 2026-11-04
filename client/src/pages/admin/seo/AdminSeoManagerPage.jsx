@@ -1174,13 +1174,13 @@ export default function AdminSeoManagerPage() {
           className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl px-5 py-3.5 shadow-2xl text-xs font-bold transition-all transform animate-in slide-in-from-bottom-5 ${
             toast.type === 'error'
               ? 'bg-red-600 text-white shadow-red-600/30'
-              : 'bg-neutral-900 text-white border border-[#D6C29A]/50 shadow-black/50'
+              : 'bg-neutral-900 text-white border border-[#C5A989]/50 shadow-black/50'
           }`}
         >
           {toast.type === 'error' ? (
             <XCircle className="h-4 w-4 shrink-0 text-white" />
           ) : (
-            <CheckCircle2 className="h-4 w-4 shrink-0 text-[#D6C29A]" />
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-[#795C43]" />
           )}
           <span>{toast.message}</span>
           <button onClick={() => setToast(null)} className="ml-2 hover:opacity-80 cursor-pointer">
@@ -1190,14 +1190,14 @@ export default function AdminSeoManagerPage() {
       )}
 
       {/* Main Header Banner */}
-      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <h1 className="font-display text-2xl sm:text-3xl font-black text-[#F5F3EE] tracking-tight">
+              <h1 className="font-display text-2xl sm:text-3xl font-black text-[#352719] tracking-tight">
                 AI SEO Manager
               </h1>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 border border-[#D6C29A]/25 px-3 py-1 text-xs font-extrabold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 border border-[#C5A989]/25 px-3 py-1 text-xs font-extrabold text-[#795C43]">
                 <Bot className="h-3.5 w-3.5" />
                 Autonomous Engine
               </span>
@@ -1207,7 +1207,7 @@ export default function AdminSeoManagerPage() {
                   Active {dashboardData?.scheduler?.dailyRunTime || '03:00'} Scheduler
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-neutral-100 border border-[#122240] px-3 py-1 text-xs font-bold text-[#B8C2D9]">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-neutral-100 border border-[#DED2C1] px-3 py-1 text-xs font-bold text-[#B8C2D9]">
                   <span className="h-1.5 w-1.5 rounded-full bg-neutral-400" />
                   Daily Scheduler Disabled
                 </span>
@@ -1227,7 +1227,7 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerFullAudit}
               disabled={fullAuditRunning || actionLoading}
               icon={false}
-              className="text-xs font-bold bg-[#D6C29A] text-[#040A18] hover:bg-[#D6C29A] shadow-md shadow-[#D6C29A]/20"
+              className="text-xs font-bold bg-[#C5A989] text-white hover:bg-[#C5A989] shadow-md shadow-[#D6C29A]/20"
             >
               <ShieldCheck className={`h-3.5 w-3.5 mr-1.5 ${fullAuditRunning ? 'animate-spin' : ''}`} />
               {fullAuditRunning ? 'Auditing 38+ Pages...' : 'Full Website Audit'}
@@ -1240,7 +1240,7 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerAudit}
               disabled={actionLoading || fullAuditRunning}
               icon={false}
-              className="border-[#122240] bg-[#081226] text-[#F5F3EE] hover:bg-[#040A18] text-xs font-bold"
+              className="border-[#DED2C1] bg-[#FAF8F3] text-[#352719] hover:bg-[#F5F0E7] text-xs font-bold"
             >
               <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${actionLoading ? 'animate-spin' : ''}`} />
               Re-Scan Site
@@ -1253,9 +1253,9 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerAi}
               disabled={actionLoading}
               icon={false}
-              className="border-[#122240] bg-[#081226] text-[#F5F3EE] hover:border-[#D6C29A] text-xs font-bold shadow-xs"
+              className="border-[#DED2C1] bg-[#FAF8F3] text-[#352719] hover:border-[#C5A989] text-xs font-bold shadow-xs"
             >
-              <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#D6C29A]" />
+              <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#795C43]" />
               Generate AI Recs
             </Button>
 
@@ -1275,7 +1275,7 @@ export default function AdminSeoManagerPage() {
         </div>
 
         {/* Primary Sub-Navigation Tabs */}
-        <div className="mt-8 pt-6 border-t border-[#122240] flex items-center overflow-x-auto no-scrollbar gap-1.5">
+        <div className="mt-8 pt-6 border-t border-[#DED2C1] flex items-center overflow-x-auto no-scrollbar gap-1.5">
           {tabs.map((tab) => {
             const Icon = tab.icon
             const isActive = activeTab === tab.id
@@ -1286,13 +1286,13 @@ export default function AdminSeoManagerPage() {
                 className={`flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                   isActive
                     ? 'bg-neutral-900 text-white shadow-sm font-extrabold'
-                    : 'text-[#B8C2D9] bg-[#040A18]/80 hover:bg-[#122240] hover:text-[#F5F3EE] border border-[#122240]'
+                    : 'text-[#B8C2D9] bg-[#F5F0E7]/80 hover:bg-[#EDE3D5] hover:text-[#352719] border border-[#DED2C1]'
                 }`}
               >
-                <Icon className={`h-3.5 w-3.5 shrink-0 ${isActive ? 'text-[#D6C29A]' : 'text-[#B8C2D9]/70'}`} />
+                <Icon className={`h-3.5 w-3.5 shrink-0 ${isActive ? 'text-[#795C43]' : 'text-[#B8C2D9]/70'}`} />
                 <span>{tab.label}</span>
                 {typeof tab.count === 'number' && tab.count > 0 && (
-                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-extrabold ${isActive ? 'bg-[#D6C29A] text-[#040A18]' : 'bg-neutral-200 text-[#F5F3EE]'}`}>
+                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-extrabold ${isActive ? 'bg-[#C5A989] text-white' : 'bg-neutral-200 text-[#352719]'}`}>
                     {tab.count}
                   </span>
                 )}
@@ -1310,14 +1310,14 @@ export default function AdminSeoManagerPage() {
           {/* Health Score Overview Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {/* Main Health */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">Overall Health</span>
                 <ShieldCheck className="h-4 w-4 text-emerald-600" />
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-4xl font-black text-[#F5F3EE]">{formatScore(scores.healthScore)}</span>
+                  <span className="font-display text-4xl font-black text-[#352719]">{formatScore(scores.healthScore)}</span>
                   <span className={`text-xs font-bold ${scores.healthScore >= 90 ? 'text-emerald-600' : 'text-amber-600'}`}>
                     {scores.healthScore >= 90 ? 'Optimal' : 'Needs Work'}
                   </span>
@@ -1335,14 +1335,14 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* Technical Score */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">Technical SEO</span>
                 <FileCode className="h-4 w-4 text-blue-600" />
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-[#F5F3EE]">{formatScore(scores.technicalScore)}</span>
+                  <span className="font-display text-3xl font-black text-[#352719]">{formatScore(scores.technicalScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
                   <div className="h-full rounded-full bg-blue-500" style={{ width: `${scoreWidth(scores.technicalScore)}%` }} />
@@ -1352,14 +1352,14 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* On-Page Score */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">On-Page SEO</span>
                 <Sliders className="h-4 w-4 text-purple-600" />
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-[#F5F3EE]">{formatScore(scores.onpageScore)}</span>
+                  <span className="font-display text-3xl font-black text-[#352719]">{formatScore(scores.onpageScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
                   <div className="h-full rounded-full bg-purple-500" style={{ width: `${scoreWidth(scores.onpageScore)}%` }} />
@@ -1369,14 +1369,14 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* Content Score */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">Content Depth</span>
                 <FileText className="h-4 w-4 text-amber-600" />
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-[#F5F3EE]">{formatScore(scores.contentScore)}</span>
+                  <span className="font-display text-3xl font-black text-[#352719]">{formatScore(scores.contentScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
                   <div className="h-full rounded-full bg-amber-500" style={{ width: `${scoreWidth(scores.contentScore)}%` }} />
@@ -1386,14 +1386,14 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* Structured Data */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">Structured Data</span>
                 <Database className="h-4 w-4 text-emerald-600" />
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-[#F5F3EE]">{formatScore(scores.structuredDataScore)}</span>
+                  <span className="font-display text-3xl font-black text-[#352719]">{formatScore(scores.structuredDataScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
                   <div className="h-full rounded-full bg-emerald-500" style={{ width: `${scoreWidth(scores.structuredDataScore)}%` }} />
@@ -1404,14 +1404,14 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Search Console Live Banner / Status */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#122240] pb-5">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DED2C1] pb-5">
               <div className="flex items-center gap-3.5">
-                <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center text-[#F5F3EE] shrink-0">
-                  <Globe className="h-5 w-5 text-[#D6C29A]" />
+                <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center text-[#352719] shrink-0">
+                  <Globe className="h-5 w-5 text-[#795C43]" />
                 </div>
                 <div>
-                  <h3 className="font-display text-base font-bold text-[#F5F3EE]">Google Search Console Integration</h3>
+                  <h3 className="font-display text-base font-bold text-[#352719]">Google Search Console Integration</h3>
                   <p className="text-xs text-[#B8C2D9] mt-0.5">
                     {gscStatus?.isConnected
                       ? `Connected to property: ${gscStatus.property}`
@@ -1457,34 +1457,34 @@ export default function AdminSeoManagerPage() {
             {/* Metrics row */}
             {gscStatus?.isConnected ? (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-5">
-                <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+                <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                   <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Total Organic Clicks</span>
-                  <div className="text-2xl font-black text-[#F5F3EE] mt-1">
+                  <div className="text-2xl font-black text-[#352719] mt-1">
                     {dashboardData?.searchConsole?.performance?.totalClicks || 0}
                   </div>
                 </div>
-                <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+                <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                   <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Search Impressions</span>
-                  <div className="text-2xl font-black text-[#F5F3EE] mt-1">
+                  <div className="text-2xl font-black text-[#352719] mt-1">
                     {dashboardData?.searchConsole?.performance?.totalImpressions || 0}
                   </div>
                 </div>
-                <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+                <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                   <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Average CTR</span>
-                  <div className="text-2xl font-black text-[#F5F3EE] mt-1">
+                  <div className="text-2xl font-black text-[#352719] mt-1">
                     {dashboardData?.searchConsole?.performance?.averageCtr || '0.0'}%
                   </div>
                 </div>
-                <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+                <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                   <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Average SERP Rank</span>
-                  <div className="text-2xl font-black text-[#F5F3EE] mt-1">
+                  <div className="text-2xl font-black text-[#352719] mt-1">
                     #{dashboardData?.searchConsole?.performance?.averagePosition || '0.0'}
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="pt-5 flex items-start gap-3 text-xs text-[#B8C2D9] bg-[#040A18]/70 p-4 rounded-xl border border-[#122240] mt-4">
-                <Info className="h-4 w-4 text-[#D6C29A] shrink-0 mt-0.5" />
+              <div className="pt-5 flex items-start gap-3 text-xs text-[#B8C2D9] bg-[#F5F0E7]/70 p-4 rounded-xl border border-[#DED2C1] mt-4">
+                <Info className="h-4 w-4 text-[#795C43] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   Real metrics are strictly preserved. To populate live Google SERP positions, CTR, and impressions without fabrication, connect your Google Search Console service account JSON.
                 </span>
@@ -1495,18 +1495,18 @@ export default function AdminSeoManagerPage() {
           {/* Pending AI Recommendations Snapshot */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Left: Pending AI Recommendations */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#122240] pb-3">
+                <div className="flex items-center justify-between border-b border-[#DED2C1] pb-3">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-[#D6C29A]" />
-                    <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                    <Sparkles className="h-4 w-4 text-[#795C43]" />
+                    <h3 className="font-display text-sm font-bold text-[#352719]">
                       Pending AI Recommendations ({dashboardData?.recommendationsSummary?.pending || 0})
                     </h3>
                   </div>
                   <button
                     onClick={() => setActiveTab('recommendations')}
-                    className="text-xs font-bold text-[#D6C29A] hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-[#795C43] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     View All
                     <ChevronRight className="h-3 w-3" />
@@ -1518,10 +1518,10 @@ export default function AdminSeoManagerPage() {
                     dashboardData.recommendationsSummary.topPending.map((rec) => (
                       <div
                         key={rec.id}
-                        className="rounded-xl border border-[#122240] bg-[#040A18]/80 p-4 hover:border-[#122240] transition-colors"
+                        className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/80 p-4 hover:border-[#DED2C1] transition-colors"
                       >
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-[10px] font-extrabold uppercase tracking-wider rounded bg-neutral-200 px-2 py-0.5 text-[#F5F3EE]">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider rounded bg-neutral-200 px-2 py-0.5 text-[#352719]">
                             {rec.target_type || rec.entity_type || 'page'} • {rec.target_field || 'metadata'}
                           </span>
                           <span
@@ -1536,7 +1536,7 @@ export default function AdminSeoManagerPage() {
                             {rec.priority}
                           </span>
                         </div>
-                        <h4 className="mt-2 text-xs font-bold text-[#F5F3EE] truncate">{rec.target_name || rec.page_url}</h4>
+                        <h4 className="mt-2 text-xs font-bold text-[#352719] truncate">{rec.target_name || rec.page_url}</h4>
                         <p className="mt-1 text-[11px] text-[#B8C2D9] line-clamp-2">{rec.issue}</p>
                         <div className="mt-3 flex items-center justify-between text-[11px]">
                           <span className="font-bold text-emerald-700">Confidence: {Math.round((rec.confidence || 0.9) * 100)}%</span>
@@ -1545,7 +1545,7 @@ export default function AdminSeoManagerPage() {
                               setSelectedRec(rec)
                               setActiveTab('recommendations')
                             }}
-                            className="font-bold text-[#D6C29A] hover:underline cursor-pointer"
+                            className="font-bold text-[#795C43] hover:underline cursor-pointer"
                           >
                             Review &amp; Apply &rarr;
                           </button>
@@ -1563,18 +1563,18 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* Right: Technical Issues Needing Attention */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-[#122240] pb-3">
+                <div className="flex items-center justify-between border-b border-[#DED2C1] pb-3">
                   <div className="flex items-center gap-2">
                     <ShieldAlert className="h-4 w-4 text-amber-600" />
-                    <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                    <h3 className="font-display text-sm font-bold text-[#352719]">
                       Active Technical Issues ({dashboardData?.auditSummary?.issuesCount || 0})
                     </h3>
                   </div>
                   <button
                     onClick={() => setActiveTab('audit')}
-                    className="text-xs font-bold text-[#D6C29A] hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-[#795C43] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     Audit Details
                     <ChevronRight className="h-3 w-3" />
@@ -1584,12 +1584,12 @@ export default function AdminSeoManagerPage() {
                 <div className="mt-4 space-y-2.5">
                   {dashboardData?.topIssues?.length > 0 ? (
                     dashboardData.topIssues.map((iss, idx) => (
-                      <div key={idx} className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3 text-xs">
+                      <div key={idx} className="flex items-start gap-3 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-xs">
                         <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-[#F5F3EE] truncate">{iss.page_url}</span>
-                            <span className="text-[10px] font-extrabold uppercase rounded bg-neutral-200 px-1.5 py-0.2 text-[#F5F3EE]">
+                            <span className="font-bold text-[#352719] truncate">{iss.page_url}</span>
+                            <span className="text-[10px] font-extrabold uppercase rounded bg-neutral-200 px-1.5 py-0.2 text-[#352719]">
                               {iss.severity}
                             </span>
                           </div>
@@ -1607,12 +1607,12 @@ export default function AdminSeoManagerPage() {
               </div>
 
               {/* Quick links to technical files */}
-              <div className="mt-6 pt-4 border-t border-[#122240] grid grid-cols-2 gap-2 text-xs">
+              <div className="mt-6 pt-4 border-t border-[#DED2C1] grid grid-cols-2 gap-2 text-xs">
                 <a
                   href="/sitemap.xml"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-[#122240] p-2.5 text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A] transition-colors"
+                  className="flex items-center justify-between rounded-xl border border-[#DED2C1] p-2.5 text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-colors"
                 >
                   <span className="font-bold">/sitemap.xml</span>
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -1621,7 +1621,7 @@ export default function AdminSeoManagerPage() {
                   href="/robots.txt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-[#122240] p-2.5 text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A] transition-colors"
+                  className="flex items-center justify-between rounded-xl border border-[#DED2C1] p-2.5 text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-colors"
                 >
                   <span className="font-bold">/robots.txt</span>
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -1631,14 +1631,14 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Blog & Editorial SEO Health Snapshot */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#122240] pb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DED2C1] pb-4">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center text-[#D6C29A]">
+                <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center text-[#795C43]">
                   <BookOpen className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                  <h3 className="font-display text-base font-bold text-[#352719]">
                     Editorial Blog SEO &amp; Content Architecture
                   </h3>
                   <p className="text-xs text-[#B8C2D9]">
@@ -1650,7 +1650,7 @@ export default function AdminSeoManagerPage() {
               <div className="flex items-center gap-2">
                 <Link
                   to="/admin/blog"
-                  className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-1.5 text-xs font-bold text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A] transition-colors"
+                  className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-1.5 text-xs font-bold text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-colors"
                 >
                   Manage Blogs
                 </Link>
@@ -1665,7 +1665,7 @@ export default function AdminSeoManagerPage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Average SEO Score</span>
                 <div className="flex items-baseline gap-1 mt-1">
                   <span className={`text-2xl font-black ${(blogMetrics?.summary?.avgScore || 0) >= 80 ? 'text-emerald-600' : (blogMetrics?.summary?.avgScore || 0) >= 60 ? 'text-amber-600' : 'text-red-600'}`}>
@@ -1674,23 +1674,23 @@ export default function AdminSeoManagerPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Score &ge; 90 (High Quality)</span>
                 <div className="text-2xl font-black text-emerald-600 mt-1">
                   {blogMetrics?.summary?.blogsAbove90 || 0}
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Score &lt; 70 (Needs Work)</span>
                 <div className="text-2xl font-black text-amber-600 mt-1">
                   {blogMetrics?.summary?.blogsBelow70 || 0}
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Missing Metadata</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">
+                <div className="text-2xl font-black text-[#352719] mt-1">
                   {(blogMetrics?.summary?.missingFocusKeyword || 0) + (blogMetrics?.summary?.missingMetaDescription || 0)}
                 </div>
               </div>
@@ -1705,12 +1705,12 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'blog-seo' && (
         <div className="space-y-6">
           {/* Header Banner */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-[#D6C29A]" />
-                  <h2 className="font-display text-xl font-bold text-[#F5F3EE]">
+                  <BookOpen className="h-5 w-5 text-[#795C43]" />
+                  <h2 className="font-display text-xl font-bold text-[#352719]">
                     Blog SEO &amp; Content Architecture
                   </h2>
                 </div>
@@ -1733,13 +1733,13 @@ export default function AdminSeoManagerPage() {
                 </Button>
                 <Link
                   to="/admin/blog"
-                  className="rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2 text-xs font-bold text-[#F5F3EE] hover:border-neutral-400 hover:text-[#F5F3EE] transition-colors"
+                  className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2 text-xs font-bold text-[#352719] hover:border-neutral-400 hover:text-[#352719] transition-colors"
                 >
                   Manage Articles
                 </Link>
                 <Link
                   to="/admin/blog/new"
-                  className="rounded-xl bg-[#D6C29A] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#D6C29A] transition-colors shadow-sm flex items-center gap-1.5"
+                  className="rounded-xl bg-[#C5A989] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#C5A989] transition-colors shadow-sm flex items-center gap-1.5"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   <span>+ New Article</span>
@@ -1748,15 +1748,15 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* KPI Cards Row */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-[#122240]">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-[#DED2C1]">
               {/* Total Articles */}
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240] flex flex-col justify-between">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1] flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold uppercase text-[#B8C2D9]/70">Total Articles</span>
                   <BookOpen className="h-4 w-4 text-[#B8C2D9]" />
                 </div>
                 <div className="my-2">
-                  <div className="text-3xl font-black text-[#F5F3EE]">
+                  <div className="text-3xl font-black text-[#352719]">
                     {blogMetrics?.summary?.totalBlogs || 0}
                   </div>
                 </div>
@@ -1768,7 +1768,7 @@ export default function AdminSeoManagerPage() {
               </div>
 
               {/* Average SEO Score */}
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240] flex flex-col justify-between">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1] flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold uppercase text-[#B8C2D9]/70">Avg Blog SEO Score</span>
                   <ShieldCheck className="h-4 w-4 text-emerald-600" />
@@ -1791,7 +1791,7 @@ export default function AdminSeoManagerPage() {
               </div>
 
               {/* Score Distribution */}
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240] flex flex-col justify-between">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1] flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold uppercase text-[#B8C2D9]/70">Score Distribution</span>
                   <BarChart3 className="h-4 w-4 text-blue-600" />
@@ -1802,28 +1802,28 @@ export default function AdminSeoManagerPage() {
                       <span className="h-2 w-2 rounded-full bg-emerald-500" />
                       &ge; 90 (High Quality)
                     </span>
-                    <span className="font-extrabold text-[#F5F3EE]">{blogMetrics?.summary?.blogsAbove90 || 0}</span>
+                    <span className="font-extrabold text-[#352719]">{blogMetrics?.summary?.blogsAbove90 || 0}</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-bold text-amber-700 flex items-center gap-1">
                       <span className="h-2 w-2 rounded-full bg-amber-500" />
                       70–89 (Fair)
                     </span>
-                    <span className="font-extrabold text-[#F5F3EE]">{blogMetrics?.summary?.blogs70to89 || 0}</span>
+                    <span className="font-extrabold text-[#352719]">{blogMetrics?.summary?.blogs70to89 || 0}</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-bold text-red-700 flex items-center gap-1">
                       <span className="h-2 w-2 rounded-full bg-red-500" />
                       &lt; 70 (Needs Work)
                     </span>
-                    <span className="font-extrabold text-[#F5F3EE]">{blogMetrics?.summary?.blogsBelow70 || 0}</span>
+                    <span className="font-extrabold text-[#352719]">{blogMetrics?.summary?.blogsBelow70 || 0}</span>
                   </div>
                 </div>
                 <span className="text-[10px] text-[#B8C2D9]/70">Based on latest crawler audit</span>
               </div>
 
               {/* Missing Metadata */}
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240] flex flex-col justify-between">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1] flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold uppercase text-[#B8C2D9]/70">Missing Metadata</span>
                   <AlertTriangle className="h-4 w-4 text-amber-500" />
@@ -1855,11 +1855,11 @@ export default function AdminSeoManagerPage() {
 
           {/* Actionable AI Opportunities */}
           {blogMetrics?.opportunities?.length > 0 && (
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
-              <div className="flex items-center justify-between border-b border-[#122240] pb-3">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
+              <div className="flex items-center justify-between border-b border-[#DED2C1] pb-3">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-[#D6C29A]" />
-                  <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                  <Sparkles className="h-4 w-4 text-[#795C43]" />
+                  <h3 className="font-display text-sm font-bold text-[#352719]">
                     High-Impact Blog SEO Opportunities ({blogMetrics.opportunities.length})
                   </h3>
                 </div>
@@ -1870,7 +1870,7 @@ export default function AdminSeoManagerPage() {
                 {blogMetrics.opportunities.map((opp) => (
                   <div
                     key={opp.id}
-                    className="rounded-xl border border-[#122240] bg-[#040A18]/70 p-4 flex flex-col justify-between"
+                    className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/70 p-4 flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2">
@@ -1887,14 +1887,14 @@ export default function AdminSeoManagerPage() {
                         </span>
                         <span className="text-[10px] font-mono text-[#B8C2D9]/70 uppercase">{opp.type}</span>
                       </div>
-                      <p className="mt-2 text-xs font-bold text-[#F5F3EE] leading-snug">{opp.message}</p>
+                      <p className="mt-2 text-xs font-bold text-[#352719] leading-snug">{opp.message}</p>
                       <p className="mt-1 text-[11px] text-[#B8C2D9] leading-relaxed">{opp.action}</p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-[#122240]/60">
+                    <div className="mt-4 pt-3 border-t border-[#DED2C1]/60">
                       <Link
                         to="/admin/blog"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#D6C29A] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#795C43] hover:underline"
                       >
                         <span>Fix in Blog Editor</span>
                         <ArrowUpRight className="h-3 w-3" />
@@ -1907,9 +1907,9 @@ export default function AdminSeoManagerPage() {
           )}
 
           {/* Blog Articles & Scores Table Card */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
             {/* Filter and Search Bar */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#122240]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#DED2C1]">
               <div className="relative w-full md:w-80">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
                 <input
@@ -1917,7 +1917,7 @@ export default function AdminSeoManagerPage() {
                   placeholder="Search articles by title, keyword, slug..."
                   value={blogSearch}
                   onChange={(e) => setBlogSearch(e.target.value)}
-                  className="w-full rounded-xl border border-[#122240] bg-[#040A18]/70 pl-9 pr-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#081226] focus:outline-none transition-all"
+                  className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/70 pl-9 pr-4 py-2 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:bg-[#FAF8F3] focus:outline-none transition-all"
                 />
               </div>
 
@@ -1931,8 +1931,8 @@ export default function AdminSeoManagerPage() {
                       onClick={() => setBlogStatusFilter(status)}
                       className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
                         blogStatusFilter === status
-                          ? 'bg-[#081226] text-[#F5F3EE] shadow-xs'
-                          : 'text-[#B8C2D9] hover:text-[#F5F3EE]'
+                          ? 'bg-[#FAF8F3] text-[#352719] shadow-xs'
+                          : 'text-[#B8C2D9] hover:text-[#352719]'
                       }`}
                     >
                       {status === 'ALL' ? 'All Status' : status === 'PUBLISHED' ? 'Published' : 'Drafts'}
@@ -1944,7 +1944,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={blogHealthFilter}
                   onChange={(e) => setBlogHealthFilter(e.target.value)}
-                  className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none"
                 >
                   <option value="ALL">All Scores</option>
                   <option value="OPTIMAL">Score &ge; 90 (High)</option>
@@ -1959,7 +1959,7 @@ export default function AdminSeoManagerPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] bg-[#040A18] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+                  <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
                     <th className="px-4 py-3.5">Article</th>
                     <th className="px-4 py-3.5">Status</th>
                     <th className="px-4 py-3.5">SEO Score</th>
@@ -1981,20 +1981,20 @@ export default function AdminSeoManagerPage() {
                           : 'bg-red-50 text-red-700 border-red-200'
 
                       return (
-                        <tr key={blog.id} className="hover:bg-[#040A18]/80 transition-colors">
+                        <tr key={blog.id} className="hover:bg-[#F5F0E7]/80 transition-colors">
                           <td className="px-4 py-4 max-w-sm">
                             <div className="flex items-center gap-3">
                               {blog.featured_image && (
                                 <img
                                   src={blog.featured_image}
                                   alt=""
-                                  className="h-10 w-10 rounded-lg object-cover bg-neutral-100 shrink-0 border border-[#122240]"
+                                  className="h-10 w-10 rounded-lg object-cover bg-neutral-100 shrink-0 border border-[#DED2C1]"
                                 />
                               )}
                               <div className="min-w-0">
                                 <Link
                                   to={`/admin/blog/${blog.id}/edit`}
-                                  className="font-bold text-[#F5F3EE] hover:text-[#D6C29A] transition-colors truncate block"
+                                  className="font-bold text-[#352719] hover:text-[#795C43] transition-colors truncate block"
                                 >
                                   {blog.title}
                                 </Link>
@@ -2016,7 +2016,7 @@ export default function AdminSeoManagerPage() {
                               className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider border ${
                                 blog.status === 'published'
                                   ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                  : 'bg-neutral-100 text-[#B8C2D9] border-[#122240]'
+                                  : 'bg-neutral-100 text-[#B8C2D9] border-[#DED2C1]'
                               }`}
                             >
                               <span
@@ -2037,7 +2037,7 @@ export default function AdminSeoManagerPage() {
                           </td>
 
                           <td className="px-4 py-4 whitespace-nowrap text-[#B8C2D9]">
-                            <div className="font-bold text-[#F5F3EE]">
+                            <div className="font-bold text-[#352719]">
                               {blog.readability_score ? `${blog.readability_score}% readability` : 'Unrated'}
                             </div>
                             <div className="text-[11px] text-[#B8C2D9]/70 mt-0.5">
@@ -2047,7 +2047,7 @@ export default function AdminSeoManagerPage() {
 
                           <td className="px-4 py-4 max-w-xs">
                             {blog.focus_keyword ? (
-                              <span className="inline-block rounded-md bg-neutral-100 px-2 py-0.5 text-[11px] font-mono text-[#F5F3EE] truncate max-w-[200px]">
+                              <span className="inline-block rounded-md bg-neutral-100 px-2 py-0.5 text-[11px] font-mono text-[#352719] truncate max-w-[200px]">
                                 {blog.focus_keyword}
                               </span>
                             ) : (
@@ -2073,14 +2073,14 @@ export default function AdminSeoManagerPage() {
                                 to={`/blog/${blog.slug}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="rounded-lg border border-[#122240] p-1.5 text-[#B8C2D9] hover:border-neutral-400 hover:text-[#F5F3EE] transition-colors"
+                                className="rounded-lg border border-[#DED2C1] p-1.5 text-[#B8C2D9] hover:border-neutral-400 hover:text-[#352719] transition-colors"
                                 title="View Live Preview"
                               >
                                 <ExternalLink className="h-3.5 w-3.5" />
                               </Link>
                               <Link
                                 to={`/admin/blog/${blog.id}/edit`}
-                                className="rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#D6C29A] transition-colors"
+                                className="rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#C5A989] transition-colors"
                               >
                                 Edit &amp; Optimize
                               </Link>
@@ -2110,7 +2110,7 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'recommendations' && (
         <div className="space-y-6">
           {/* Filter and Bulk Action Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs">
             <div className="flex flex-wrap items-center gap-2">
               {['ALL', 'PENDING', 'APPROVED', 'APPLIED', 'REJECTED'].map((st) => (
                 <button
@@ -2144,9 +2144,9 @@ export default function AdminSeoManagerPage() {
 
           {/* Recommendations List */}
           {recommendations.length === 0 ? (
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-12 text-center shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center shadow-xs">
               <Sparkles className="mx-auto h-12 w-12 text-neutral-300 mb-3" />
-              <h3 className="font-display text-base font-bold text-[#F5F3EE]">No Recommendations Found</h3>
+              <h3 className="font-display text-base font-bold text-[#352719]">No Recommendations Found</h3>
               <p className="text-xs text-[#B8C2D9] mt-1 max-w-md mx-auto">
                 No items match your active filters. Click &quot;Generate AI Recs&quot; above to scan products, categories, and articles for optimization opportunities.
               </p>
@@ -2166,14 +2166,14 @@ export default function AdminSeoManagerPage() {
                 return (
                   <div
                     key={rec.id}
-                    className={`rounded-2xl border bg-[#081226] p-6 shadow-xs transition-all ${
-                      isSelected ? 'border-[#D6C29A] ring-2 ring-[#D6C29A]/20' : 'border-[#122240]'
+                    className={`rounded-2xl border bg-[#FAF8F3] p-6 shadow-xs transition-all ${
+                      isSelected ? 'border-[#C5A989] ring-2 ring-[#D6C29A]/20' : 'border-[#DED2C1]'
                     }`}
                   >
                     <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                       <div className="flex-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="rounded bg-neutral-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#F5F3EE]">
+                          <span className="rounded bg-neutral-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#352719]">
                             {rec.target_type || rec.entity_type || 'page'}
                           </span>
                           <span
@@ -2205,22 +2205,22 @@ export default function AdminSeoManagerPage() {
                           </span>
                         </div>
 
-                        <h3 className="mt-2 text-base font-bold text-[#F5F3EE]">{rec.target_name || rec.page_url}</h3>
+                        <h3 className="mt-2 text-base font-bold text-[#352719]">{rec.target_name || rec.page_url}</h3>
                         <p className="text-xs text-[#B8C2D9] font-mono mt-0.5">{rec.target_url || rec.page_url || ('/' + (rec.target_type || rec.entity_type || 'page') + 's')}</p>
 
-                        <div className="mt-3 rounded-xl bg-[#040A18] border border-[#122240] p-3 text-xs text-[#B8C2D9]">
-                          <strong className="text-[#F5F3EE]">Diagnosis:</strong> {rec.issue}
+                        <div className="mt-3 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] p-3 text-xs text-[#B8C2D9]">
+                          <strong className="text-[#352719]">Diagnosis:</strong> {rec.issue}
                         </div>
 
                         {/* Diff Comparison View */}
                         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                           {/* Current State */}
-                          <div className="rounded-xl border border-[#122240] bg-[#040A18]/70 p-4">
+                          <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/70 p-4">
                             <div className="flex items-center gap-1.5 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider mb-2">
                               <XCircle className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
                               Current Value ({rec.target_field || 'metadata'})
                             </div>
-                            <div className="text-[#F5F3EE] font-medium break-words">
+                            <div className="text-[#352719] font-medium break-words">
                               {typeof rec.current_value === 'object' && rec.current_value !== null
                                 ? JSON.stringify(rec.current_value)
                                 : (rec.current_value || (
@@ -2235,7 +2235,7 @@ export default function AdminSeoManagerPage() {
                               <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                               Recommended AI Value
                             </div>
-                            <div className="text-[#F5F3EE] font-bold break-words">
+                            <div className="text-[#352719] font-bold break-words">
                               {typeof (rec.recommended_value || rec.proposed_value) === 'object' && (rec.recommended_value || rec.proposed_value) !== null
                                 ? JSON.stringify(rec.recommended_value || rec.proposed_value)
                                 : (rec.recommended_value || rec.proposed_value || '')}
@@ -2247,7 +2247,7 @@ export default function AdminSeoManagerPage() {
                         <div className="mt-3 text-xs text-[#B8C2D9] flex flex-col gap-1">
                           {rec.reason && (
                             <div>
-                              <strong className="text-[#F5F3EE]">Rationale:</strong> {rec.reason}
+                              <strong className="text-[#352719]">Rationale:</strong> {rec.reason}
                             </div>
                           )}
                           {rec.expected_benefit && (
@@ -2262,7 +2262,7 @@ export default function AdminSeoManagerPage() {
                           <div className="mt-3 flex flex-wrap items-center gap-1.5">
                             <span className="text-[10px] font-bold uppercase text-[#B8C2D9]/70 mr-1">Target Keywords:</span>
                             {rec.keywords.map((kw, i) => (
-                              <span key={i} className="rounded-lg bg-neutral-100 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F3EE]">
+                              <span key={i} className="rounded-lg bg-neutral-100 border border-[#DED2C1] px-2 py-0.5 text-[10px] font-bold text-[#352719]">
                                 {kw}
                               </span>
                             ))}
@@ -2271,7 +2271,7 @@ export default function AdminSeoManagerPage() {
                       </div>
 
                       {/* Action Controls */}
-                      <div className="flex flex-row lg:flex-col gap-2 shrink-0 border-t lg:border-t-0 lg:border-l border-[#122240] pt-4 lg:pt-0 lg:pl-6 justify-end">
+                      <div className="flex flex-row lg:flex-col gap-2 shrink-0 border-t lg:border-t-0 lg:border-l border-[#DED2C1] pt-4 lg:pt-0 lg:pl-6 justify-end">
                         {(rec.status === 'PENDING' || rec.status === 'NEW') && (
                           <>
                             <button
@@ -2291,7 +2291,7 @@ export default function AdminSeoManagerPage() {
                             </button>
                             <button
                               onClick={() => handleRejectRec(rec.id)}
-                              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#122240] px-4 py-2 text-xs font-bold text-[#B8C2D9] hover:bg-[#040A18] transition-colors cursor-pointer"
+                              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#DED2C1] px-4 py-2 text-xs font-bold text-[#B8C2D9] hover:bg-[#F5F0E7] transition-colors cursor-pointer"
                             >
                               <X className="h-3.5 w-3.5" />
                               Reject
@@ -2333,34 +2333,34 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Top Audit Summary */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Total URLs Audited</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">{auditData?.totalEntities || auditData?.totalPagesScanned || 25}</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">{auditData?.totalEntities || auditData?.totalPagesScanned || 25}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Live database records &amp; static routes</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Issues Detected</span>
               <div className="text-3xl font-black text-amber-600 mt-1">{auditData?.issuesCount || auditData?.issues?.length || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Weighted against Google ranking factors</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Sitemap Status</span>
               <div className="flex items-center gap-2 mt-2">
                 <span className="rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-0.5">
                   Valid XML
                 </span>
-                <a href="/sitemap.xml" target="_blank" className="text-xs font-bold text-[#D6C29A] hover:underline flex items-center gap-0.5">
+                <a href="/sitemap.xml" target="_blank" className="text-xs font-bold text-[#795C43] hover:underline flex items-center gap-0.5">
                   View <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Robots.txt Status</span>
               <div className="flex items-center gap-2 mt-2">
                 <span className="rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-0.5">
                   Allow Public / Disallow Admin
                 </span>
-                <a href="/robots.txt" target="_blank" className="text-xs font-bold text-[#D6C29A] hover:underline flex items-center gap-0.5">
+                <a href="/robots.txt" target="_blank" className="text-xs font-bold text-[#795C43] hover:underline flex items-center gap-0.5">
                   View <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
@@ -2368,70 +2368,70 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* 8-Factor Multi-Score Breakdown */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3 mb-5">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3 mb-5">
               8-Factor Multi-Dimensional SEO Health Scorecard
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Technical SEO</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.technicalScore || scores.technicalScore}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.technicalScore || scores.technicalScore}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${auditData?.scores?.technicalScore || scores.technicalScore}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">On-Page SEO</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.onpageScore || scores.onpageScore}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.onpageScore || scores.onpageScore}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-blue-500 h-full rounded-full" style={{ width: `${auditData?.scores?.onpageScore || scores.onpageScore}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Performance</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.performanceScore || 92}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.performanceScore || 92}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${auditData?.scores?.performanceScore || 92}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Indexability</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.indexabilityScore || 95}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.indexabilityScore || 95}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${auditData?.scores?.indexabilityScore || 95}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Content Depth</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.contentScore || scores.contentScore}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.contentScore || scores.contentScore}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-amber-500 h-full rounded-full" style={{ width: `${auditData?.scores?.contentScore || scores.contentScore}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Internal Linking</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.internalLinkingScore || 88}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.internalLinkingScore || 88}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-indigo-500 h-full rounded-full" style={{ width: `${auditData?.scores?.internalLinkingScore || 88}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Structured Data</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.structuredDataScore || scores.structuredDataScore}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.structuredDataScore || scores.structuredDataScore}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-purple-500 h-full rounded-full" style={{ width: `${auditData?.scores?.structuredDataScore || scores.structuredDataScore}%` }} />
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#040A18] p-4 border border-[#122240]">
+              <div className="rounded-xl bg-[#F5F0E7] p-4 border border-[#DED2C1]">
                 <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]">Mobile SEO</span>
-                <div className="text-2xl font-black text-[#F5F3EE] mt-1">{auditData?.scores?.mobileSeoScore || 96}%</div>
+                <div className="text-2xl font-black text-[#352719] mt-1">{auditData?.scores?.mobileSeoScore || 96}%</div>
                 <div className="w-full bg-neutral-200 h-1.5 rounded-full mt-2 overflow-hidden">
                   <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${auditData?.scores?.mobileSeoScore || 96}%` }} />
                 </div>
@@ -2440,10 +2440,10 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Itemized Issues Catalog */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Itemized Issues &amp; Diagnostic Details
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -2481,7 +2481,7 @@ export default function AdminSeoManagerPage() {
                   <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <strong className="font-bold text-sm block">Auto-Remediation Executed Successfully</strong>
-                    <p className="mt-0.5 text-[#F5F3EE]">{autoFixResult.message}</p>
+                    <p className="mt-0.5 text-[#352719]">{autoFixResult.message}</p>
                     {autoFixResult.fixes?.length > 0 && (
                       <div className="mt-2 space-y-1">
                         <span className="text-[11px] font-bold text-[#B8C2D9] uppercase tracking-wider block">
@@ -2522,7 +2522,7 @@ export default function AdminSeoManagerPage() {
                       />
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-[#F5F3EE]">{iss.page_url || iss.name}</span>
+                          <span className="font-bold text-[#352719]">{iss.page_url || iss.name}</span>
                           <span
                             className={`rounded px-1.5 py-0.2 text-[10px] font-extrabold uppercase ${
                               iss.severity === 'critical'
@@ -2534,7 +2534,7 @@ export default function AdminSeoManagerPage() {
                           >
                             {iss.severity}
                           </span>
-                          <span className="rounded bg-neutral-100 px-1.5 py-0.2 text-[10px] font-bold text-[#F5F3EE]">
+                          <span className="rounded bg-neutral-100 px-1.5 py-0.2 text-[10px] font-bold text-[#352719]">
                             {iss.category}
                           </span>
                         </div>
@@ -2549,7 +2549,7 @@ export default function AdminSeoManagerPage() {
               ) : (
                 <div className="py-12 text-center text-xs text-[#B8C2D9]">
                   <CheckCircle className="mx-auto h-10 w-10 text-emerald-500 mb-2" />
-                  <h4 className="text-sm font-bold text-[#F5F3EE]">Audit Clean</h4>
+                  <h4 className="text-sm font-bold text-[#352719]">Audit Clean</h4>
                   <p className="mt-1">All pages and catalog entries pass on-page SEO verification.</p>
                 </div>
               )}
@@ -2557,17 +2557,17 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Top 20 Prioritized SEO Actions Ranked by Impact */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Top 20 SEO Actions Ranked by Expected Impact
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
                   Algorithmically prioritized by algorithmic return-on-investment, crawl efficiency, and conversion impact.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#D6C29A]/10 border border-[#D6C29A]/25 px-2.5 py-1 text-xs font-bold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#C5A989]/10 border border-[#C5A989]/25 px-2.5 py-1 text-xs font-bold text-[#795C43]">
                 <Sparkles className="h-3 w-3" />
                 Impact Matrix
               </span>
@@ -2576,7 +2576,7 @@ export default function AdminSeoManagerPage() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="pb-3 pr-4">Rank</th>
                     <th className="pb-3 pr-4">Priority</th>
                     <th className="pb-3 pr-4">Action Item</th>
@@ -2597,8 +2597,8 @@ export default function AdminSeoManagerPage() {
                     { rank: 7, priority: 'MEDIUM', title: 'Expand Thin Product Descriptions', category: 'content', affectedUrl: 'https://www.0nprint.com/products', recommendedFix: 'Add paper stock specs, laminations, turnaround.', expectedImpact: 'Increases topical dwell time & depth.' },
                     { rank: 8, priority: 'MEDIUM', title: 'Convert Legacy Category JPGs to WebP', category: 'performance', affectedUrl: 'https://www.0nprint.com/uploads', recommendedFix: 'Serve WebP format with fallbacks.', expectedImpact: 'Reduces bandwidth by 35% on mobile.' },
                   ]).map((act, idx) => (
-                    <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
-                      <td className="py-3 pr-4 font-black text-[#F5F3EE]">#{act.rank || idx + 1}</td>
+                    <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
+                      <td className="py-3 pr-4 font-black text-[#352719]">#{act.rank || idx + 1}</td>
                       <td className="py-3 pr-4">
                         <span
                           className={`rounded px-2 py-0.5 text-[10px] font-extrabold uppercase ${
@@ -2612,9 +2612,9 @@ export default function AdminSeoManagerPage() {
                           {act.priority}
                         </span>
                       </td>
-                      <td className="py-3 pr-4 font-bold text-[#F5F3EE]">{act.title}</td>
+                      <td className="py-3 pr-4 font-bold text-[#352719]">{act.title}</td>
                       <td className="py-3 pr-4 text-[#B8C2D9] font-mono text-[11px]">{act.category}</td>
-                      <td className="py-3 pr-4 text-[#D6C29A] font-mono text-[11px] truncate max-w-[160px]">{act.affectedUrl}</td>
+                      <td className="py-3 pr-4 text-[#795C43] font-mono text-[11px] truncate max-w-[160px]">{act.affectedUrl}</td>
                       <td className="py-3 pr-4 text-[#B8C2D9] max-w-[220px]">{act.recommendedFix}</td>
                       <td className="py-3 text-emerald-700 font-semibold">{act.expectedImpact}</td>
                     </tr>
@@ -2660,22 +2660,22 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Top Metric Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Striking Distance (Pos 4–20)</span>
-              <div className="text-3xl font-black text-[#D6C29A] mt-1">{opportunitiesData?.strikingDistanceCount || 0}</div>
+              <div className="text-3xl font-black text-[#795C43] mt-1">{opportunitiesData?.strikingDistanceCount || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">High-intent queries ready to leap to Page 1 top 3</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">High Impression / Low CTR</span>
               <div className="text-3xl font-black text-amber-600 mt-1">{opportunitiesData?.highImpressionLowCtrCount || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Prime snippet &amp; meta title optimization targets</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Declining Queries</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">{opportunitiesData?.decliningCount || 0}</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">{opportunitiesData?.decliningCount || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Require defensive content refreshes</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Projected Click Uplift</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">+28% to +45%</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Estimated organic volume upon snippet execution</p>
@@ -2683,10 +2683,10 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Opportunities Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#122240] pb-4 gap-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#DED2C1] pb-4 gap-3">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Target Ranking &amp; Snippet Optimization Opportunities
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -2709,7 +2709,7 @@ export default function AdminSeoManagerPage() {
               {/* Section 1: Striking Distance */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="rounded-md bg-[#D6C29A]/10 text-[#D6C29A] px-2 py-0.5 text-xs font-black">
+                  <span className="rounded-md bg-[#C5A989]/10 text-[#795C43] px-2 py-0.5 text-xs font-black">
                     Striking Distance (Positions 4–20)
                   </span>
                   <span className="text-xs text-[#B8C2D9]">Fastest ROI: Low competition to bump to Top 3</span>
@@ -2717,7 +2717,7 @@ export default function AdminSeoManagerPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                      <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                         <th className="pb-3 pr-4">Search Query</th>
                         <th className="pb-3 pr-4 text-center">Avg Position</th>
                         <th className="pb-3 pr-4 text-right">Impressions</th>
@@ -2729,15 +2729,15 @@ export default function AdminSeoManagerPage() {
                     <tbody className="divide-y divide-neutral-100">
                       {(opportunitiesData?.opportunities?.strikingDistance || []).length > 0 ? (
                         opportunitiesData.opportunities.strikingDistance.map((item, idx) => (
-                          <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
-                            <td className="py-3 pr-4 font-bold text-[#F5F3EE]">{item.query}</td>
+                          <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
+                            <td className="py-3 pr-4 font-bold text-[#352719]">{item.query}</td>
                             <td className="py-3 pr-4 text-center">
                               <span className="rounded-full bg-neutral-900 text-white font-black px-2.5 py-0.5 text-[11px]">
                                 #{item.position || item.avgPosition || '-'}
                               </span>
                             </td>
-                            <td className="py-3 pr-4 text-right font-medium text-[#F5F3EE]">{item.impressions?.toLocaleString() || 0}</td>
-                            <td className="py-3 pr-4 text-right font-medium text-[#F5F3EE]">{item.ctr}%</td>
+                            <td className="py-3 pr-4 text-right font-medium text-[#352719]">{item.impressions?.toLocaleString() || 0}</td>
+                            <td className="py-3 pr-4 text-right font-medium text-[#352719]">{item.ctr}%</td>
                             <td className="py-3 pr-4 text-[#B8C2D9] max-w-xs">{item.targetAction || item.action}</td>
                             <td className="py-3 font-semibold text-emerald-700">{item.expectedImpact || '+30% Clicks'}</td>
                           </tr>
@@ -2755,7 +2755,7 @@ export default function AdminSeoManagerPage() {
               </div>
 
               {/* Section 2: High Impression Low CTR */}
-              <div className="pt-4 border-t border-[#122240]">
+              <div className="pt-4 border-t border-[#DED2C1]">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="rounded-md bg-amber-100 text-amber-800 px-2 py-0.5 text-xs font-black">
                     High Impression / Low CTR (CTR Opportunities)
@@ -2765,7 +2765,7 @@ export default function AdminSeoManagerPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                      <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                         <th className="pb-3 pr-4">Search Query</th>
                         <th className="pb-3 pr-4 text-center">Avg Position</th>
                         <th className="pb-3 pr-4 text-right">Impressions</th>
@@ -2777,12 +2777,12 @@ export default function AdminSeoManagerPage() {
                     <tbody className="divide-y divide-neutral-100">
                       {(opportunitiesData?.opportunities?.highImpressionLowCtr || []).length > 0 ? (
                         opportunitiesData.opportunities.highImpressionLowCtr.map((item, idx) => (
-                          <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
-                            <td className="py-3 pr-4 font-bold text-[#F5F3EE]">{item.query}</td>
-                            <td className="py-3 pr-4 text-center font-bold text-[#F5F3EE]">
+                          <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
+                            <td className="py-3 pr-4 font-bold text-[#352719]">{item.query}</td>
+                            <td className="py-3 pr-4 text-center font-bold text-[#352719]">
                               #{item.position || item.avgPosition || '-'}
                             </td>
-                            <td className="py-3 pr-4 text-right font-medium text-[#F5F3EE]">{item.impressions?.toLocaleString() || 0}</td>
+                            <td className="py-3 pr-4 text-right font-medium text-[#352719]">{item.impressions?.toLocaleString() || 0}</td>
                             <td className="py-3 pr-4 text-right font-bold text-amber-600">{item.ctr}%</td>
                             <td className="py-3 pr-4 text-[#B8C2D9] max-w-xs">{item.targetAction || item.action}</td>
                             <td className="py-3 font-semibold text-emerald-700">{item.expectedImpact || '+40% CTR Lift'}</td>
@@ -2811,11 +2811,11 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Keyword Growth Overview Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <div className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70 mb-1">
                 Target Keywords
               </div>
-              <div className="text-3xl font-black text-[#F5F3EE]">
+              <div className="text-3xl font-black text-[#352719]">
                 {keywordTargets.total || 147}
               </div>
               <p className="text-xs text-[#B8C2D9] mt-1">
@@ -2823,7 +2823,7 @@ export default function AdminSeoManagerPage() {
               </p>
             </div>
             
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <div className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70 mb-1">
                 Currently Ranking
               </div>
@@ -2835,7 +2835,7 @@ export default function AdminSeoManagerPage() {
               </p>
             </div>
             
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <div className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70 mb-1">
                 Coverage Rate
               </div>
@@ -2849,7 +2849,7 @@ export default function AdminSeoManagerPage() {
               </p>
             </div>
             
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <div className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70 mb-1">
                 Growth Goal
               </div>
@@ -2866,7 +2866,7 @@ export default function AdminSeoManagerPage() {
             <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-6 shadow-xs flex items-start gap-4">
               <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-sm font-bold text-[#352719]">
                   Google Search Console Disconnected
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-1">
@@ -2883,7 +2883,7 @@ export default function AdminSeoManagerPage() {
               </div>
             </div>
           ) : (
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs flex items-center justify-between">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs text-emerald-700 font-bold">
                 <CheckCircle2 className="h-4 w-4" />
                 Live Google Search Console Performance Data Active
@@ -2902,9 +2902,9 @@ export default function AdminSeoManagerPage() {
           )}
 
           {/* Keywords Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="border-b border-[#122240] pb-3 flex items-center justify-between">
-              <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="border-b border-[#DED2C1] pb-3 flex items-center justify-between">
+              <h3 className="font-display text-base font-bold text-[#352719]">
                 Currently Ranking Keywords
               </h3>
               <div className="text-xs font-bold text-[#B8C2D9]">
@@ -2915,7 +2915,7 @@ export default function AdminSeoManagerPage() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="pb-3">Search Query / Keyword</th>
                     <th className="pb-3 text-right">Clicks</th>
                     <th className="pb-3 text-right">Impressions</th>
@@ -2926,12 +2926,12 @@ export default function AdminSeoManagerPage() {
                 <tbody className="divide-y divide-neutral-100">
                   {keywordsData.queries?.length > 0 ? (
                     keywordsData.queries.map((q, idx) => (
-                      <tr key={idx} className="hover:bg-[#040A18] transition-colors">
-                        <td className="py-3 font-bold text-[#F5F3EE]">{q.query}</td>
-                        <td className="py-3 text-right font-medium text-[#F5F3EE]">{q.clicks}</td>
-                        <td className="py-3 text-right font-medium text-[#F5F3EE]">{q.impressions}</td>
-                        <td className="py-3 text-right font-medium text-[#F5F3EE]">{q.ctr}%</td>
-                        <td className="py-3 text-right font-bold text-[#F5F3EE]">
+                      <tr key={idx} className="hover:bg-[#F5F0E7] transition-colors">
+                        <td className="py-3 font-bold text-[#352719]">{q.query}</td>
+                        <td className="py-3 text-right font-medium text-[#352719]">{q.clicks}</td>
+                        <td className="py-3 text-right font-medium text-[#352719]">{q.impressions}</td>
+                        <td className="py-3 text-right font-medium text-[#352719]">{q.ctr}%</td>
+                        <td className="py-3 text-right font-bold text-[#352719]">
                           {q.position ? `#${q.position}` : '-'}
                         </td>
                       </tr>
@@ -2975,18 +2975,18 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'backlink-opportunities' && (
         <div className="space-y-6">
           {/* Top Header & Strategy Summary */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-3 py-1 text-xs font-bold text-[#D6C29A]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-3 py-1 text-xs font-bold text-[#795C43]">
                     <ArrowUpRight className="h-3.5 w-3.5" /> High Authority Off-Page SEO
                   </span>
                   <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#B8C2D9]">
                     UAE & GCC Market
                   </span>
                 </div>
-                <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#F5F3EE]">
+                <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#352719]">
                   150 Legitimate UAE Backlink Acquisition Directory
                 </h2>
                 <p className="mt-1 text-xs sm:text-sm text-[#B8C2D9] max-w-3xl leading-relaxed">
@@ -3006,21 +3006,21 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* Strategic Anchor Text Ratios Reminder */}
-            <div className="mt-5 pt-4 border-t border-[#122240] grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-              <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]/60">
-                <span className="font-bold text-[#F5F3EE]">40% Brand Anchors</span>
+            <div className="mt-5 pt-4 border-t border-[#DED2C1] grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]/60">
+                <span className="font-bold text-[#352719]">40% Brand Anchors</span>
                 <p className="text-[11px] text-[#B8C2D9] mt-0.5">ONPRINT, 0nprint.com, ONPRINT Dubai</p>
               </div>
-              <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]/60">
-                <span className="font-bold text-[#F5F3EE]">30% Partial & Topical</span>
+              <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]/60">
+                <span className="font-bold text-[#352719]">30% Partial & Topical</span>
                 <p className="text-[11px] text-[#B8C2D9] mt-0.5">luxury stationery press, Dubai print services</p>
               </div>
-              <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]/60">
-                <span className="font-bold text-[#F5F3EE]">15% Exact Match Target</span>
+              <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]/60">
+                <span className="font-bold text-[#352719]">15% Exact Match Target</span>
                 <p className="text-[11px] text-[#B8C2D9] mt-0.5">printing press Dubai, corporate gift printing</p>
               </div>
-              <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]/60">
-                <span className="font-bold text-[#F5F3EE]">15% Generic / URL</span>
+              <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]/60">
+                <span className="font-bold text-[#352719]">15% Generic / URL</span>
                 <p className="text-[11px] text-[#B8C2D9] mt-0.5">https://www.0nprint.com, visit website, learn more</p>
               </div>
             </div>
@@ -3028,35 +3028,35 @@ export default function AdminSeoManagerPage() {
 
           {/* Metric Stats Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Total Opportunities</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">
+              <div className="text-3xl font-black text-[#352719] mt-1">
                 {backlinkOppData?.summary?.total || 150}
               </div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Curated UAE targets</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">High Priority Targets</span>
-              <div className="text-3xl font-black text-[#D6C29A] mt-1">
+              <div className="text-3xl font-black text-[#795C43] mt-1">
                 {backlinkOppData?.summary?.highPriority || backlinkOppData.items?.filter(i => (i.priority || '').toLowerCase() === 'high').length || 45}
               </div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Maximum authority yield</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Live Backlinks</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">
                 {backlinkOppData?.summary?.live || backlinkOppData.items?.filter(i => (i.status || '').toLowerCase() === 'live').length || 0}
               </div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Active indexing links</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Submitted / In Review</span>
               <div className="text-3xl font-black text-blue-600 mt-1">
                 {backlinkOppData?.summary?.submitted || backlinkOppData.items?.filter(i => ['submitted', 'in review'].includes((i.status || '').toLowerCase())).length || 0}
               </div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Pending approval</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Planned Queue</span>
               <div className="text-3xl font-black text-amber-600 mt-1">
                 {backlinkOppData?.summary?.planned || backlinkOppData.items?.filter(i => ['planned', 'not started'].includes((i.status || '').toLowerCase())).length || 150}
@@ -3071,13 +3071,13 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Local Directory' ? 'all' : 'Local Directory')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Local Directory'
-                  ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs ring-1 ring-[#D6C29A]'
-                  : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
+                  ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs ring-1 ring-[#D6C29A]'
+                  : 'border-[#DED2C1] bg-[#FAF8F3] hover:border-[#DED2C1]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F5F3EE] flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4 text-[#D6C29A]" /> 1. Local Dubai Citations
+                <span className="text-xs font-bold text-[#352719] flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4 text-[#795C43]" /> 1. Local Dubai Citations
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
                   30 Targets
@@ -3092,12 +3092,12 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Industry Portal' ? 'all' : 'Industry Portal')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Industry Portal'
-                  ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs ring-1 ring-[#D6C29A]'
-                  : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
+                  ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs ring-1 ring-[#D6C29A]'
+                  : 'border-[#DED2C1] bg-[#FAF8F3] hover:border-[#DED2C1]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F5F3EE] flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[#352719] flex items-center gap-1.5">
                   <Layers className="h-4 w-4 text-emerald-600" /> 2. Printing & Graphic Trade
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
@@ -3113,12 +3113,12 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'B2B Profile' ? 'all' : 'B2B Profile')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'B2B Profile'
-                  ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs ring-1 ring-[#D6C29A]'
-                  : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
+                  ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs ring-1 ring-[#D6C29A]'
+                  : 'border-[#DED2C1] bg-[#FAF8F3] hover:border-[#DED2C1]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F5F3EE] flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[#352719] flex items-center gap-1.5">
                   <Database className="h-4 w-4 text-blue-600" /> 3. B2B & Verified Registries
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
@@ -3134,12 +3134,12 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Business Partner' ? 'all' : 'Business Partner')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Business Partner'
-                  ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs ring-1 ring-[#D6C29A]'
-                  : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
+                  ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs ring-1 ring-[#D6C29A]'
+                  : 'border-[#DED2C1] bg-[#FAF8F3] hover:border-[#DED2C1]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F5F3EE] flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[#352719] flex items-center gap-1.5">
                   <Globe className="h-4 w-4 text-purple-600" /> 4. Local Business Partnerships
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
@@ -3155,12 +3155,12 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Guest Content' ? 'all' : 'Guest Content')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Guest Content'
-                  ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs ring-1 ring-[#D6C29A]'
-                  : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
+                  ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs ring-1 ring-[#D6C29A]'
+                  : 'border-[#DED2C1] bg-[#FAF8F3] hover:border-[#DED2C1]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F5F3EE] flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[#352719] flex items-center gap-1.5">
                   <BookOpen className="h-4 w-4 text-amber-600" /> 5. Guest Content & Guides
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
@@ -3176,12 +3176,12 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Digital PR' ? 'all' : 'Digital PR')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Digital PR'
-                  ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs ring-1 ring-[#D6C29A]'
-                  : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
+                  ? 'border-[#C5A989] bg-[#C5A989]/5 shadow-xs ring-1 ring-[#D6C29A]'
+                  : 'border-[#DED2C1] bg-[#FAF8F3] hover:border-[#DED2C1]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F5F3EE] flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[#352719] flex items-center gap-1.5">
                   <Sparkles className="h-4 w-4 text-rose-600" /> 6. Digital PR & News Mentions
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
@@ -3195,7 +3195,7 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Filtering and Search Toolbar */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 sm:p-5 shadow-xs">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
@@ -3204,7 +3204,7 @@ export default function AdminSeoManagerPage() {
                   placeholder="Search website, domain, anchor, or URL..."
                   value={backlinkOppSearch}
                   onChange={(e) => setBacklinkOppSearch(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-[#122240] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#D6C29A]"
+                  className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-[#DED2C1] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#C5A989]"
                 />
               </div>
 
@@ -3212,7 +3212,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={backlinkOppCategory}
                   onChange={(e) => setBacklinkOppCategory(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#122240] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#D6C29A] bg-[#081226]"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#DED2C1] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#C5A989] bg-[#FAF8F3]"
                 >
                   <option value="all">All 6 Pillars (All Categories)</option>
                   <option value="Local Directory">Pillar 1: Local Dubai Citations</option>
@@ -3228,7 +3228,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={backlinkOppPriority}
                   onChange={(e) => setBacklinkOppPriority(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#122240] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#D6C29A] bg-[#081226]"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#DED2C1] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#C5A989] bg-[#FAF8F3]"
                 >
                   <option value="all">All Priorities</option>
                   <option value="High">High Priority</option>
@@ -3241,7 +3241,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={backlinkOppStatus}
                   onChange={(e) => setBacklinkOppStatus(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#122240] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#D6C29A] bg-[#081226]"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#DED2C1] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 focus:border-[#C5A989] bg-[#FAF8F3]"
                 >
                   <option value="all">All Statuses</option>
                   <option value="Planned">Planned</option>
@@ -3253,10 +3253,10 @@ export default function AdminSeoManagerPage() {
               </div>
             </div>
 
-            <div className="mt-3 flex items-center justify-between text-xs text-[#B8C2D9] pt-2 border-t border-[#122240]">
+            <div className="mt-3 flex items-center justify-between text-xs text-[#B8C2D9] pt-2 border-t border-[#DED2C1]">
               <span>
-                Showing <strong className="text-[#F5F3EE]">{filteredBacklinkOpportunities.length}</strong> of{' '}
-                <strong className="text-[#F5F3EE]">{backlinkOppData.items?.length || 150}</strong> curated opportunities
+                Showing <strong className="text-[#352719]">{filteredBacklinkOpportunities.length}</strong> of{' '}
+                <strong className="text-[#352719]">{backlinkOppData.items?.length || 150}</strong> curated opportunities
               </span>
               {(backlinkOppSearch || backlinkOppCategory !== 'all' || backlinkOppPriority !== 'all' || backlinkOppStatus !== 'all') && (
                 <button
@@ -3266,7 +3266,7 @@ export default function AdminSeoManagerPage() {
                     setBacklinkOppPriority('all')
                     setBacklinkOppStatus('all')
                   }}
-                  className="text-xs text-[#D6C29A] hover:underline font-semibold cursor-pointer"
+                  className="text-xs text-[#795C43] hover:underline font-semibold cursor-pointer"
                 >
                   Clear all filters
                 </button>
@@ -3275,11 +3275,11 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Interactive Opportunities Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] shadow-xs overflow-hidden">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] bg-[#040A18]/80 text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                  <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                     <th className="py-3 px-4">Website & Platform</th>
                     <th className="py-3 px-4">Pillar / Category</th>
                     <th className="py-3 px-4">Authority & Link Type</th>
@@ -3297,17 +3297,17 @@ export default function AdminSeoManagerPage() {
                       const isUpdating = updatingBacklinkId === item.id
 
                       return (
-                        <tr key={item.id || idx} className="hover:bg-[#040A18]/60 transition-colors">
+                        <tr key={item.id || idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
                           {/* Website & Domain */}
                           <td className="py-3.5 px-4">
-                            <div className="font-bold text-[#F5F3EE] flex items-center gap-1.5">
+                            <div className="font-bold text-[#352719] flex items-center gap-1.5">
                               <span>{item.website_name || item.website || item.domain}</span>
                               {(item.website_url || item.url) && (
                                 <a
                                   href={item.website_url || item.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-[#B8C2D9]/70 hover:text-[#D6C29A]"
+                                  className="text-[#B8C2D9]/70 hover:text-[#795C43]"
                                   title="Open website in new tab"
                                 >
                                   <ExternalLink className="h-3 w-3" />
@@ -3326,7 +3326,7 @@ export default function AdminSeoManagerPage() {
 
                           {/* Category */}
                           <td className="py-3.5 px-4">
-                            <span className="inline-block rounded-lg bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-[#F5F3EE]">
+                            <span className="inline-block rounded-lg bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-[#352719]">
                               {item.category || 'General Directory'}
                             </span>
                             <div className="text-[10px] text-[#B8C2D9]/70 mt-0.5">
@@ -3355,14 +3355,14 @@ export default function AdminSeoManagerPage() {
 
                           {/* Target URL & Anchor Text */}
                           <td className="py-3.5 px-4 max-w-xs">
-                            <div className="font-semibold text-[#F5F3EE] text-xs truncate" title={item.target_anchor_text || item.anchor_text}>
+                            <div className="font-semibold text-[#352719] text-xs truncate" title={item.target_anchor_text || item.anchor_text}>
                               &ldquo;{item.target_anchor_text || item.anchor_text || 'ONPRINT Dubai'}&rdquo;
                             </div>
                             <a
                               href={item.target_url || item.target_onprint_url || 'https://www.0nprint.com/'}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[11px] text-[#D6C29A] hover:underline font-mono truncate block mt-0.5"
+                              className="text-[11px] text-[#795C43] hover:underline font-mono truncate block mt-0.5"
                               title={item.target_url || item.target_onprint_url}
                             >
                               {(item.target_url || item.target_onprint_url || 'https://www.0nprint.com/').replace(/^https?:\/\/(www\.)?0nprint\.com/, '') || '/'}
@@ -3393,7 +3393,7 @@ export default function AdminSeoManagerPage() {
                                 ? 'bg-purple-50 text-purple-700 border border-purple-200'
                                 : status.toLowerCase() === 'rejected'
                                 ? 'bg-neutral-100 text-[#B8C2D9] line-through'
-                                : 'bg-neutral-100 text-[#F5F3EE]'
+                                : 'bg-neutral-100 text-[#352719]'
                             }`}>
                               {status === 'Live' && <CheckCircle2 className="h-3 w-3" />}
                               {status}
@@ -3408,7 +3408,7 @@ export default function AdminSeoManagerPage() {
                                   href={item.submission_url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="rounded-lg border border-[#122240] bg-[#081226] px-2 py-1 text-[11px] font-semibold text-[#F5F3EE] hover:bg-[#040A18] hover:text-[#F5F3EE] inline-flex items-center gap-1"
+                                  className="rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-2 py-1 text-[11px] font-semibold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#352719] inline-flex items-center gap-1"
                                   title="Open Submission / Directory Form"
                                 >
                                   Submit <ExternalLink className="h-3 w-3" />
@@ -3418,7 +3418,7 @@ export default function AdminSeoManagerPage() {
                                 disabled={isUpdating}
                                 value={item.status || 'Planned'}
                                 onChange={(e) => handleUpdateBacklinkStatus(item.id, e.target.value)}
-                                className="rounded-lg border border-[#122240] bg-[#081226] px-2 py-1 text-[11px] font-semibold text-[#F5F3EE] hover:border-[#122240] focus:outline-none focus:ring-1 focus:ring-[#D6C29A]"
+                                className="rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-2 py-1 text-[11px] font-semibold text-[#352719] hover:border-[#DED2C1] focus:outline-none focus:ring-1 focus:ring-[#D6C29A]"
                               >
                                 <option value="Planned">Planned</option>
                                 <option value="Submitted">Submitted</option>
@@ -3452,8 +3452,8 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'backlinks' && (
         <div className="space-y-6">
           <BacklinkAuditTab showToast={showToast} />
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
-            <div className="flex items-center justify-between"><h2 className="font-display text-lg font-bold text-[#F5F3EE]">Manual backlink record</h2><span className="text-xs text-[#B8C2D9]">No links are created automatically.</span></div>
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
+            <div className="flex items-center justify-between"><h2 className="font-display text-lg font-bold text-[#352719]">Manual backlink record</h2><span className="text-xs text-[#B8C2D9]">No links are created automatically.</span></div>
             <form onSubmit={handleCreateBacklink} className="mt-4 grid gap-3 md:grid-cols-4"><input required placeholder="Linking domain" value={backlinkForm.linking_domain} onChange={(event) => setBacklinkForm({ ...backlinkForm, linking_domain: event.target.value })} className="rounded-lg border p-2 text-xs" /><input required placeholder="Linking URL" value={backlinkForm.linking_url} onChange={(event) => setBacklinkForm({ ...backlinkForm, linking_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><input required placeholder="Target URL" value={backlinkForm.target_url} onChange={(event) => setBacklinkForm({ ...backlinkForm, target_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><Button type="submit" size="sm">Add record</Button></form>
           </div>
         </div>
@@ -3461,8 +3461,8 @@ export default function AdminSeoManagerPage() {
 
       {activeTab === 'outreach' && (
         <div className="space-y-5">
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs"><h2 className="font-display text-lg font-bold text-[#F5F3EE]">Backlink outreach CRM</h2><p className="mt-1 text-xs text-[#B8C2D9]">Track legitimate opportunities without sending automated email.</p><form onSubmit={handleCreateOutreach} className="mt-4 grid gap-3 md:grid-cols-4"><input required placeholder="Website/domain" value={outreachForm.website_domain} onChange={(event) => setOutreachForm({ ...outreachForm, website_domain: event.target.value })} className="rounded-lg border p-2 text-xs" /><input placeholder="Contact name" value={outreachForm.contact_name} onChange={(event) => setOutreachForm({ ...outreachForm, contact_name: event.target.value })} className="rounded-lg border p-2 text-xs" /><input placeholder="Target URL" value={outreachForm.target_url} onChange={(event) => setOutreachForm({ ...outreachForm, target_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><Button type="submit" size="sm">Add prospect</Button></form></div>
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs overflow-x-auto">{outreachData.length ? <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-[#B8C2D9]/70"><th className="pb-3">Website</th><th className="pb-3">Contact</th><th className="pb-3">Relevance</th><th className="pb-3">Status</th><th className="pb-3">Link obtained</th></tr></thead><tbody className="divide-y divide-neutral-100">{outreachData.map((item) => <tr key={item.id}><td className="py-3 font-bold">{item.website_domain}</td><td className="py-3">{item.contact_name || 'Unassigned'}</td><td className="py-3">{item.relevance}</td><td className="py-3">{item.outreach_status}</td><td className="py-3">{item.link_obtained ? 'Yes' : 'No'}</td></tr>)}</tbody></table> : <p className="py-10 text-center text-sm text-[#B8C2D9]">No outreach prospects recorded.</p>}</div>
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs"><h2 className="font-display text-lg font-bold text-[#352719]">Backlink outreach CRM</h2><p className="mt-1 text-xs text-[#B8C2D9]">Track legitimate opportunities without sending automated email.</p><form onSubmit={handleCreateOutreach} className="mt-4 grid gap-3 md:grid-cols-4"><input required placeholder="Website/domain" value={outreachForm.website_domain} onChange={(event) => setOutreachForm({ ...outreachForm, website_domain: event.target.value })} className="rounded-lg border p-2 text-xs" /><input placeholder="Contact name" value={outreachForm.contact_name} onChange={(event) => setOutreachForm({ ...outreachForm, contact_name: event.target.value })} className="rounded-lg border p-2 text-xs" /><input placeholder="Target URL" value={outreachForm.target_url} onChange={(event) => setOutreachForm({ ...outreachForm, target_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><Button type="submit" size="sm">Add prospect</Button></form></div>
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs overflow-x-auto">{outreachData.length ? <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-[#B8C2D9]/70"><th className="pb-3">Website</th><th className="pb-3">Contact</th><th className="pb-3">Relevance</th><th className="pb-3">Status</th><th className="pb-3">Link obtained</th></tr></thead><tbody className="divide-y divide-neutral-100">{outreachData.map((item) => <tr key={item.id}><td className="py-3 font-bold">{item.website_domain}</td><td className="py-3">{item.contact_name || 'Unassigned'}</td><td className="py-3">{item.relevance}</td><td className="py-3">{item.outreach_status}</td><td className="py-3">{item.link_obtained ? 'Yes' : 'No'}</td></tr>)}</tbody></table> : <p className="py-10 text-center text-sm text-[#B8C2D9]">No outreach prospects recorded.</p>}</div>
         </div>
       )}
 
@@ -3473,33 +3473,33 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Internal Linking Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Total Link Suggestions</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">{internalLinksData?.totalRecommendations || 0}</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">{internalLinksData?.totalRecommendations || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Contextual in-content link opportunities</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">High Priority Links</span>
-              <div className="text-3xl font-black text-[#D6C29A] mt-1">{internalLinksData?.highPriorityCount || 0}</div>
+              <div className="text-3xl font-black text-[#795C43] mt-1">{internalLinksData?.highPriorityCount || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Direct PageRank flow to top money pages</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Semantic Relevance Score</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">94%</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Average NLP topical affinity across pairs</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Topic Clusters Formed</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">{internalLinksData?.topicClusters?.length || 4}</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">{internalLinksData?.topicClusters?.length || 4}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Siloed hubs protecting crawl budget</p>
             </div>
           </div>
 
           {/* Internal Linking Recommendations Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#122240] pb-4 gap-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#DED2C1] pb-4 gap-3">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Contextual In-Content Internal Link Opportunities
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -3521,7 +3521,7 @@ export default function AdminSeoManagerPage() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="pb-3 pr-4">Priority</th>
                     <th className="pb-3 pr-4">Source Page (Giving Equity)</th>
                     <th className="pb-3 pr-4">Target Money Page</th>
@@ -3533,7 +3533,7 @@ export default function AdminSeoManagerPage() {
                 <tbody className="divide-y divide-neutral-100">
                   {(internalLinksData?.recommendations || []).length > 0 ? (
                     internalLinksData.recommendations.map((rec, idx) => (
-                      <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
+                      <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
                         <td className="py-3 pr-4">
                           <span
                             className={`rounded px-2 py-0.5 text-[10px] font-extrabold uppercase ${
@@ -3545,14 +3545,14 @@ export default function AdminSeoManagerPage() {
                             {rec.priority || 'MEDIUM'}
                           </span>
                         </td>
-                        <td className="py-3 pr-4 font-mono text-[11px] text-[#F5F3EE] truncate max-w-[200px]">
+                        <td className="py-3 pr-4 font-mono text-[11px] text-[#352719] truncate max-w-[200px]">
                           {rec.source}
                         </td>
-                        <td className="py-3 pr-4 font-mono text-[11px] text-[#D6C29A] font-bold truncate max-w-[200px]">
+                        <td className="py-3 pr-4 font-mono text-[11px] text-[#795C43] font-bold truncate max-w-[200px]">
                           {rec.target}
                         </td>
                         <td className="py-3 pr-4">
-                          <span className="rounded-lg bg-neutral-100 border border-[#122240]/60 px-2.5 py-1 font-bold text-[#F5F3EE] inline-block">
+                          <span className="rounded-lg bg-neutral-100 border border-[#DED2C1]/60 px-2.5 py-1 font-bold text-[#352719] inline-block">
                             &quot;{rec.suggestedAnchor}&quot;
                           </span>
                         </td>
@@ -3575,8 +3575,8 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Topic Silos / Authority Clusters */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3 mb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3 mb-4">
               Topical Authority Clusters &amp; PageRank Flow Architecture
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -3618,16 +3618,16 @@ export default function AdminSeoManagerPage() {
                   ]
                 }
               ]).map((cluster, cIdx) => (
-                <div key={cIdx} className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
+                <div key={cIdx} className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-[#F5F3EE] text-xs">{cluster.clusterName}</h4>
+                    <h4 className="font-bold text-[#352719] text-xs">{cluster.clusterName}</h4>
                     <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 rounded px-2 py-0.5">
                       Pillar Silhouette
                     </span>
                   </div>
                   <div className="text-[11px] text-[#B8C2D9] mb-2">
-                    <strong className="text-[#F5F3EE] font-bold">Pillar Hub: </strong>
-                    <span className="font-mono text-[#D6C29A]">{cluster.pillarPage}</span>
+                    <strong className="text-[#352719] font-bold">Pillar Hub: </strong>
+                    <span className="font-mono text-[#795C43]">{cluster.pillarPage}</span>
                   </div>
                   <div className="space-y-1">
                     <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Supporting Silo Nodes:</span>
@@ -3662,9 +3662,9 @@ export default function AdminSeoManagerPage() {
 
           {/* Catalog Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            <div className="rounded-xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
+            <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Total Website Pages</span>
-              <div className="text-2xl font-black text-[#F5F3EE] mt-1">{scoreOverview?.totalPages || pagesList.length}</div>
+              <div className="text-2xl font-black text-[#352719] mt-1">{scoreOverview?.totalPages || pagesList.length}</div>
               <span className="text-[11px] text-[#B8C2D9]">Every URL has unique SEO</span>
             </div>
 
@@ -3697,9 +3697,9 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Filters & Search Toolbar */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 sm:p-5 shadow-xs space-y-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs space-y-4">
             {/* Page Type Subtabs */}
-            <div className="flex flex-wrap items-center gap-2 border-b border-[#122240] pb-3">
+            <div className="flex flex-wrap items-center gap-2 border-b border-[#DED2C1] pb-3">
               {[
                 { id: 'all', label: 'All Pages', count: pagesList.length },
                 { id: 'static', label: 'Homepage & Static', count: pagesList.filter(p => p.page_type === 'static' || p.page_type === 'homepage').length },
@@ -3714,12 +3714,12 @@ export default function AdminSeoManagerPage() {
                   onClick={() => setPageTypeFilter(t.id)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     pageTypeFilter === t.id
-                      ? 'bg-[#D6C29A] text-[#040A18] shadow-xs'
+                      ? 'bg-[#C5A989] text-white shadow-xs'
                       : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200/70'
                   }`}
                 >
                   <span>{t.label}</span>
-                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] ${pageTypeFilter === t.id ? 'bg-[#081226]/20 text-white' : 'bg-neutral-200 text-[#F5F3EE]'}`}>
+                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] ${pageTypeFilter === t.id ? 'bg-[#FAF8F3]/20 text-white' : 'bg-neutral-200 text-[#352719]'}`}>
                     {t.count}
                   </span>
                 </button>
@@ -3735,7 +3735,7 @@ export default function AdminSeoManagerPage() {
                   placeholder="Search URL, Title, Focus Keyword, H1..."
                   value={pageSearch}
                   onChange={(e) => setPageSearch(e.target.value)}
-                  className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs text-[#F5F3EE] focus:bg-[#081226] focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] pl-10 pr-4 py-2 text-xs text-[#352719] focus:bg-[#FAF8F3] focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
@@ -3744,7 +3744,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={scoreFilter}
                   onChange={(e) => setScoreFilter(e.target.value)}
-                  className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs font-medium text-[#352719] focus:border-[#C5A989] focus:outline-none"
                 >
                   <option value="all">All SEO Scores</option>
                   <option value="good">Optimal (80+)</option>
@@ -3756,7 +3756,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={indexFilter}
                   onChange={(e) => setIndexFilter(e.target.value)}
-                  className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs font-medium text-[#352719] focus:border-[#C5A989] focus:outline-none"
                 >
                   <option value="all">All Index Directives</option>
                   <option value="index">Indexable (index)</option>
@@ -3782,11 +3782,11 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Page-by-Page Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] overflow-hidden shadow-xs">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="bg-[#040A18] border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="bg-[#F5F0E7] border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="p-3.5">URL &amp; Page Type</th>
                     <th className="p-3.5">Meta Title</th>
                     <th className="p-3.5">Focus Keyword</th>
@@ -3811,16 +3811,16 @@ export default function AdminSeoManagerPage() {
                       const score = Number(p.seo_score) || 0
 
                       return (
-                        <tr key={p.id} className="hover:bg-[#040A18]/70 transition-colors">
+                        <tr key={p.id} className="hover:bg-[#F5F0E7]/70 transition-colors">
                           {/* URL & Type */}
                           <td className="p-3.5">
-                            <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#F5F3EE] max-w-[210px] truncate">
+                            <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#352719] max-w-[210px] truncate">
                               <span className="truncate">{p.url}</span>
                               <a
                                 href={p.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-[#D6C29A] hover:opacity-80 shrink-0 p-0.5"
+                                className="text-[#795C43] hover:opacity-80 shrink-0 p-0.5"
                                 title="Open live page"
                               >
                                 <ExternalLink className="h-3 w-3" />
@@ -3840,7 +3840,7 @@ export default function AdminSeoManagerPage() {
 
                           {/* Meta Title */}
                           <td className="p-3.5 max-w-[240px]">
-                            <div className="font-semibold text-[#F5F3EE] truncate" title={p.meta_title}>
+                            <div className="font-semibold text-[#352719] truncate" title={p.meta_title}>
                               {p.meta_title || <span className="text-red-500 font-bold">Missing Meta Title</span>}
                             </div>
                             <div className="flex items-center gap-1.5 mt-0.5">
@@ -3864,7 +3864,7 @@ export default function AdminSeoManagerPage() {
                           {/* Focus Keyword */}
                           <td className="p-3.5 max-w-[170px]">
                             {p.focus_keyword ? (
-                              <span className="inline-block rounded-md bg-[#D6C29A]/10 border border-[#D6C29A]/20 px-2 py-0.5 text-[11px] font-bold text-[#D6C29A] truncate max-w-full">
+                              <span className="inline-block rounded-md bg-[#C5A989]/10 border border-[#C5A989]/20 px-2 py-0.5 text-[11px] font-bold text-[#795C43] truncate max-w-full">
                                 {p.focus_keyword}
                               </span>
                             ) : (
@@ -3873,7 +3873,7 @@ export default function AdminSeoManagerPage() {
                           </td>
 
                           {/* H1 Heading */}
-                          <td className="p-3.5 max-w-[180px] truncate text-[#F5F3EE] text-[11px]" title={p.h1}>
+                          <td className="p-3.5 max-w-[180px] truncate text-[#352719] text-[11px]" title={p.h1}>
                             {p.h1 || <span className="text-[#B8C2D9]/70 italic">No custom H1</span>}
                           </td>
 
@@ -3892,7 +3892,7 @@ export default function AdminSeoManagerPage() {
 
                           {/* Schema */}
                           <td className="p-3.5 text-center">
-                            <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-mono font-semibold text-[#F5F3EE]">
+                            <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-mono font-semibold text-[#352719]">
                               {p.schema_type || 'WebPage'}
                             </span>
                           </td>
@@ -3917,13 +3917,13 @@ export default function AdminSeoManagerPage() {
                             <div className="flex items-center justify-end gap-1.5">
                               <button
                                 onClick={() => setEditingPage(p)}
-                                className="px-2.5 py-1 rounded-lg border border-[#122240] bg-[#081226] text-[11px] font-bold text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A] cursor-pointer transition-colors shadow-2xs"
+                                className="px-2.5 py-1 rounded-lg border border-[#DED2C1] bg-[#FAF8F3] text-[11px] font-bold text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] cursor-pointer transition-colors shadow-2xs"
                               >
                                 Edit SEO
                               </button>
                               <button
                                 onClick={() => setAnalyzingPage(p)}
-                                className="px-2 py-1 rounded-lg bg-neutral-100 text-[#D6C29A] hover:bg-[#D6C29A]/10 text-[11px] font-bold cursor-pointer transition-colors"
+                                className="px-2 py-1 rounded-lg bg-neutral-100 text-[#795C43] hover:bg-[#C5A989]/10 text-[11px] font-bold cursor-pointer transition-colors"
                                 title="Analyze with AI"
                               >
                                 <Sparkles className="h-3.5 w-3.5" />
@@ -3956,22 +3956,22 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Top Schema Summary */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Supported Schema Types</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">8 Types</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">8 Types</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Full Schema.org JSON-LD specifications</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">SERP Features Unlocked</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">6 Rich Snippets</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Knowledge Panel, Product, FAQ, Sitelinks</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">JSON-LD Format</span>
-              <div className="text-3xl font-black text-[#D6C29A] mt-1">100% Compliant</div>
+              <div className="text-3xl font-black text-[#795C43] mt-1">100% Compliant</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Embedded directly in page head scripts</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Syntax Verification</span>
               <div className="flex items-center gap-1.5 mt-2">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600" />
@@ -3982,8 +3982,8 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Schema Type Selector */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3 mb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3 mb-4">
               Inspect &amp; Validate Structured Data Templates
             </h3>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -3994,8 +3994,8 @@ export default function AdminSeoManagerPage() {
                   onClick={() => setSchemaSelectedType(typeKey)}
                   className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all cursor-pointer ${
                     schemaSelectedType === typeKey
-                      ? 'bg-[#D6C29A] text-[#040A18] shadow-xs'
-                      : 'bg-neutral-100 hover:bg-neutral-200 text-[#F5F3EE]'
+                      ? 'bg-[#C5A989] text-white shadow-xs'
+                      : 'bg-neutral-100 hover:bg-neutral-200 text-[#352719]'
                   }`}
                 >
                   {typeKey}
@@ -4005,14 +4005,14 @@ export default function AdminSeoManagerPage() {
 
             {SCHEMA_TEMPLATES[schemaSelectedType] && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#122240]/60 pb-3 mb-3">
+                <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DED2C1]/60 pb-3 mb-3">
                     <div>
-                      <h4 className="font-bold text-[#F5F3EE] text-sm">
+                      <h4 className="font-bold text-[#352719] text-sm">
                         {SCHEMA_TEMPLATES[schemaSelectedType].title}
                       </h4>
                       <p className="text-xs text-[#B8C2D9] mt-0.5">
-                        Target Routes: <span className="font-mono text-[#D6C29A]">{SCHEMA_TEMPLATES[schemaSelectedType].target}</span>
+                        Target Routes: <span className="font-mono text-[#795C43]">{SCHEMA_TEMPLATES[schemaSelectedType].target}</span>
                       </p>
                     </div>
                     <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase px-2.5 py-1">
@@ -4045,7 +4045,7 @@ export default function AdminSeoManagerPage() {
                     href="https://search.google.com/test/rich-results"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#D6C29A] hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#795C43] hover:underline"
                   >
                     Open Google Rich Results Test <ExternalLink className="h-3 w-3" />
                   </a>
@@ -4063,22 +4063,22 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Top Image Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Visual Assets Audited</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">{imageAuditData?.totalImages || 0}</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">{imageAuditData?.totalImages || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Catalog, categories &amp; service assets</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Missing ALT Attributes</span>
-              <div className="text-3xl font-black text-[#D6C29A] mt-1">{imageAuditData?.missingAltCount || 0}</div>
+              <div className="text-3xl font-black text-[#795C43] mt-1">{imageAuditData?.missingAltCount || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Blocks Google Image search indexing</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Legacy Formats (Non-WebP)</span>
               <div className="text-3xl font-black text-amber-600 mt-1">{imageAuditData?.nonWebpCount || 0}</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Higher byte payloads affecting LCP score</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Image SEO Health</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">{imageAuditData?.healthScore || 86}%</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Overall image optimization score</p>
@@ -4086,10 +4086,10 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Image Assets Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#122240] pb-4 gap-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#DED2C1] pb-4 gap-3">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Image Asset Inventory &amp; Contextual Alt Text Engine
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -4111,7 +4111,7 @@ export default function AdminSeoManagerPage() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="pb-3 pr-4">Asset</th>
                     <th className="pb-3 pr-4">Entity</th>
                     <th className="pb-3 pr-4">Current ALT</th>
@@ -4126,9 +4126,9 @@ export default function AdminSeoManagerPage() {
                     imageAuditData.images.map((img, idx) => {
                       const currentVal = editingAlt[img.imageUrl] ?? (img.currentAlt || img.suggestedAlt || '')
                       return (
-                        <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
+                        <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
                           <td className="py-3 pr-4">
-                            <div className="h-10 w-10 rounded-lg overflow-hidden border border-[#122240] bg-neutral-100 shrink-0 flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-lg overflow-hidden border border-[#DED2C1] bg-neutral-100 shrink-0 flex items-center justify-center">
                               {img.imageUrl ? (
                                 <img src={img.imageUrl} alt="" className="h-full w-full object-cover" />
                               ) : (
@@ -4137,12 +4137,12 @@ export default function AdminSeoManagerPage() {
                             </div>
                           </td>
                           <td className="py-3 pr-4">
-                            <div className="font-bold text-[#F5F3EE] truncate max-w-[140px]">{img.entityName || 'Asset'}</div>
+                            <div className="font-bold text-[#352719] truncate max-w-[140px]">{img.entityName || 'Asset'}</div>
                             <span className="text-[10px] font-mono uppercase text-[#B8C2D9]/70">{img.entityType}</span>
                           </td>
                           <td className="py-3 pr-4 max-w-xs">
                             {img.currentAlt ? (
-                              <span className="text-[#F5F3EE] font-medium truncate block max-w-[140px]">{img.currentAlt}</span>
+                              <span className="text-[#352719] font-medium truncate block max-w-[140px]">{img.currentAlt}</span>
                             ) : (
                               <span className="rounded bg-red-100 text-red-700 text-[10px] font-extrabold px-1.5 py-0.5">
                                 Missing ALT
@@ -4154,7 +4154,7 @@ export default function AdminSeoManagerPage() {
                               type="text"
                               value={currentVal}
                               onChange={(e) => setEditingAlt({ ...editingAlt, [img.imageUrl]: e.target.value })}
-                              className="rounded-lg border border-[#122240] bg-[#081226] px-2.5 py-1.5 text-xs text-[#F5F3EE] w-48 focus:border-[#D6C29A] focus:outline-none"
+                              className="rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-2.5 py-1.5 text-xs text-[#352719] w-48 focus:border-[#C5A989] focus:outline-none"
                             />
                           </td>
                           <td className="py-3 pr-4 font-mono text-[11px] text-[#B8C2D9] truncate max-w-[150px]">
@@ -4203,22 +4203,22 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           {/* Programmatic Overview Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Total Programmatic Hubs</span>
-              <div className="text-3xl font-black text-[#F5F3EE] mt-1">{programmaticPages.length || 13} Pages</div>
+              <div className="text-3xl font-black text-[#352719] mt-1">{programmaticPages.length || 13} Pages</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Curated Dubai hubs &amp; commercial solutions</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Dubai Geographic Hubs</span>
-              <div className="text-3xl font-black text-[#D6C29A] mt-1">8 Hubs</div>
+              <div className="text-3xl font-black text-[#795C43] mt-1">8 Hubs</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Marina, DIFC, Business Bay, Al Quoz, etc.</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Commercial Solutions</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">5 Solutions</div>
               <p className="text-[11px] text-[#B8C2D9] mt-1">Events, Official Seals, Restaurant Menus</p>
             </div>
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Google Compliance</span>
               <div className="flex items-center gap-1.5 mt-2">
                 <ShieldCheck className="h-4 w-4 text-emerald-600" />
@@ -4229,10 +4229,10 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Curated Landing Pages Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#122240] pb-4 gap-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#DED2C1] pb-4 gap-3">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Curated Commercial &amp; Local Landing Pages
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -4242,7 +4242,7 @@ export default function AdminSeoManagerPage() {
               <a
                 href="/sitemap.xml"
                 target="_blank"
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#D6C29A] hover:underline"
+                className="inline-flex items-center gap-1 text-xs font-bold text-[#795C43] hover:underline"
               >
                 Verify in Sitemap.xml <ExternalLink className="h-3 w-3" />
               </a>
@@ -4251,7 +4251,7 @@ export default function AdminSeoManagerPage() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="pb-3 pr-4">Page Title &amp; Target Entity</th>
                     <th className="pb-3 pr-4">Type</th>
                     <th className="pb-3 pr-4">Primary Target Keyword</th>
@@ -4262,9 +4262,9 @@ export default function AdminSeoManagerPage() {
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
                   {programmaticPages.map((page, idx) => (
-                    <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
+                    <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
                       <td className="py-3 pr-4">
-                        <div className="font-bold text-[#F5F3EE]">{page.title}</div>
+                        <div className="font-bold text-[#352719]">{page.title}</div>
                         <div className="text-[11px] text-[#B8C2D9] max-w-sm truncate">{page.metaDescription}</div>
                       </td>
                       <td className="py-3 pr-4">
@@ -4278,8 +4278,8 @@ export default function AdminSeoManagerPage() {
                           {page.type === 'location' ? 'Dubai Hub' : 'Commercial Solution'}
                         </span>
                       </td>
-                      <td className="py-3 pr-4 font-bold text-[#F5F3EE]">{page.targetKeyword}</td>
-                      <td className="py-3 pr-4 font-mono text-[11px] text-[#D6C29A]">{page.url}</td>
+                      <td className="py-3 pr-4 font-bold text-[#352719]">{page.targetKeyword}</td>
+                      <td className="py-3 pr-4 font-mono text-[11px] text-[#795C43]">{page.url}</td>
                       <td className="py-3 pr-4 text-center">
                         <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase px-2.5 py-0.5">
                           Indexable
@@ -4290,7 +4290,7 @@ export default function AdminSeoManagerPage() {
                           href={page.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1 font-bold text-[#D6C29A] hover:underline"
+                          className="inline-flex items-center gap-1 font-bold text-[#795C43] hover:underline"
                         >
                           <span>Live</span>
                           <ExternalLink className="h-3 w-3" />
@@ -4311,8 +4311,8 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'competitor' && (
         <div className="space-y-6">
           {/* Dubai Market Landscape Card */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               Dubai Commercial Print SERP Competitive Intelligence
             </h3>
             <p className="text-xs text-[#B8C2D9] mt-2 leading-relaxed">
@@ -4322,17 +4322,17 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* Topic Matrix Table */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Topic Gap Matrix (ONPRINT vs Regional Competitors)
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
                   Algorithmically identified content deficits and commercial differentiation advantages.
                 </p>
               </div>
-              <span className="rounded-full bg-[#D6C29A]/10 text-[#D6C29A] font-black text-xs px-3 py-1">
+              <span className="rounded-full bg-[#C5A989]/10 text-[#795C43] font-black text-xs px-3 py-1">
                 Strategic Opportunities
               </span>
             </div>
@@ -4340,7 +4340,7 @@ export default function AdminSeoManagerPage() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#122240] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
+                  <tr className="border-b border-[#DED2C1] text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">
                     <th className="pb-3 pr-4">Commercial Topic</th>
                     <th className="pb-3 pr-4">Competitor Status</th>
                     <th className="pb-3 pr-4">ONPRINT Value Proposition</th>
@@ -4384,11 +4384,11 @@ export default function AdminSeoManagerPage() {
                       recommendedAction: 'Create dedicated Sustainability & FSC Compliance badge section.'
                     }
                   ]).map((item, idx) => (
-                    <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
-                      <td className="py-3 pr-4 font-bold text-[#F5F3EE]">{item.topic}</td>
+                    <tr key={idx} className="hover:bg-[#F5F0E7]/60 transition-colors">
+                      <td className="py-3 pr-4 font-bold text-[#352719]">{item.topic}</td>
                       <td className="py-3 pr-4 text-[#B8C2D9] max-w-xs">{item.competitorStrength}</td>
                       <td className="py-3 pr-4 text-emerald-800 font-semibold max-w-xs">{item.onprintAdvantage}</td>
-                      <td className="py-3 pr-4 text-[#D6C29A] font-medium max-w-xs">{item.contentGap}</td>
+                      <td className="py-3 pr-4 text-[#795C43] font-medium max-w-xs">{item.contentGap}</td>
                       <td className="py-3 pr-4">
                         <span
                           className={`rounded px-2 py-0.5 text-[10px] font-extrabold uppercase ${
@@ -4398,7 +4398,7 @@ export default function AdminSeoManagerPage() {
                           {item.priority}
                         </span>
                       </td>
-                      <td className="py-3 text-[#F5F3EE] max-w-xs font-medium">{item.recommendedAction}</td>
+                      <td className="py-3 text-[#352719] max-w-xs font-medium">{item.recommendedAction}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -4414,11 +4414,11 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'safety' && (
         <div className="space-y-6">
           {/* Safety System Overview */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex items-center gap-3 border-b border-[#122240] pb-4 mb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center gap-3 border-b border-[#DED2C1] pb-4 mb-4">
               <ShieldCheck className="h-6 w-6 text-emerald-600 shrink-0" />
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   Pre-Publish SEO Safety Gate &amp; Compliance Protocol
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -4428,26 +4428,26 @@ export default function AdminSeoManagerPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
-                <span className="font-bold text-[#F5F3EE] block mb-1">1. Anti-Keyword Stuffing</span>
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
+                <span className="font-bold text-[#352719] block mb-1">1. Anti-Keyword Stuffing</span>
                 <p className="text-[#B8C2D9]">Flags any content where single keyword density exceeds 2.5% threshold.</p>
               </div>
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
-                <span className="font-bold text-[#F5F3EE] block mb-1">2. Anti-Doorway &amp; Duplication</span>
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
+                <span className="font-bold text-[#352719] block mb-1">2. Anti-Doorway &amp; Duplication</span>
                 <p className="text-[#B8C2D9]">Enforces unique titles, meta descriptions, and localized specs on every URL.</p>
               </div>
-              <div className="rounded-xl bg-[#040A18] p-3.5 border border-[#122240]">
-                <span className="font-bold text-[#F5F3EE] block mb-1">3. Structural Integrity</span>
+              <div className="rounded-xl bg-[#F5F0E7] p-3.5 border border-[#DED2C1]">
+                <span className="font-bold text-[#352719] block mb-1">3. Structural Integrity</span>
                 <p className="text-[#B8C2D9]">Guarantees exactly one H1 per page, valid canonical URLs, and schema validation.</p>
               </div>
             </div>
           </div>
 
           {/* Safety Review Queue */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
               <div>
-                <h3 className="font-display text-base font-bold text-[#F5F3EE]">
+                <h3 className="font-display text-base font-bold text-[#352719]">
                   &quot;SEO REVIEW REQUIRED&quot; Queue ({safetyQueue.length} Items Flagged)
                 </h3>
                 <p className="text-xs text-[#B8C2D9] mt-0.5">
@@ -4475,7 +4475,7 @@ export default function AdminSeoManagerPage() {
                         <span className="rounded bg-red-100 text-red-800 text-[10px] font-black uppercase px-2 py-0.5">
                           Review Required
                         </span>
-                        <span className="font-bold text-[#F5F3EE]">{item.target_type} #{item.target_id}</span>
+                        <span className="font-bold text-[#352719]">{item.target_type} #{item.target_id}</span>
                         <span className="font-mono text-[#B8C2D9] text-[11px]">{item.change_type}</span>
                       </div>
 
@@ -4488,7 +4488,7 @@ export default function AdminSeoManagerPage() {
                         ))}
                       </div>
 
-                      <div className="rounded-lg bg-[#040A18] p-2.5 border border-[#122240] font-mono text-[11px] text-[#F5F3EE] max-w-xl truncate">
+                      <div className="rounded-lg bg-[#F5F0E7] p-2.5 border border-[#DED2C1] font-mono text-[11px] text-[#352719] max-w-xl truncate">
                         Proposed: {typeof item.proposed_value === 'object' ? JSON.stringify(item.proposed_value) : item.proposed_value}
                       </div>
                     </div>
@@ -4505,7 +4505,7 @@ export default function AdminSeoManagerPage() {
                       <button
                         type="button"
                         onClick={() => handleRejectRec(item.id || item.recommendation_id)}
-                        className="inline-flex items-center gap-1 rounded-xl border border-[#122240] hover:bg-[#040A18] text-[#F5F3EE] px-3.5 py-2 text-xs font-bold transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-1 rounded-xl border border-[#DED2C1] hover:bg-[#F5F0E7] text-[#352719] px-3.5 py-2 text-xs font-bold transition-colors cursor-pointer"
                       >
                         <X className="h-3.5 w-3.5" />
                         Reject
@@ -4529,11 +4529,11 @@ export default function AdminSeoManagerPage() {
       {/* ========================================================================= */}
       {activeTab === 'search-console' && (
         <div className="space-y-6 max-w-3xl">
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <div className="border-b border-[#122240] pb-4">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <div className="border-b border-[#DED2C1] pb-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-display text-lg font-black text-[#F5F3EE]">
+                  <h3 className="font-display text-lg font-black text-[#352719]">
                     Google Search Console API Configuration
                   </h3>
                   <p className="text-xs text-[#B8C2D9] mt-1">
@@ -4551,7 +4551,7 @@ export default function AdminSeoManagerPage() {
 
             <form onSubmit={handleConnectGsc} className="mt-6 space-y-6">
               <div>
-                <label className="block text-xs font-bold text-[#F5F3EE] mb-1.5">
+                <label className="block text-xs font-bold text-[#352719] mb-1.5">
                   Search Console Property URL
                 </label>
                 <input
@@ -4559,12 +4559,12 @@ export default function AdminSeoManagerPage() {
                   value={gscForm.property}
                   onChange={(e) => setGscForm({ ...gscForm, property: e.target.value })}
                   placeholder="https://www.0nprint.com"
-                  className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#F5F3EE] mb-2">
+                <label className="block text-xs font-bold text-[#352719] mb-2">
                   Authentication Method
                 </label>
                 <div className="grid grid-cols-2 gap-3">
@@ -4574,7 +4574,7 @@ export default function AdminSeoManagerPage() {
                     className={`flex items-center justify-center gap-2 rounded-xl p-3 text-xs font-bold border transition-all cursor-pointer ${
                       isServiceAccount
                         ? 'border-neutral-900 bg-neutral-900 text-white shadow-xs'
-                        : 'border-[#122240] bg-[#040A18] text-[#F5F3EE] hover:bg-[#122240]'
+                        : 'border-[#DED2C1] bg-[#F5F0E7] text-[#352719] hover:bg-[#EDE3D5]'
                     }`}
                   >
                     <Key className="h-4 w-4" />
@@ -4586,7 +4586,7 @@ export default function AdminSeoManagerPage() {
                     className={`flex items-center justify-center gap-2 rounded-xl p-3 text-xs font-bold border transition-all cursor-pointer ${
                       !isServiceAccount
                         ? 'border-neutral-900 bg-neutral-900 text-white shadow-xs'
-                        : 'border-[#122240] bg-[#040A18] text-[#F5F3EE] hover:bg-[#122240]'
+                        : 'border-[#DED2C1] bg-[#F5F0E7] text-[#352719] hover:bg-[#EDE3D5]'
                     }`}
                   >
                     <Globe className="h-4 w-4" />
@@ -4598,7 +4598,7 @@ export default function AdminSeoManagerPage() {
               {isServiceAccount ? (
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label className="text-xs font-bold text-[#F5F3EE]">
+                    <label className="text-xs font-bold text-[#352719]">
                       Service Account Key JSON
                     </label>
                     <span className="text-[11px] text-[#B8C2D9]/70">Paste JSON credentials from Google Cloud</span>
@@ -4608,7 +4608,7 @@ export default function AdminSeoManagerPage() {
                     value={gscForm.serviceAccountJson}
                     onChange={(e) => setGscForm({ ...gscForm, serviceAccountJson: e.target.value })}
                     placeholder='{"type": "service_account", "project_id": "...", "private_key": "...", ...}'
-                    className="w-full rounded-xl border border-[#122240] bg-[#040A18] font-mono p-3.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] font-mono p-3.5 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   />
                   <p className="mt-1.5 text-[11px] text-[#B8C2D9]">
                     Create a Service Account in Google Cloud Console, enable Search Console API, grant &quot;Owner&quot; or &quot;Full&quot; permissions in Google Search Console User settings, and paste the generated JSON key here.
@@ -4617,33 +4617,33 @@ export default function AdminSeoManagerPage() {
               ) : (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#F5F3EE] mb-1">OAuth Client ID</label>
+                    <label className="block text-xs font-bold text-[#352719] mb-1">OAuth Client ID</label>
                     <input
                       type="text"
                       value={gscForm.clientId}
                       onChange={(e) => setGscForm({ ...gscForm, clientId: e.target.value })}
                       placeholder="e.g. 123456789-abcdef.apps.googleusercontent.com"
-                      className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs focus:border-[#C5A989] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-[#F5F3EE] mb-1">OAuth Client Secret</label>
+                    <label className="block text-xs font-bold text-[#352719] mb-1">OAuth Client Secret</label>
                     <input
                       type="password"
                       value={gscForm.clientSecret}
                       onChange={(e) => setGscForm({ ...gscForm, clientSecret: e.target.value })}
                       placeholder="Enter Client Secret..."
-                      className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs focus:border-[#C5A989] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-[#F5F3EE] mb-1">Refresh Token (Optional)</label>
+                    <label className="block text-xs font-bold text-[#352719] mb-1">Refresh Token (Optional)</label>
                     <input
                       type="password"
                       value={gscForm.refreshToken}
                       onChange={(e) => setGscForm({ ...gscForm, refreshToken: e.target.value })}
                       placeholder="Enter Refresh Token..."
-                      className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs focus:border-[#C5A989] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -4672,8 +4672,8 @@ export default function AdminSeoManagerPage() {
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Reports List / Calendar */}
-            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
-              <h3 className="font-display text-sm font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs">
+              <h3 className="font-display text-sm font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
                 Historical Daily Reports ({dailyReports.length})
               </h3>
               <div className="mt-3 space-y-2 max-h-[500px] overflow-y-auto">
@@ -4686,7 +4686,7 @@ export default function AdminSeoManagerPage() {
                       className={`w-full text-left rounded-xl p-3 text-xs transition-all cursor-pointer ${
                         isSel
                           ? 'bg-neutral-900 text-white shadow-xs'
-                          : 'bg-[#040A18] hover:bg-[#122240] text-[#F5F3EE]'
+                          : 'bg-[#F5F0E7] hover:bg-[#EDE3D5] text-[#352719]'
                       }`}
                     >
                       <div className="flex items-center justify-between font-bold">
@@ -4705,18 +4705,18 @@ export default function AdminSeoManagerPage() {
             </div>
 
             {/* Selected Report Breakdown */}
-            <div className="lg:col-span-2 rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
+            <div className="lg:col-span-2 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
               {selectedReport ? (
                 <div className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-[#122240] pb-4">
+                  <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4">
                     <div>
                       <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Daily Snapshot</span>
-                      <h3 className="font-display text-lg font-black text-[#F5F3EE]">
+                      <h3 className="font-display text-lg font-black text-[#352719]">
                         Report: {selectedReport.report_date}
                       </h3>
                     </div>
                     <div className="text-right">
-                      <div className="font-display text-3xl font-black text-[#F5F3EE]">
+                      <div className="font-display text-3xl font-black text-[#352719]">
                         {selectedReport.health_score}%
                       </div>
                       <span className="text-xs font-bold text-emerald-600">Health Score</span>
@@ -4724,27 +4724,27 @@ export default function AdminSeoManagerPage() {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-                    <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]">
+                    <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]">
                       <span className="text-[#B8C2D9]/70 font-bold uppercase text-[10px]">Technical</span>
-                      <div className="text-lg font-bold text-[#F5F3EE] mt-0.5">{selectedReport.technical_score}%</div>
+                      <div className="text-lg font-bold text-[#352719] mt-0.5">{selectedReport.technical_score}%</div>
                     </div>
-                    <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]">
+                    <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]">
                       <span className="text-[#B8C2D9]/70 font-bold uppercase text-[10px]">On-Page</span>
-                      <div className="text-lg font-bold text-[#F5F3EE] mt-0.5">{selectedReport.onpage_score}%</div>
+                      <div className="text-lg font-bold text-[#352719] mt-0.5">{selectedReport.onpage_score}%</div>
                     </div>
-                    <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]">
+                    <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]">
                       <span className="text-[#B8C2D9]/70 font-bold uppercase text-[10px]">Content</span>
-                      <div className="text-lg font-bold text-[#F5F3EE] mt-0.5">{selectedReport.content_score}%</div>
+                      <div className="text-lg font-bold text-[#352719] mt-0.5">{selectedReport.content_score}%</div>
                     </div>
-                    <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240]">
+                    <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1]">
                       <span className="text-[#B8C2D9]/70 font-bold uppercase text-[10px]">Structured Data</span>
-                      <div className="text-lg font-bold text-[#F5F3EE] mt-0.5">{selectedReport.structured_data_score}%</div>
+                      <div className="text-lg font-bold text-[#352719] mt-0.5">{selectedReport.structured_data_score}%</div>
                     </div>
                   </div>
 
                   {selectedReport.executive_summary && (
-                    <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4 text-xs">
-                      <strong className="text-[#F5F3EE] block mb-1">Executive Summary:</strong>
+                    <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4 text-xs">
+                      <strong className="text-[#352719] block mb-1">Executive Summary:</strong>
                       <p className="text-[#B8C2D9]">{selectedReport.executive_summary}</p>
                     </div>
                   )}
@@ -4764,8 +4764,8 @@ export default function AdminSeoManagerPage() {
       {/* ========================================================================= */}
       {activeTab === 'history' && (
         <div className="space-y-6">
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               Immutable SEO Change Audit Log &amp; 1-Click Rollback
             </h3>
             <p className="text-xs text-[#B8C2D9] mt-1">
@@ -4778,8 +4778,8 @@ export default function AdminSeoManagerPage() {
                   <div key={ch.id} className="py-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4 text-xs">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-[#F5F3EE]">Change #{ch.id}</span>
-                        <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-extrabold uppercase text-[#F5F3EE]">
+                        <span className="font-bold text-[#352719]">Change #{ch.id}</span>
+                        <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-extrabold uppercase text-[#352719]">
                           {ch.entity_type} #{ch.entity_id}
                         </span>
                         <span
@@ -4797,9 +4797,9 @@ export default function AdminSeoManagerPage() {
                       </div>
 
                       <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px]">
-                        <div className="rounded-lg bg-[#040A18] p-2.5 border border-[#122240]">
+                        <div className="rounded-lg bg-[#F5F0E7] p-2.5 border border-[#DED2C1]">
                           <span className="font-bold text-[#B8C2D9]/70 uppercase text-[9px] block">Previous State</span>
-                          <div className="text-[#F5F3EE] font-mono truncate">{JSON.stringify(ch.old_value)}</div>
+                          <div className="text-[#352719] font-mono truncate">{JSON.stringify(ch.old_value)}</div>
                         </div>
                         <div className="rounded-lg bg-emerald-50/60 p-2.5 border border-emerald-100">
                           <span className="font-bold text-emerald-700 uppercase text-[9px] block">Applied State</span>
@@ -4813,7 +4813,7 @@ export default function AdminSeoManagerPage() {
                         <button
                           onClick={() => handleRollback(ch.id)}
                           disabled={actionLoading}
-                          className="inline-flex items-center gap-1.5 rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2 text-xs font-bold text-[#F5F3EE] hover:border-red-500 hover:text-red-600 transition-all cursor-pointer shadow-xs"
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2 text-xs font-bold text-[#352719] hover:border-red-500 hover:text-red-600 transition-all cursor-pointer shadow-xs"
                         >
                           <RotateCcw className="h-3.5 w-3.5" />
                           Rollback
@@ -4844,21 +4844,21 @@ export default function AdminSeoManagerPage() {
       {activeTab === 'settings' && (
         <div className="space-y-6 max-w-4xl">
           {/* Settings Form */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               Automated Daily Scheduler &amp; AI Engine Configuration
             </h3>
 
             <form onSubmit={handleSaveSettings} className="mt-6 space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                  <label className="block text-xs font-bold text-[#352719] mb-1">
                     Daily Scheduler Status
                   </label>
                   <select
                     value={settingsForm.scheduler_enabled}
                     onChange={(e) => setSettingsForm({ ...settingsForm, scheduler_enabled: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   >
                     <option value="1">Enabled (Active Daily Pipeline)</option>
                     <option value="0">Disabled (Manual Triggers Only)</option>
@@ -4866,25 +4866,25 @@ export default function AdminSeoManagerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                  <label className="block text-xs font-bold text-[#352719] mb-1">
                     Daily Run Time (Server Time)
                   </label>
                   <input
                     type="time"
                     value={settingsForm.daily_run_time}
                     onChange={(e) => setSettingsForm({ ...settingsForm, daily_run_time: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                  <label className="block text-xs font-bold text-[#352719] mb-1">
                     Safe Auto-Apply
                   </label>
                   <select
                     value={settingsForm.auto_apply_safe}
                     onChange={(e) => setSettingsForm({ ...settingsForm, auto_apply_safe: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   >
                     <option value="0">Off (Require Manual Admin Approval)</option>
                     <option value="1">On (Auto-apply meta descriptions &amp; image ALTs)</option>
@@ -4892,7 +4892,7 @@ export default function AdminSeoManagerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                  <label className="block text-xs font-bold text-[#352719] mb-1">
                     Min Confidence for Auto-Apply
                   </label>
                   <input
@@ -4902,18 +4902,18 @@ export default function AdminSeoManagerPage() {
                     max="1.0"
                     value={settingsForm.min_confidence_auto_apply}
                     onChange={(e) => setSettingsForm({ ...settingsForm, min_confidence_auto_apply: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                  <label className="block text-xs font-bold text-[#352719] mb-1">
                     AI Provider
                   </label>
                   <select
                     value={settingsForm.ai_provider}
                     onChange={(e) => setSettingsForm({ ...settingsForm, ai_provider: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   >
                     <option value="gemini">Google Gemini (Gemini 1.5 Flash / Pro)</option>
                     <option value="openai">OpenAI (GPT-4o / GPT-4o-mini)</option>
@@ -4921,7 +4921,7 @@ export default function AdminSeoManagerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                  <label className="block text-xs font-bold text-[#352719] mb-1">
                     AI API Key (Leave blank to keep existing)
                   </label>
                   <input
@@ -4929,7 +4929,7 @@ export default function AdminSeoManagerPage() {
                     placeholder={settingsData?.ai_api_key_masked || 'Enter AI API Key...'}
                     value={settingsForm.ai_api_key}
                     onChange={(e) => setSettingsForm({ ...settingsForm, ai_api_key: e.target.value })}
-                    className="w-full rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
               </div>
@@ -4949,8 +4949,8 @@ export default function AdminSeoManagerPage() {
           </div>
 
           {/* GoDaddy cPanel Cron Helper */}
-          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-xs">
+            <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
               GoDaddy cPanel Cron Job Command Helper
             </h3>
             <p className="text-xs text-[#B8C2D9] mt-2">
@@ -4969,7 +4969,7 @@ export default function AdminSeoManagerPage() {
                   setCopiedKey(true)
                   setTimeout(() => setCopiedKey(false), 2000)
                 }}
-                className="shrink-0 text-white hover:text-[#D6C29A] transition-colors p-1 cursor-pointer"
+                className="shrink-0 text-white hover:text-[#795C43] transition-colors p-1 cursor-pointer"
               >
                 {copiedKey ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
               </button>

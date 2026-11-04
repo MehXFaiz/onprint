@@ -332,7 +332,7 @@ export default function BusinessCardsLeadPage() {
   }
 
   return (
-    <div className="bg-[#040A18] text-slate-200">
+    <div className="bg-[#F5F0E7] text-slate-200">
       <SEOHead
         title="Business Card Printing Quote UAE | Instant Custom Estimator Dubai | ONPRINT"
         description="Get an instant business card printing quote in Dubai & UAE. Select 350–700 GSM silk, velvet, cotton, or luxury black cardstock, upload artwork or request design assistance, and order via WhatsApp."
@@ -343,11 +343,11 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 1. HERO HEADER                                                            */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#040A18] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#122240]">
+      <section className="relative overflow-hidden bg-[#F5F0E7] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989] bg-[#795C43]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>Dubai's Premier Business Card Atelier • Al Quoz</span>
               </div>
@@ -356,7 +356,7 @@ export default function BusinessCardsLeadPage() {
             <Reveal delay={0.06}>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
                 Custom Business Card Printing{' '}
-                <span className="font-serif italic text-[#D4AF65]">Engineered for Distinction</span>
+                <span className="font-serif italic text-[#795C43]">Engineered for Distinction</span>
               </h1>
             </Reveal>
 
@@ -374,7 +374,7 @@ export default function BusinessCardsLeadPage() {
                   Direct Al Quoz Pressroom
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Zap className="h-4 w-4 text-[#D4AF65]" />
+                  <Zap className="h-4 w-4 text-[#795C43]" />
                   Same-Day Express Available
                 </span>
                 <span className="inline-flex items-center gap-1.5">
@@ -382,7 +382,7 @@ export default function BusinessCardsLeadPage() {
                   Free Pre-Flight Artwork Check
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <ShieldCheck className="h-4 w-4 text-[#D4AF65]" />
+                  <ShieldCheck className="h-4 w-4 text-[#795C43]" />
                   100% Pre-Press Proof Guarantee
                 </span>
               </div>
@@ -394,23 +394,23 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 2. INTERACTIVE SPEC CONFIGURATOR & DUAL CONVERSION FUNNEL                  */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#040A18]">
+      <section className="py-12 sm:py-16 bg-[#F5F0E7]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Interactive Card Configurator (7 Cols) */}
             <div className="lg:col-span-7 space-y-8">
               {/* Step 1: Select Card Stock */}
-              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#795C43] text-white text-xs font-bold">
                       1
                     </span>
-                    <h2 className="font-serif text-lg sm:text-xl font-bold text-[#F5F2EB]">
+                    <h2 className="font-serif text-lg sm:text-xl font-bold text-[#352719]">
                       Choose Paper Stock &amp; Finish
                     </h2>
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#B0BECE]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                     8 Options
                   </span>
                 </div>
@@ -425,12 +425,12 @@ export default function BusinessCardsLeadPage() {
                         onClick={() => setSelectedCard(card)}
                         className={`group text-left p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-2 ring-[#D4AF65]/20 shadow-xs'
-                            : 'border-[#122240] bg-[#040A18] hover:border-slate-300 hover:bg-[#040A18]/50'
+                            ? 'border-[#C5A989] bg-[#795C43]/10 ring-2 ring-[#795C43]/20 shadow-xs'
+                            : 'border-[#DED2C1] bg-[#F5F0E7] hover:border-slate-300 hover:bg-[#F5F0E7]/50'
                         }`}
                       >
                         <div className="flex items-start gap-3 w-full">
-                          <div className="h-16 w-16 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-[#122240]/80">
+                          <div className="h-16 w-16 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-[#DED2C1]/80">
                             <img
                               src={card.image}
                               alt={card.name}
@@ -440,27 +440,27 @@ export default function BusinessCardsLeadPage() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-wrap items-center justify-between gap-1">
-                              <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#D4AF65]">
+                              <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#795C43]">
                                 {card.tag}
                               </span>
-                              <span className="text-[9px] font-bold text-[#B0BECE]">
+                              <span className="text-[9px] font-bold text-[#756657]">
                                 {card.badge}
                               </span>
                             </div>
-                            <h3 className="font-bold text-xs sm:text-sm text-[#F5F2EB] line-clamp-1 mt-0.5">
+                            <h3 className="font-bold text-xs sm:text-sm text-[#352719] line-clamp-1 mt-0.5">
                               {card.name}
                             </h3>
-                            <p className="text-[11px] text-[#B0BECE] line-clamp-2 mt-0.5 leading-tight">
+                            <p className="text-[11px] text-[#756657] line-clamp-2 mt-0.5 leading-tight">
                               {card.description}
                             </p>
                           </div>
                         </div>
 
-                        <div className="mt-3 pt-2 border-t border-[#122240] flex items-center justify-between w-full text-[11px]">
-                          <span className="font-semibold text-[#B0BECE]">Custom Quote</span>
+                        <div className="mt-3 pt-2 border-t border-[#DED2C1] flex items-center justify-between w-full text-[11px]">
+                          <span className="font-semibold text-[#756657]">Custom Quote</span>
                           <span
                             className={`font-bold flex items-center gap-1 ${
-                              isSelected ? 'text-[#D4AF65]' : 'text-[#B0BECE] group-hover:text-[#B0BECE]'
+                              isSelected ? 'text-[#795C43]' : 'text-[#756657] group-hover:text-[#756657]'
                             }`}
                           >
                             {isSelected ? '✓ Selected' : 'Select'}
@@ -473,12 +473,12 @@ export default function BusinessCardsLeadPage() {
               </div>
 
               {/* Step 2: Select Quantity */}
-              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#795C43] text-white text-xs font-bold">
                     2
                   </span>
-                  <h2 className="font-serif text-lg sm:text-xl font-bold text-[#F5F2EB]">
+                  <h2 className="font-serif text-lg sm:text-xl font-bold text-[#352719]">
                     Select Quantity
                   </h2>
                 </div>
@@ -493,8 +493,8 @@ export default function BusinessCardsLeadPage() {
                         onClick={() => setSelectedQty(qty)}
                         className={`p-3 rounded-xl border text-center transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#D4AF65] text-white font-bold shadow-xs'
-                            : 'border-[#122240] bg-[#040A18] text-[#F5F2EB] font-semibold hover:bg-[#040A18] hover:border-slate-300'
+                            ? 'border-[#C5A989] bg-[#795C43] text-white font-bold shadow-xs'
+                            : 'border-[#DED2C1] bg-[#F5F0E7] text-[#352719] font-semibold hover:bg-[#F5F0E7] hover:border-slate-300'
                         }`}
                       >
                         <span className="block text-xs sm:text-sm">{qty.label}</span>
@@ -505,17 +505,17 @@ export default function BusinessCardsLeadPage() {
               </div>
 
               {/* Step 3: Optional Add-on Enhancements */}
-              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#795C43] text-white text-xs font-bold">
                       3
                     </span>
-                    <h2 className="font-serif text-lg sm:text-xl font-bold text-[#F5F2EB]">
+                    <h2 className="font-serif text-lg sm:text-xl font-bold text-[#352719]">
                       Optional Specialty Finishes
                     </h2>
                   </div>
-                  <span className="text-[11px] text-[#B0BECE]">Optional</span>
+                  <span className="text-[11px] text-[#756657]">Optional</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -528,21 +528,21 @@ export default function BusinessCardsLeadPage() {
                         onClick={() => toggleAddon(addon.id)}
                         className={`p-3 rounded-xl border text-left flex items-center justify-between gap-3 transition-all duration-200 cursor-pointer ${
                           isChecked
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 text-[#F5F2EB] ring-1 ring-[#D4AF65]/30'
-                            : 'border-[#122240] bg-[#040A18] text-[#F5F2EB] hover:bg-[#040A18]'
+                            ? 'border-[#C5A989] bg-[#795C43]/10 text-[#352719] ring-1 ring-[#795C43]/30'
+                            : 'border-[#DED2C1] bg-[#F5F0E7] text-[#352719] hover:bg-[#F5F0E7]'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
                           <div
                             className={`h-4 w-4 rounded flex items-center justify-center border transition-colors ${
-                              isChecked ? 'bg-[#D4AF65] border-[#D4AF65] text-white' : 'border-slate-300 bg-[#081226]'
+                              isChecked ? 'bg-[#795C43] border-[#C5A989] text-white' : 'border-slate-300 bg-[#FAF8F3]'
                             }`}
                           >
                             {isChecked && <Check className="h-3 w-3 stroke-[3]" />}
                           </div>
                           <span className="text-xs font-bold">{addon.label}</span>
                         </div>
-                        <span className="text-[11px] font-bold text-[#D4AF65]">
+                        <span className="text-[11px] font-bold text-[#795C43]">
                           {addon.price > 0 ? 'Custom Craft' : 'Included'}
                         </span>
                       </button>
@@ -552,12 +552,12 @@ export default function BusinessCardsLeadPage() {
               </div>
 
               {/* Step 4: Turnaround & Delivery */}
-              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#795C43] text-white text-xs font-bold">
                     4
                   </span>
-                  <h2 className="font-serif text-lg sm:text-xl font-bold text-[#F5F2EB]">
+                  <h2 className="font-serif text-lg sm:text-xl font-bold text-[#352719]">
                     Production Speed &amp; Dispatch
                   </h2>
                 </div>
@@ -572,17 +572,17 @@ export default function BusinessCardsLeadPage() {
                         onClick={() => setSelectedTurnaround(option)}
                         className={`p-3.5 rounded-xl border text-left flex flex-col justify-between transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-1 ring-[#D4AF65]'
-                            : 'border-[#122240] bg-[#040A18] hover:bg-[#040A18]'
+                            ? 'border-[#C5A989] bg-[#795C43]/10 ring-1 ring-[#795C43]'
+                            : 'border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#F5F0E7]'
                         }`}
                       >
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#795C43]">
                           {option.tag}
                         </span>
-                        <span className="text-xs font-bold text-[#F5F2EB] mt-1">
+                        <span className="text-xs font-bold text-[#352719] mt-1">
                           {option.label}
                         </span>
-                        <span className="text-[11px] font-semibold text-[#B0BECE] mt-2">
+                        <span className="text-[11px] font-semibold text-[#756657] mt-2">
                           {option.extra > 0 ? 'Express Priority' : 'Free Standard'}
                         </span>
                       </button>
@@ -595,45 +595,45 @@ export default function BusinessCardsLeadPage() {
             {/* Right Column: Dynamic Price Summary & Dual-Conversion Form (5 Cols) */}
             <div className="lg:col-span-5 sticky top-24 space-y-6">
               {/* Order / Spec Preview Box */}
-              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-6 sm:p-8 shadow-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#122240] gap-3">
+              <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-6 sm:p-8 shadow-lg">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#DED2C1] gap-3">
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#795C43]">
                       CONFIGURED SPECIFICATION
                     </span>
-                    <h3 className="font-serif text-xl font-bold text-[#F5F2EB] mt-0.5">
+                    <h3 className="font-serif text-xl font-bold text-[#352719] mt-0.5">
                       {selectedCard.name}
                     </h3>
                   </div>
                   <div className="text-right">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#B0BECE]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#756657]">
                       PRICING
                     </span>
-                    <div className="text-xl font-black text-[#D4AF65]">
+                    <div className="text-xl font-black text-[#795C43]">
                       Quote on Request
                     </div>
                   </div>
                 </div>
 
                 {/* Specs List */}
-                <div className="py-4 space-y-2 text-xs border-b border-[#122240]">
-                  <div className="flex justify-between text-[#B0BECE]">
+                <div className="py-4 space-y-2 text-xs border-b border-[#DED2C1]">
+                  <div className="flex justify-between text-[#756657]">
                     <span>Quantity:</span>
-                    <span className="font-bold text-[#F5F2EB]">{selectedQty.label}</span>
+                    <span className="font-bold text-[#352719]">{selectedQty.label}</span>
                   </div>
-                  <div className="flex justify-between text-[#B0BECE]">
+                  <div className="flex justify-between text-[#756657]">
                     <span>Finishes:</span>
-                    <span className="font-bold text-[#F5F2EB]">
+                    <span className="font-bold text-[#352719]">
                       {selectedAddons.length > 0
                         ? selectedAddons.map((id) => FINISHING_ADDONS.find((a) => a.id === id)?.label).join(', ')
                         : 'Standard Clean Trim'}
                     </span>
                   </div>
-                  <div className="flex justify-between text-[#B0BECE]">
+                  <div className="flex justify-between text-[#756657]">
                     <span>Turnaround:</span>
-                    <span className="font-bold text-[#F5F2EB]">{selectedTurnaround.label}</span>
+                    <span className="font-bold text-[#352719]">{selectedTurnaround.label}</span>
                   </div>
-                  <div className="flex justify-between text-[#B0BECE]">
+                  <div className="flex justify-between text-[#756657]">
                     <span>Delivery Location:</span>
                     <span className="font-bold text-emerald-400">{deliveryLocation}</span>
                   </div>
@@ -650,7 +650,7 @@ export default function BusinessCardsLeadPage() {
                     <WhatsAppIcon className="h-5 w-5 fill-current group-hover:scale-110 transition-transform" />
                     <span>Instant Quote on WhatsApp</span>
                   </a>
-                  <p className="text-center text-[11px] text-[#B0BECE]">
+                  <p className="text-center text-[11px] text-[#756657]">
                     Direct reply from our Al Quoz print technicians within 15 minutes.
                   </p>
                 </div>
@@ -658,10 +658,10 @@ export default function BusinessCardsLeadPage() {
                 {/* Divider */}
                 <div className="relative my-6">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-[#122240]" />
+                    <div className="w-full border-t border-[#DED2C1]" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-[#081226] px-3 text-[#B0BECE] font-bold">OR SUBMIT FORM BELOW</span>
+                    <span className="bg-[#FAF8F3] px-3 text-[#756657] font-bold">OR SUBMIT FORM BELOW</span>
                   </div>
                 </div>
 
@@ -695,8 +695,8 @@ export default function BusinessCardsLeadPage() {
                       </div>
                     )}
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
-                        Full Name <span className="text-[#D4AF65]">*</span>
+                      <label className="block text-xs font-bold text-[#352719] mb-1">
+                        Full Name <span className="text-[#795C43]">*</span>
                       </label>
                       <input
                         type="text"
@@ -704,14 +704,14 @@ export default function BusinessCardsLeadPage() {
                         value={formData.name}
                         onChange={(e) => { notifyFormStart(); setFormData({ ...formData, name: e.target.value }) }}
                         placeholder="e.g. Tariq Al-Mansoor"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:ring-1 focus:ring-[#795C43] outline-none"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
-                          Phone / WhatsApp <span className="text-[#D4AF65]">*</span>
+                        <label className="block text-xs font-bold text-[#352719] mb-1">
+                          Phone / WhatsApp <span className="text-[#795C43]">*</span>
                         </label>
                         <input
                           type="tel"
@@ -719,12 +719,12 @@ export default function BusinessCardsLeadPage() {
                           value={formData.phone}
                           onChange={(e) => { notifyFormStart(); setFormData({ ...formData, phone: e.target.value }) }}
                           placeholder="+971 50 123 4567"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
+                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:ring-1 focus:ring-[#795C43] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
-                          Email Address <span className="text-[#D4AF65]">*</span>
+                        <label className="block text-xs font-bold text-[#352719] mb-1">
+                          Email Address <span className="text-[#795C43]">*</span>
                         </label>
                         <input
                           type="email"
@@ -732,13 +732,13 @@ export default function BusinessCardsLeadPage() {
                           value={formData.email}
                           onChange={(e) => { notifyFormStart(); setFormData({ ...formData, email: e.target.value }) }}
                           placeholder="tariq@company.ae"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
+                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:ring-1 focus:ring-[#795C43] outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
+                      <label className="block text-xs font-bold text-[#352719] mb-1">
                         Company Name (Optional)
                       </label>
                       <input
@@ -746,12 +746,12 @@ export default function BusinessCardsLeadPage() {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Al Mansoor Properties"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:ring-1 focus:ring-[#795C43] outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
+                      <label className="block text-xs font-bold text-[#352719] mb-1">
                         Special Instructions / Notes
                       </label>
                       <textarea
@@ -759,17 +759,17 @@ export default function BusinessCardsLeadPage() {
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="e.g. Need foil on logo only, double-sided print..."
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none resize-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:ring-1 focus:ring-[#795C43] outline-none resize-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
-                        Delivery Destination / UAE City <span className="text-[#D4AF65]">*</span>
+                      <label className="block text-xs font-bold text-[#352719] mb-1">
+                        Delivery Destination / UAE City <span className="text-[#795C43]">*</span>
                       </label>
                       <select
                         value={deliveryLocation}
                         onChange={(e) => setDeliveryLocation(e.target.value)}
-                        className="w-full rounded-xl border border-slate-300 bg-[#040A18] px-3.5 py-2.5 text-xs text-[#F5F2EB] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
+                        className="w-full rounded-xl border border-slate-300 bg-[#F5F0E7] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:ring-1 focus:ring-[#795C43] outline-none"
                       >
                         <option value="Dubai, UAE (Express Doorstep Delivery)">Dubai, UAE (Express Doorstep Delivery)</option>
                         <option value="Abu Dhabi, UAE (Next-Day Courier)">Abu Dhabi, UAE (Next-Day Courier)</option>
@@ -781,10 +781,10 @@ export default function BusinessCardsLeadPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
+                      <label className="block text-xs font-bold text-[#352719] mb-1">
                         Upload Artwork (Optional)
                       </label>
-                      <div className="relative rounded-xl border border-dashed border-[#122240] bg-[#040A18]/60 p-3 text-center hover:border-[#D4AF65] transition-colors">
+                      <div className="relative rounded-xl border border-dashed border-[#DED2C1] bg-[#F5F0E7]/60 p-3 text-center hover:border-[#C5A989] transition-colors">
                         <input
                           type="file"
                           accept=".pdf,.ai,.eps,.jpg,.jpeg,.png,.zip"
@@ -792,11 +792,11 @@ export default function BusinessCardsLeadPage() {
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                         />
                         <div className="flex flex-col items-center gap-1">
-                          <Upload className="h-4 w-4 text-[#D4AF65]" />
-                          <span className="text-xs text-[#F5F2EB] font-semibold">
+                          <Upload className="h-4 w-4 text-[#795C43]" />
+                          <span className="text-xs text-[#352719] font-semibold">
                             {artworkFile ? artworkFile.name : 'Click or drag PDF, AI, EPS, or ZIP file'}
                           </span>
-                          <span className="text-[10px] text-[#B0BECE]">
+                          <span className="text-[10px] text-[#756657]">
                             {artworkFile
                               ? `${(artworkFile.size / 1024 / 1024).toFixed(2)} MB • Click to replace`
                               : 'Up to 50MB • Free Pre-Press Inspection Included'}
@@ -814,7 +814,7 @@ export default function BusinessCardsLeadPage() {
                       )}
                     </div>
 
-                    <div className="rounded-xl bg-[#040A18]/80 border border-[#122240] p-2.5 text-[11px] text-[#B0BECE] leading-relaxed">
+                    <div className="rounded-xl bg-[#F5F0E7]/80 border border-[#DED2C1] p-2.5 text-[11px] text-[#756657] leading-relaxed">
                       💡 <strong>Note on WhatsApp Inquiries:</strong> Clicking WhatsApp prepares your exact pre-filled specs. A confirmed binding quotation and delivery schedule are validated with our master pressman in Al Quoz before production starts.
                     </div>
 
@@ -822,7 +822,7 @@ export default function BusinessCardsLeadPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-[#040A18] shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full rounded-xl bg-[#795C43] hover:bg-[#795C43] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#795C43]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specification…' : 'Submit Specification & Get Official Quote →'}
                     </button>
@@ -837,16 +837,16 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 3. BUSINESS CARD SWATCH & FINISH GALLERY                                  */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#081226] border-t border-[#122240]">
+      <section className="py-16 sm:py-20 bg-[#FAF8F3] border-t border-[#DED2C1]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#795C43]">
               ATELIER SUBSTRATES &amp; FINISHES
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F5F2EB] mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#352719] mt-1">
               Explore Our Signature Business Card Finishes
             </h2>
-            <p className="text-xs sm:text-sm text-[#B0BECE] mt-2">
+            <p className="text-xs sm:text-sm text-[#756657] mt-2">
               Every card is printed on certified European substrates and hand-finished with calibrated German Heidelberg precision.
             </p>
           </div>
@@ -892,7 +892,7 @@ export default function BusinessCardsLeadPage() {
             ].map((finish, idx) => (
               <div
                 key={idx}
-                className="group rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-4 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-md"
+                className="group rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-4 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#C5A989] hover:shadow-md"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
                   <img
@@ -908,10 +908,10 @@ export default function BusinessCardsLeadPage() {
                   </div>
                 </div>
                 <div className="mt-4">
-                  <h3 className="font-serif text-base font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
+                  <h3 className="font-serif text-base font-bold text-[#352719] group-hover:text-[#795C43] transition-colors">
                     {finish.title}
                   </h3>
-                  <p className="text-xs text-[#B0BECE] mt-1 leading-relaxed">
+                  <p className="text-xs text-[#756657] mt-1 leading-relaxed">
                     {finish.desc}
                   </p>
                 </div>
@@ -924,16 +924,16 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 4. PRE-PRESS QUALITY & ACCURACY STANDARDS                                 */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#040A18] border-t border-[#122240]">
+      <section className="py-16 sm:py-20 bg-[#F5F0E7] border-t border-[#DED2C1]">
         <Container className="max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#795C43]">
               COMMERCIAL ATELIER STANDARDS
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F2EB] mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#352719] mt-1">
               Rigorous Quality Checks for Corporate Stationery in Dubai
             </h2>
-            <p className="text-xs sm:text-sm text-[#B0BECE] mt-2 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-[#756657] mt-2 max-w-2xl mx-auto">
               Every business card run is inspected for color fidelity, dimensional accuracy, and finishing alignment before dispatch.
             </p>
           </div>
@@ -960,18 +960,18 @@ export default function BusinessCardsLeadPage() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-6 shadow-xs flex flex-col justify-between"
+                  className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-6 shadow-xs flex flex-col justify-between"
                 >
                   <div>
-                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] mb-4">
+                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#795C43]/10 text-[#795C43] mb-4">
                       <IconComp className="h-5 w-5" />
                     </div>
-                    <h3 className="text-sm font-bold text-[#F5F2EB] mb-2">{std.title}</h3>
-                    <p className="text-xs sm:text-sm text-[#B0BECE] leading-relaxed">
+                    <h3 className="text-sm font-bold text-[#352719] mb-2">{std.title}</h3>
+                    <p className="text-xs sm:text-sm text-[#756657] leading-relaxed">
                       {std.desc}
                     </p>
                   </div>
-                  <div className="mt-5 pt-3 border-t border-[#122240] flex items-center gap-1.5 text-[11px] font-semibold text-[#D4AF65]">
+                  <div className="mt-5 pt-3 border-t border-[#DED2C1] flex items-center gap-1.5 text-[11px] font-semibold text-[#795C43]">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     <span>ONPRINT Dubai Standard</span>
                   </div>
@@ -985,12 +985,12 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 5. BOTTOM CTA BANNER                                                      */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-16 bg-[#081226] border-t border-[#122240]">
+      <section className="py-14 sm:py-16 bg-[#FAF8F3] border-t border-[#DED2C1]">
         <Container className="text-center max-w-3xl space-y-5">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F2EB]">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#352719]">
             Need a Custom Quantity or Bespoke Die-Line?
           </h2>
-          <p className="text-xs sm:text-sm text-[#B0BECE] leading-relaxed max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#756657] leading-relaxed max-w-xl mx-auto">
             Contact our Al Quoz print specialists directly on WhatsApp for immediate custom quotations, bulk enterprise discounts, and artwork pre-flight verification.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -1016,7 +1016,7 @@ export default function BusinessCardsLeadPage() {
               to="/get-a-quote"
               variant="outline"
               size="lg"
-              className="!rounded-xl border-slate-300 bg-[#081226] text-[#F5F2EB] hover:bg-[#040A18] text-xs font-bold !py-3.5 !px-7 shadow-xs"
+              className="!rounded-xl border-slate-300 bg-[#FAF8F3] text-[#352719] hover:bg-[#F5F0E7] text-xs font-bold !py-3.5 !px-7 shadow-xs"
             >
               All Product Quotes →
             </Button>

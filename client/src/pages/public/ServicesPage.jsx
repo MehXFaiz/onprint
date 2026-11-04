@@ -74,7 +74,7 @@ export default function ServicesPage() {
             <Link
               to="/get-a-quote"
               onClick={() => trackGetQuoteClick({ source_page: '/services', button_location: 'services_hero_quote' })}
-              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-5 py-2.5 text-xs sm:text-sm font-black text-[#040A18] shadow-md transition-all"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#795C43] hover:bg-[#5D442E] px-5 py-2.5 text-xs sm:text-sm font-black text-white shadow-md transition-all"
             >
               <span>Request Custom Quote</span>
               <ArrowRight className="h-4 w-4" />
@@ -211,7 +211,7 @@ export default function ServicesPage() {
                 </a>
                 <Link
                   to="/get-a-quote"
-                  className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-6 py-3 text-xs sm:text-sm font-black text-[#040A18] shadow-lg transition-all"
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#795C43] hover:bg-[#5D442E] px-6 py-3 text-xs sm:text-sm font-black text-white shadow-lg transition-all"
                 >
                   <span>Request Custom Quote</span>
                   <ArrowRight className="h-4 w-4" />

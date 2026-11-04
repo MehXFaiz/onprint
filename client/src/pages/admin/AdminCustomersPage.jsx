@@ -40,13 +40,13 @@ export default function AdminCustomersPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#FAF8F3] p-6 rounded-3xl border border-[#DED2C1] shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#795C43]">
             <Users className="h-4 w-4" />
             <span>Client Accounts</span>
           </div>
-          <h1 className="font-display mt-1 text-2xl font-black text-[#F5F3EE]">
+          <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Customer Directory
           </h1>
           <p className="mt-0.5 text-xs text-[#B8C2D9]">
@@ -78,7 +78,7 @@ export default function AdminCustomersPage() {
       )}
 
       {/* Filter */}
-      <div className="bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
+      <div className="bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         <div className="relative max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
@@ -86,16 +86,16 @@ export default function AdminCustomersPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search customers by name, email, or company..."
-            className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
+            className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] pl-10 pr-4 py-2 text-xs font-medium text-[#352719] placeholder-neutral-400 focus:border-[#C5A989] focus:outline-none"
           />
         </div>
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto rounded-3xl border border-[#122240] bg-[#081226] shadow-xs">
+      <div className="w-full overflow-x-auto rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
         <table className="w-full min-w-[650px] text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-[#122240] bg-[#040A18] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+            <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
               <th className="py-3.5 px-4">Name</th>
               <th className="py-3.5 px-4">Email</th>
               <th className="py-3.5 px-4">Company</th>
@@ -104,19 +104,19 @@ export default function AdminCustomersPage() {
               <th className="py-3.5 px-4 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-neutral-100 font-medium text-[#F5F3EE]">
+          <tbody className="divide-y divide-neutral-100 font-medium text-[#352719]">
             {filtered.map((c) => (
-              <tr key={c.id} className="hover:bg-[#040A18]/60 transition-colors">
-                <td className="py-3 px-4 font-bold text-[#F5F3EE]">{c.name}</td>
+              <tr key={c.id} className="hover:bg-[#F5F0E7]/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-[#352719]">{c.name}</td>
                 <td className="py-3 px-4 font-mono text-[11px] text-[#B8C2D9]">{c.email}</td>
-                <td className="py-3 px-4 text-[#F5F3EE]">{c.company}</td>
+                <td className="py-3 px-4 text-[#352719]">{c.company}</td>
                 <td className="py-3 px-4 text-[#B8C2D9]">{c.phone}</td>
                 <td className="py-3 px-4">
                   <span
                     className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase ${
                       c.role === 'admin'
-                        ? 'bg-red-50 text-[#D6C29A] border border-red-200'
-                        : 'bg-neutral-100 text-[#F5F3EE] border border-[#122240]'
+                        ? 'bg-red-50 text-[#795C43] border border-red-200'
+                        : 'bg-neutral-100 text-[#352719] border border-[#DED2C1]'
                     }`}
                   >
                     {c.role}
@@ -126,7 +126,7 @@ export default function AdminCustomersPage() {
                   <div className="flex items-center justify-end gap-2">
                     <button
                       onClick={() => navigate(`/admin/customers/${c.id}/edit`)}
-                      className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors"
+                      className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
                       title="Edit Customer"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -147,26 +147,26 @@ export default function AdminCustomersPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#B8C2D9]">
         <div>
-          Showing <span className="font-bold text-[#F5F3EE]">{filtered.length}</span> of{' '}
-          <span className="font-bold text-[#F5F3EE]">{customers.length}</span> customers
+          Showing <span className="font-bold text-[#352719]">{filtered.length}</span> of{' '}
+          <span className="font-bold text-[#352719]">{customers.length}</span> customers
         </div>
         <div className="flex items-center gap-1.5">
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#D6C29A] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#C5A989] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -176,24 +176,24 @@ export default function AdminCustomersPage() {
       {/* Delete Confirmation Modal */}
       {deletingCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Delete Customer?</h3>
+                <h3 className="font-display text-lg font-bold text-[#352719]">Delete Customer?</h3>
                 <p className="text-xs text-[#B8C2D9]">
                   Are you sure you want to delete &quot;{deletingCustomer.name}&quot;?
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#122240]">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#DED2C1]">
               <button
                 type="button"
                 onClick={() => setDeletingCustomer(null)}
-                className="rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18]"
+                className="rounded-xl border border-[#DED2C1] px-4 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7]"
               >
                 Cancel
               </button>

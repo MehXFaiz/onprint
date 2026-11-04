@@ -24,18 +24,18 @@ export default function LoadingState({
         {Array.from({ length: count }).map((_, i) => (
           <div
             key={i}
-            className="flex flex-col overflow-hidden rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs animate-pulse"
+            className="flex flex-col overflow-hidden rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs animate-pulse"
           >
-            <div className="aspect-[4/3] w-full rounded-xl bg-[#122240]/60" />
+            <div className="aspect-[4/3] w-full rounded-xl bg-[#DED2C1]/60" />
             <div className="mt-4 space-y-2.5">
-              <div className="h-3 w-1/3 rounded-full bg-[#122240]" />
-              <div className="h-4 w-3/4 rounded-full bg-[#122240]" />
-              <div className="h-3 w-full rounded-full bg-[#122240]/60" />
-              <div className="h-3 w-2/3 rounded-full bg-[#122240]/60" />
+              <div className="h-3 w-1/3 rounded-full bg-[#DED2C1]" />
+              <div className="h-4 w-3/4 rounded-full bg-[#DED2C1]" />
+              <div className="h-3 w-full rounded-full bg-[#DED2C1]/60" />
+              <div className="h-3 w-2/3 rounded-full bg-[#DED2C1]/60" />
             </div>
-            <div className="mt-6 pt-3 border-t border-[#122240]/60 flex items-center justify-between">
-              <div className="h-8 w-24 rounded-lg bg-[#122240]" />
-              <div className="h-8 w-8 rounded-lg bg-[#122240]" />
+            <div className="mt-6 pt-3 border-t border-[#DED2C1]/60 flex items-center justify-between">
+              <div className="h-8 w-24 rounded-lg bg-[#DED2C1]" />
+              <div className="h-8 w-8 rounded-lg bg-[#DED2C1]" />
             </div>
           </div>
         ))}
@@ -46,9 +46,9 @@ export default function LoadingState({
   return (
     <div
       role="status"
-      className={`flex items-center justify-center gap-3 py-16 text-sm font-medium text-[#B0BECE] ${className}`}
+      className={`flex items-center justify-center gap-3 py-16 text-sm font-medium text-[#756657] ${className}`}
     >
-      <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#122240] border-t-[#D4AF65]" aria-hidden="true" />
+      <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#DED2C1] border-t-[#795C43]" aria-hidden="true" />
       <span>{label}</span>
     </div>
   )

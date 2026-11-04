@@ -1,13 +1,26 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "framework": null,
-  "outputDirectory": "dist",
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "dist/**"
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "express",
+      "entrypoint": "server.js",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "client",
+          "format": "url",
+          "env": "CLIENT_SERVICE_URL"
+        }
+      ]
+    },
+    "client": {
+      "root": "client",
+      "framework": "vite"
+    },
+    "streamlit-cloud": {
+      "root": "streamlit-cloud",
+      "runtime": "python"
     }
   },
   "headers": [
@@ -42,15 +55,33 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "destination": {
+        "service": "app"
+      }
     },
     {
-      "source": "/admin(.*)",
-      "destination": "/index.html"
+      "source": "/uploads/(.*)",
+      "destination": {
+        "service": "app"
+      }
     },
     {
-      "source": "/((?!api|assets|uploads|favicon\\.ico|robots\\.txt|sitemap\\.xml|llms\\.txt|ads\\.txt).*)",
-      "destination": "/index.html"
+      "source": "/(robots\\.txt|sitemap\\.xml|llms\\.txt|ads\\.txt)",
+      "destination": {
+        "service": "app"
+      }
+    },
+    {
+      "source": "/(health|healthz|ping)",
+      "destination": {
+        "service": "app"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "client"
+      }
     }
   ]
 }

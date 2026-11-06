@@ -256,7 +256,7 @@ export default function AdminBlogPage() {
           <h1 className="font-display text-2xl font-black tracking-tight text-[#352719] mt-1">
             Blog &amp; Knowledge Management
           </h1>
-          <p className="text-xs text-[#B8C2D9] mt-0.5">
+          <p className="text-xs text-[#756657] mt-0.5">
             Create, publish, and manage dynamic SEO printing guides connected directly to MySQL.
           </p>
         </div>
@@ -269,9 +269,9 @@ export default function AdminBlogPage() {
       {/* KPI Stats Cards */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs">
-          <div className="flex items-center justify-between text-[#B8C2D9]">
+          <div className="flex items-center justify-between text-[#756657]">
             <span className="text-[11px] font-bold uppercase tracking-wider">Total Articles</span>
-            <FileText className="h-4 w-4 text-[#B8C2D9]/70" />
+            <FileText className="h-4 w-4 text-[#756657]/80" />
           </div>
           <div className="mt-2 font-display text-2xl font-black text-[#352719]">{stats.total}</div>
         </div>
@@ -313,7 +313,7 @@ export default function AdminBlogPage() {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         {/* Search */}
         <div className="relative w-full sm:w-72">
-          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#756657]/80" />
           <input
             type="text"
             value={search}
@@ -392,7 +392,7 @@ export default function AdminBlogPage() {
             <button
               type="button"
               onClick={() => setSelectedIds([])}
-              className="text-xs text-[#B8C2D9]/70 hover:text-white cursor-pointer"
+              className="text-xs text-[#756657]/80 hover:text-[#352719] cursor-pointer"
             >
               Deselect All
             </button>
@@ -416,9 +416,9 @@ export default function AdminBlogPage() {
           </div>
         ) : posts.length === 0 ? (
           <div className="py-16 text-center">
-            <BookOpen className="mx-auto h-12 w-12 text-neutral-300" />
+            <BookOpen className="mx-auto h-12 w-12 text-[#756657]" />
             <h3 className="font-display mt-3 text-base font-bold text-[#352719]">No blog articles found</h3>
-            <p className="text-xs text-[#B8C2D9] mt-1">
+            <p className="text-xs text-[#756657] mt-1">
               {search || statusFilter !== 'all' || categoryFilter !== 'all'
                 ? 'Try adjusting your filters or search keywords.'
                 : 'Write your first dynamic printing guide to rank on Google.'}
@@ -433,13 +433,13 @@ export default function AdminBlogPage() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full min-w-[800px] text-left text-xs">
-              <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 font-bold uppercase tracking-wider text-[#B8C2D9]">
+              <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 font-bold uppercase tracking-wider text-[#756657]">
                 <tr>
                   <th className="py-3.5 pl-5 pr-2 w-8">
                     <button
                       type="button"
                       onClick={toggleSelectAll}
-                      className="text-[#B8C2D9] hover:text-[#352719] cursor-pointer"
+                      className="text-[#756657] hover:text-[#352719] cursor-pointer"
                       aria-label="Select all"
                     >
                       {isAllSelected ? (
@@ -474,7 +474,7 @@ export default function AdminBlogPage() {
                         <button
                           type="button"
                           onClick={() => toggleSelectOne(post.id)}
-                          className="text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
+                          className="text-[#756657]/80 hover:text-[#352719] cursor-pointer"
                         >
                           {isSelected ? (
                             <CheckSquare className="h-4 w-4 text-[#795C43]" />
@@ -498,7 +498,7 @@ export default function AdminBlogPage() {
                             <div className="font-bold text-[#352719] line-clamp-1 hover:text-[#795C43] transition-colors">
                               <Link to={`/admin/blog/${post.id}/edit`}>{post.title}</Link>
                             </div>
-                            <div className="text-[11px] text-[#B8C2D9]/70 line-clamp-1 font-mono mt-0.5">
+                            <div className="text-[11px] text-[#756657]/80 line-clamp-1 font-mono mt-0.5">
                               /blog/{post.slug}
                             </div>
                           </div>
@@ -508,7 +508,7 @@ export default function AdminBlogPage() {
                       {/* Category */}
                       <td className="px-3 py-4">
                         <span className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2.5 py-1 text-[10px] font-bold text-[#352719]">
-                          <Layers className="h-3 w-3 text-[#B8C2D9]/70" />
+                          <Layers className="h-3 w-3 text-[#756657]/80" />
                           {post.category || 'General'}
                         </span>
                       </td>
@@ -572,7 +572,7 @@ export default function AdminBlogPage() {
                           <button
                             type="button"
                             onClick={() => openSeoModal(post)}
-                            className="inline-flex items-center gap-1 rounded-full bg-neutral-100 border border-[#DED2C1] px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9] hover:bg-neutral-200 cursor-pointer"
+                            className="inline-flex items-center gap-1 rounded-full bg-neutral-100 border border-[#DED2C1] px-2 py-0.5 text-[10px] font-bold text-[#756657] hover:bg-neutral-200 cursor-pointer"
                             title="Click to run real-time SEO analysis"
                           >
                             <Sparkles className="h-3 w-3 text-amber-500" />
@@ -586,23 +586,23 @@ export default function AdminBlogPage() {
                         <button
                           type="button"
                           onClick={() => handleToggleFeatured(post.id)}
-                          className="text-neutral-300 hover:text-amber-400 cursor-pointer p-1 transition-colors"
+                          className="text-[#756657] hover:text-amber-700 cursor-pointer p-1 transition-colors"
                           title={post.is_featured ? 'Featured on Homepage' : 'Mark as Featured'}
                         >
                           <Star
                             className={`h-4 w-4 ${
-                              post.is_featured ? 'fill-amber-400 text-amber-400' : 'text-neutral-300'
+                              post.is_featured ? 'fill-amber-400 text-amber-400' : 'text-[#756657]'
                             }`}
                           />
                         </button>
                       </td>
 
                       {/* Published / Updated Date */}
-                      <td className="px-3 py-4 text-[#B8C2D9] text-[11px]">
+                      <td className="px-3 py-4 text-[#756657] text-[11px]">
                         <div className="font-semibold text-[#352719]">
                           {formatDate(post.published_at || post.publishedAt)}
                         </div>
-                        <div className="text-[10px] text-[#B8C2D9]/70 mt-0.5">
+                        <div className="text-[10px] text-[#756657]/80 mt-0.5">
                           Upd: {formatDate(post.updated_at || post.updatedAt)}
                         </div>
                       </td>
@@ -613,7 +613,7 @@ export default function AdminBlogPage() {
                           <button
                             type="button"
                             onClick={() => openSeoModal(post)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#C5A989]/10 hover:text-[#795C43] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-[#C5A989]/10 hover:text-[#795C43] transition-colors cursor-pointer"
                             title="View SEO Analysis"
                           >
                             <Gauge className="h-4 w-4 text-[#795C43]" />
@@ -622,14 +622,14 @@ export default function AdminBlogPage() {
                             to={`/blog/${post.slug}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
+                            className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
                             title="View live on website"
                           >
                             <Eye className="h-4 w-4" />
                           </Link>
                           <Link
                             to={`/admin/blog/${post.id}/edit`}
-                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
+                            className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
                             title="Edit article"
                           >
                             <Edit2 className="h-4 w-4" />
@@ -637,7 +637,7 @@ export default function AdminBlogPage() {
                           <button
                             type="button"
                             onClick={() => setDeleteConfirm(post.id)}
-                            className="rounded-lg p-1.5 text-red-400 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
                             title="Delete article"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -654,7 +654,7 @@ export default function AdminBlogPage() {
 
         {/* Pagination Bar */}
         {pagination.totalPages > 1 && (
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#DED2C1] px-4 sm:px-6 py-3 bg-[#F5F0E7] text-xs font-semibold text-[#B8C2D9]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#DED2C1] px-4 sm:px-6 py-3 bg-[#F5F0E7] text-xs font-semibold text-[#756657]">
             <div>
               Showing {posts.length} of {pagination.total} articles
             </div>
@@ -693,7 +693,7 @@ export default function AdminBlogPage() {
               <AlertCircle className="h-6 w-6" />
               <h3 className="font-display text-lg font-bold text-[#352719]">Delete Blog Article?</h3>
             </div>
-            <p className="text-xs leading-relaxed text-[#B8C2D9]">
+            <p className="text-xs leading-relaxed text-[#756657]">
               Are you sure you want to permanently delete this article? This action cannot be undone and the URL will be removed from Google Search indexing.
             </p>
             <div className="flex justify-end gap-3 pt-2">
@@ -730,7 +730,7 @@ export default function AdminBlogPage() {
                 Delete {selectedIds.length} Selected Articles?
               </h3>
             </div>
-            <p className="text-xs leading-relaxed text-[#B8C2D9]">
+            <p className="text-xs leading-relaxed text-[#756657]">
               You are about to permanently delete <strong className="text-[#352719]">{selectedIds.length}</strong> articles from MySQL. This action is irreversible.
             </p>
             <div className="flex justify-end gap-3 pt-2">
@@ -772,7 +772,7 @@ export default function AdminBlogPage() {
               <button
                 type="button"
                 onClick={closeSeoModal}
-                className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-neutral-200 hover:text-[#352719] transition-colors cursor-pointer"
+                className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-neutral-200 hover:text-[#352719] transition-colors cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -784,7 +784,7 @@ export default function AdminBlogPage() {
               <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
                 <div className="font-bold text-[#352719] text-sm">{seoModalPost.title}</div>
                 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px]">
-                  <span className="font-mono text-[#B8C2D9]">/blog/{seoModalPost.slug}</span>
+                  <span className="font-mono text-[#756657]">/blog/{seoModalPost.slug}</span>
                   {seoModalPost.focus_keyword && (
                     <span className="inline-flex items-center gap-1 rounded-full bg-[#C5A989]/10 px-2 py-0.5 font-bold text-[#795C43]">
                       Keyword: {seoModalPost.focus_keyword}
@@ -802,7 +802,7 @@ export default function AdminBlogPage() {
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {/* 0-100 Score */}
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 text-center shadow-xs">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">
                     Overall Score
                   </div>
                   <div className="mt-1 flex items-baseline justify-center gap-1">
@@ -819,9 +819,9 @@ export default function AdminBlogPage() {
                     >
                       {seoModalData?.seo_score != null ? seoModalData.seo_score : '—'}
                     </span>
-                    <span className="text-xs text-[#B8C2D9]/70 font-bold">/100</span>
+                    <span className="text-xs text-[#756657]/80 font-bold">/100</span>
                   </div>
-                  <div className="text-[10px] font-bold text-[#B8C2D9] mt-0.5">
+                  <div className="text-[10px] font-bold text-[#756657] mt-0.5">
                     {(seoModalData?.seo_score || 0) >= 90
                       ? 'Excellent'
                       : (seoModalData?.seo_score || 0) >= 75
@@ -834,35 +834,35 @@ export default function AdminBlogPage() {
 
                 {/* Readability Score */}
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 text-center shadow-xs">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">
                     Readability
                   </div>
                   <div className="mt-1 text-2xl font-black text-[#352719]">
                     {seoModalData?.readability_score != null ? seoModalData.readability_score : '—'}
                   </div>
-                  <div className="text-[10px] font-bold text-[#B8C2D9] mt-0.5">Flesch Ease</div>
+                  <div className="text-[10px] font-bold text-[#756657] mt-0.5">Flesch Ease</div>
                 </div>
 
                 {/* Word Count */}
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 text-center shadow-xs">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">
                     Word Count
                   </div>
                   <div className="mt-1 text-2xl font-black text-[#352719]">
                     {seoModalData?.word_count != null ? seoModalData.word_count : '—'}
                   </div>
-                  <div className="text-[10px] font-bold text-[#B8C2D9] mt-0.5">Words</div>
+                  <div className="text-[10px] font-bold text-[#756657] mt-0.5">Words</div>
                 </div>
 
                 {/* Keyword Density */}
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 text-center shadow-xs">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">
                     Density
                   </div>
                   <div className="mt-1 text-2xl font-black text-[#352719]">
                     {seoModalData?.keyword_density != null ? `${seoModalData.keyword_density}%` : '—'}
                   </div>
-                  <div className="text-[10px] font-bold text-[#B8C2D9] mt-0.5">Ideal: 1–2.5%</div>
+                  <div className="text-[10px] font-bold text-[#756657] mt-0.5">Ideal: 1–2.5%</div>
                 </div>
               </div>
 
@@ -871,7 +871,7 @@ export default function AdminBlogPage() {
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs">
                   <div className="font-bold text-xs uppercase tracking-wider text-[#352719] mb-3 flex items-center justify-between">
                     <span>16-Point Optimization Checklist</span>
-                    <span className="text-[11px] text-[#B8C2D9]/70 font-normal">Google Essentials Compliant</span>
+                    <span className="text-[11px] text-[#756657]/80 font-normal">Google Essentials Compliant</span>
                   </div>
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 text-xs">
                     {Object.entries(seoModalData.breakdown).map(([factorKey, item]) => {
@@ -895,7 +895,7 @@ export default function AdminBlogPage() {
                           )}
                           <div className="min-w-0">
                             <div className="font-bold text-[11px] truncate">{label}</div>
-                            <div className="text-[10px] text-[#B8C2D9] truncate">
+                            <div className="text-[10px] text-[#756657] truncate">
                               {item?.note || (isPassing ? 'Satisfies best practices' : 'Needs attention')}
                             </div>
                           </div>
@@ -912,7 +912,7 @@ export default function AdminBlogPage() {
                   Priority Recommendations &amp; Fixes
                 </div>
                 {seoModalLoading ? (
-                  <div className="py-6 text-center text-xs text-[#B8C2D9]/70">
+                  <div className="py-6 text-center text-xs text-[#756657]/80">
                     <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#C5A989] border-t-transparent mx-auto mb-2" />
                     Running 16-point real-time AI SEO diagnostic…
                   </div>
@@ -942,7 +942,7 @@ export default function AdminBlogPage() {
                             </span>
                           </div>
                           {rec.why && (
-                            <div className="text-[11px] text-[#B8C2D9]">
+                            <div className="text-[11px] text-[#756657]">
                               <strong className="text-[#352719]">Why:</strong> {rec.why}
                             </div>
                           )}

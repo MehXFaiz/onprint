@@ -288,14 +288,14 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 </p>
 
                 {/* Specs List */}
-                <ul className="mt-4 pt-4 border-t border-[#DED2C1] space-y-1.5 text-[11px] font-medium text-slate-300">
+                <ul className="mt-4 pt-4 border-t border-[#DED2C1] space-y-1.5 text-[11px] font-medium text-[#756657]">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong className="text-white">Sizes:</strong> {item.popularSizes}</span>
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                    <span><strong className="text-[#352719]">Sizes:</strong> {item.popularSizes}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong className="text-white">Stocks:</strong> {item.paperWeights}</span>
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                    <span><strong className="text-[#352719]">Stocks:</strong> {item.paperWeights}</span>
                   </li>
                 </ul>
               </div>
@@ -355,14 +355,14 @@ export default function BrochureTypesShowcase({ className = '' }) {
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#795C43]">
                     {modalItem.badge} • {modalItem.panels}
                   </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mt-0.5">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#352719] mt-0.5">
                     {modalItem.title}
                   </h3>
                 </div>
                 <button
                   type="button"
                   onClick={() => setModalItem(null)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:text-white hover:border-[#C5A989] transition-colors cursor-pointer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:text-[#352719] hover:border-[#C5A989] transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X className="h-5 w-5" />
@@ -381,7 +381,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 </div>
 
                 {/* Description */}
-                <div className="rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] p-4 text-xs sm:text-sm text-slate-200 leading-relaxed">
+                <div className="rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] p-4 text-xs sm:text-sm text-[#352719] leading-relaxed">
                   <p>{modalItem.description}</p>
                 </div>
 
@@ -391,28 +391,28 @@ export default function BrochureTypesShowcase({ className = '' }) {
                     <span className="text-[10px] font-black uppercase text-[#795C43] block mb-1">
                       Standard Dimensions
                     </span>
-                    <span className="font-semibold text-white">{modalItem.popularSizes}</span>
+                    <span className="font-semibold text-[#352719]">{modalItem.popularSizes}</span>
                   </div>
 
                   <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#795C43] block mb-1">
                       Paper Stocks &amp; Grammages
                     </span>
-                    <span className="font-semibold text-white">{modalItem.paperWeights}</span>
+                    <span className="font-semibold text-[#352719]">{modalItem.paperWeights}</span>
                   </div>
 
                   <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#795C43] block mb-1">
                       Folding &amp; Finishing Specs
                     </span>
-                    <span className="font-semibold text-white">{modalItem.panels}</span>
+                    <span className="font-semibold text-[#352719]">{modalItem.panels}</span>
                   </div>
 
                   <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#795C43] block mb-1">
                       Turnaround in Dubai
                     </span>
-                    <span className="font-semibold text-emerald-400">{modalItem.turnaround}</span>
+                    <span className="font-semibold text-emerald-700">{modalItem.turnaround}</span>
                   </div>
                 </div>
 
@@ -421,7 +421,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#795C43] block mb-2">
                     Commercial Manufacturing Highlights
                   </span>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#756657]">
                     {modalItem.specs.map((spec, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Check className="h-3.5 w-3.5 text-[#795C43] shrink-0 mt-0.5" />
@@ -432,8 +432,8 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 </div>
 
                 {/* Recommended Use Cases */}
-                <div className="text-xs text-slate-400">
-                  <strong className="text-slate-200">Recommended For: </strong>
+                <div className="text-xs text-[#756657]">
+                  <strong className="text-[#352719]">Recommended For: </strong>
                   <span>{modalItem.idealFor}</span>
                 </div>
               </div>
@@ -448,7 +448,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                   <button
                     type="button"
                     onClick={() => setModalItem(null)}
-                    className="flex-1 sm:flex-none px-4 py-2.5 rounded-full border border-[#DED2C1] text-xs font-bold text-slate-300 hover:text-white cursor-pointer"
+                    className="flex-1 sm:flex-none px-4 py-2.5 rounded-full border border-[#DED2C1] text-xs font-bold text-[#756657] hover:text-[#352719] cursor-pointer"
                   >
                     Close
                   </button>

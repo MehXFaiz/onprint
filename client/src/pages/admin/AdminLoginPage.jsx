@@ -55,7 +55,7 @@ export default function AdminLoginPage() {
           <h1 className="font-display mt-2 text-2xl font-black tracking-tight text-white">
             Staff Portal Login
           </h1>
-          <p className="mt-1 text-xs text-[#B8C2D9]/70">
+          <p className="mt-1 text-xs text-[#756657]/80">
             Sign in to manage product uploads, inventory, and order dispatch.
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
           >
             <div>
               <div className="font-bold text-white">admin@onprint.ae</div>
-              <div className="text-[10px] text-[#B8C2D9]/70">Password: admin123</div>
+              <div className="text-[10px] text-[#756657]/80">Password: admin123</div>
             </div>
             <ArrowRight className="h-4 w-4 text-[#795C43]" />
           </button>
@@ -83,7 +83,7 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           {error && (
-            <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-xs font-semibold text-red-400">
+            <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-xs font-semibold text-red-600">
               {error}
             </div>
           )}
@@ -132,7 +132,7 @@ export default function AdminLoginPage() {
         <div className="mt-8 text-center border-t border-neutral-800/80 pt-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B8C2D9]/70 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#756657]/80 hover:text-white transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Public Website

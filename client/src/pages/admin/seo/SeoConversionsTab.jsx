@@ -122,12 +122,12 @@ export default function SeoConversionsTab({ showToast }) {
                 <TrendingUp className="h-3.5 w-3.5" />
                 Real-Time Organic Attribution
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Privacy-Safe Non-PII Funnel</span>
+              <span className="text-xs font-semibold text-[#756657]">Privacy-Safe Non-PII Funnel</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               WhatsApp &amp; Conversion Funnel Dashboard
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Strictly separates outbound WhatsApp clicks (intent) from submitted quote/contact forms (confirmed inquiries) and verified orders. No personal customer data (PII) is stored in analytics events.
             </p>
           </div>
@@ -150,9 +150,9 @@ export default function SeoConversionsTab({ showToast }) {
         {/* Top Metric Cards */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-6 gap-3">
           <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Interactions</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">Total Interactions</div>
             <div className="mt-1 text-2xl font-black text-[#352719]">{summary.totalConversions || 0}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">All tracked CTA events</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">All tracked CTA events</div>
           </div>
 
           <div className="rounded-xl border border-emerald-200/70 bg-emerald-50/50 p-4">
@@ -182,7 +182,7 @@ export default function SeoConversionsTab({ showToast }) {
           <div className="rounded-xl border border-[#C5A989]/20 bg-[#C5A989]/5 p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#795C43]">Confirmed Orders</div>
             <div className="mt-1 text-2xl font-black text-[#795C43]">{summary.confirmedOrdersCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Verified database orders</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">Verified database orders</div>
           </div>
         </div>
       </div>
@@ -194,13 +194,13 @@ export default function SeoConversionsTab({ showToast }) {
           <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4 mb-4">
             <div>
               <h3 className="font-bold text-[#352719] text-sm">Product &amp; Landing Page Performance</h3>
-              <p className="text-xs text-[#B8C2D9]">WhatsApp clicks vs. submitted forms by page path</p>
+              <p className="text-xs text-[#756657]">WhatsApp clicks vs. submitted forms by page path</p>
             </div>
-            <Globe className="h-4 w-4 text-[#B8C2D9]/70" />
+            <Globe className="h-4 w-4 text-[#756657]/80" />
           </div>
 
           {byPage.length === 0 ? (
-            <div className="py-8 text-center text-xs text-[#B8C2D9]">
+            <div className="py-8 text-center text-xs text-[#756657]">
               No conversion events recorded yet.
             </div>
           ) : (
@@ -239,9 +239,9 @@ export default function SeoConversionsTab({ showToast }) {
           <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4 mb-4">
             <div>
               <h3 className="font-bold text-[#352719] text-sm">Device Category Attribution</h3>
-              <p className="text-xs text-[#B8C2D9]">Interaction split across mobile, desktop, and tablet</p>
+              <p className="text-xs text-[#756657]">Interaction split across mobile, desktop, and tablet</p>
             </div>
-            <Smartphone className="h-4 w-4 text-[#B8C2D9]/70" />
+            <Smartphone className="h-4 w-4 text-[#756657]/80" />
           </div>
 
           <div className="grid grid-cols-3 gap-3">
@@ -251,7 +251,7 @@ export default function SeoConversionsTab({ showToast }) {
               const pct = summary.totalConversions ? Math.round((count / summary.totalConversions) * 100) : 0
               return (
                 <div key={dev} className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4 text-center">
-                  <div className="text-[#B8C2D9] uppercase font-bold text-[10px] tracking-wider mb-1">
+                  <div className="text-[#756657] uppercase font-bold text-[10px] tracking-wider mb-1">
                     {dev}
                   </div>
                   <div className="text-xl font-black text-[#352719]">{count}</div>
@@ -261,7 +261,7 @@ export default function SeoConversionsTab({ showToast }) {
             })}
           </div>
 
-          <div className="mt-6 bg-[#F5F0E7] p-3.5 rounded-xl text-xs text-[#B8C2D9] leading-relaxed border border-[#DED2C1]/50">
+          <div className="mt-6 bg-[#F5F0E7] p-3.5 rounded-xl text-xs text-[#756657] leading-relaxed border border-[#DED2C1]/50">
             <span className="font-bold text-[#352719]">Attribution Integrity Note:</span> A WhatsApp button click opens the WhatsApp conversation with pre-filled product details; it is tracked as an outbound click (`whatsapp_click`) and is never inflated as a confirmed sale unless an order is recorded.
           </div>
         </div>
@@ -270,7 +270,7 @@ export default function SeoConversionsTab({ showToast }) {
       {/* Filter and Live Event Stream */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             placeholder="Search page path, product, or event type..."
@@ -298,18 +298,18 @@ export default function SeoConversionsTab({ showToast }) {
       {/* Events Table */}
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             Loading organic conversion records...
           </div>
         ) : filteredEvents.length === 0 ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             No conversion events found for the active filter.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Event Type</th>
                   <th className="py-3 px-4">Page Path</th>
                   <th className="py-3 px-3">Product / Button Location</th>
@@ -332,11 +332,11 @@ export default function SeoConversionsTab({ showToast }) {
                     <td className="py-3 px-3 text-[#352719]">
                       <div className="font-semibold">{ev.product_name || ev.source_label || '—'}</div>
                       {ev.button_location && (
-                        <div className="text-[10px] font-mono text-[#B8C2D9]">{ev.button_location}</div>
+                        <div className="text-[10px] font-mono text-[#756657]">{ev.button_location}</div>
                       )}
                     </td>
 
-                    <td className="py-3 px-3 capitalize font-medium text-[#B8C2D9]">
+                    <td className="py-3 px-3 capitalize font-medium text-[#756657]">
                       {ev.device || ev.device_category || 'desktop'}
                     </td>
 
@@ -344,7 +344,7 @@ export default function SeoConversionsTab({ showToast }) {
                       {ev.source || 'Direct / Organic'}
                     </td>
 
-                    <td className="py-3 px-4 text-right text-[#B8C2D9] font-mono text-[11px]">
+                    <td className="py-3 px-4 text-right text-[#756657] font-mono text-[11px]">
                       {new Date(ev.created_at).toLocaleString()}
                     </td>
                   </tr>

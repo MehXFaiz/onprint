@@ -44,7 +44,7 @@ export default function AdminPortfolioPage() {
           <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Portfolio Showcase Gallery
           </h1>
-          <p className="mt-0.5 text-xs text-[#B8C2D9]">
+          <p className="mt-0.5 text-xs text-[#756657]">
             Showcase finished print projects, high-resolution photography, and client deliverables.
           </p>
         </div>
@@ -63,11 +63,11 @@ export default function AdminPortfolioPage() {
       {notification && (
         <div className="rounded-2xl border border-neutral-700 bg-neutral-900 p-4 text-xs font-bold text-white flex items-center justify-between shadow-xl">
           <span className="flex items-center gap-2">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700" />
             {notification}
           </span>
           <button onClick={() => setNotification(null)}>
-            <X className="h-4 w-4 text-[#B8C2D9]/70 hover:text-white" />
+            <X className="h-4 w-4 text-[#756657]/80 hover:text-[#352719]" />
           </button>
         </div>
       )}
@@ -75,7 +75,7 @@ export default function AdminPortfolioPage() {
       {/* Filter */}
       <div className="bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         <div className="relative max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             value={search}
@@ -103,13 +103,13 @@ export default function AdminPortfolioPage() {
               <h3 className="font-display font-bold text-base text-[#352719] mt-0.5 line-clamp-1">
                 {item.title}
               </h3>
-              <p className="text-xs text-[#B8C2D9] mt-1">Client: {item.client}</p>
+              <p className="text-xs text-[#756657] mt-1">Client: {item.client}</p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-[#DED2C1] flex items-center justify-end gap-2">
               <button
                 onClick={() => navigate(`/admin/portfolio/${item.id}/edit`)}
-                className="rounded-xl border border-[#DED2C1] p-2 text-[#B8C2D9] hover:bg-[#F5F0E7] hover:text-[#352719] transition-colors"
+                className="rounded-xl border border-[#DED2C1] p-2 text-[#756657] hover:bg-[#F5F0E7] hover:text-[#352719] transition-colors"
                 title="Edit Project"
               >
                 <Edit2 className="h-4 w-4" />
@@ -127,7 +127,7 @@ export default function AdminPortfolioPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#756657]">
         <div>
           Showing <span className="font-bold text-[#352719]">{filtered.length}</span> of{' '}
           <span className="font-bold text-[#352719]">{items.length}</span> projects
@@ -136,7 +136,7 @@ export default function AdminPortfolioPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
@@ -146,7 +146,7 @@ export default function AdminPortfolioPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -163,7 +163,7 @@ export default function AdminPortfolioPage() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-[#352719]">Delete Project?</h3>
-                <p className="text-xs text-[#B8C2D9]">
+                <p className="text-xs text-[#756657]">
                   Are you sure you want to delete &quot;{deletingItem.title}&quot; from portfolio showcase?
                 </p>
               </div>

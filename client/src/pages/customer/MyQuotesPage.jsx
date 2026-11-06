@@ -62,9 +62,9 @@ export default function MyQuotesPage() {
                   <span
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
                       quote.status === 'Approved'
-                        ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                        ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700'
                         : quote.status === 'Rejected'
-                          ? 'bg-red-500/10 border-red-500/30 text-red-300'
+                          ? 'bg-red-500/10 border-red-500/30 text-red-700'
                           : 'bg-[#C5A989]/10 border-[#C5A989]/30 text-[#795C43]'
                     }`}
                   >

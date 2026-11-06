@@ -132,12 +132,12 @@ export default function SeoExperimentsTab({ showToast }) {
                 <Sliders className="h-3.5 w-3.5" />
                 CTR Optimization & A/B Engine
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 4 & 34</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirements 4 & 34</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               SEO Title & Meta Experiments
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Conduct controlled split experiments on high-impression commercial URLs. Test location triggers, same-day delivery value props, and pricing hooks to maximize organic CTR without losing rankings.
             </p>
           </div>
@@ -159,9 +159,9 @@ export default function SeoExperimentsTab({ showToast }) {
         {/* Summary Metric Cards */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Tests</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">Total Tests</div>
             <div className="mt-1 text-2xl font-black text-[#352719]">{summary.total}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Tracked experiments</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">Tracked experiments</div>
           </div>
 
           <div className="rounded-xl border border-emerald-200/70 bg-emerald-50/50 p-4">
@@ -181,7 +181,7 @@ export default function SeoExperimentsTab({ showToast }) {
       {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             placeholder="Search URL or hypothesis..."
@@ -206,12 +206,12 @@ export default function SeoExperimentsTab({ showToast }) {
       {/* Experiments List Cards */}
       <div className="space-y-4">
         {loading ? (
-          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-sm text-[#756657]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading SEO experiments...
           </div>
         ) : filteredExperiments.length === 0 ? (
-          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-sm text-[#756657]">
             No experiments found for this view.
           </div>
         ) : (
@@ -243,7 +243,7 @@ export default function SeoExperimentsTab({ showToast }) {
                         {exp.page_url}
                       </span>
                     </div>
-                    <p className="text-xs text-[#B8C2D9] mt-1 font-medium">
+                    <p className="text-xs text-[#756657] mt-1 font-medium">
                       <span className="font-bold text-[#352719]">Hypothesis:</span> {exp.hypothesis}
                     </p>
                   </div>
@@ -264,7 +264,7 @@ export default function SeoExperimentsTab({ showToast }) {
                     <button
                       type="button"
                       onClick={() => handleDelete(exp.id)}
-                      className="p-1.5 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
+                      className="p-1.5 text-[#756657]/80 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -276,19 +276,19 @@ export default function SeoExperimentsTab({ showToast }) {
                   {/* Control / Variant A */}
                   <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/60 p-4 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-black uppercase tracking-wider text-[#B8C2D9]">
+                      <span className="text-xs font-black uppercase tracking-wider text-[#756657]">
                         Variant A (Control)
                       </span>
-                      <span className="text-[11px] font-bold text-[#B8C2D9]">
+                      <span className="text-[11px] font-bold text-[#756657]">
                         {ctrA}% CTR
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#B8C2D9]/70 font-bold block uppercase">SERP Title</span>
+                      <span className="text-[10px] text-[#756657]/80 font-bold block uppercase">SERP Title</span>
                       <div className="text-xs font-semibold text-blue-700">{exp.control_title}</div>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#B8C2D9]/70 font-bold block uppercase">Meta Description</span>
+                      <span className="text-[10px] text-[#756657]/80 font-bold block uppercase">Meta Description</span>
                       <div className="text-xs text-[#352719]">{exp.control_meta}</div>
                     </div>
                   </div>
@@ -327,7 +327,7 @@ export default function SeoExperimentsTab({ showToast }) {
               <h3 className="font-black text-lg text-[#352719]">Launch SEO CTR Experiment</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 text-[#B8C2D9]/70 hover:text-[#352719]"
+                className="p-1 text-[#756657]/80 hover:text-[#352719]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -359,7 +359,7 @@ export default function SeoExperimentsTab({ showToast }) {
               <div className="border-t pt-3 space-y-3">
                 <span className="font-bold text-[#352719] text-xs block">Control (Variant A - Current)</span>
                 <div>
-                  <label className="text-[#B8C2D9] font-medium block mb-1">Current Title</label>
+                  <label className="text-[#756657] font-medium block mb-1">Current Title</label>
                   <input
                     type="text"
                     required
@@ -369,7 +369,7 @@ export default function SeoExperimentsTab({ showToast }) {
                   />
                 </div>
                 <div>
-                  <label className="text-[#B8C2D9] font-medium block mb-1">Current Meta Description</label>
+                  <label className="text-[#756657] font-medium block mb-1">Current Meta Description</label>
                   <textarea
                     rows={2}
                     required
@@ -383,7 +383,7 @@ export default function SeoExperimentsTab({ showToast }) {
               <div className="border-t pt-3 space-y-3">
                 <span className="font-bold text-[#795C43] text-xs block">Test (Variant B - Optimized)</span>
                 <div>
-                  <label className="text-[#B8C2D9] font-medium block mb-1">Optimized Title (Include CTA / Location)</label>
+                  <label className="text-[#756657] font-medium block mb-1">Optimized Title (Include CTA / Location)</label>
                   <input
                     type="text"
                     required
@@ -393,7 +393,7 @@ export default function SeoExperimentsTab({ showToast }) {
                   />
                 </div>
                 <div>
-                  <label className="text-[#B8C2D9] font-medium block mb-1">Optimized Meta Description (Include Turnaround / Al Quoz)</label>
+                  <label className="text-[#756657] font-medium block mb-1">Optimized Meta Description (Include Turnaround / Al Quoz)</label>
                   <textarea
                     rows={2}
                     required

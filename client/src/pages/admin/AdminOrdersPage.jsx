@@ -147,7 +147,7 @@ export default function AdminOrdersPage() {
           <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Order Management
           </h1>
-          <p className="mt-0.5 text-xs text-[#B8C2D9]">
+          <p className="mt-0.5 text-xs text-[#756657]">
             Track customer print runs, update production stages, and manage dispatches in Dubai.
           </p>
         </div>
@@ -166,11 +166,11 @@ export default function AdminOrdersPage() {
       {notification && (
         <div className="rounded-2xl border border-neutral-700 bg-neutral-900 p-4 text-xs font-bold text-white flex items-center justify-between shadow-xl">
           <span className="flex items-center gap-2">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700" />
             {notification}
           </span>
           <button onClick={() => setNotification(null)} className="cursor-pointer">
-            <X className="h-4 w-4 text-[#B8C2D9]/70 hover:text-white" />
+            <X className="h-4 w-4 text-[#756657]/80 hover:text-[#352719]" />
           </button>
         </div>
       )}
@@ -178,7 +178,7 @@ export default function AdminOrdersPage() {
       {/* KPI Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-5 shadow-xs">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Total Orders</div>
+          <div className="text-xs font-bold uppercase tracking-wider text-[#756657]">Total Orders</div>
           <div className="mt-2 text-2xl sm:text-3xl font-black text-[#352719]">{orders.length}</div>
         </div>
 
@@ -208,7 +208,7 @@ export default function AdminOrdersPage() {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
           <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
             <input
               type="text"
               value={search}
@@ -242,7 +242,7 @@ export default function AdminOrdersPage() {
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <Filter className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
+          <Filter className="h-4 w-4 text-[#756657]/80 shrink-0" />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -262,7 +262,7 @@ export default function AdminOrdersPage() {
       <div className="w-full overflow-x-auto rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
         <table className="w-full min-w-[750px] text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+            <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#756657]">
               <th className="py-3.5 px-4 w-10 text-center">
                 <input
                   type="checkbox"
@@ -287,10 +287,10 @@ export default function AdminOrdersPage() {
           <tbody className="divide-y divide-neutral-100 font-medium text-[#352719]">
             {filteredOrders.length === 0 ? (
               <tr>
-                <td colSpan="8" className="py-12 text-center text-xs text-[#B8C2D9]">
-                  <ShoppingBag className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
+                <td colSpan="8" className="py-12 text-center text-xs text-[#756657]">
+                  <ShoppingBag className="h-8 w-8 text-[#756657] mx-auto mb-2" />
                   <p className="font-bold text-[#352719]">No orders recorded in database yet</p>
-                  <p className="mt-1 text-[#B8C2D9]/70">
+                  <p className="mt-1 text-[#756657]/80">
                     When a client quote request is approved or placed on the website, it will show up here.
                   </p>
                 </td>
@@ -326,11 +326,11 @@ export default function AdminOrdersPage() {
                     </td>
                     <td className="py-3 px-4">
                       <div className="font-bold text-[#352719]">{o.customerName}</div>
-                      <div className="text-[10px] text-[#B8C2D9]">{o.company || o.customerEmail || 'Client'}</div>
+                      <div className="text-[10px] text-[#756657]">{o.company || o.customerEmail || 'Client'}</div>
                     </td>
                     <td className="py-3 px-4 max-w-xs">
                       <div className="font-bold text-[#352719] truncate">{o.productName}</div>
-                      {o.specs && <div className="text-[10px] text-[#B8C2D9] truncate">{o.specs}</div>}
+                      {o.specs && <div className="text-[10px] text-[#756657] truncate">{o.specs}</div>}
                       {o.artworkFile && (
                         <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#795C43] bg-red-50 px-1.5 py-0.5 rounded">
                           📎 {o.artworkFile}
@@ -359,7 +359,7 @@ export default function AdminOrdersPage() {
                           type="button"
                           onClick={() => setDeletingOrder(o)}
                           title="Delete order"
-                          className="rounded-lg border border-[#DED2C1] p-1 text-[#B8C2D9]/70 hover:border-red-200 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                          className="rounded-lg border border-[#DED2C1] p-1 text-[#756657]/80 hover:border-red-200 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                         </button>
@@ -374,7 +374,7 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#756657]">
         <div>
           Showing <span className="font-bold text-[#352719]">{filteredOrders.length}</span> of{' '}
           <span className="font-bold text-[#352719]">{orders.length}</span> orders
@@ -386,7 +386,7 @@ export default function AdminOrdersPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
@@ -396,7 +396,7 @@ export default function AdminOrdersPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -443,7 +443,7 @@ export default function AdminOrdersPage() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-[#352719]">Delete Order?</h3>
-                <p className="text-xs text-[#B8C2D9]">
+                <p className="text-xs text-[#756657]">
                   Are you sure you want to delete order &quot;{deletingOrder.orderNumber}&quot;?
                 </p>
               </div>
@@ -481,7 +481,7 @@ export default function AdminOrdersPage() {
                 <h3 className="font-display text-lg font-bold text-[#352719]">
                   Delete {selectedOrderIds.length} Order{selectedOrderIds.length > 1 ? 's' : ''}?
                 </h3>
-                <p className="text-xs text-[#B8C2D9] mt-1">
+                <p className="text-xs text-[#756657] mt-1">
                   Are you sure you want to permanently delete the {selectedOrderIds.length} selected orders? This action cannot be undone.
                 </p>
               </div>
@@ -496,7 +496,7 @@ export default function AdminOrdersPage() {
                     className="flex items-center justify-between font-medium text-[#352719] py-1 border-b border-[#DED2C1] last:border-0"
                   >
                     <span className="font-mono font-bold text-[#352719]">{o.orderNumber}</span>
-                    <span className="text-[#B8C2D9] truncate max-w-[150px]">{o.customerName || 'Client'}</span>
+                    <span className="text-[#756657] truncate max-w-[150px]">{o.customerName || 'Client'}</span>
                     <span className="font-bold text-[#352719]">AED {o.totalPrice?.toLocaleString()}</span>
                   </div>
                 ))}

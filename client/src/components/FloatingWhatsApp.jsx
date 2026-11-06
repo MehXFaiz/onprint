@@ -178,7 +178,7 @@ export default function FloatingWhatsApp() {
                         <span className="truncate">{prompt.label}</span>
                       </span>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <span className="text-[9px] font-bold uppercase text-[#795C43] bg-[#F5F0E7] border border-[#DED2C1] px-1.5 py-0.5 rounded group-hover:border-[#25D366] group-hover:text-emerald-300">
+                        <span className="text-[9px] font-bold uppercase text-[#795C43] bg-[#F5F0E7] border border-[#DED2C1] px-1.5 py-0.5 rounded group-hover:border-[#25D366] group-hover:text-emerald-700">
                           {prompt.badge}
                         </span>
                         <Send className="h-3 w-3 text-[#756657] group-hover:text-[#25D366] group-hover:translate-x-0.5 transition-all" />

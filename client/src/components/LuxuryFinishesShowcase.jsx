@@ -155,7 +155,7 @@ export default function LuxuryFinishesShowcase() {
                   <span
                     className={`h-2 w-2 rounded-full ${isSelected ? 'bg-[#795C43]' : 'bg-[#52647D]'}`}
                   />
-                  <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#795C43]' : 'text-[#6B7C96]'}`}>
+                  <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#795C43]' : 'text-[#756657]'}`}>
                     {finish.badge}
                   </span>
                 </div>
@@ -239,7 +239,7 @@ export default function LuxuryFinishesShowcase() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 border-y border-[#DED2C1] py-3.5 text-xs">
                   <div>
-                    <span className="block uppercase tracking-wider text-[#94A3B8] font-bold text-[9.5px]">
+                    <span className="block uppercase tracking-wider text-[#756657] font-bold text-[9.5px]">
                       Recommended Stock Weight
                     </span>
                     <span className="mt-1 block font-bold text-[#352719]">
@@ -247,7 +247,7 @@ export default function LuxuryFinishesShowcase() {
                     </span>
                   </div>
                   <div>
-                    <span className="block uppercase tracking-wider text-[#94A3B8] font-bold text-[9.5px]">
+                    <span className="block uppercase tracking-wider text-[#756657] font-bold text-[9.5px]">
                       Signature Application
                     </span>
                     <span className="mt-1 block font-bold text-[#352719]">

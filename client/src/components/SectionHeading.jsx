@@ -6,7 +6,7 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
       {eyebrow && (
         <div className={`mb-3 inline-flex items-center gap-2 rounded-full border px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-widest ${
           isLightSurface
-            ? 'border-[#C5A989]/40 bg-[#FFFFFF] text-white'
+            ? 'border-[#C5A989]/40 bg-[#FFFFFF] text-[#352719]'
             : 'border-[#DED2C1] bg-[#FAF8F3] text-[#795C43]'
         }`}>
           <span className="h-1.5 w-1.5 rounded-full bg-[#795C43]" aria-hidden="true" />
@@ -15,7 +15,7 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
       )}
       <h2
         className={`font-display text-3xl font-black tracking-tight text-balance sm:text-4xl lg:text-5xl ${
-          isLightSurface ? 'text-white' : 'text-[#352719]'
+          isLightSurface ? 'text-[#352719]' : 'text-[#352719]'
         }`}
       >
         {title}
@@ -28,7 +28,7 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
 
       {subtitle && (
         <p className={`mt-3.5 text-sm leading-relaxed sm:text-base ${
-          isLightSurface ? 'text-[#0E1B33]' : 'text-[#756657]'
+          isLightSurface ? 'text-[#352719]' : 'text-[#756657]'
         }`}>
           {subtitle}
         </p>

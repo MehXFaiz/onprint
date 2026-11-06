@@ -19,7 +19,7 @@ export default function PublicLayout() {
     <div className="flex min-h-screen w-full min-w-0 flex-col bg-[#F5F0E7] text-[#352719] antialiased selection:bg-[#C5A989] selection:text-[#352719]">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-xl focus:bg-[#795C43] focus:px-4 focus:py-2.5 focus:text-xs focus:font-black focus:uppercase focus:tracking-wider focus:text-white focus:shadow-2xl"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-xl focus:bg-[#795C43] focus:px-4 focus:py-2.5 focus:text-xs focus:font-black focus:uppercase focus:tracking-wider focus:text-[#352719] focus:shadow-2xl"
       >
         Skip to main content
       </a>

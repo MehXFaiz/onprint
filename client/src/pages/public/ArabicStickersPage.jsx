@@ -309,7 +309,7 @@ export default function ArabicStickersPage() {
             {/* Right Column: WhatsApp Message Preview */}
             <div className="lg:col-span-5 rounded-3xl border border-[#DED2C1] bg-[#F5F0E7] p-6 sm:p-8 space-y-5 sticky top-28">
               <div className="flex items-center gap-2 pb-3 border-b border-[#DED2C1]">
-                <WhatsAppIcon className="h-5 w-5 text-emerald-400" />
+                <WhatsAppIcon className="h-5 w-5 text-emerald-700" />
                 <h3 className="text-base font-bold text-[#352719]">
                   معاينة رسالة استفسار الملصقات
                 </h3>
@@ -372,7 +372,7 @@ export default function ArabicStickersPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] space-y-2">
-                <Droplets className="h-5 w-5 text-emerald-400" />
+                <Droplets className="h-5 w-5 text-emerald-700" />
                 <h4 className="font-bold text-sm text-[#352719]">مقاومة تامة للماء والزيوت</h4>
                 <p className="text-xs text-[#756657] leading-relaxed">
                   أحبار أوفست ورقمية ثابتة مع طبقة حماية عازلة لا تتأثر بالماء أو التكثيف داخل المبردات.

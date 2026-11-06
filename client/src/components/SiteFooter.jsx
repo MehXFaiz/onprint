@@ -78,7 +78,7 @@ export default function SiteFooter() {
               onClick={() =>
                 trackWhatsAppClick({ source_page: 'footer_contact_pills', service: 'general', button_location: 'footer_social' })
               }
-              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-950/60 px-3 py-1.5 text-xs font-bold text-emerald-300 hover:bg-[#25D366] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-[#25D366] hover:text-white transition-colors"
               aria-label="WhatsApp Direct Chat"
             >
               <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
@@ -200,11 +200,11 @@ export default function SiteFooter() {
               <Clock className="h-4 w-4 shrink-0 text-[#795C43] mt-0.5" />
               <div>
                 <p className="text-[#352719]">Monday – Saturday: 9:00 AM – 8:00 PM</p>
-                <p className="text-emerald-400 font-semibold mt-0.5">24h Priority Emergency Hotline</p>
+                <p className="text-emerald-700 font-semibold mt-0.5">24h Priority Emergency Hotline</p>
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+              <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-700 mt-0.5" />
               <span>UAE Delivery Across All 7 Emirates: Dubai, Abu Dhabi, Sharjah, Ajman, RAK, Fujairah, UAQ</span>
             </div>
           </div>

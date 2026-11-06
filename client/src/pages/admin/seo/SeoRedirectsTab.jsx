@@ -181,12 +181,12 @@ export default function SeoRedirectsTab({ showToast }) {
                 <RotateCcw className="h-3.5 w-3.5" />
                 HTTP Status & 404 Defense
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 28</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirement 28</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               Redirect & 404 Mitigation Manager
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               High-performance Express middleware intercepts deprecated URLs, legacy catalog paths, and spelling errors before rendering to protect PageRank and preserve link equity.
             </p>
           </div>
@@ -212,9 +212,9 @@ export default function SeoRedirectsTab({ showToast }) {
         {/* Summary Metrics */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Active Rules</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">Active Rules</div>
             <div className="mt-1 text-2xl font-black text-[#352719]">{summary.total}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Routing in memory</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">Routing in memory</div>
           </div>
 
           <div className="rounded-xl border border-emerald-200/70 bg-emerald-50/50 p-4">
@@ -232,7 +232,7 @@ export default function SeoRedirectsTab({ showToast }) {
           <div className="rounded-xl border border-[#C5A989]/20 bg-[#C5A989]/5 p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#795C43]">Hits Intercepted</div>
             <div className="mt-1 text-2xl font-black text-[#795C43]">{summary.hits}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">404s prevented</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">404s prevented</div>
           </div>
         </div>
       </div>
@@ -291,7 +291,7 @@ export default function SeoRedirectsTab({ showToast }) {
       {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             placeholder="Search source, target, or notes..."
@@ -315,18 +315,18 @@ export default function SeoRedirectsTab({ showToast }) {
       {/* Redirects Table */}
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             Loading redirect rules...
           </div>
         ) : filteredList.length === 0 ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             No redirect rules match your search.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Source Request Path</th>
                   <th className="py-3 px-3">Status</th>
                   <th className="py-3 px-4">Target Destination</th>
@@ -357,7 +357,7 @@ export default function SeoRedirectsTab({ showToast }) {
 
                     <td className="py-3 px-4 font-mono text-[#795C43] font-bold">
                       <div className="flex items-center gap-1.5">
-                        <ArrowRight className="h-3 w-3 text-[#B8C2D9]/70 shrink-0" />
+                        <ArrowRight className="h-3 w-3 text-[#756657]/80 shrink-0" />
                         <span className="truncate max-w-xs">{item.target_path}</span>
                       </div>
                     </td>
@@ -366,13 +366,13 @@ export default function SeoRedirectsTab({ showToast }) {
                       {item.hit_count || 0}
                     </td>
 
-                    <td className="py-3 px-3 text-[#B8C2D9] text-[11px]">
+                    <td className="py-3 px-3 text-[#756657] text-[11px]">
                       {item.last_accessed_at
                         ? new Date(item.last_accessed_at).toLocaleDateString()
                         : 'Never'}
                     </td>
 
-                    <td className="py-3 px-3 text-[#B8C2D9] text-[11px] max-w-xs truncate">
+                    <td className="py-3 px-3 text-[#756657] text-[11px] max-w-xs truncate">
                       {item.notes || '—'}
                     </td>
 
@@ -391,7 +391,7 @@ export default function SeoRedirectsTab({ showToast }) {
                             })
                             setShowAddModal(true)
                           }}
-                          className="p-1.5 text-[#B8C2D9] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] cursor-pointer"
+                          className="p-1.5 text-[#756657] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] cursor-pointer"
                           title="Edit Rule"
                         >
                           <Edit2 className="h-3.5 w-3.5" />
@@ -400,7 +400,7 @@ export default function SeoRedirectsTab({ showToast }) {
                         <button
                           type="button"
                           onClick={() => handleDelete(item.id, item.source_path)}
-                          className="p-1.5 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
+                          className="p-1.5 text-[#756657]/80 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
                           title="Delete Rule"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
@@ -428,7 +428,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   setShowAddModal(false)
                   setEditingItem(null)
                 }}
-                className="p-1 text-[#B8C2D9]/70 hover:text-[#352719]"
+                className="p-1 text-[#756657]/80 hover:text-[#352719]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -447,7 +447,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   onChange={(e) => setFormData({ ...formData, source_path: e.target.value })}
                   className="w-full px-3 py-2 rounded-xl border border-[#DED2C1] font-mono text-xs focus:outline-none focus:border-[#C5A989]"
                 />
-                <span className="text-[10px] text-[#B8C2D9]/70 mt-0.5 block">
+                <span className="text-[10px] text-[#756657]/80 mt-0.5 block">
                   The incoming 404 or deprecated URL path
                 </span>
               </div>

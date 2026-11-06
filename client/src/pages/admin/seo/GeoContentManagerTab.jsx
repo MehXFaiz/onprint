@@ -166,12 +166,12 @@ export default function GeoContentManagerTab({ showToast }) {
                 <FileText className="h-3.5 w-3.5" />
                 Knowledge Graph Engine
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 28</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirement 28</span>
             </div>
             <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               GEO Content &amp; Entity Knowledge Manager
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Verified corporate facts, technical capabilities, paper substrates, and operational constraints powering ONPRINT&apos;s digital entity representation across Google, Bing, ChatGPT, and Perplexity.
             </p>
           </div>
@@ -204,21 +204,21 @@ export default function GeoContentManagerTab({ showToast }) {
         {/* Stats Row */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#DED2C1] pt-4 text-xs">
           <div>
-            <span className="text-[#B8C2D9] block">Verified Knowledge Records</span>
+            <span className="text-[#756657] block">Verified Knowledge Records</span>
             <span className="text-lg font-black text-[#352719]">{items.length}</span>
           </div>
           <div>
-            <span className="text-[#B8C2D9] block">Active Entities</span>
+            <span className="text-[#756657] block">Active Entities</span>
             <span className="text-lg font-black text-emerald-600">
               {items.filter((i) => i.is_active).length}
             </span>
           </div>
           <div>
-            <span className="text-[#B8C2D9] block">Schema Compatibility</span>
+            <span className="text-[#756657] block">Schema Compatibility</span>
             <span className="text-lg font-black text-[#795C43]">100% Valid JSON-LD</span>
           </div>
           <div>
-            <span className="text-[#B8C2D9] block">Entity Consistency</span>
+            <span className="text-[#756657] block">Entity Consistency</span>
             <span className="text-lg font-black text-[#352719]">Al Quoz, Dubai</span>
           </div>
         </div>
@@ -226,7 +226,7 @@ export default function GeoContentManagerTab({ showToast }) {
 
       {/* Search Bar */}
       <div className="relative max-w-md">
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
         <input
           type="text"
           value={search}
@@ -239,12 +239,12 @@ export default function GeoContentManagerTab({ showToast }) {
       {/* Content Records List */}
       <div className="space-y-4">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+          <div className="p-12 text-center text-xs text-[#756657] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading Knowledge Database…
           </div>
         ) : filteredItems.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+          <div className="p-12 text-center text-xs text-[#756657] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             No knowledge records found.
           </div>
         ) : (
@@ -275,7 +275,7 @@ export default function GeoContentManagerTab({ showToast }) {
                           {item.entity_key}
                         </span>
                         {!item.is_active && (
-                          <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
+                          <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-[#756657]">
                             Inactive
                           </span>
                         )}
@@ -294,7 +294,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setSchemaPreviewItem(item)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
+                        className="p-2 text-[#756657] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="View JSON-LD Structure"
                       >
                         <Code className="h-4 w-4" />
@@ -302,7 +302,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => openEditModal(item)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] transition-colors"
+                        className="p-2 text-[#756657] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="Edit Knowledge Record"
                       >
                         <Edit3 className="h-4 w-4" />
@@ -310,7 +310,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setDeletingItem(item)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors"
+                        className="p-2 text-[#756657]/80 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors"
                         title="Delete Record"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -318,7 +318,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : item.id)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
+                        className="p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="Toggle JSON Data"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -340,7 +340,7 @@ export default function GeoContentManagerTab({ showToast }) {
 
                       {item.citations && (
                         <div>
-                          <span className="font-semibold text-[#B8C2D9] block mb-1">Citations &amp; Primary URLs:</span>
+                          <span className="font-semibold text-[#756657] block mb-1">Citations &amp; Primary URLs:</span>
                           <span className="text-[#352719] font-mono text-[11px] bg-neutral-100 px-2 py-1 rounded">
                             {typeof item.citations === 'string' ? item.citations : JSON.stringify(item.citations)}
                           </span>
@@ -376,7 +376,7 @@ export default function GeoContentManagerTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+              className="absolute top-5 right-5 p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -384,7 +384,7 @@ export default function GeoContentManagerTab({ showToast }) {
             <h3 className="font-display text-xl font-black text-[#352719]">
               {editingItem ? 'Edit Knowledge Record' : 'Add Knowledge Record'}
             </h3>
-            <p className="mt-1 text-xs text-[#B8C2D9]">
+            <p className="mt-1 text-xs text-[#756657]">
               Store structured business facts and specifications consumed by LLMs and search engines.
             </p>
 
@@ -497,7 +497,7 @@ export default function GeoContentManagerTab({ showToast }) {
         >
           <div className="w-full max-w-md rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl">
             <h4 className="font-display text-lg font-black text-[#352719]">Delete Knowledge Record?</h4>
-            <p className="mt-2 text-xs text-[#B8C2D9]">
+            <p className="mt-2 text-xs text-[#756657]">
               Are you sure you want to delete: <strong>&ldquo;{deletingItem.title}&rdquo;</strong>?
             </p>
             <div className="mt-6 flex justify-end gap-3">
@@ -533,7 +533,7 @@ export default function GeoContentManagerTab({ showToast }) {
             <button
               type="button"
               onClick={() => setSchemaPreviewItem(null)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+              className="absolute top-5 right-5 p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -541,7 +541,7 @@ export default function GeoContentManagerTab({ showToast }) {
             <h3 className="font-display text-lg font-black text-[#352719]">
               Knowledge Entity JSON Structure
             </h3>
-            <p className="mt-1 text-xs text-[#B8C2D9]">
+            <p className="mt-1 text-xs text-[#756657]">
               Entity Key: <code>{schemaPreviewItem.entity_key}</code>
             </p>
 

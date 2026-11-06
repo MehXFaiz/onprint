@@ -43,10 +43,10 @@ export default function OrderDetailPage() {
           <span
             className={`self-start sm:self-auto rounded-full px-3 py-1 text-xs font-bold border ${
               order.status === 'Pending'
-                ? 'bg-amber-500/10 border-amber-500/30 text-amber-300'
+                ? 'bg-amber-500/10 border-amber-500/30 text-amber-700'
                 : order.status === 'In Production'
                   ? 'bg-[#C5A989]/10 border-[#C5A989]/30 text-[#795C43]'
-                  : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                  : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700'
             }`}
           >
             {order.status}

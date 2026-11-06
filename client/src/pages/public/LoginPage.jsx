@@ -91,7 +91,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
             {error && (
-              <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-xs font-semibold text-red-300">
+              <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-xs font-semibold text-red-700">
                 {error}
               </div>
             )}
@@ -107,7 +107,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@company.com"
-                className="mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-sm text-[#352719] placeholder-slate-500 focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
+                className="mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-sm text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
               />
             </div>
 
@@ -122,7 +122,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-sm text-[#352719] placeholder-slate-500 focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
+                className="mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-sm text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none focus:ring-1 focus:ring-[#795C43]"
               />
             </div>
 

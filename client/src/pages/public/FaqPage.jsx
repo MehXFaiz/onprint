@@ -136,22 +136,22 @@ export default function FaqPage() {
             <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
             <span>COMMERCIAL PRINT KNOWLEDGEBASE</span>
           </div>
-          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#352719] sm:text-5xl">
             Frequently Asked Questions
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#756657] sm:text-base">
             Everything you need to know about our Al Quoz pressroom capabilities, paper stock selections, prepress specifications, volume tier pricing, and doorstep delivery across the UAE.
           </p>
 
           {/* Real-Time Search Bar */}
           <div className="mt-6 relative max-w-xl">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by keyword (e.g. foil, turnaround, 300 DPI, VAT, delivery)…"
-              className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-white placeholder:text-slate-400 focus:border-[#C5A989] focus:outline-none shadow-xs"
+              className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none shadow-xs"
             />
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function FaqPage() {
               className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-[#795C43] text-white shadow-xs'
-                  : 'bg-[#FAF8F3] border border-[#DED2C1] text-slate-200 hover:border-[#C5A989] hover:text-[#795C43]'
+                  : 'bg-[#FAF8F3] border border-[#DED2C1] text-[#352719] hover:border-[#C5A989] hover:text-[#795C43]'
               }`}
             >
               {cat}
@@ -178,8 +178,8 @@ export default function FaqPage() {
         <div className="mt-8 divide-y divide-[#DED2C1] border border-[#DED2C1] bg-[#FAF8F3] rounded-2xl p-4 sm:p-8 shadow-xs">
           {filteredFaqs.length === 0 ? (
             <div className="py-12 text-center">
-              <HelpCircle className="h-10 w-10 text-slate-400 mx-auto mb-2" />
-              <p className="text-sm font-bold text-slate-200">No questions matched your search query</p>
+              <HelpCircle className="h-10 w-10 text-[#756657] mx-auto mb-2" />
+              <p className="text-sm font-bold text-[#352719]">No questions matched your search query</p>
               <button
                 type="button"
                 onClick={() => {
@@ -199,13 +199,13 @@ export default function FaqPage() {
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#795C43] block mb-1">
                       {faq.category}
                     </span>
-                    <h2 className="font-display text-sm font-bold text-white sm:text-base group-hover:text-[#795C43] transition-colors">
+                    <h2 className="font-display text-sm font-bold text-[#352719] sm:text-base group-hover:text-[#795C43] transition-colors">
                       {faq.question}
                     </h2>
                   </div>
-                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#795C43]" />
+                  <ChevronDown className="h-5 w-5 shrink-0 text-[#756657] transition-transform duration-300 group-open:rotate-180 group-hover:text-[#795C43]" />
                 </summary>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 pl-0 sm:pl-2 border-l-2 border-[#C5A989]/30">
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[#756657] pl-0 sm:pl-2 border-l-2 border-[#C5A989]/30">
                   {faq.answer}
                 </p>
               </details>
@@ -214,12 +214,12 @@ export default function FaqPage() {
         </div>
 
         {/* Support CTA Box */}
-        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#F5F0E7] p-6 sm:p-8 text-white sm:flex-row sm:items-center sm:justify-between shadow-lg">
+        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#F5F0E7] p-6 sm:p-8 text-[#352719] sm:flex-row sm:items-center sm:justify-between shadow-lg">
           <div>
-            <h3 className="font-display text-base font-bold text-white">
+            <h3 className="font-display text-base font-bold text-[#352719]">
               Have a custom specification or non-standard print request?
             </h3>
-            <p className="mt-1 text-xs text-slate-300">
+            <p className="mt-1 text-xs text-[#756657]">
               Our print engineers in Al Quoz, Dubai are available for instant technical consultation.
             </p>
           </div>

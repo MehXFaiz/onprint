@@ -98,8 +98,8 @@ export default function LocationLandingPage({ locationKey }) {
   if (!locationData) {
     return (
       <Container className="py-24 text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">Location Not Found</h1>
-        <p className="text-slate-300 mb-6">The requested regional printing page does not exist.</p>
+        <h1 className="text-3xl font-bold text-[#352719] mb-4">Location Not Found</h1>
+        <p className="text-[#756657] mb-6">The requested regional printing page does not exist.</p>
         <Button to="/services">Explore All Services</Button>
       </Container>
     )
@@ -171,7 +171,7 @@ export default function LocationLandingPage({ locationKey }) {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="min-h-screen bg-[#F5F0E7] text-slate-200">
+      <div className="min-h-screen bg-[#F5F0E7] text-[#352719]">
         <Container>
           <Breadcrumbs items={breadcrumbs} />
 
@@ -187,10 +187,10 @@ export default function LocationLandingPage({ locationKey }) {
                 <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF8F3] border border-[#C5A989]/40 text-[#795C43] text-xs font-semibold uppercase tracking-wider mb-4">
                   <MapPin className="h-3.5 w-3.5 text-[#795C43]" /> Fast Delivery Across {locationData.name}
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#352719] mb-6">
                   Commercial Printing Services in {locationData.name}
                 </h1>
-                <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+                <p className="text-lg md:text-xl text-[#756657] mb-8 max-w-3xl mx-auto">
                   {locationData.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -218,7 +218,7 @@ export default function LocationLandingPage({ locationKey }) {
           {/* Service Areas */}
           <Reveal>
             <section className="py-12 mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-6 text-center">
                 Areas We Serve Across {locationData.name}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -231,7 +231,7 @@ export default function LocationLandingPage({ locationKey }) {
                     className="bg-[#FAF8F3] rounded-lg p-4 border border-[#DED2C1] text-center hover:border-[#C5A989] transition-colors"
                   >
                     <MapPin className="h-5 w-5 text-[#795C43] mx-auto mb-2" />
-                    <span className="text-sm font-medium text-slate-200">{area}</span>
+                    <span className="text-sm font-medium text-[#352719]">{area}</span>
                   </motion.div>
                 ))}
               </div>
@@ -241,7 +241,7 @@ export default function LocationLandingPage({ locationKey }) {
           {/* Services */}
           <Reveal>
             <section className="py-16 mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-12 text-center">
                 Printing Capabilities Available in {locationData.name}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -254,8 +254,8 @@ export default function LocationLandingPage({ locationKey }) {
                     className="bg-[#FAF8F3] rounded-xl p-6 shadow-sm border border-[#DED2C1] hover:border-[#C5A989]/50 hover:shadow-lg transition-all"
                   >
                     <service.icon className="h-10 w-10 text-[#795C43] mb-4" />
-                    <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
-                    <p className="text-slate-300">{service.desc}</p>
+                    <h3 className="text-xl font-semibold text-[#352719] mb-2">{service.title}</h3>
+                    <p className="text-[#756657]">{service.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -264,8 +264,8 @@ export default function LocationLandingPage({ locationKey }) {
 
           {/* Why Choose Us */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#FAF8F3] text-white rounded-2xl p-8 lg:p-12 border border-[#DED2C1]">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+            <section className="py-16 mb-16 bg-[#FAF8F3] text-[#352719] rounded-2xl p-8 lg:p-12 border border-[#DED2C1]">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-8 text-center">
                 Why Corporate Clients in {locationData.name} Choose ONPRINT
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -278,7 +278,7 @@ export default function LocationLandingPage({ locationKey }) {
                     className="flex items-start gap-3"
                   >
                     <CheckCircle2 className="h-6 w-6 text-[#795C43] shrink-0 mt-0.5" />
-                    <span className="text-slate-200">{item}</span>
+                    <span className="text-[#352719]">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -288,10 +288,10 @@ export default function LocationLandingPage({ locationKey }) {
           {/* CTA Section */}
           <Reveal>
             <section className="py-16 mb-16 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-4">
                 Ready to Print for Your Business in {locationData.name}?
               </h2>
-              <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-[#756657] mb-8 max-w-2xl mx-auto">
                 Request a formal quotation or speak directly with our print production specialists on WhatsApp for instant guidance and artwork checks.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -303,7 +303,7 @@ export default function LocationLandingPage({ locationKey }) {
                   href={whatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-slate-200 font-semibold hover:text-[#25D366] transition-colors"
+                  className="inline-flex items-center gap-2 text-[#352719] font-semibold hover:text-[#25D366] transition-colors"
                 >
                   <MessageCircle className="h-5 w-5 text-[#25D366]" />
                   <span>WhatsApp: {FORMATTED_PHONE}</span>
@@ -318,18 +318,18 @@ export default function LocationLandingPage({ locationKey }) {
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <Phone className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1">Direct Hotline / WhatsApp</h3>
-                  <p className="text-slate-300">{FORMATTED_PHONE}</p>
+                  <h3 className="font-semibold text-[#352719] mb-1">Direct Hotline / WhatsApp</h3>
+                  <p className="text-[#756657]">{FORMATTED_PHONE}</p>
                 </div>
                 <div>
                   <Mail className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1">Email Sales Desk</h3>
-                  <p className="text-slate-300">0nprint183@gmail.com</p>
+                  <h3 className="font-semibold text-[#352719] mb-1">Email Sales Desk</h3>
+                  <p className="text-[#756657]">0nprint183@gmail.com</p>
                 </div>
                 <div>
                   <Clock className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1">Production Hours</h3>
-                  <p className="text-slate-300">Mon - Sat: 8:30 AM - 6:30 PM</p>
+                  <h3 className="font-semibold text-[#352719] mb-1">Production Hours</h3>
+                  <p className="text-[#756657]">Mon - Sat: 8:30 AM - 6:30 PM</p>
                 </div>
               </div>
             </section>

@@ -112,7 +112,7 @@ export default function ServiceGeoContent({ geoData }) {
               <ul className="space-y-2">
                 {advantages.map((advantage, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-[#756657]">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700 shrink-0 mt-0.5" />
                     <span>{advantage}</span>
                   </li>
                 ))}

@@ -91,15 +91,15 @@ export default function AdminQuoteFormPage() {
   return (
     <div className="space-y-6 max-w-4xl">
       {/* Breadcrumbs */}
-      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#756657]">
         <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Admin
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <Link to="/admin/quotes" className="hover:text-[#352719] transition-colors">
           Quotes
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <span className="text-[#352719] font-bold">{isEdit ? 'Edit Quote' : 'New Quote Request'}</span>
       </nav>
 
@@ -116,7 +116,7 @@ export default function AdminQuoteFormPage() {
           <h1 className="font-display text-2xl font-black text-[#352719]">
             {isEdit ? `Edit Quote: ${form.quoteNumber}` : 'Create Manual Quote Request'}
           </h1>
-          <p className="text-xs text-[#B8C2D9] mt-0.5">
+          <p className="text-xs text-[#756657] mt-0.5">
             Review custom print estimates and client specifications.
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function AdminQuoteFormPage() {
               <FileText className="h-4 w-4 text-[#795C43]" />
               Quote Request Details
             </h3>
-            <p className="text-xs text-[#B8C2D9]">Client contact and estimated pricing.</p>
+            <p className="text-xs text-[#756657]">Client contact and estimated pricing.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

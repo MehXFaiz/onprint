@@ -113,7 +113,7 @@ export default function AiAnalysisModal({
                   {page.page_type}
                 </span>
               </div>
-              <p className="text-xs text-[#B8C2D9] font-mono mt-0.5">
+              <p className="text-xs text-[#756657] font-mono mt-0.5">
                 Target URL: <strong className="text-[#352719]">{page.url}</strong>
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function AiAnalysisModal({
             </button>
             <button
               onClick={onClose}
-              className="h-8 w-8 rounded-lg text-[#B8C2D9]/70 hover:text-[#352719] hover:bg-neutral-200/60 flex items-center justify-center transition-colors cursor-pointer"
+              className="h-8 w-8 rounded-lg text-[#756657]/80 hover:text-[#352719] hover:bg-neutral-200/60 flex items-center justify-center transition-colors cursor-pointer"
             >
               <X className="h-4 w-4" />
             </button>
@@ -162,7 +162,7 @@ export default function AiAnalysisModal({
               <div className="text-sm font-bold text-[#352719]">
                 Running Neural On-Page Audit &amp; SERP Strategy Engine...
               </div>
-              <p className="text-xs text-[#B8C2D9] max-w-sm mx-auto">
+              <p className="text-xs text-[#756657] max-w-sm mx-auto">
                 Analyzing search intent, target keywords, SERP click triggers, and Dubai market competitors.
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function AiAnalysisModal({
               {/* Score Progression & Strategy Summary */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                  <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Current Health Score</span>
+                  <span className="text-[10px] font-extrabold uppercase text-[#756657]/80">Current Health Score</span>
                   <div className="flex items-center gap-2 mt-1">
                     <span
                       className={`text-2xl font-black ${
@@ -185,26 +185,26 @@ export default function AiAnalysisModal({
                       {current.seoScore || page.seo_score || 50}/100
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#B8C2D9] mt-1">Based on existing tags and keywords</p>
+                  <p className="text-[11px] text-[#756657] mt-1">Based on existing tags and keywords</p>
                 </div>
 
                 <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                  <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Projected Health Score</span>
+                  <span className="text-[10px] font-extrabold uppercase text-[#756657]/80">Projected Health Score</span>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-2xl font-black text-emerald-600">
                       {analysis.recommendation?.projectedScore || 94}/100
                     </span>
                     <TrendingUp className="h-4 w-4 text-emerald-600" />
                   </div>
-                  <p className="text-[11px] text-[#B8C2D9] mt-1">Upon applying these AI recommendations</p>
+                  <p className="text-[11px] text-[#756657] mt-1">Upon applying these AI recommendations</p>
                 </div>
 
                 <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                  <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Target Search Intent</span>
+                  <span className="text-[10px] font-extrabold uppercase text-[#756657]/80">Target Search Intent</span>
                   <div className="text-xs font-bold text-[#352719] mt-1 uppercase tracking-wider">
                     {analysis.recommendation?.searchIntent || 'Commercial Investigation'}
                   </div>
-                  <p className="text-[11px] text-[#B8C2D9] mt-1">Optimized for Dubai B2B purchase intent</p>
+                  <p className="text-[11px] text-[#756657] mt-1">Optimized for Dubai B2B purchase intent</p>
                 </div>
               </div>
 
@@ -228,14 +228,14 @@ export default function AiAnalysisModal({
                   {/* Left Column: CURRENT */}
                   <div className="p-5 bg-[#F5F0E7] space-y-4">
                     <div className="flex items-center justify-between border-b border-[#DED2C1] pb-2">
-                      <span className="text-xs font-black text-[#B8C2D9] uppercase tracking-wider">
+                      <span className="text-xs font-black text-[#756657] uppercase tracking-wider">
                         Current Page SEO
                       </span>
-                      <span className="text-[10px] text-[#B8C2D9]/70 font-mono">Live in DB</span>
+                      <span className="text-[10px] text-[#756657]/80 font-mono">Live in DB</span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Focus Keyword</span>
+                      <span className="text-[10px] font-bold text-[#756657]/80 uppercase block mb-1">Focus Keyword</span>
                       <div className="text-xs font-bold text-[#352719] bg-[#FAF8F3] p-2.5 rounded-lg border border-[#DED2C1]">
                         {current.focusKeyword || page.focus_keyword || '(None set)'}
                       </div>
@@ -243,8 +243,8 @@ export default function AiAnalysisModal({
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Title</span>
-                        <span className="text-[10px] font-mono text-[#B8C2D9]/70">
+                        <span className="text-[10px] font-bold text-[#756657]/80 uppercase">Meta Title</span>
+                        <span className="text-[10px] font-mono text-[#756657]/80">
                           {(current.metaTitle || page.meta_title || '').length} chars
                         </span>
                       </div>
@@ -255,8 +255,8 @@ export default function AiAnalysisModal({
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Description</span>
-                        <span className="text-[10px] font-mono text-[#B8C2D9]/70">
+                        <span className="text-[10px] font-bold text-[#756657]/80 uppercase">Meta Description</span>
+                        <span className="text-[10px] font-mono text-[#756657]/80">
                           {(current.metaDescription || page.meta_description || '').length} chars
                         </span>
                       </div>
@@ -266,14 +266,14 @@ export default function AiAnalysisModal({
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">H1 Heading</span>
+                      <span className="text-[10px] font-bold text-[#756657]/80 uppercase block mb-1">H1 Heading</span>
                       <div className="text-xs text-[#352719] bg-[#FAF8F3] p-2.5 rounded-lg border border-[#DED2C1]">
                         {current.h1 || page.h1 || '(None set)'}
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Schema Type</span>
+                      <span className="text-[10px] font-bold text-[#756657]/80 uppercase block mb-1">Schema Type</span>
                       <div className="text-xs font-mono text-[#352719] bg-[#FAF8F3] p-2.5 rounded-lg border border-[#DED2C1]">
                         {current.schemaType || page.schema_type || 'WebPage'}
                       </div>
@@ -297,7 +297,7 @@ export default function AiAnalysisModal({
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Focus Keyword</span>
+                      <span className="text-[10px] font-bold text-[#756657]/80 uppercase block mb-1">Focus Keyword</span>
                       {isEditing ? (
                         <input
                           type="text"
@@ -314,7 +314,7 @@ export default function AiAnalysisModal({
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Title</span>
+                        <span className="text-[10px] font-bold text-[#756657]/80 uppercase">Meta Title</span>
                         <span
                           className={`text-[10px] font-mono font-bold ${
                             rec.meta_title.length >= 50 && rec.meta_title.length <= 60
@@ -341,7 +341,7 @@ export default function AiAnalysisModal({
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Description</span>
+                        <span className="text-[10px] font-bold text-[#756657]/80 uppercase">Meta Description</span>
                         <span
                           className={`text-[10px] font-mono font-bold ${
                             rec.meta_description.length >= 140 && rec.meta_description.length <= 160
@@ -367,7 +367,7 @@ export default function AiAnalysisModal({
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">H1 Heading</span>
+                      <span className="text-[10px] font-bold text-[#756657]/80 uppercase block mb-1">H1 Heading</span>
                       {isEditing ? (
                         <input
                           type="text"
@@ -383,7 +383,7 @@ export default function AiAnalysisModal({
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Schema Type</span>
+                      <span className="text-[10px] font-bold text-[#756657]/80 uppercase block mb-1">Schema Type</span>
                       {isEditing ? (
                         <select
                           value={rec.schema_type}

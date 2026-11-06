@@ -37,7 +37,7 @@ const STATUS_COLORS = {
   Approved: 'bg-cyan-50 text-cyan-700 border-cyan-200',
   Published: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   Rejected: 'bg-red-50 text-red-700 border-red-200',
-  'Not Relevant': 'bg-neutral-100 text-[#B8C2D9]/70 border-[#DED2C1]',
+  'Not Relevant': 'bg-neutral-100 text-[#756657]/80 border-[#DED2C1]',
 }
 
 const ATTRIBUTE_CHOICES = ['follow', 'nofollow', 'sponsored', 'ugc']
@@ -336,14 +336,14 @@ export default function BacklinkOpportunities200Tab({
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-3 py-1 text-xs font-bold text-[#795C43]">
                 <Link2 className="h-3.5 w-3.5" /> Backlink Outreach CRM (200 Opportunities)
               </span>
-              <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#B8C2D9]">
+              <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#756657]">
                 10 Strategic Clusters (B1–B10)
               </span>
             </div>
             <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#352719]">
               Verified UAE Commercial Backlink Pipeline & Outreach CRM
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-[#B8C2D9] max-w-3xl leading-relaxed">
+            <p className="mt-1 text-xs sm:text-sm text-[#756657] max-w-3xl leading-relaxed">
               200 authentic, research-backed link acquisition targets across Dubai Chamber, DED registries, regional printing alliances, packaging converters, B2B procurement portals, and verified editorial platforms. Strictly 100% white-hat and PBN-free.
             </p>
           </div>
@@ -371,7 +371,7 @@ export default function BacklinkOpportunities200Tab({
               size="sm"
               icon={false}
               onClick={handleOpenAdd}
-              className="flex items-center gap-1.5 text-white"
+              className="flex items-center gap-1.5 text-[#352719]"
             >
               <Plus className="h-3.5 w-3.5" /> Add Opportunity
             </Button>
@@ -395,7 +395,7 @@ export default function BacklinkOpportunities200Tab({
                     : 'border-[#DED2C1]/70 bg-[#F5F0E7] hover:bg-[#EDE3D5]/60'
                 }`}
               >
-                <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70 truncate">{st}</div>
+                <div className="text-[10px] font-bold uppercase text-[#756657]/80 truncate">{st}</div>
                 <div className="text-lg font-black text-[#352719] mt-0.5">{count}</div>
               </button>
             )
@@ -405,7 +405,7 @@ export default function BacklinkOpportunities200Tab({
         {/* Filter and Search Bar */}
         <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           <div className="relative">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#756657]/80" />
             <input
               type="text"
               placeholder="Search website, domain, anchor..."
@@ -482,7 +482,7 @@ export default function BacklinkOpportunities200Tab({
         </div>
 
         {/* Count overview */}
-        <div className="mt-3 flex items-center justify-between text-xs text-[#B8C2D9]">
+        <div className="mt-3 flex items-center justify-between text-xs text-[#756657]">
           <span>
             Showing <strong className="text-[#352719]">{filteredItems.length}</strong> backlink opportunities (Page {currentPage} of {totalPages})
           </span>
@@ -510,7 +510,7 @@ export default function BacklinkOpportunities200Tab({
           {paginatedItems.length > 0 ? (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/75 text-[10px] uppercase font-black text-[#756657]/80">
                   <th
                     className="p-3.5 cursor-pointer hover:text-[#352719]"
                     onClick={() => handleSort('website')}
@@ -550,7 +550,7 @@ export default function BacklinkOpportunities200Tab({
                 {paginatedItems.map((item) => {
                   const statusClass =
                     STATUS_COLORS[item.status] ||
-                    'bg-neutral-100 text-[#B8C2D9] border-[#DED2C1]'
+                    'bg-neutral-100 text-[#756657] border-[#DED2C1]'
 
                   const attr =
                     item.link_attribute ||
@@ -567,7 +567,7 @@ export default function BacklinkOpportunities200Tab({
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-[#B8C2D9] hover:text-[#795C43] truncate"
+                          className="inline-flex items-center gap-1 text-[11px] text-[#756657] hover:text-[#795C43] truncate"
                           title={item.url}
                         >
                           <span>{item.domain}</span>
@@ -581,7 +581,7 @@ export default function BacklinkOpportunities200Tab({
                       </td>
 
                       {/* Location */}
-                      <td className="p-3.5 whitespace-nowrap text-[#B8C2D9]">
+                      <td className="p-3.5 whitespace-nowrap text-[#756657]">
                         {item.city || 'Dubai'}, {item.country === 'United Arab Emirates' ? 'UAE' : (item.country || 'UAE')}
                       </td>
 
@@ -593,7 +593,7 @@ export default function BacklinkOpportunities200Tab({
                               ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                               : item.relevance === 'Medium'
                               ? 'bg-blue-50 text-blue-700 border-blue-200'
-                              : 'bg-[#F5F0E7] text-[#B8C2D9] border-[#DED2C1]'
+                              : 'bg-[#F5F0E7] text-[#756657] border-[#DED2C1]'
                           }`}
                         >
                           {item.relevance || 'High'}
@@ -611,7 +611,7 @@ export default function BacklinkOpportunities200Tab({
                           href={item.target_onprint_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#B8C2D9] hover:text-[#795C43] font-medium inline-flex items-center gap-1"
+                          className="text-[#756657] hover:text-[#795C43] font-medium inline-flex items-center gap-1"
                           title={item.target_onprint_url}
                         >
                           <span className="truncate">
@@ -645,7 +645,7 @@ export default function BacklinkOpportunities200Tab({
                       </td>
 
                       {/* Date */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9] font-mono text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#756657] font-mono text-[11px]">
                         {item.date || '—'}
                       </td>
 
@@ -655,7 +655,7 @@ export default function BacklinkOpportunities200Tab({
                           className={`inline-block rounded px-1.5 py-0.5 text-[10px] font-bold uppercase font-mono ${
                             attr === 'follow'
                               ? 'bg-emerald-100/60 text-emerald-800'
-                              : 'bg-neutral-100 text-[#B8C2D9]'
+                              : 'bg-neutral-100 text-[#756657]'
                           }`}
                         >
                           {attr}
@@ -663,7 +663,7 @@ export default function BacklinkOpportunities200Tab({
                       </td>
 
                       {/* Notes */}
-                      <td className="p-3.5 max-w-[180px] truncate text-[#B8C2D9] text-[11px]" title={item.notes}>
+                      <td className="p-3.5 max-w-[180px] truncate text-[#756657] text-[11px]" title={item.notes}>
                         {item.notes || '—'}
                       </td>
 
@@ -675,7 +675,7 @@ export default function BacklinkOpportunities200Tab({
                               href={item.submission_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
+                              className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
                               title="Direct Submission Portal"
                             >
                               <ExternalLink className="h-3.5 w-3.5" />
@@ -683,14 +683,14 @@ export default function BacklinkOpportunities200Tab({
                           )}
                           <button
                             onClick={() => handleOpenEdit(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
                             title="Edit Opportunity & Notes"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
                           </button>
                           <button
                             onClick={() => handleDeleteOpportunity(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
                             title="Delete Opportunity"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
@@ -703,10 +703,10 @@ export default function BacklinkOpportunities200Tab({
               </tbody>
             </table>
           ) : (
-            <div className="py-16 text-center text-sm text-[#B8C2D9]">
-              <Link2 className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
+            <div className="py-16 text-center text-sm text-[#756657]">
+              <Link2 className="h-8 w-8 text-[#756657] mx-auto mb-2" />
               <p className="font-bold text-[#352719]">No backlink opportunities found</p>
-              <p className="text-xs text-[#B8C2D9]/70 mt-1">Try changing your filters or search keywords.</p>
+              <p className="text-xs text-[#756657]/80 mt-1">Try changing your filters or search keywords.</p>
             </div>
           )}
         </div>
@@ -714,7 +714,7 @@ export default function BacklinkOpportunities200Tab({
         {/* Pagination Bar */}
         {totalPages > 1 && (
           <div className="border-t border-[#DED2C1] p-4 flex items-center justify-between text-xs">
-            <span className="text-[#B8C2D9]">
+            <span className="text-[#756657]">
               Showing {(currentPage - 1) * pageSize + 1} to{' '}
               {Math.min(currentPage * pageSize, filteredItems.length)} of {filteredItems.length}
             </span>
@@ -726,7 +726,7 @@ export default function BacklinkOpportunities200Tab({
               >
                 Previous
               </button>
-              <span className="px-2 text-[#B8C2D9] font-bold">
+              <span className="px-2 text-[#756657] font-bold">
                 {currentPage} / {totalPages}
               </span>
               <button
@@ -750,11 +750,11 @@ export default function BacklinkOpportunities200Tab({
                 <h3 className="font-display text-lg font-bold text-[#352719]">
                   Edit Backlink Opportunity
                 </h3>
-                <p className="text-xs text-[#B8C2D9] mt-0.5">{editingItem.website || editingItem.domain}</p>
+                <p className="text-xs text-[#756657] mt-0.5">{editingItem.website || editingItem.domain}</p>
               </div>
               <button
                 onClick={() => setEditingItem(null)}
-                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
+                className="rounded-lg p-1 text-[#756657]/80 hover:text-[#352719] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -913,7 +913,7 @@ export default function BacklinkOpportunities200Tab({
                   size="sm"
                   icon={false}
                   loading={actionLoading}
-                  className="text-white"
+                  className="text-[#352719]"
                 >
                   Save Opportunity
                 </Button>
@@ -932,11 +932,11 @@ export default function BacklinkOpportunities200Tab({
                 <h3 className="font-display text-lg font-bold text-[#352719]">
                   Add Backlink Opportunity
                 </h3>
-                <p className="text-xs text-[#B8C2D9] mt-0.5">Register new legitimate UAE link target</p>
+                <p className="text-xs text-[#756657] mt-0.5">Register new legitimate UAE link target</p>
               </div>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
+                className="rounded-lg p-1 text-[#756657]/80 hover:text-[#352719] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -1089,7 +1089,7 @@ export default function BacklinkOpportunities200Tab({
                   size="sm"
                   icon={false}
                   loading={actionLoading}
-                  className="text-white"
+                  className="text-[#352719]"
                 >
                   Add Opportunity
                 </Button>

@@ -136,7 +136,7 @@ export default function ServiceDetailPage() {
             </h1>
 
             {/* Intro: Answer-first direct factual summary */}
-            <div className="mt-6 rounded-2xl bg-[#FAF8F3] border border-[#DED2C1] p-5 text-sm sm:text-base leading-relaxed text-slate-200">
+            <div className="mt-6 rounded-2xl bg-[#FAF8F3] border border-[#DED2C1] p-5 text-sm sm:text-base leading-relaxed text-[#352719]">
               <p>{sectionE.intro}</p>
             </div>
 
@@ -287,7 +287,7 @@ export default function ServiceDetailPage() {
               <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#795C43] mb-3">
                 Materials &amp; Substrates
               </h3>
-              <ul className="space-y-2.5 text-xs text-slate-200 font-medium">
+              <ul className="space-y-2.5 text-xs text-[#352719] font-medium">
                 {sectionE.availableOptions.materials.map((mat, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
@@ -302,7 +302,7 @@ export default function ServiceDetailPage() {
               <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#795C43] mb-3">
                 Sizes &amp; Dimensions
               </h3>
-              <ul className="space-y-2.5 text-xs text-slate-200 font-medium">
+              <ul className="space-y-2.5 text-xs text-[#352719] font-medium">
                 {sectionE.availableOptions.sizes.map((sz, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
@@ -317,7 +317,7 @@ export default function ServiceDetailPage() {
               <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#795C43] mb-3">
                 Finishes &amp; Embellishments
               </h3>
-              <ul className="space-y-2.5 text-xs text-slate-200 font-medium">
+              <ul className="space-y-2.5 text-xs text-[#352719] font-medium">
                 {sectionE.availableOptions.finishes.map((fn, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
@@ -329,12 +329,12 @@ export default function ServiceDetailPage() {
           </div>
 
           {/* Natural Mid-Page Conversion Banner */}
-          <div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-950/40 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <p className="font-bold text-sm text-emerald-200">
+              <p className="font-bold text-sm text-emerald-800">
                 Need advice on materials or urgent same-day turnaround for {service.name}?
               </p>
-              <p className="text-xs text-emerald-400 mt-0.5">
+              <p className="text-xs text-emerald-700 mt-0.5">
                 Speak directly with an Al Quoz print engineer on WhatsApp for instant pricing &amp; digital proofing.
               </p>
             </div>
@@ -374,7 +374,7 @@ export default function ServiceDetailPage() {
 
           <div className="mt-6 space-y-3">
             {sectionE.whoUses.map((aud, i) => (
-              <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] text-xs sm:text-sm font-semibold text-slate-200">
+              <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] text-xs sm:text-sm font-semibold text-[#352719]">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#795C43]/15 text-[#795C43] font-bold text-xs">
                   {i + 1}
                 </span>
@@ -404,8 +404,8 @@ export default function ServiceDetailPage() {
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#795C43] text-white font-mono font-bold text-xs mb-3">
                   0{step.step}
                 </span>
-                <h3 className="font-display text-sm font-bold text-white mb-1.5">{step.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">{step.desc}</p>
+                <h3 className="font-display text-sm font-bold text-[#352719] mb-1.5">{step.title}</h3>
+                <p className="text-xs text-[#756657] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -427,20 +427,20 @@ export default function ServiceDetailPage() {
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-              <span className="font-bold text-white block mb-1">Accepted File Formats</span>
-              <p className="text-slate-300">{sectionE.artworkRequirements.formats}</p>
+              <span className="font-bold text-[#352719] block mb-1">Accepted File Formats</span>
+              <p className="text-[#756657]">{sectionE.artworkRequirements.formats}</p>
             </div>
             <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-              <span className="font-bold text-white block mb-1">Resolution</span>
-              <p className="text-slate-300">{sectionE.artworkRequirements.resolution}</p>
+              <span className="font-bold text-[#352719] block mb-1">Resolution</span>
+              <p className="text-[#756657]">{sectionE.artworkRequirements.resolution}</p>
             </div>
             <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-              <span className="font-bold text-white block mb-1">Bleed &amp; Safety Margin</span>
-              <p className="text-slate-300">{sectionE.artworkRequirements.bleed}</p>
+              <span className="font-bold text-[#352719] block mb-1">Bleed &amp; Safety Margin</span>
+              <p className="text-[#756657]">{sectionE.artworkRequirements.bleed}</p>
             </div>
             <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-              <span className="font-bold text-white block mb-1">Color Mode &amp; Profiling</span>
-              <p className="text-slate-300">{sectionE.artworkRequirements.colorMode}</p>
+              <span className="font-bold text-[#352719] block mb-1">Color Mode &amp; Profiling</span>
+              <p className="text-[#756657]">{sectionE.artworkRequirements.colorMode}</p>
             </div>
           </div>
         </div>
@@ -468,21 +468,21 @@ export default function ServiceDetailPage() {
         {/* ========================================================================= */}
         {/* SECTION E: 9. H2: Request a Quote (Clear CTA with contact details)         */}
         {/* ========================================================================= */}
-        <div className="mt-12 rounded-2xl border border-[#DED2C1] bg-[#EDE3D5] p-5 sm:p-8 lg:p-12 text-white shadow-xl">
+        <div className="mt-12 rounded-2xl border border-[#DED2C1] bg-[#EDE3D5] p-5 sm:p-8 lg:p-12 text-[#352719] shadow-xl">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div className="max-w-xl">
               <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent mb-3">
                 Immediate Estimates &amp; Studio Consultation
               </span>
-              <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-white">
+              <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-[#352719]">
                 Request a Quote
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-[#756657] leading-relaxed">
                 Connect with our Al Quoz print specialists for tailored pricing, substrate physical swatches, and express delivery arrangements across the UAE.
               </p>
 
               {/* Direct NAP Details */}
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#756657]">
                 <div className="flex items-center gap-2.5">
                   <Phone className="h-4 w-4 text-accent shrink-0" />
                   <span>{sectionE.requestQuote.phone}</span>
@@ -532,7 +532,7 @@ export default function ServiceDetailPage() {
               </Button>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-7 py-3.5 text-base font-bold text-white hover:bg-white/20 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#C5A989] bg-[#FAF8F3] px-7 py-3.5 text-base font-bold text-[#352719] hover:bg-[#F5F0E7] transition-colors"
               >
                 <span>Contact Press Team</span>
                 <ArrowRight className="h-4 w-4" />

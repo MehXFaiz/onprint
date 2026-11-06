@@ -184,39 +184,39 @@ export default function BusinessCardSeoTab({ showToast }) {
         {/* Quick KPI Strip */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-white/10">
           <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Priority Keywords</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">Priority Keywords</span>
             <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">{summary.total_keywords}</span>
-            <span className="text-[10px] text-[#B8C2D9]/70">Zero Fabricated Metrics</span>
+            <span className="text-[10px] text-[#756657]/80">Zero Fabricated Metrics</span>
           </div>
 
           <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Qualified Prospects</span>
-            <span className="mt-1 block font-mono text-xl font-black text-emerald-400">{summary.qualified_prospects}</span>
-            <span className="text-[10px] text-[#B8C2D9]/70">Vetted UAE Domains</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">Qualified Prospects</span>
+            <span className="mt-1 block font-mono text-xl font-black text-emerald-700">{summary.qualified_prospects}</span>
+            <span className="text-[10px] text-[#756657]/80">Vetted UAE Domains</span>
           </div>
 
           <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Rejected / Blocked</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">Rejected / Blocked</span>
             <span className="mt-1 block font-mono text-xl font-black text-rose-400">{summary.rejected_prospects}</span>
-            <span className="text-[10px] text-[#B8C2D9]/70">Scrapers &amp; PBNs</span>
+            <span className="text-[10px] text-[#756657]/80">Scrapers &amp; PBNs</span>
           </div>
 
           <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Owner Approved</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">Owner Approved</span>
             <span className="mt-1 block font-mono text-xl font-black text-white">{summary.approved_for_outreach}</span>
-            <span className="text-[10px] text-[#B8C2D9]/70">Cleared for Outreach</span>
+            <span className="text-[10px] text-[#756657]/80">Cleared for Outreach</span>
           </div>
 
           <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Verified Acquired</span>
-            <span className="mt-1 block font-mono text-xl font-black text-emerald-400">{summary.verified_acquired_links}</span>
-            <span className="text-[10px] text-[#B8C2D9]/70">Live URL Confirmed</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">Verified Acquired</span>
+            <span className="mt-1 block font-mono text-xl font-black text-emerald-700">{summary.verified_acquired_links}</span>
+            <span className="text-[10px] text-[#756657]/80">Live URL Confirmed</span>
           </div>
 
           <div className="rounded-2xl bg-[#FAF8F3]/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">Linkable Guides</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]/80">Linkable Guides</span>
             <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">{summary.link_worthy_guides_published}</span>
-            <span className="text-[10px] text-[#B8C2D9]/70">Published on /blog</span>
+            <span className="text-[10px] text-[#756657]/80">Published on /blog</span>
           </div>
         </div>
       </div>
@@ -240,7 +240,7 @@ export default function BusinessCardSeoTab({ showToast }) {
               className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                 isActive
                   ? 'bg-neutral-950 text-white shadow-xs'
-                  : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200 hover:text-neutral-950'
+                  : 'bg-neutral-100 text-[#756657] hover:bg-neutral-200 hover:text-neutral-950'
               }`}
             >
               <Icon className="h-3.5 w-3.5" />
@@ -251,7 +251,7 @@ export default function BusinessCardSeoTab({ showToast }) {
       </div>
 
       {loading && !data ? (
-        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-8 text-center text-xs text-[#B8C2D9]">
+        <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-8 text-center text-xs text-[#756657]">
           Loading Dubai Business Card SEO &amp; White-Hat Backlink Strategy...
         </div>
       ) : null}
@@ -268,7 +268,7 @@ export default function BusinessCardSeoTab({ showToast }) {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#F5F0E7] p-4 rounded-2xl border border-[#DED2C1]">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
               <input
                 type="text"
                 placeholder="Search domain, category, or contribution angle..."
@@ -341,7 +341,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                           Risk Score: {prospect.risk_score}/100 ({prospect.risk_level})
                         </span>
                       </div>
-                      <p className="text-xs text-[#B8C2D9]">{prospect.dubai_uae_relevance}</p>
+                      <p className="text-xs text-[#756657]">{prospect.dubai_uae_relevance}</p>
                     </div>
 
                     {!isRejected && (
@@ -378,8 +378,8 @@ export default function BusinessCardSeoTab({ showToast }) {
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                     <div>
                       <span className="font-bold text-[#352719] block mb-1">Proposed Contribution / Reason:</span>
-                      <p className="text-[#B8C2D9] leading-relaxed">{prospect.proposed_contribution}</p>
-                      <p className="mt-1.5 text-[11px] text-[#B8C2D9]">
+                      <p className="text-[#756657] leading-relaxed">{prospect.proposed_contribution}</p>
+                      <p className="mt-1.5 text-[11px] text-[#756657]">
                         <span className="font-semibold text-[#352719]">Inclusion/Rejection Rationale:</span> {prospect.inclusion_or_rejection_reason}
                       </p>
                     </div>
@@ -389,18 +389,18 @@ export default function BusinessCardSeoTab({ showToast }) {
                       <p className="font-mono text-[11px] text-[#795C43] break-all">{prospect.target_landing_page}</p>
                       <p className="mt-1 text-[#352719]">
                         Anchor: <span className="font-semibold">"{prospect.suggested_anchor_text}"</span>{' '}
-                        <span className="text-[10px] uppercase bg-neutral-100 px-1.5 py-0.5 rounded text-[#B8C2D9]">
+                        <span className="text-[10px] uppercase bg-neutral-100 px-1.5 py-0.5 rounded text-[#756657]">
                           {prospect.anchor_type}
                         </span>
                       </p>
-                      <p className="mt-1 text-[11px] text-[#B8C2D9]">
+                      <p className="mt-1 text-[11px] text-[#756657]">
                         Contact: <span className="font-mono">{prospect.contact_page}</span>
                       </p>
                     </div>
 
                     <div>
                       <span className="font-bold text-[#352719] block mb-1">Risk Assessment &amp; Verification:</span>
-                      <p className="text-[#B8C2D9] leading-relaxed">{prospect.risk_assessment}</p>
+                      <p className="text-[#756657] leading-relaxed">{prospect.risk_assessment}</p>
                       {!isRejected && (
                         <div className="mt-2 flex items-center gap-2">
                           <input
@@ -449,7 +449,7 @@ export default function BusinessCardSeoTab({ showToast }) {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#F5F0E7] p-4 rounded-2xl border border-[#DED2C1]">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
               <input
                 type="text"
                 placeholder="Filter 20 target business card keywords..."
@@ -473,7 +473,7 @@ export default function BusinessCardSeoTab({ showToast }) {
 
           <div className="overflow-x-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
             <table className="w-full text-left text-xs">
-              <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 font-bold text-[#B8C2D9] uppercase tracking-wider">
+              <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 font-bold text-[#756657] uppercase tracking-wider">
                 <tr>
                   <th className="py-3 px-4">#</th>
                   <th className="py-3 px-4">Target Keyword</th>
@@ -487,7 +487,7 @@ export default function BusinessCardSeoTab({ showToast }) {
               <tbody className="divide-y divide-neutral-100">
                 {filteredKeywords.map((item) => (
                   <tr key={item.id} className="hover:bg-[#F5F0E7]/80 transition-colors">
-                    <td className="py-3 px-4 font-mono text-[#B8C2D9]/70">{item.id}</td>
+                    <td className="py-3 px-4 font-mono text-[#756657]/80">{item.id}</td>
                     <td className="py-3 px-4 font-bold text-neutral-950">{item.keyword}</td>
                     <td className="py-3 px-4">
                       <span className="inline-block rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
@@ -529,16 +529,16 @@ export default function BusinessCardSeoTab({ showToast }) {
             {(anchorStrategy.distribution_targets || []).map((bucket, idx) => (
               <div key={idx} className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                     {bucket.category}
                   </span>
                   <span className="font-mono text-xl font-black text-[#795C43]">
                     {bucket.target_percentage}%
                   </span>
                 </div>
-                <p className="text-xs text-[#B8C2D9] leading-relaxed">{bucket.rationale}</p>
+                <p className="text-xs text-[#756657] leading-relaxed">{bucket.rationale}</p>
                 <div className="pt-2 border-t border-[#DED2C1] space-y-1">
-                  <span className="text-[10px] font-bold uppercase text-[#B8C2D9]/70 block">Approved Examples:</span>
+                  <span className="text-[10px] font-bold uppercase text-[#756657]/80 block">Approved Examples:</span>
                   {(bucket.examples || []).map((ex, i) => (
                     <span
                       key={i}
@@ -558,7 +558,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             </h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-[#DED2C1] bg-[#F5F0E7] font-bold text-[#B8C2D9] uppercase">
+                <thead className="border-b border-[#DED2C1] bg-[#F5F0E7] font-bold text-[#756657] uppercase">
                   <tr>
                     <th className="py-3 px-4">Target Page URL</th>
                     <th className="py-3 px-4">Page Role</th>
@@ -610,9 +610,9 @@ export default function BusinessCardSeoTab({ showToast }) {
                       </a>
                     </div>
                     <h4 className="font-bold text-sm text-neutral-950 leading-snug">{asset.title}</h4>
-                    <p className="mt-1.5 text-xs text-[#B8C2D9] leading-relaxed">{asset.link_magnet_value}</p>
+                    <p className="mt-1.5 text-xs text-[#756657] leading-relaxed">{asset.link_magnet_value}</p>
                   </div>
-                  <div className="pt-2 border-t border-[#DED2C1] text-[11px] text-[#B8C2D9]">
+                  <div className="pt-2 border-t border-[#DED2C1] text-[11px] text-[#756657]">
                     Internal Links:{' '}
                     <span className="font-mono text-[#352719]">
                       {(asset.internal_links_to || []).join(', ')}
@@ -679,7 +679,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                     </li>
                   ))}
                 </ul>
-                <div className="pt-3 border-t border-[#DED2C1] text-[11px] font-semibold text-[#B8C2D9]">
+                <div className="pt-3 border-t border-[#DED2C1] text-[11px] font-semibold text-[#756657]">
                   KPI: {phase.kpis}
                 </div>
               </div>
@@ -693,7 +693,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                   <h3 className="font-display text-base font-black text-neutral-950">
                     Landing Page Technical SEO &amp; Conversion Readiness Audit ({technicalAudit.target_page})
                   </h3>
-                  <p className="text-xs text-[#B8C2D9]">
+                  <p className="text-xs text-[#756657]">
                     Verified structured data, mobile responsiveness, NAP consistency, and WhatsApp lead tracking.
                   </p>
                 </div>
@@ -710,7 +710,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                       <span className="font-bold text-neutral-950 uppercase tracking-wider block">
                         {key.replace(/_/g, ' ')}
                       </span>
-                      <p className="text-[#B8C2D9] mt-0.5">{check.detail}</p>
+                      <p className="text-[#756657] mt-0.5">{check.detail}</p>
                     </div>
                   </div>
                 ))}

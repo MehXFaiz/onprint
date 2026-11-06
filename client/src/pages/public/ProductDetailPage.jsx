@@ -782,8 +782,8 @@ export default function ProductDetailPage() {
               {product.seoHeading || product.name}
             </h1>
             {isStamp && (
-              <div className="mt-3 flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-2.5 text-xs text-emerald-300">
-                <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
+              <div className="mt-3 flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-2.5 text-xs text-emerald-700">
+                <ShieldCheck className="h-4 w-4 text-emerald-700 shrink-0" />
                 <span>
                   <strong>Official Dubai Pressroom:</strong> 2-Hour Express Rush &bull; UAE Trade License Compliant &bull; Trodat &amp; Colop Austrian Casings
                 </span>
@@ -933,7 +933,7 @@ export default function ProductDetailPage() {
                     Volume Tier Quantity Presets
                   </p>
                   {volumeDiscountPct > 0 && (
-                    <span className="text-[11px] font-extrabold text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 rounded-full px-2.5 py-0.5 shadow-2xs">
+                    <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-500/15 border border-emerald-500/30 rounded-full px-2.5 py-0.5 shadow-2xs">
                       🎉 {volumeDiscountPct}% Volume Discount Applied
                     </span>
                   )}
@@ -1207,7 +1207,7 @@ export default function ProductDetailPage() {
                             View
                           </span>
                         </div>
-                        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-[#795C43]/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-[#795C43]/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#352719] shadow-xs">
                           {imgIdx === 0 ? '01 / Hero' : imgIdx === 1 ? '02 / Detail' : '03 / Usage'}
                         </span>
                       </button>

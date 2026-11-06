@@ -339,7 +339,7 @@ Please confirm official quote, turnaround time, artwork pre-flight check, and do
             </button>
           </div>
 
-          <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/30">
+          <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/30">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Live Prepress
           </span>
@@ -526,8 +526,8 @@ Please confirm official quote, turnaround time, artwork pre-flight check, and do
                 </div>
 
                 <div className="text-right shrink-0 space-y-0.5">
-                  <div className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 text-[10px] font-black text-emerald-400">
-                    <Clock className="h-3 w-3 text-emerald-400" />
+                  <div className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 text-[10px] font-black text-emerald-700">
+                    <Clock className="h-3 w-3 text-emerald-700" />
                     <span>{product.turnaround}</span>
                   </div>
                   <p className="text-[10px] font-medium text-[#756657]">
@@ -538,11 +538,11 @@ Please confirm official quote, turnaround time, artwork pre-flight check, and do
 
               <div className="mt-2.5 pt-2 border-t border-[#DED2C1] flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-medium text-[#756657]">
                 <span className="flex items-center gap-1">
-                  <Check className="h-3 w-3 text-emerald-400 shrink-0" />
+                  <Check className="h-3 w-3 text-emerald-700 shrink-0" />
                   Free 300 DPI Pre-Flight Check
                 </span>
                 <span className="flex items-center gap-1">
-                  <Check className="h-3 w-3 text-emerald-400 shrink-0" />
+                  <Check className="h-3 w-3 text-emerald-700 shrink-0" />
                   Digital Proof Approval Included
                 </span>
               </div>
@@ -686,16 +686,16 @@ Please confirm official quote, turnaround time, artwork pre-flight check, and do
       </div>
 
       {/* Floating UAE Atelier Serving Banner beneath the Card */}
-      <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] px-4 py-2.5 text-xs text-slate-200 shadow-md">
+      <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-[#F5F0E7] border border-[#DED2C1] px-4 py-2.5 text-xs text-[#352719] shadow-md">
         <div className="flex items-center gap-2 font-bold min-w-0">
           <span className="text-base leading-none shrink-0">🇦🇪</span>
-          <span className="leading-snug text-slate-200">
+          <span className="leading-snug text-[#352719]">
             Direct Al Quoz Pressroom • Doorstep UAE Delivery
           </span>
         </div>
         <Link
           to="/products"
-          className="inline-flex items-center gap-1 font-bold text-[#795C43] hover:text-white transition-colors text-xs shrink-0"
+          className="inline-flex items-center gap-1 font-bold text-[#795C43] hover:text-[#352719] transition-colors text-xs shrink-0"
         >
           <span>Explore 100+ Products</span>
           <ArrowRight className="h-3.5 w-3.5" />

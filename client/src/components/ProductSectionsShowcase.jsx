@@ -134,7 +134,7 @@ function SectionCardGroup({ section, onQuickView }) {
           <div className="inline-flex items-center gap-2 rounded-full border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#795C43] mb-3">
             <span className="flex h-2 w-2 rounded-full bg-[#795C43] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
-            <span className="text-slate-400">•</span>
+            <span className="text-[#756657]">•</span>
             <span className="text-[#795C43]">{section.badge}</span>
           </div>
 
@@ -160,7 +160,7 @@ function SectionCardGroup({ section, onQuickView }) {
           <div className="flex items-center gap-3 shrink-0">
             <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-xs font-bold text-[#352719]">
               <span>{currentPage + 1}</span>
-              <span className="text-slate-400">/</span>
+              <span className="text-[#756657]">/</span>
               <span>{totalPages}</span>
             </div>
 

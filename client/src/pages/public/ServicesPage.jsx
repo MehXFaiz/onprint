@@ -178,17 +178,17 @@ export default function ServicesPage() {
           </div>
 
           {/* UAE Delivery and Service Coverage */}
-          <div className="mt-12 rounded-3xl bg-surface-dark border border-slate-800 p-8 sm:p-12 text-white">
+          <div className="mt-12 rounded-3xl bg-[#EDE3D5] border border-[#DED2C1] p-8 sm:p-12 text-[#352719]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8">
                 <div className="inline-flex items-center gap-2 rounded-full bg-accent/20 border border-accent/30 px-3 py-1 text-xs font-bold text-accent mb-3">
                   <Truck className="h-3.5 w-3.5" />
                   <span>UAE-WIDE LOGISTICS &amp; DELIVERY</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#352719]">
                   Express Commercial Dispatch Across Dubai &amp; All 7 Emirates
                 </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed max-w-2xl">
+                <p className="mt-3 text-sm text-[#756657] leading-relaxed max-w-2xl">
                   We offer dedicated courier dispatch and same-day delivery throughout Dubai (DIFC, Business Bay, Downtown, Dubai Marina, JLT, Al Quoz, Deira) and next-day distribution to Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.
                 </p>
               </div>

@@ -272,17 +272,17 @@ export default function Product360Viewer({
                   draggable={false}
                 />
               ) : (
-                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#F5F0E7] via-[#FAF8F3] to-[#EDE3D5] text-white">
+                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#F5F0E7] via-[#FAF8F3] to-[#EDE3D5] text-[#352719]">
                   {/* Subtle Background Gold Grid Watermark */}
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#795C43_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
                   <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#795C43]/15 blur-2xl" />
 
-                  <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-2.5 text-[9px] font-mono tracking-widest text-white/60">
+                  <div className="relative z-10 flex items-center justify-between border-b border-[#DED2C1] pb-2.5 text-[9px] font-mono tracking-widest text-[#352719]/60">
                     <div className="flex items-center gap-1.5">
                       <span className="h-2 w-2 rounded-xs bg-[#00e5ff]" title="Cyan" />
                       <span className="h-2 w-2 rounded-xs bg-[#ff00ea]" title="Magenta" />
                       <span className="h-2 w-2 rounded-xs bg-[#ffee00]" title="Yellow" />
-                      <span className="h-2 w-2 rounded-xs bg-black border border-white/30" title="Key/Black" />
+                      <span className="h-2 w-2 rounded-xs bg-black border border-[#DED2C1]" title="Key/Black" />
                       <span className="ml-1 text-[8.5px] font-bold text-[#795C43]">ISO 12647-2 CALIBRATED</span>
                     </div>
                     <span className="rounded-md bg-[#795C43] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-white">
@@ -294,19 +294,19 @@ export default function Product360Viewer({
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#C5A989]/40 bg-gradient-to-br from-[#795C43]/20 to-transparent shadow-[0_8px_20px_rgba(121, 92, 67, 0.15)]">
                       <Layers className="h-7 w-7 text-[#795C43]" />
                     </div>
-                    <h4 className="mt-3.5 font-display text-sm font-black tracking-tight text-white line-clamp-1">
+                    <h4 className="mt-3.5 font-display text-sm font-black tracking-tight text-[#352719] line-clamp-1">
                       {product?.name || 'Custom Print Services'}
                     </h4>
                     <p className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#795C43]/90">
                       ONPRINT Atelier • Dubai, UAE
                     </p>
-                    <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[9px] font-semibold text-white/90 backdrop-blur-xs">
+                    <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#DED2C1] bg-[#FAF8F3] px-3 py-1 text-[9px] font-semibold text-[#352719]/90 backdrop-blur-xs">
                       <ShieldCheck className="h-3 w-3 text-[#795C43]" />
                       <span>Heidelberg Precision Offset &amp; Spot UV</span>
                     </div>
                   </div>
 
-                  <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-2 text-[8px] font-mono uppercase tracking-wider text-white/45">
+                  <div className="relative z-10 flex items-center justify-between border-t border-[#DED2C1] pt-2 text-[8px] font-mono uppercase tracking-wider text-[#352719]/45">
                     <span>1200 DPI Laser Direct</span>
                     <span className="text-[#795C43]/80">AL QUOZ 3 PRESSROOM</span>
                   </div>

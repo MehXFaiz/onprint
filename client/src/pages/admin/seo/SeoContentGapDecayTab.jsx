@@ -125,12 +125,12 @@ export default function SeoContentGapDecayTab({ showToast }) {
                 <Target className="h-3.5 w-3.5" />
                 7-Intent Matrix & Decay Defense
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 10, 14 & 40</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirements 10, 14 & 40</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               Content Gap Matrix & Content Decay
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Systematically captures all 7 search intent buckets across UAE commercial queries and alerts when high-performing URLs experience more than 15% traffic drop.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               <TrendingDown className="h-4 w-4 text-red-600" />
               <h3 className="font-bold text-[#352719] text-base">Content Decay Alert Tracker</h3>
             </div>
-            <p className="text-xs text-[#B8C2D9] mt-0.5">
+            <p className="text-xs text-[#756657] mt-0.5">
               Pages experiencing &gt;15% organic impression drop requiring updated pricing, FAQs, or content additions.
             </p>
           </div>
@@ -169,14 +169,14 @@ export default function SeoContentGapDecayTab({ showToast }) {
         </div>
 
         {decayList.length === 0 ? (
-          <div className="py-8 text-center text-xs text-[#B8C2D9]">
+          <div className="py-8 text-center text-xs text-[#756657]">
             No content decay detected across indexed pages.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">URL Path</th>
                   <th className="py-3 px-3">Peak Clicks</th>
                   <th className="py-3 px-3">Recent Clicks</th>
@@ -254,7 +254,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               <Layers className="h-4 w-4 text-[#795C43]" />
               <h3 className="font-bold text-[#352719] text-base">7 Search Intent Content Coverage Matrix</h3>
             </div>
-            <p className="text-xs text-[#B8C2D9] mt-0.5">
+            <p className="text-xs text-[#756657] mt-0.5">
               Comprehensive keyword mapping ensuring ONPRINT dominates Informational, Commercial, Local, and Transactional print queries in the UAE.
             </p>
           </div>
@@ -269,7 +269,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 activeIntent === cat.id
                   ? 'bg-neutral-900 text-white shadow-sm'
-                  : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200'
+                  : 'bg-neutral-100 text-[#756657] hover:bg-neutral-200'
               }`}
             >
               {cat.label}
@@ -281,7 +281,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
         <div className="border border-[#DED2C1] rounded-xl overflow-hidden">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+              <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                 <th className="py-3 px-4">Target Keyword (Dubai Focus)</th>
                 <th className="py-3 px-3">Current Coverage</th>
                 <th className="py-3 px-4">Mapped / Recommended URL</th>
@@ -350,7 +350,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               <Zap className="h-4 w-4 text-[#795C43]" />
               <h3 className="font-bold text-[#352719] text-base">Striking Distance Opportunity Keywords</h3>
             </div>
-            <p className="text-xs text-[#B8C2D9] mt-0.5">
+            <p className="text-xs text-[#756657] mt-0.5">
               Rankings in Positions 4–30 sorted by objective Opportunity Score: <span className="font-mono text-[#352719]">(log10(impressions) * intentWeight * (15/pos) * (ctrGap/2))</span>.
             </p>
           </div>
@@ -363,7 +363,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
                 className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   tierFilter === t
                     ? 'bg-neutral-900 text-white'
-                    : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200'
+                    : 'bg-neutral-100 text-[#756657] hover:bg-neutral-200'
                 }`}
               >
                 {t === 'all' ? 'All Tiers' : `${t} ${t === 'Tier 1' ? '(Pos 4-10)' : t === 'Tier 2' ? '(Pos 11-20)' : '(Pos 21-30)'}`}
@@ -373,14 +373,14 @@ export default function SeoContentGapDecayTab({ showToast }) {
         </div>
 
         {filteredStriking.length === 0 ? (
-          <div className="py-8 text-center text-xs text-[#B8C2D9]">
+          <div className="py-8 text-center text-xs text-[#756657]">
             No striking distance queries found for this tier.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Search Query</th>
                   <th className="py-3 px-3">Position</th>
                   <th className="py-3 px-3">Tier</th>
@@ -429,7 +429,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
                       </span>
                     </td>
 
-                    <td className="py-3 px-4 font-mono text-[#B8C2D9] text-[11px] truncate max-w-xs">
+                    <td className="py-3 px-4 font-mono text-[#756657] text-[11px] truncate max-w-xs">
                       {kw.url || '/'}
                     </td>
                   </tr>

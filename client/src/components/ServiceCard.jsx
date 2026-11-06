@@ -126,7 +126,7 @@ export default function ServiceCard({ service, className = '' }) {
             }
             aria-label={`Inquire about ${service.name} on WhatsApp`}
             title={`Inquire about ${service.name} on WhatsApp`}
-            className="inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3.5 py-2 text-[11px] font-bold text-emerald-300 hover:bg-[#25D366] hover:text-white transition-all shrink-0"
+            className="inline-flex min-h-[40px] items-center justify-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3.5 py-2 text-[11px] font-bold text-emerald-700 hover:bg-[#25D366] hover:text-white transition-all shrink-0"
           >
             <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
             <span>WhatsApp</span>

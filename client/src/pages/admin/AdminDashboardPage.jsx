@@ -311,7 +311,7 @@ export default function AdminDashboardPage() {
           className="group rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs transition-all hover:border-[#C5A989]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Products Catalog</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#756657]">Products Catalog</span>
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#795C43]">
               <Package className="h-4 w-4" />
             </div>
@@ -321,7 +321,7 @@ export default function AdminDashboardPage() {
             <span className="font-bold text-[#795C43] flex items-center">
               Manage & Upload <ArrowRight className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" />
             </span>
-            <span className="text-[#B8C2D9] font-semibold">{products.active} Active</span>
+            <span className="text-[#756657] font-semibold">{products.active} Active</span>
           </div>
         </Link>
 
@@ -331,13 +331,13 @@ export default function AdminDashboardPage() {
           className="group rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs transition-all hover:border-[#C5A989]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Total Orders</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#756657]">Total Orders</span>
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-blue-600">
               <ShoppingBag className="h-4 w-4" />
             </div>
           </div>
           <div className="mt-3 text-3xl font-black text-[#352719]">{orders.total}</div>
-          <div className="mt-1 text-xs font-semibold text-[#B8C2D9]">
+          <div className="mt-1 text-xs font-semibold text-[#756657]">
             <span className="font-bold text-amber-600">{orders.pending} Pending</span> •{' '}
             <span className="font-bold text-purple-600">{orders.inProduction} In Press</span>
           </div>
@@ -346,7 +346,7 @@ export default function AdminDashboardPage() {
         {/* Card 3: Revenue */}
         <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Order Revenue</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#756657]">Order Revenue</span>
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
               <TrendingUp className="h-4 w-4" />
             </div>
@@ -365,7 +365,7 @@ export default function AdminDashboardPage() {
           className="group rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs transition-all hover:border-[#C5A989]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Pending Quotes</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#756657]">Pending Quotes</span>
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-50 text-purple-600">
               <FileText className="h-4 w-4" />
             </div>
@@ -375,7 +375,7 @@ export default function AdminDashboardPage() {
             <span className="font-bold text-purple-600 flex items-center">
               Review Requests <ArrowRight className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" />
             </span>
-            <span className="text-[#B8C2D9] font-semibold">{quotes.total} Total</span>
+            <span className="text-[#756657] font-semibold">{quotes.total} Total</span>
           </div>
         </Link>
       </div>
@@ -386,7 +386,7 @@ export default function AdminDashboardPage() {
           to="/admin/messages"
           className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 sm:p-4 shadow-xs hover:border-amber-500 transition-colors"
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#756657] uppercase tracking-wider">
             <MessageSquare className="h-3.5 w-3.5 text-amber-600" />
             <span>Studio Inquiries</span>
           </div>
@@ -398,31 +398,31 @@ export default function AdminDashboardPage() {
           to="/admin/customers"
           className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 sm:p-4 shadow-xs hover:border-[#DED2C1] transition-colors"
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#756657] uppercase tracking-wider">
             <Users className="h-3.5 w-3.5 text-indigo-600" />
             <span>Registered Users</span>
           </div>
           <div className="mt-2 text-2xl font-black text-[#352719]">{users.total}</div>
-          <div className="mt-0.5 text-[11px] font-semibold text-[#B8C2D9]">{users.customers} Clients</div>
+          <div className="mt-0.5 text-[11px] font-semibold text-[#756657]">{users.customers} Clients</div>
         </Link>
 
         <Link
           to="/admin/services"
           className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 sm:p-4 shadow-xs hover:border-[#DED2C1] transition-colors"
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#756657] uppercase tracking-wider">
             <Wrench className="h-3.5 w-3.5 text-sky-600" />
             <span>Print Services</span>
           </div>
           <div className="mt-2 text-2xl font-black text-[#352719]">{services.total}</div>
-          <div className="mt-0.5 text-[11px] font-semibold text-[#B8C2D9]">{services.active} Active</div>
+          <div className="mt-0.5 text-[11px] font-semibold text-[#756657]">{services.active} Active</div>
         </Link>
 
         <Link
           to="/admin/categories"
           className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 sm:p-4 shadow-xs hover:border-[#C5A989] transition-colors"
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#756657] uppercase tracking-wider">
             <FolderTree className="h-3.5 w-3.5 text-[#795C43]" />
             <span>Categories</span>
           </div>
@@ -434,7 +434,7 @@ export default function AdminDashboardPage() {
           to="/admin/blog"
           className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5 sm:p-4 shadow-xs hover:border-[#C5A989] transition-colors xs:col-span-2 sm:col-span-1"
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#756657] uppercase tracking-wider">
             <BookOpen className="h-3.5 w-3.5 text-[#795C43]" />
             <span>Blog Articles</span>
           </div>
@@ -477,7 +477,7 @@ export default function AdminDashboardPage() {
                 <h2 className="font-display mt-1 text-xl sm:text-2xl font-black text-[#352719]">
                   Centralized SEO Health, Keyword Registry &amp; Lead Funnel
                 </h2>
-                <p className="mt-1 text-xs text-[#B8C2D9]">
+                <p className="mt-1 text-xs text-[#756657]">
                   Dynamic monitoring across all {seoAudit.totals.products} products, {seoAudit.totals.categories} categories, {seoAudit.totals.services} services, and {blogs.total || 25} blog guides. WhatsApp clicks and quote inquiries are strictly separated from confirmed orders.
                 </p>
               </div>
@@ -502,25 +502,25 @@ export default function AdminDashboardPage() {
             {/* 8-Card SEO & Funnel Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                   Total Audited Catalog
                 </span>
                 <div className="mt-2 text-2xl font-black text-[#352719]">
                   {seoAudit.totals.products + seoAudit.totals.categories + seoAudit.totals.services + (blogs.total || 25)} Pages
                 </div>
-                <div className="mt-1 text-[11px] text-emerald-400 font-semibold">
+                <div className="mt-1 text-[11px] text-emerald-700 font-semibold">
                   {seoAudit.totals.products} Products • {seoAudit.totals.categories} Categories • {seoAudit.totals.services} Services
                 </div>
               </div>
 
               <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                   Pages Missing SEO Fields
                 </span>
                 <div className="mt-2 text-2xl font-black text-[#352719]">
                   {seoAudit.missingSeoCount}
                 </div>
-                <div className="mt-1 text-[11px] font-semibold text-emerald-400">
+                <div className="mt-1 text-[11px] font-semibold text-emerald-700">
                   {seoAudit.missingSeoCount === 0
                     ? '100% Complete (Title, Meta, H1, Keywords, Alt, Canonical)'
                     : `${seoAudit.missingSeoCount} pages require metadata review`}
@@ -528,26 +528,26 @@ export default function AdminDashboardPage() {
               </div>
 
               <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                   Keyword Opportunities &amp; Review
                 </span>
                 <div className="mt-2 text-2xl font-black text-[#795C43]">
                   {seoAudit.keywordOpportunitiesCount} Active Targets
                 </div>
-                <div className="mt-1 text-[11px] text-[#B8C2D9] font-semibold">
+                <div className="mt-1 text-[11px] text-[#756657] font-semibold">
                   {seoAudit.pagesAwaitingReviewCount} Drafts Awaiting Admin Review • {seoAudit.duplicateKeywordCount} Duplicate Warnings
                 </div>
               </div>
 
               <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                   GA4 &amp; Search Console Status
                 </span>
-                <div className="mt-2 flex items-center gap-1.5 text-sm font-black text-emerald-400">
+                <div className="mt-2 flex items-center gap-1.5 text-sm font-black text-emerald-700">
                   <CheckCircle2 className="h-4 w-4 shrink-0" />
                   <span>GA4 Active ({GA4_MEASUREMENT_ID})</span>
                 </div>
-                <div className="mt-1 text-[11px] text-[#B8C2D9] font-semibold">
+                <div className="mt-1 text-[11px] text-[#756657] font-semibold">
                    WhatsApp (+447344546056): {whatsappEvents.length} Tracked Clicks • Sitemap Live
                 </div>
               </div>
@@ -569,11 +569,11 @@ export default function AdminDashboardPage() {
                     <div key={idx} className="py-2.5 flex items-center justify-between gap-3">
                       <div className="min-w-0">
                         <div className="font-bold text-[#352719] truncate">{item.keyword}</div>
-                        <div className="text-[11px] text-[#B8C2D9] truncate">
+                        <div className="text-[11px] text-[#756657] truncate">
                           {item.category} → <span className="text-[#795C43]">{item.targetUrl}</span>
                         </div>
                       </div>
-                      <span className="shrink-0 rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+                      <span className="shrink-0 rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-500/20">
                         {item.searchIntent}
                       </span>
                     </div>
@@ -586,22 +586,22 @@ export default function AdminDashboardPage() {
                   <h3 className="font-display text-sm font-bold text-[#352719]">
                     WhatsApp Inquiries vs. Quotes vs. Confirmed Orders
                   </h3>
-                  <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+                  <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-500/20">
                     +44 7344 546056
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-3 mb-4 text-center">
                   <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3">
-                    <div className="text-lg font-black text-emerald-400">{whatsappEvents.length}</div>
-                    <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">WhatsApp Clicks</div>
+                    <div className="text-lg font-black text-emerald-700">{whatsappEvents.length}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">WhatsApp Clicks</div>
                   </div>
                   <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3">
-                    <div className="text-lg font-black text-purple-400">{quotes.total}</div>
-                    <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">Quote Requests</div>
+                    <div className="text-lg font-black text-purple-700">{quotes.total}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">Quote Requests</div>
                   </div>
                   <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3">
                     <div className="text-lg font-black text-[#795C43]">{orders.total}</div>
-                    <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">Confirmed Orders</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">Confirmed Orders</div>
                   </div>
                 </div>
                 {topWhatsappProducts.length > 0 ? (
@@ -609,12 +609,12 @@ export default function AdminDashboardPage() {
                     {topWhatsappProducts.map((row, idx) => (
                       <div key={idx} className="py-2 flex items-center justify-between">
                         <span className="text-[#352719] font-semibold truncate">{row.label}</span>
-                        <span className="text-emerald-400 font-bold">{row.count} clicks</span>
+                        <span className="text-emerald-700 font-bold">{row.count} clicks</span>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-xs text-[#B8C2D9] leading-relaxed">
+                  <p className="text-xs text-[#756657] leading-relaxed">
                     Live WhatsApp click events (`whatsapp_click`) are tracked per product, category, and blog page via GA4 (`{GA4_MEASUREMENT_ID}`) and the conversion beacon without counting clicks as confirmed orders.
                   </p>
                 )}
@@ -628,7 +628,7 @@ export default function AdminDashboardPage() {
                   <h3 className="font-display text-sm font-bold text-[#352719]">
                     90-Day Organic Content Growth Engine &amp; Editorial Drafts ({seoAudit.pagesAwaitingReviewCount} Drafts Awaiting Review)
                   </h3>
-                  <p className="text-[11px] text-[#B8C2D9]">
+                  <p className="text-[11px] text-[#756657]">
                     Every guide targets a distinct commercial/comparison intent and links directly to canonical ONPRINT product &amp; category pages.
                   </p>
                 </div>
@@ -648,8 +648,8 @@ export default function AdminDashboardPage() {
                       </span>
                       <div className="font-bold text-[#352719] line-clamp-2">{planItem.topicTitle}</div>
                     </div>
-                    <div className="text-[11px] text-[#B8C2D9] pt-1 border-t border-[#DED2C1]/60">
-                      Keyword: <span className="text-emerald-400 font-semibold">{planItem.targetKeyword}</span>
+                    <div className="text-[11px] text-[#756657] pt-1 border-t border-[#DED2C1]/60">
+                      Keyword: <span className="text-emerald-700 font-semibold">{planItem.targetKeyword}</span>
                     </div>
                   </div>
                 ))}
@@ -667,7 +667,7 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4 mb-4">
               <div>
                 <h3 className="font-display text-base font-bold text-[#352719]">Recent Press Orders</h3>
-                <p className="text-xs text-[#B8C2D9]">Live order queue from database</p>
+                <p className="text-xs text-[#756657]">Live order queue from database</p>
               </div>
               <Link
                 to="/admin/orders"
@@ -678,7 +678,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {recentOrders.length === 0 ? (
-              <div className="py-8 text-center text-xs text-[#B8C2D9]">
+              <div className="py-8 text-center text-xs text-[#756657]">
                 No orders recorded yet.
               </div>
             ) : (
@@ -687,7 +687,7 @@ export default function AdminDashboardPage() {
                   <div key={order.id} className="py-3 flex items-center justify-between gap-2 text-xs">
                     <div className="min-w-0 flex-1">
                       <div className="font-bold text-[#352719] truncate">{order.productName || 'Print Order'}</div>
-                      <div className="text-[11px] text-[#B8C2D9] truncate">
+                      <div className="text-[11px] text-[#756657] truncate">
                         {order.orderNumber} • {order.customerName}
                       </div>
                     </div>
@@ -713,7 +713,7 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4 mb-4">
               <div>
                 <h3 className="font-display text-base font-bold text-[#352719]">Recent Quotes</h3>
-                <p className="text-xs text-[#B8C2D9]">Submitted quote requests</p>
+                <p className="text-xs text-[#756657]">Submitted quote requests</p>
               </div>
               <Link
                 to="/admin/quotes"
@@ -724,7 +724,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {recentQuotes.length === 0 ? (
-              <div className="py-8 text-center text-xs text-[#B8C2D9]">
+              <div className="py-8 text-center text-xs text-[#756657]">
                 No quote requests recorded yet.
               </div>
             ) : (
@@ -733,7 +733,7 @@ export default function AdminDashboardPage() {
                   <div key={quote.id} className="py-3 flex items-center justify-between gap-2 text-xs">
                     <div className="min-w-0 flex-1">
                       <div className="font-bold text-[#352719] truncate">{quote.name}</div>
-                      <div className="text-[11px] text-[#B8C2D9] truncate">
+                      <div className="text-[11px] text-[#756657] truncate">
                         {quote.quoteNumber} • {quote.email}
                       </div>
                     </div>
@@ -756,7 +756,7 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between border-b border-[#DED2C1] pb-4 mb-4">
               <div>
                 <h3 className="font-display text-base font-bold text-[#352719]">Direct Studio Inquiries</h3>
-                <p className="text-xs text-[#B8C2D9]">Contact form messages & specs</p>
+                <p className="text-xs text-[#756657]">Contact form messages & specs</p>
               </div>
               <Link
                 to="/admin/messages"
@@ -767,7 +767,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {recentMessages.length === 0 ? (
-              <div className="py-8 text-center text-xs text-[#B8C2D9]">
+              <div className="py-8 text-center text-xs text-[#756657]">
                 No contact inquiries received yet.
               </div>
             ) : (
@@ -780,16 +780,16 @@ export default function AdminDashboardPage() {
                         className={`rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase ${
                           msg.status === 'unread'
                             ? 'bg-amber-100 text-amber-800 border border-amber-200'
-                            : 'bg-neutral-100 text-[#B8C2D9]'
+                            : 'bg-neutral-100 text-[#756657]'
                         }`}
                       >
                         {msg.status || 'unread'}
                       </span>
                     </div>
-                    <div className="text-[11px] text-[#B8C2D9] font-medium truncate mt-0.5">
+                    <div className="text-[11px] text-[#756657] font-medium truncate mt-0.5">
                       {msg.subject || 'Direct Studio Inquiry'}
                     </div>
-                    <div className="text-[10px] text-[#B8C2D9]/70 mt-1 line-clamp-1">
+                    <div className="text-[10px] text-[#756657]/80 mt-1 line-clamp-1">
                       {msg.message}
                     </div>
                   </div>

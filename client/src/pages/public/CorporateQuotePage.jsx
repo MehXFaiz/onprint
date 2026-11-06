@@ -206,14 +206,14 @@ export default function CorporateQuotePage() {
         <Breadcrumbs items={[{ name: 'Corporate & Bulk Quotes' }]} />
 
         {/* Hero Section */}
-        <div className="mt-4 rounded-3xl bg-[#F5F0E7] p-8 sm:p-14 text-white relative overflow-hidden shadow-xl border border-[#DED2C1]">
+        <div className="mt-4 rounded-3xl bg-[#F5F0E7] p-8 sm:p-14 text-[#352719] relative overflow-hidden shadow-xl border border-[#DED2C1]">
           <div className="absolute right-0 top-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#795C43]/10 blur-3xl pointer-events-none" />
 
           <div className="max-w-3xl relative z-10">
             <span className="inline-flex items-center gap-2 rounded-full bg-[#795C43]/20 border border-[#C5A989]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43]">
               <Building2 className="w-4 h-4" /> B2B &amp; Enterprise Procurement Portal
             </span>
-            <h1 className="font-display mt-4 text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+            <h1 className="font-display mt-4 text-3xl sm:text-5xl font-black tracking-tight text-[#352719] leading-tight">
               Corporate Printing &amp; Bulk Print Solutions
             </h1>
             <p className="mt-4 text-sm sm:text-base text-[#756657] leading-relaxed max-w-2xl">
@@ -245,29 +245,29 @@ export default function CorporateQuotePage() {
         {/* Success Confirmation State */}
         {submittedData ? (
           <div className="mt-12 rounded-3xl border border-emerald-500/40 bg-[#FAF8F3] p-8 sm:p-12 shadow-md text-center max-w-2xl mx-auto">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 mb-6">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-700 border border-emerald-500/40 mb-6">
               <CheckCircle2 className="h-8 w-8" />
             </div>
 
-            <span className="inline-block rounded-full bg-emerald-950/80 border border-emerald-400/40 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-emerald-400 mb-2">
+            <span className="inline-block rounded-full bg-emerald-500/10 border border-emerald-400/40 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-emerald-700 mb-2">
               Corporate RFQ Logged
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#352719]">
               Request Received for {submittedData.companyName}
             </h2>
             <p className="mt-2 text-sm text-[#756657]">
               Your reference code has been generated. Our Senior Key Account Director will review your multi-item specifications, credit terms, and deliver an itemized proposal within 2–4 business hours.
             </p>
 
-            <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] p-4 font-mono text-base font-black text-white">
+            <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] p-4 font-mono text-base font-black text-[#352719]">
               <span>{submittedData.referenceNumber}</span>
               <button
                 type="button"
                 onClick={handleCopy}
-                className="p-1 rounded hover:bg-[#FAF8F3] text-slate-400 hover:text-white transition-colors"
+                className="p-1 rounded hover:bg-[#FAF8F3] text-[#756657] hover:text-[#352719] transition-colors"
                 title="Copy reference"
               >
-                {copiedRef ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                {copiedRef ? <Check className="h-4 w-4 text-emerald-700" /> : <Copy className="h-4 w-4" />}
               </button>
             </div>
 
@@ -307,7 +307,7 @@ export default function CorporateQuotePage() {
                   <Building2 className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="font-display text-lg font-bold text-white">
+                  <h2 className="font-display text-lg font-bold text-[#352719]">
                     1. Company &amp; Procurement Entity
                   </h2>
                   <p className="text-xs text-[#756657]">
@@ -327,7 +327,7 @@ export default function CorporateQuotePage() {
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
                     placeholder="e.g. Al Futtaim Group / Emaar Hospitality"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
@@ -340,7 +340,7 @@ export default function CorporateQuotePage() {
                     value={tradeLicenseNumber}
                     onChange={(e) => setTradeLicenseNumber(e.target.value)}
                     placeholder="e.g. 1048291 (DED / Freezone)"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none font-mono"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none font-mono"
                   />
                 </div>
 
@@ -353,7 +353,7 @@ export default function CorporateQuotePage() {
                     value={trnNumber}
                     onChange={(e) => setTrnNumber(e.target.value)}
                     placeholder="15-digit FTA TRN"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none font-mono"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none font-mono"
                   />
                 </div>
 
@@ -367,7 +367,7 @@ export default function CorporateQuotePage() {
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     placeholder="e.g. Tariq Mansoor"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
@@ -380,7 +380,7 @@ export default function CorporateQuotePage() {
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     placeholder="e.g. Procurement / Marketing / GM"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
@@ -394,7 +394,7 @@ export default function CorporateQuotePage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="procurement@company.ae"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
@@ -408,7 +408,7 @@ export default function CorporateQuotePage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+971 50 123 4567"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                   />
                 </div>
 
@@ -419,7 +419,7 @@ export default function CorporateQuotePage() {
                   <select
                     value={annualVolumeEstimate}
                     onChange={(e) => setAnnualVolumeEstimate(e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white focus:border-[#C5A989] focus:outline-none cursor-pointer"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none cursor-pointer"
                   >
                     {VOLUME_TIERS.map((tier) => (
                       <option key={tier} value={tier}>
@@ -436,7 +436,7 @@ export default function CorporateQuotePage() {
                   <select
                     value={creditTermsRequested}
                     onChange={(e) => setCreditTermsRequested(e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white focus:border-[#C5A989] focus:outline-none cursor-pointer"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none cursor-pointer"
                   >
                     <option value="Prepaid">Prepaid / Card / Bank Transfer (Fastest Dispatch)</option>
                     <option value="30 Days Net">30 Days Net (Subject to Trade License Check)</option>
@@ -454,7 +454,7 @@ export default function CorporateQuotePage() {
                     <Layers className="h-5 w-5" />
                   </div>
                   <div>
-                    <h2 className="font-display text-lg font-bold text-white">
+                    <h2 className="font-display text-lg font-bold text-[#352719]">
                       2. Print Items &amp; Package Specifications
                     </h2>
                     <p className="text-xs text-[#756657]">
@@ -487,7 +487,7 @@ export default function CorporateQuotePage() {
                         <button
                           type="button"
                           onClick={() => handleRemoveItem(idx)}
-                          className="text-slate-400 hover:text-red-400 transition-colors cursor-pointer p-1"
+                          className="text-[#756657] hover:text-red-600 transition-colors cursor-pointer p-1"
                           title="Remove line"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -505,7 +505,7 @@ export default function CorporateQuotePage() {
                           value={item.productName}
                           onChange={(e) => handleItemChange(idx, 'productName', e.target.value)}
                           placeholder="e.g. Luxury Business Cards / Rigid Boxes"
-                          className="mt-1 w-full rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                         />
                       </div>
 
@@ -519,7 +519,7 @@ export default function CorporateQuotePage() {
                           step={50}
                           value={item.quantity}
                           onChange={(e) => handleItemChange(idx, 'quantity', parseInt(e.target.value, 10) || 1)}
-                          className="mt-1 w-full rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs font-semibold text-white focus:border-[#C5A989] focus:outline-none font-mono"
+                          className="mt-1 w-full rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs font-semibold text-[#352719] focus:border-[#C5A989] focus:outline-none font-mono"
                         />
                       </div>
 
@@ -532,7 +532,7 @@ export default function CorporateQuotePage() {
                           value={item.specifications}
                           onChange={(e) => handleItemChange(idx, 'specifications', e.target.value)}
                           placeholder="e.g. 400 GSM, 24K Gold Foil, Spot UV"
-                          className="mt-1 w-full rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-3 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -548,7 +548,7 @@ export default function CorporateQuotePage() {
                   <Truck className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="font-display text-lg font-bold text-white">
+                  <h2 className="font-display text-lg font-bold text-[#352719]">
                     3. Delivery Logistics &amp; Artwork Upload
                   </h2>
                   <p className="text-xs text-[#756657]">
@@ -567,7 +567,7 @@ export default function CorporateQuotePage() {
                     value={deliveryLocations}
                     onChange={(e) => setDeliveryLocations(e.target.value)}
                     placeholder="e.g. Downtown Dubai HQ + Abu Dhabi Branch"
-                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                   />
 
                   <div className="mt-4">
@@ -579,7 +579,7 @@ export default function CorporateQuotePage() {
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Specify exact Pantone solid coated codes, delivery deadline urgency, or packaging carton preferences…"
-                      className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-xs text-white placeholder:text-slate-500 focus:border-[#C5A989] focus:outline-none"
+                      className="mt-1.5 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -591,10 +591,10 @@ export default function CorporateQuotePage() {
                   </label>
                   <label className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#DED2C1] bg-[#F5F0E7] p-6 text-center hover:border-[#C5A989] transition-all cursor-pointer">
                     <UploadCloud className="h-8 w-8 text-[#795C43] mb-2" />
-                    <span className="text-xs font-bold text-white">
+                    <span className="text-xs font-bold text-[#352719]">
                       Click to browse or drop brand files
                     </span>
-                    <span className="text-[11px] text-slate-400 mt-1">
+                    <span className="text-[11px] text-[#756657] mt-1">
                       PDF, AI, EPS, PSD, TIFF, ZIP up to 50MB per file
                     </span>
                     <input
@@ -611,8 +611,8 @@ export default function CorporateQuotePage() {
                       <p className="text-[11px] font-bold text-[#352719]">Selected Files ({files.length}):</p>
                       {files.map((f, i) => (
                         <div key={i} className="flex items-center justify-between rounded-lg bg-[#F5F0E7] border border-[#DED2C1] px-3 py-1.5 text-xs">
-                          <span className="truncate text-white">{f.name}</span>
-                          <span className="text-slate-400 text-[10px]">
+                          <span className="truncate text-[#352719]">{f.name}</span>
+                          <span className="text-[#756657] text-[10px]">
                             {(f.size / (1024 * 1024)).toFixed(1)} MB
                           </span>
                         </div>
@@ -633,9 +633,9 @@ export default function CorporateQuotePage() {
             </div>
 
             {/* Bottom Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-[#F5F0E7] p-6 text-white shadow-lg">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-[#F5F0E7] p-6 text-[#352719] shadow-lg">
               <div>
-                <p className="font-bold text-sm text-white">Ready to Submit Corporate RFQ?</p>
+                <p className="font-bold text-sm text-[#352719]">Ready to Submit Corporate RFQ?</p>
                 <p className="text-xs text-[#756657]">
                   You will receive an instant reference number and itemized quotation within 2–4 business hours.
                 </p>

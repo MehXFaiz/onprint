@@ -203,8 +203,8 @@ export default function PageSeoEditorModal({
                   Score: {page.seo_score || 0}/100
                 </span>
               </div>
-              <p className="text-xs text-[#B8C2D9] font-mono flex items-center gap-1 mt-0.5">
-                <Globe className="h-3 w-3 text-[#B8C2D9]/70" />
+              <p className="text-xs text-[#756657] font-mono flex items-center gap-1 mt-0.5">
+                <Globe className="h-3 w-3 text-[#756657]/80" />
                 <span>{page.url}</span>
                 <a
                   href={page.url}
@@ -231,7 +231,7 @@ export default function PageSeoEditorModal({
             </Button>
             <button
               onClick={onClose}
-              className="h-8 w-8 rounded-lg text-[#B8C2D9]/70 hover:text-[#352719] hover:bg-neutral-200/60 flex items-center justify-center transition-colors cursor-pointer"
+              className="h-8 w-8 rounded-lg text-[#756657]/80 hover:text-[#352719] hover:bg-neutral-200/60 flex items-center justify-center transition-colors cursor-pointer"
             >
               <X className="h-4 w-4" />
             </button>
@@ -245,7 +245,7 @@ export default function PageSeoEditorModal({
             className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'meta'
                 ? 'border-[#C5A989] text-[#795C43]'
-                : 'border-transparent text-[#B8C2D9] hover:text-[#352719]'
+                : 'border-transparent text-[#756657] hover:text-[#352719]'
             }`}
           >
             <Tag className="h-3.5 w-3.5" />
@@ -256,7 +256,7 @@ export default function PageSeoEditorModal({
             className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'geo'
                 ? 'border-[#C5A989] text-[#795C43]'
-                : 'border-transparent text-[#B8C2D9] hover:text-[#352719]'
+                : 'border-transparent text-[#756657] hover:text-[#352719]'
             }`}
           >
             <Sparkles className="h-3.5 w-3.5" />
@@ -267,7 +267,7 @@ export default function PageSeoEditorModal({
             className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'social'
                 ? 'border-[#C5A989] text-[#795C43]'
-                : 'border-transparent text-[#B8C2D9] hover:text-[#352719]'
+                : 'border-transparent text-[#756657] hover:text-[#352719]'
             }`}
           >
             <Share2 className="h-3.5 w-3.5" />
@@ -278,7 +278,7 @@ export default function PageSeoEditorModal({
             className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'schema'
                 ? 'border-[#C5A989] text-[#795C43]'
-                : 'border-transparent text-[#B8C2D9] hover:text-[#352719]'
+                : 'border-transparent text-[#756657] hover:text-[#352719]'
             }`}
           >
             <FileCode className="h-3.5 w-3.5" />
@@ -289,7 +289,7 @@ export default function PageSeoEditorModal({
             className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'history'
                 ? 'border-[#C5A989] text-[#795C43]'
-                : 'border-transparent text-[#B8C2D9] hover:text-[#352719]'
+                : 'border-transparent text-[#756657] hover:text-[#352719]'
             }`}
           >
             <History className="h-3.5 w-3.5" />
@@ -323,19 +323,19 @@ export default function PageSeoEditorModal({
               {/* Google SERP Preview Card */}
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#B8C2D9]/70">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#756657]/80">
                     Google SERP Desktop &amp; Mobile Preview
                   </span>
-                  <span className="text-[11px] text-[#B8C2D9] font-mono">0nprint.com</span>
+                  <span className="text-[11px] text-[#756657] font-mono">0nprint.com</span>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-[11px] text-[#B8C2D9] font-mono truncate">
+                  <div className="text-[11px] text-[#756657] font-mono truncate">
                     https://www.0nprint.com{page.url}
                   </div>
                   <div className="text-base font-semibold text-[#1a0dab] hover:underline cursor-pointer truncate">
                     {formData.meta_title || `${page.h1 || 'Page Title'} | ONPRINT Dubai`}
                   </div>
-                  <div className="text-xs text-[#B8C2D9] line-clamp-2 leading-relaxed">
+                  <div className="text-xs text-[#756657] line-clamp-2 leading-relaxed">
                     {formData.meta_description || 'No description provided. Add an authentic, conversion-focused meta description.'}
                   </div>
                 </div>
@@ -408,7 +408,7 @@ export default function PageSeoEditorModal({
                     placeholder="e.g., business card printing dubai"
                     className="w-full rounded-xl border border-[#DED2C1] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
-                  <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                  <p className="mt-1 text-[11px] text-[#756657]/80">
                     Primary target search query for this specific page.
                   </p>
                 </div>
@@ -423,7 +423,7 @@ export default function PageSeoEditorModal({
                     placeholder="e.g., luxury cards, gold foil stamping, express print"
                     className="w-full rounded-xl border border-[#DED2C1] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
-                  <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                  <p className="mt-1 text-[11px] text-[#756657]/80">
                     Comma-separated semantic variations and LSI terms.
                   </p>
                 </div>
@@ -500,7 +500,7 @@ export default function PageSeoEditorModal({
                     Search Intent &amp; Knowledge Graph Entities
                   </h3>
                 </div>
-                <p className="text-[11px] text-[#B8C2D9]">
+                <p className="text-[11px] text-[#756657]">
                   Align this URL with generative AI discovery engines (ChatGPT, Perplexity, Google AI Overviews) and Google Knowledge Graph.
                 </p>
               </div>
@@ -521,7 +521,7 @@ export default function PageSeoEditorModal({
                     <option value="Informational">Informational (Educational guides, specs, techniques)</option>
                     <option value="Navigational">Navigational (Direct brand or portal lookup)</option>
                   </select>
-                  <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                  <p className="mt-1 text-[11px] text-[#756657]/80">
                     Determines content tone, depth, and CTA placement.
                   </p>
                 </div>
@@ -536,7 +536,7 @@ export default function PageSeoEditorModal({
                     placeholder="e.g., Luxury Business Card Printing Dubai"
                     className="w-full rounded-xl border border-[#DED2C1] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
-                  <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                  <p className="mt-1 text-[11px] text-[#756657]/80">
                     Primary real-world topic/entity recognized by search engines.
                   </p>
                 </div>
@@ -554,7 +554,7 @@ export default function PageSeoEditorModal({
                   placeholder="e.g., Al Quoz, Dubai, Heidelberg Speedmaster, 450gsm silk artboard, Hot foil stamping, Spot UV, Blind debossing, DIFC corporate stationery"
                   className="w-full rounded-xl border border-[#DED2C1] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                 />
-                <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                <p className="mt-1 text-[11px] text-[#756657]/80">
                   Comma-separated co-occurring entities, machinery, certifications, materials, and Dubai geographic entities.
                 </p>
               </div>
@@ -565,7 +565,7 @@ export default function PageSeoEditorModal({
                   <label className="text-xs font-bold text-[#352719]">
                     SEO &amp; GEO Deep Body Content
                   </label>
-                  <span className="text-[11px] font-mono text-[#B8C2D9]/70">
+                  <span className="text-[11px] font-mono text-[#756657]/80">
                     {formData.seo_content?.length || 0} characters
                   </span>
                 </div>
@@ -576,7 +576,7 @@ export default function PageSeoEditorModal({
                   placeholder="Comprehensive, authoritative content block highlighting Dubai production capabilities, technical specs, turnaround times, and local relevance..."
                   className="w-full rounded-xl border border-[#DED2C1] px-3.5 py-2.5 text-xs text-[#352719] focus:border-[#C5A989] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                 />
-                <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                <p className="mt-1 text-[11px] text-[#756657]/80">
                   Authoritative paragraphs addressing search intent, answering technical specifications, and strengthening topical coverage.
                 </p>
               </div>
@@ -616,7 +616,7 @@ export default function PageSeoEditorModal({
                   placeholder={`[\n  {\n    "question": "What is the turnaround time?",\n    "answer": "Standard turnaround is 24-48 hours in Dubai."\n  }\n]`}
                   className="w-full font-mono text-xs rounded-xl border border-[#DED2C1] p-3.5 bg-neutral-900 text-amber-300 focus:border-[#C5A989] focus:outline-none leading-relaxed"
                 />
-                <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
+                <p className="mt-1 text-[11px] text-[#756657]/80">
                   Formatted answer-first Q&amp;A pairs automatically injected into page schema and visible FAQ sections.
                 </p>
               </div>
@@ -628,7 +628,7 @@ export default function PageSeoEditorModal({
             <div className="space-y-5">
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
                 <h3 className="font-bold text-xs text-[#352719] mb-1">Open Graph &amp; Social Sharing Cards</h3>
-                <p className="text-[11px] text-[#B8C2D9]">
+                <p className="text-[11px] text-[#756657]">
                   Controls how this page appears when shared on WhatsApp, LinkedIn, Facebook, X/Twitter, and iMessage.
                 </p>
               </div>
@@ -725,7 +725,7 @@ export default function PageSeoEditorModal({
                   <label className="text-xs font-bold text-[#352719]">
                     Primary Schema Type
                   </label>
-                  <p className="text-[11px] text-[#B8C2D9]">
+                  <p className="text-[11px] text-[#756657]">
                     Select Schema.org entity type corresponding to this page.
                   </p>
                 </div>
@@ -757,7 +757,7 @@ export default function PageSeoEditorModal({
                   placeholder={`{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "Page Title"\n}`}
                   className="w-full font-mono text-xs rounded-xl border border-[#DED2C1] p-3.5 bg-neutral-900 text-emerald-400 focus:border-[#C5A989] focus:outline-none leading-relaxed"
                 />
-                <p className="mt-1 text-[11px] text-[#B8C2D9]">
+                <p className="mt-1 text-[11px] text-[#756657]">
                   Must be valid JSON-LD. This script tag will be injected directly into the HTML &lt;head&gt; of this page.
                 </p>
               </div>
@@ -772,7 +772,7 @@ export default function PageSeoEditorModal({
                   <h3 className="font-bold text-xs text-[#352719]">
                     Audit Trail &amp; 1-Click Rollback
                   </h3>
-                  <p className="text-[11px] text-[#B8C2D9]">
+                  <p className="text-[11px] text-[#756657]">
                     Every modification to this page&apos;s SEO is recorded with previous/new values.
                   </p>
                 </div>
@@ -787,9 +787,9 @@ export default function PageSeoEditorModal({
               </div>
 
               {loadingHistory ? (
-                <div className="py-12 text-center text-xs text-[#B8C2D9]/70">Loading history log...</div>
+                <div className="py-12 text-center text-xs text-[#756657]/80">Loading history log...</div>
               ) : history.length === 0 ? (
-                <div className="py-12 text-center text-xs text-[#B8C2D9]/70 border border-dashed border-[#DED2C1] rounded-xl">
+                <div className="py-12 text-center text-xs text-[#756657]/80 border border-dashed border-[#DED2C1] rounded-xl">
                   No previous changes recorded for this page. Changes will appear here upon editing.
                 </div>
               ) : (
@@ -801,12 +801,12 @@ export default function PageSeoEditorModal({
                           <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-mono font-bold text-[#352719]">
                             {item.field_changed}
                           </span>
-                          <span className="text-xs text-[#B8C2D9]">
+                          <span className="text-xs text-[#756657]">
                             Modified by <strong className="text-[#352719]">{item.changed_by || 'Admin'}</strong>
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-[11px] text-[#B8C2D9]/70">
+                          <span className="text-[11px] text-[#756657]/80">
                             {new Date(item.created_at).toLocaleString()}
                           </span>
                           <Button
@@ -842,7 +842,7 @@ export default function PageSeoEditorModal({
 
         {/* Footer Actions */}
         <div className="px-6 py-4 border-t border-[#DED2C1] bg-[#F5F0E7]/80 flex items-center justify-between shrink-0">
-          <div className="text-xs text-[#B8C2D9]">
+          <div className="text-xs text-[#756657]">
             Last Updated:{' '}
             <strong className="text-[#352719]">
               {page.updated_at ? new Date(page.updated_at).toLocaleString() : 'Never'}

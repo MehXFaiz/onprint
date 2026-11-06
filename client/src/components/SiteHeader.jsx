@@ -335,7 +335,7 @@ export default function SiteHeader() {
             </span>
             <span className="text-[#DED2C1]">•</span>
             <span className="flex items-center gap-1.5 text-[#756657]">
-              <Truck className="h-3 w-3 text-emerald-400" />
+              <Truck className="h-3 w-3 text-emerald-700" />
               <span>Doorstep UAE Delivery • Express 24h Turnaround</span>
             </span>
           </div>
@@ -457,7 +457,7 @@ export default function SiteHeader() {
                                 onClick={() => setActiveMegaDeptSlug(dept.slug)}
                                 className={`w-full text-left flex items-center justify-between p-2.5 rounded-2xl transition-all cursor-pointer group ${
                                   isSelected
-                                    ? 'bg-gradient-to-r from-[#F5F0E7] to-[#EDE3D5] text-white shadow-md'
+                                    ? 'bg-gradient-to-r from-[#F5F0E7] to-[#EDE3D5] text-[#352719] shadow-md'
                                     : 'hover:bg-[#FAF8F3] text-[#756657]'
                                 }`}
                               >
@@ -472,7 +472,7 @@ export default function SiteHeader() {
                                     <Icon className="h-4 w-4" />
                                   </div>
                                   <div className="min-w-0">
-                                    <div className={`text-xs font-bold truncate ${isSelected ? 'text-white' : 'text-[#352719]'}`}>
+                                    <div className={`text-xs font-bold truncate ${isSelected ? 'text-[#795C43]' : 'text-[#352719]'}`}>
                                       {dept.name}
                                     </div>
                                     <div className={`text-[10px] truncate ${isSelected ? 'text-[#795C43]' : 'text-[#756657]'}`}>
@@ -537,7 +537,7 @@ export default function SiteHeader() {
                           <Link
                             to={`/categories/${activeMegaDepartment.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#795C43] hover:text-white px-2.5 py-1 rounded-full bg-[#795C43]/10 border border-[#C5A989]/30 hover:bg-[#795C43]/20 transition-all"
+                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#795C43] hover:text-[#352719] px-2.5 py-1 rounded-full bg-[#795C43]/10 border border-[#C5A989]/30 hover:bg-[#795C43]/20 transition-all"
                           >
                             <span>Explore Department</span>
                             <ArrowRight className="h-3 w-3" />
@@ -582,7 +582,7 @@ export default function SiteHeader() {
                       {/* Reassurance Footer Banner */}
                       <div className="mt-3 pt-2.5 border-t border-[#DED2C1] flex items-center justify-between text-[10px] text-[#756657]">
                         <span className="flex items-center gap-1 font-semibold text-[#352719]">
-                          <Truck className="h-3 w-3 text-emerald-400" />
+                          <Truck className="h-3 w-3 text-emerald-700" />
                           <span>Dubai Online Production • Express Dispatch Across UAE</span>
                         </span>
                         <span className="font-bold text-[#795C43]">Heidelberg &amp; HP Indigo Press</span>
@@ -908,7 +908,7 @@ export default function SiteHeader() {
                         </div>
                         <div>
                           <div className="text-xs font-bold text-[#352719] leading-tight">WhatsApp Concierge</div>
-                          <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-400">
+                          <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-700">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             <span>Online • Instant Turnaround</span>
                           </div>
@@ -935,8 +935,8 @@ export default function SiteHeader() {
                         >
                           {copied ? (
                             <>
-                              <Check className="h-3 w-3 text-emerald-400" />
-                              <span className="text-emerald-400">Copied!</span>
+                              <Check className="h-3 w-3 text-emerald-700" />
+                              <span className="text-emerald-700">Copied!</span>
                             </>
                           ) : (
                             <>
@@ -1014,7 +1014,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#DED2C1] cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#DED2C1] cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -1122,7 +1122,7 @@ export default function SiteHeader() {
                                 <div className="text-[9px] text-[#756657] font-semibold">{count} products</div>
                               </div>
                             </div>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#795C43] shrink-0" />
+                            <ArrowUpRight className="h-3.5 w-3.5 text-[#756657] group-hover:text-[#795C43] shrink-0" />
                           </Link>
                         )
                       })}
@@ -1206,7 +1206,7 @@ export default function SiteHeader() {
                                     <p className="text-[10px] text-[#756657] line-clamp-1 mt-0.5">{p.shortDescription || p.description}</p>
                                   </div>
                                 </div>
-                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#795C43] group-hover:text-white px-2.5 py-1 rounded-full bg-[#795C43]/10 shrink-0">
+                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#795C43] group-hover:text-[#352719] px-2.5 py-1 rounded-full bg-[#795C43]/10 shrink-0">
                                   <span>View &amp; Quote</span>
                                   <ArrowRight className="h-3 w-3" />
                                 </span>
@@ -1322,7 +1322,7 @@ export default function SiteHeader() {
                     <Search className="h-4 w-4 text-[#795C43]" />
                     <span>Search 200+ print products...</span>
                   </div>
-                  <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                  <ArrowRight className="h-3.5 w-3.5 text-[#756657]" />
                 </button>
 
                 {/* WhatsApp Concierge Card */}
@@ -1345,7 +1345,7 @@ export default function SiteHeader() {
                         <span className="text-xs font-bold text-[#352719]">WhatsApp Concierge</span>
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       </div>
-                      <span className="text-[11px] font-bold text-emerald-400">{FORMATTED_PHONE}</span>
+                      <span className="text-[11px] font-bold text-emerald-700">{FORMATTED_PHONE}</span>
                     </div>
                   </div>
                   <span className="rounded-lg bg-[#25D366] text-white px-2.5 py-1 text-[11px] font-bold shadow-xs">

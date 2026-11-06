@@ -219,7 +219,7 @@ export default function RollupBannersLeadPage() {
   ]
 
   return (
-    <div className="bg-[#F5F0E7] text-slate-200">
+    <div className="bg-[#F5F0E7] text-[#352719]">
       <SEOHead
         title="Rollup Banner Printing Dubai | Pull-Up Stands Quote & Same-Day Dispatch | ONPRINT"
         description="Instant custom roll-up banner printing quote in Dubai. 85x200cm standard, luxury teardrop, wide exhibition stands & desktop banners with anti-curl greyback film and carry bag."
@@ -229,7 +229,7 @@ export default function RollupBannersLeadPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-[#F5F0E7] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
+      <section className="relative overflow-hidden bg-[#F5F0E7] text-[#352719] pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
@@ -240,20 +240,20 @@ export default function RollupBannersLeadPage() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#352719] leading-[1.15]">
                 Roll-Up Banner Printing{' '}
                 <span className="font-serif italic text-[#795C43]">Engineered for Events</span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-[#756657] leading-relaxed max-w-2xl mx-auto">
                 Configure your pull-up exhibition stands with 300 GSM anti-curl greyback blockout film, heavy-duty aluminum cassettes, and padded carry bags. Same-day express dispatch across Dubai and DWTC.
               </p>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-300">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-[#756657]">
                 <span className="inline-flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-[#795C43]" />
                   1440 DPI Photographic UV Print
@@ -442,7 +442,7 @@ export default function RollupBannersLeadPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#756657]">Accessories:</span>
-                    <span className="font-bold text-emerald-400">Padded Bag Included</span>
+                    <span className="font-bold text-emerald-700">Padded Bag Included</span>
                   </div>
                 </div>
 
@@ -594,7 +594,7 @@ export default function RollupBannersLeadPage() {
                       {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
                     </button>
 
-                    <p className="text-center text-[11px] text-slate-400">
+                    <p className="text-center text-[11px] text-[#756657]">
                       Direct WhatsApp copy created automatically. Free file pre-flight check included.
                     </p>
                   </form>

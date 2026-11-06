@@ -195,8 +195,8 @@ export default function CategoryDetailPage() {
       <div className="py-24 text-center bg-[#F5F0E7]">
         <Container>
           <div className="max-w-md mx-auto space-y-4">
-            <h1 className="font-display text-2xl font-black text-white">Category Not Found</h1>
-            <p className="text-sm text-slate-300">
+            <h1 className="font-display text-2xl font-black text-[#352719]">Category Not Found</h1>
+            <p className="text-sm text-[#756657]">
               The category you are looking for does not exist or has been restructured.
             </p>
             <div className="flex justify-center gap-3">
@@ -330,7 +330,7 @@ export default function CategoryDetailPage() {
   ]
 
   return (
-    <div className="bg-[#F5F0E7] text-slate-200 py-10 sm:py-16">
+    <div className="bg-[#F5F0E7] text-[#352719] py-10 sm:py-16">
       {/* SEO Head Management */}
       <SEOHead
         title={seoTitle}
@@ -358,7 +358,7 @@ export default function CategoryDetailPage() {
                   {isDept ? (category.badge || 'MASTER DEPARTMENT') : (departmentInfo ? departmentInfo.name : 'COMMERCIAL SUITE')}
                 </span>
                 {isDept && (
-                  <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold text-slate-300">
+                  <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold text-[#756657]">
                     {products.length} Products Catalog
                   </span>
                 )}
@@ -366,13 +366,13 @@ export default function CategoryDetailPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="font-display text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl">
+              <h1 className="font-display text-3xl font-black leading-[1.08] tracking-tight text-[#352719] sm:text-5xl">
                 {seoHeading}
               </h1>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
+              <p className="text-base leading-relaxed text-[#756657] sm:text-lg">
                 {categoryDesc}
               </p>
             </Reveal>
@@ -403,7 +403,7 @@ export default function CategoryDetailPage() {
                   to="/products"
                   variant="secondary"
                   size="lg"
-                  className="border-[#DED2C1] text-white hover:border-[#C5A989] hover:text-[#795C43] text-center justify-center"
+                  className="border-[#DED2C1] text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] text-center justify-center"
                 >
                   Browse Full Catalog
                 </Button>
@@ -412,7 +412,7 @@ export default function CategoryDetailPage() {
 
             {/* Quality Checklist */}
             <Reveal delay={0.4}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#DED2C1] pt-6 text-xs font-bold text-white">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#DED2C1] pt-6 text-xs font-bold text-[#352719]">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#795C43] shrink-0" />
                   <span>German Heidelberg &amp; HP Indigo Presses</span>
@@ -451,7 +451,7 @@ export default function CategoryDetailPage() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-3 flex items-center justify-between text-[11px] font-bold text-slate-300">
+                <div className="p-3 flex items-center justify-between text-[11px] font-bold text-[#756657]">
                   <span>Dubai Commercial Press • Al Quoz</span>
                   <span className="text-[#795C43] font-black">100% Quality Inspected</span>
                 </div>
@@ -468,11 +468,11 @@ export default function CategoryDetailPage() {
                 <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
                   EXPLORE DEPARTMENT CATEGORIES
                 </span>
-                <h3 className="font-display text-2xl font-black text-white mt-1">
+                <h3 className="font-display text-2xl font-black text-[#352719] mt-1">
                   Subcategories in {departmentInfo.name}
                 </h3>
               </div>
-              <span className="text-xs text-slate-400 font-semibold hidden sm:inline">
+              <span className="text-xs text-[#756657] font-semibold hidden sm:inline">
                 Click any category for direct specifications
               </span>
             </div>
@@ -497,14 +497,14 @@ export default function CategoryDetailPage() {
                       />
                     </div>
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-display text-sm font-bold text-white group-hover:text-[#795C43] transition-colors">
+                      <h4 className="font-display text-sm font-bold text-[#352719] group-hover:text-[#795C43] transition-colors">
                         {sub.name}
                       </h4>
                       <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.5 text-[10px] font-bold text-[#795C43]">
                         {sub.productSlugs.length} items
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#756657] line-clamp-2 leading-relaxed">
                       {sub.shortDesc}
                     </p>
                   </div>
@@ -534,7 +534,7 @@ export default function CategoryDetailPage() {
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     isCurrent
                       ? 'bg-[#795C43] text-white'
-                      : 'bg-[#F5F0E7] text-slate-300 hover:text-white hover:border-[#C5A989] border border-[#DED2C1]'
+                      : 'bg-[#F5F0E7] text-[#756657] hover:text-[#352719] hover:border-[#C5A989] border border-[#DED2C1]'
                   }`}
                 >
                   {sub.name}
@@ -556,26 +556,26 @@ export default function CategoryDetailPage() {
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#795C43]">
                 PRODUCT CATALOG
               </span>
-              <h2 className="font-display mt-1 text-2xl font-black tracking-tight text-white sm:text-3xl">
+              <h2 className="font-display mt-1 text-2xl font-black tracking-tight text-[#352719] sm:text-3xl">
                 {categoryName} Products ({displayedProducts.length})
               </h2>
             </div>
 
             {/* Department In-Page Search Bar */}
             <div className="relative w-full sm:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]" />
               <input
                 type="text"
                 value={deptSearchQuery}
                 onChange={(e) => setDeptSearchQuery(e.target.value)}
                 placeholder={`Search in ${categoryName}...`}
-                className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] pl-9 pr-8 py-2 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#C5A989] focus:outline-none"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] pl-9 pr-8 py-2 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
               />
               {deptSearchQuery && (
                 <button
                   type="button"
                   onClick={() => setDeptSearchQuery('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#756657] hover:text-[#352719]"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -592,7 +592,7 @@ export default function CategoryDetailPage() {
                 className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
                   selectedSubcatFilter === 'all'
                     ? 'bg-[#795C43] text-white shadow-sm'
-                    : 'bg-[#FAF8F3] border border-[#DED2C1] text-slate-300 hover:text-white'
+                    : 'bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:text-[#352719]'
                 }`}
               >
                 All Products ({products.length})
@@ -607,7 +607,7 @@ export default function CategoryDetailPage() {
                     className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 flex items-center gap-1.5 ${
                       selectedSubcatFilter === sub.slug
                         ? 'bg-[#795C43] text-white shadow-sm'
-                        : 'bg-[#FAF8F3] border border-[#DED2C1] text-slate-300 hover:text-white'
+                        : 'bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:text-[#352719]'
                     }`}
                   >
                     <span>{sub.name}</span>
@@ -620,7 +620,7 @@ export default function CategoryDetailPage() {
 
           {displayedProducts.length === 0 ? (
             <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-10 text-center space-y-3">
-              <p className="text-sm font-semibold text-slate-200">
+              <p className="text-sm font-semibold text-[#352719]">
                 {deptSearchQuery
                   ? `No products found matching "${deptSearchQuery}". Try clearing search.`
                   : `Custom orders available for ${categoryName}. Get in touch for tailored specifications.`}
@@ -651,10 +651,10 @@ export default function CategoryDetailPage() {
           {/* Natural Repeated In-Page WhatsApp Conversion Banner */}
           <div className="mt-12 rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-950/40 to-[#F5F0E7] p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <p className="font-extrabold text-base text-white">
+              <p className="font-extrabold text-base text-[#352719]">
                 Need tailored sizing, bulk discounts, or urgent 24h printing for {categoryName}?
               </p>
-              <p className="text-xs text-emerald-300 mt-1">
+              <p className="text-xs text-emerald-700 mt-1">
                 Our Dubai pre-press team is online to review artwork, confirm paper swatches, and quote instantly.
               </p>
             </div>
@@ -684,7 +684,7 @@ export default function CategoryDetailPage() {
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#795C43]">
               PRODUCTION SPECIFICATIONS
             </span>
-            <h3 className="font-display mt-2 text-xl font-bold tracking-tight text-white sm:text-2xl">
+            <h3 className="font-display mt-2 text-xl font-bold tracking-tight text-[#352719] sm:text-2xl">
               Professional Production Standards for {categoryName}
             </h3>
           </div>
@@ -695,7 +695,7 @@ export default function CategoryDetailPage() {
                 <Printer className="h-4 w-4" />
                 <span>Print Technology</span>
               </div>
-              <p className="text-xs font-medium text-slate-300">
+              <p className="text-xs font-medium text-[#756657]">
                 HP Indigo Digital Press &amp; Heidelberg Offset presses with Fogra39 color calibration.
               </p>
             </div>
@@ -705,7 +705,7 @@ export default function CategoryDetailPage() {
                 <Layers className="h-4 w-4" />
                 <span>Paper Stocks</span>
               </div>
-              <p className="text-xs font-medium text-slate-300">
+              <p className="text-xs font-medium text-[#756657]">
                 Curated FSC-certified 120gsm to 450gsm cardstocks, cotton boards, and synthetic tear-proof sheets.
               </p>
             </div>
@@ -715,7 +715,7 @@ export default function CategoryDetailPage() {
                 <Award className="h-4 w-4" />
                 <span>Specialty Finishes</span>
               </div>
-              <p className="text-xs font-medium text-slate-300">
+              <p className="text-xs font-medium text-[#756657]">
                 Velvet soft-touch lamination, raised 3D spot UV, hot metallic foil stamping, and painted edges.
               </p>
             </div>
@@ -725,7 +725,7 @@ export default function CategoryDetailPage() {
                 <Clock className="h-4 w-4" />
                 <span>Turnaround Times</span>
               </div>
-              <p className="text-xs font-medium text-slate-300">
+              <p className="text-xs font-medium text-[#756657]">
                 Express same-day or 24–48 hours delivery across Dubai, Abu Dhabi, Sharjah, and all UAE Emirates.
               </p>
             </div>
@@ -738,14 +738,14 @@ export default function CategoryDetailPage() {
             <HelpCircle className="h-4 w-4" />
             <span>Frequently Asked Questions</span>
           </div>
-          <h2 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
+          <h2 className="font-display text-xl font-bold tracking-tight text-[#352719] sm:text-2xl">
             {categoryName} Specifications &amp; Ordering FAQs
           </h2>
           <div className="mt-6 divide-y divide-[#DED2C1] border-t border-[#DED2C1]">
             {categoryFaqs.map((faq, index) => (
               <div key={index} className="py-5">
-                <h3 className="font-display text-base font-bold text-white">{faq.question}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">{faq.answer}</p>
+                <h3 className="font-display text-base font-bold text-[#352719]">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#756657]">{faq.answer}</p>
               </div>
             ))}
           </div>

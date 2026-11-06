@@ -82,9 +82,27 @@
   --color-border-beige: #DED2C1;
   --color-pure-white: #FFFFFF;
 
-  --color-primary: #795C43;
+  --color-primary: #352719;
+  --color-secondary: #756657;
+  --color-secondary-light: #756657;
+  --color-tertiary: #756657;
+  --color-accent: #795C43;
+  --color-accent-hover: #5D442E;
+  --color-accent-soft: rgba(197, 169, 137, 0.18);
+  --color-ivory: #FAF8F3;
   --color-background: #F5F0E7;
+  --color-background-alt: #EDE3D5;
   --color-surface: #FAF8F3;
+  --color-surface-alt: #EDE3D5;
+  --color-surface-dark: #EDE3D5;
+  --color-text: #352719;
+  --color-text-primary: #352719;
+  --color-text-secondary: #756657;
+  --color-border: #DED2C1;
+  --color-border-hover: #C5A989;
+  --color-primary-bg: #F5F0E7;
+  --color-secondary-bg: #EDE3D5;
+  --color-card-bg: #FAF8F3;
 
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;

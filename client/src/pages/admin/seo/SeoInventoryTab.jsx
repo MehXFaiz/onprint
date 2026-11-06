@@ -139,12 +139,12 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                 <Layers className="h-3.5 w-3.5" />
                 Live Architecture & Crawl
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 1 & 9</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirements 1 & 9</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               SEO Site Inventory & Orphan Pages
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               20-column live crawl report of ONPRINT URLs covering canonical alignment, internal link depth, thin content, schema markup, and orphan pages.
             </p>
           </div>
@@ -179,9 +179,9 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
         {/* Summary Metrics */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Crawled</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">Total Crawled</div>
             <div className="mt-1 text-2xl font-black text-[#352719]">{summary.totalPages || 0}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Live indexed routes</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">Live indexed routes</div>
           </div>
 
           <div className="rounded-xl border border-emerald-200/70 bg-emerald-50/50 p-4">
@@ -203,15 +203,15 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
           </div>
 
           <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Thin Content</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">Thin Content</div>
             <div className="mt-1 text-2xl font-black text-[#352719]">{summary.thinContentCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">&lt; 300 total words</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">&lt; 300 total words</div>
           </div>
 
           <div className="rounded-xl border border-[#C5A989]/20 bg-[#C5A989]/5 p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#795C43]">Avg Health Score</div>
             <div className="mt-1 text-2xl font-black text-[#795C43]">{summary.avgHealthScore || 0}%</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Across all catalog</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">Across all catalog</div>
           </div>
         </div>
       </div>
@@ -219,7 +219,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
       {/* Filter and Search Bar */}
       <div className="flex flex-col md:flex-row gap-3 items-center justify-between">
         <div className="relative w-full md:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             placeholder="Search path, title, or target keyword..."
@@ -262,19 +262,19 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
       {/* Crawl Table */}
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Crawling ONPRINT URLs and computing health metrics...
           </div>
         ) : filteredItems.length === 0 ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             No pages match the selected search or filter criteria.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">URL & Path</th>
                   <th className="py-3 px-3">Type</th>
                   <th className="py-3 px-3">Status</th>
@@ -304,7 +304,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                         <div className="font-bold text-[#352719] truncate font-mono text-[11px]">
                           {item.path}
                         </div>
-                        <div className="text-[11px] text-[#B8C2D9] truncate mt-0.5">
+                        <div className="text-[11px] text-[#756657] truncate mt-0.5">
                           {item.title || '(No Title Specified)'}
                         </div>
                       </td>
@@ -355,7 +355,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                         >
                           {item.internal_links_in} in
                         </span>{' '}
-                        <span className="text-[#B8C2D9]/70">/</span> {item.internal_links_out} out
+                        <span className="text-[#756657]/80">/</span> {item.internal_links_out} out
                       </td>
 
                       <td className="py-3 px-3">
@@ -387,7 +387,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                           <button
                             type="button"
                             onClick={() => setExpandedRow(isExpanded ? null : item.path)}
-                            className="p-1.5 text-[#B8C2D9] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] cursor-pointer"
+                            className="p-1.5 text-[#756657] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] cursor-pointer"
                             title="View Crawl Details"
                           >
                             {isExpanded ? (
@@ -401,7 +401,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                             href={item.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-[#B8C2D9] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5]"
+                            className="p-1.5 text-[#756657] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5]"
                             title="Visit URL"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -411,7 +411,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                             <button
                               type="button"
                               onClick={() => onEditPage(item)}
-                              className="p-1.5 text-[#B8C2D9] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] cursor-pointer"
+                              className="p-1.5 text-[#756657] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] cursor-pointer"
                               title="Edit SEO"
                             >
                               <Edit3 className="h-3.5 w-3.5" />
@@ -440,11 +440,11 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                   <div className="flex items-center justify-between border-b pb-3">
                     <div>
                       <h3 className="font-black text-lg text-[#352719]">Crawl Inspection: {item.path}</h3>
-                      <p className="text-xs text-[#B8C2D9]">Full 20-point on-page diagnostic</p>
+                      <p className="text-xs text-[#756657]">Full 20-point on-page diagnostic</p>
                     </div>
                     <button
                       onClick={() => setExpandedRow(null)}
-                      className="p-1 rounded-lg text-[#B8C2D9]/70 hover:text-[#352719]"
+                      className="p-1 rounded-lg text-[#756657]/80 hover:text-[#352719]"
                     >
                       <XCircle className="h-5 w-5" />
                     </button>
@@ -453,29 +453,29 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                   <div className="mt-4 space-y-3 text-xs">
                     <div className="grid grid-cols-2 gap-3 bg-[#F5F0E7] p-3 rounded-xl">
                       <div>
-                        <span className="text-[#B8C2D9] font-bold">Canonical:</span>
+                        <span className="text-[#756657] font-bold">Canonical:</span>
                         <div className="font-mono text-[11px] truncate text-[#352719]">{item.canonical}</div>
                       </div>
                       <div>
-                        <span className="text-[#B8C2D9] font-bold">Target Keyword:</span>
+                        <span className="text-[#756657] font-bold">Target Keyword:</span>
                         <div className="font-semibold text-[#352719]">{item.target_keyword || 'N/A'}</div>
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-[#B8C2D9] font-bold">Meta Description:</span>
+                      <span className="text-[#756657] font-bold">Meta Description:</span>
                       <p className="text-[#352719] mt-0.5 bg-[#F5F0E7] p-2.5 rounded-lg">
                         {item.meta_description || 'None'}
                       </p>
                     </div>
 
                     <div>
-                      <span className="text-[#B8C2D9] font-bold">H1 Heading:</span>
+                      <span className="text-[#756657] font-bold">H1 Heading:</span>
                       <p className="text-[#352719] font-semibold mt-0.5">{item.h1 || 'Missing H1 Heading'}</p>
                     </div>
 
                     <div>
-                      <span className="text-[#B8C2D9] font-bold">Detected Schemas:</span>
+                      <span className="text-[#756657] font-bold">Detected Schemas:</span>
                       <div className="flex flex-wrap gap-1.5 mt-1">
                         {(item.schema_types || []).map((st) => (
                           <span key={st} className="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded-md">

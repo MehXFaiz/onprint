@@ -332,7 +332,7 @@ export default function BusinessCardsLeadPage() {
   }
 
   return (
-    <div className="bg-[#F5F0E7] text-slate-200">
+    <div className="bg-[#F5F0E7] text-[#352719]">
       <SEOHead
         title="Business Card Printing Quote UAE | Instant Custom Estimator Dubai | ONPRINT"
         description="Get an instant business card printing quote in Dubai & UAE. Select 350–700 GSM silk, velvet, cotton, or luxury black cardstock, upload artwork or request design assistance, and order via WhatsApp."
@@ -343,7 +343,7 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 1. HERO HEADER                                                            */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#F5F0E7] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
+      <section className="relative overflow-hidden bg-[#F5F0E7] text-[#352719] pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
@@ -354,21 +354,21 @@ export default function BusinessCardsLeadPage() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#352719] leading-[1.15]">
                 Custom Business Card Printing{' '}
                 <span className="font-serif italic text-[#795C43]">Engineered for Distinction</span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-[#756657] leading-relaxed max-w-2xl mx-auto">
                 Select your paper stock, specialty finishes, and volume. Get instant pricing, 1-click WhatsApp quote dispatch, and same-day express delivery across Dubai and the UAE.
               </p>
             </Reveal>
 
             {/* Value Trust Badges */}
             <Reveal delay={0.18}>
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-300">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-[#756657]">
                 <span className="inline-flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                   Direct Al Quoz Pressroom
@@ -635,7 +635,7 @@ export default function BusinessCardsLeadPage() {
                   </div>
                   <div className="flex justify-between text-[#756657]">
                     <span>Delivery Location:</span>
-                    <span className="font-bold text-emerald-400">{deliveryLocation}</span>
+                    <span className="font-bold text-emerald-700">{deliveryLocation}</span>
                   </div>
                 </div>
 
@@ -690,7 +690,7 @@ export default function BusinessCardsLeadPage() {
                 ) : (
                   <form onSubmit={handleSubmitForm} className="space-y-3.5">
                     {formError && (
-                      <div className="rounded-xl bg-red-950/60 border border-red-500/50 p-3 text-xs text-red-200">
+                      <div className="rounded-xl bg-red-500/10 border border-red-500/50 p-3 text-xs text-red-800">
                         {formError}
                       </div>
                     )}
@@ -807,7 +807,7 @@ export default function BusinessCardsLeadPage() {
                         <button
                           type="button"
                           onClick={() => setArtworkFile(null)}
-                          className="mt-1 text-[11px] text-red-400 hover:text-red-300 underline cursor-pointer"
+                          className="mt-1 text-[11px] text-red-600 hover:text-red-700 underline cursor-pointer"
                         >
                           Remove file
                         </button>

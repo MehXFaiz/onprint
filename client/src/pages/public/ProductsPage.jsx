@@ -301,7 +301,7 @@ export default function ProductsPage() {
 
           {/* Search Box */}
           <form onSubmit={handleSearchSubmit} className="relative w-full sm:w-80 shrink-0">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]" />
             <input
               type="text"
               value={searchQuery}
@@ -330,7 +330,7 @@ export default function ProductsPage() {
             <span className="text-[10px] font-black uppercase tracking-wider text-[#795C43]">
               Departments
             </span>
-            <span className="text-xs font-bold text-slate-500">
+            <span className="text-xs font-bold text-[#756657]">
               Showing {totalItems} {totalItems === 1 ? 'Product' : 'Products'}
             </span>
           </div>
@@ -460,7 +460,7 @@ export default function ProductsPage() {
                   setSearchQuery('')
                   updateFilters({ department: '', category: '', search: '' })
                 }}
-                className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-red-400/40 bg-red-500/15 px-3.5 py-1.5 text-xs font-bold text-red-200 hover:bg-red-500/25 transition-colors cursor-pointer"
+                className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-red-400/40 bg-red-500/15 px-3.5 py-1.5 text-xs font-bold text-red-800 hover:bg-red-500/25 transition-colors cursor-pointer"
               >
                 <X className="h-3.5 w-3.5" />
                 <span>Reset All Filters</span>
@@ -474,7 +474,7 @@ export default function ProductsPage() {
                   type="button"
                   onClick={() => handleSelectDepartment('')}
                   aria-label="Clear department filter"
-                  className="hover:text-red-400 ml-1 p-1 cursor-pointer"
+                  className="hover:text-red-600 ml-1 p-1 cursor-pointer"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -488,7 +488,7 @@ export default function ProductsPage() {
                   type="button"
                   onClick={() => handleSelectCategory('')}
                   aria-label="Clear category filter"
-                  className="hover:text-red-400 ml-1 p-1 cursor-pointer"
+                  className="hover:text-red-600 ml-1 p-1 cursor-pointer"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -630,16 +630,16 @@ export default function ProductsPage() {
 
         {/* Dubai Commercial Press Trust Strip */}
         <Reveal>
-          <div className="mt-20 rounded-3xl border border-[#352719] bg-[#F5F0E7] p-8 text-white shadow-xl sm:p-12">
+          <div className="mt-20 rounded-3xl border border-[#352719] bg-[#F5F0E7] p-8 text-[#352719] shadow-xl sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
                 <span className="rounded-full bg-[#795C43]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#795C43]">
                   Al Quoz Pressroom • Dubai, UAE
                 </span>
-                <h2 className="font-display mt-4 text-2xl font-black tracking-tight sm:text-4xl text-white">
+                <h2 className="font-display mt-4 text-2xl font-black tracking-tight sm:text-4xl text-[#352719]">
                   Have a bespoke corporate printing requirement?
                 </h2>
-                <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-300">
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#756657]">
                   From custom die-cuts and 24K hot foil stamping to high-volume commercial runs, our Dubai print production team is ready to inspect artwork and quote in minutes.
                 </p>
               </div>
@@ -652,7 +652,7 @@ export default function ProductsPage() {
                   to="/contact"
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-white"
+                  className="border-[#C5A989] text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
                 >
                   Contact Studio
                 </Button>

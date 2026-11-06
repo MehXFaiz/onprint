@@ -298,7 +298,7 @@ export default function HorizontalProductCarousel() {
                     }}
                     aria-label={`Inquire about ${prod.title} on WhatsApp`}
                     title={`Inquire about ${prod.title} on WhatsApp`}
-                    className="inline-flex items-center justify-center gap-1.5 h-8.5 px-3 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-300 text-[11px] font-bold transition-all hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
+                    className="inline-flex items-center justify-center gap-1.5 h-8.5 px-3 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-700 text-[11px] font-bold transition-all hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
                   >
                     <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
                     <span>WhatsApp</span>

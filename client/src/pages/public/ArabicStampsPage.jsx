@@ -126,10 +126,10 @@ export default function ArabicStampsPage() {
             </p>
 
             {/* Legal Notice Banner */}
-            <div className="p-4 rounded-2xl bg-amber-950/40 border border-amber-500/40 text-amber-200 text-xs leading-relaxed flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-amber-800 text-xs leading-relaxed flex items-start gap-3">
+              <AlertCircle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-amber-100 block mb-0.5">تنبيه قانوني لعملاء الشركات في الإمارات:</strong>
+                <strong className="text-amber-900 block mb-0.5">تنبيه قانوني لعملاء الشركات في الإمارات:</strong>
                 يشترط لإصدار أي ختم شركة رسمي تقديم صورة سارية من الرخصة التجارية وهوية الشخص المفوض بالتوقيع لحماية مصالح الشركة ومنع أي استخدام غير نظامي.
               </div>
             </div>
@@ -312,7 +312,7 @@ export default function ArabicStampsPage() {
             {/* Right Column: WhatsApp Preview */}
             <div className="lg:col-span-5 rounded-3xl border border-[#DED2C1] bg-[#F5F0E7] p-6 sm:p-8 space-y-5 sticky top-28">
               <div className="flex items-center gap-2 pb-3 border-b border-[#DED2C1]">
-                <WhatsAppIcon className="h-5 w-5 text-emerald-400" />
+                <WhatsAppIcon className="h-5 w-5 text-emerald-700" />
                 <h3 className="text-base font-bold text-[#352719]">
                   معاينة طلب الختم عبر واتساب
                 </h3>

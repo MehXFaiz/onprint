@@ -147,7 +147,7 @@ export default function StickersLeadPage() {
   ]
 
   return (
-    <div className="bg-[#F5F0E7] text-slate-200">
+    <div className="bg-[#F5F0E7] text-[#352719]">
       <SEOHead
         title="Custom Sticker Printing Dubai | Instant Quote & Express UAE Delivery | ONPRINT"
         description="Configure custom waterproof vinyl stickers, die-cut decals, holographic stickers, and roll labels in Dubai. Same-day express turnaround and free digital proofing in Al Quoz."
@@ -157,7 +157,7 @@ export default function StickersLeadPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-[#F5F0E7] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
+      <section className="relative overflow-hidden bg-[#F5F0E7] text-[#352719] pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#DED2C1]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989] bg-[#795C43]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43]">
@@ -165,16 +165,16 @@ export default function StickersLeadPage() {
               <span>Commercial Sticker &amp; Label Press • Al Quoz, Dubai</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#352719] leading-[1.15]">
               Custom Sticker &amp; Label Printing{' '}
               <span className="font-serif italic text-[#795C43]">Made in Dubai</span>
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-[#756657] leading-relaxed max-w-2xl mx-auto">
               Precision die-cut vinyl stickers, waterproof packaging labels, and holographic decals. Submit your specifications below for an instant quote and direct WhatsApp pre-flight assistance.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-300">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-[#756657]">
               <span className="inline-flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-[#795C43]" />
                 Any Custom Shape &amp; Size

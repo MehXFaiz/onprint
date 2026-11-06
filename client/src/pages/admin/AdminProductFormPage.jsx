@@ -212,7 +212,7 @@ export default function AdminProductFormPage() {
   return (
     <div className="space-y-6">
       {/* Breadcrumbs */}
-      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#756657]">
         <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Dashboard
         </Link>
@@ -230,7 +230,7 @@ export default function AdminProductFormPage() {
           <h1 className="font-display text-2xl font-black tracking-tight text-[#352719]">
             {isEdit ? `Edit Product: ${form.name}` : 'Add New Product'}
           </h1>
-          <p className="text-xs text-[#B8C2D9] mt-1">
+          <p className="text-xs text-[#756657] mt-1">
             Manage product specs, pricing, imagery, and Google Search metadata.
           </p>
         </div>
@@ -292,8 +292,8 @@ export default function AdminProductFormPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#C5A989]">
-                <span className="text-[#B8C2D9]/70">/products/</span>
+              <div className="flex items-center rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#756657] focus-within:border-[#C5A989]">
+                <span className="text-[#756657]/80">/products/</span>
                 <input
                   type="text"
                   value={form.slug}
@@ -417,8 +417,8 @@ export default function AdminProductFormPage() {
                 </button>
               </div>
             </div>
-            <p className="text-[11px] text-[#B8C2D9]">
-              <CheckCircle2 className="inline h-3.5 w-3.5 text-emerald-400 mr-1 -mt-0.5" />
+            <p className="text-[11px] text-[#756657]">
+              <CheckCircle2 className="inline h-3.5 w-3.5 text-emerald-700 mr-1 -mt-0.5" />
               Generates unique Dubai/UAE SEO Title, Meta Description, H1, Primary + Secondary Keywords, Canonical URL, and Image Alt text from your factual product data — deduplicated against all 122+ catalog products. If left blank on save, ONPRINT automatically generates a draft for review.
             </p>
 
@@ -427,7 +427,7 @@ export default function AdminProductFormPage() {
                 <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                   SEO Meta Title
                 </label>
-                <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
+                <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-[#756657]/80'}`}>
                   {form.seoTitle.length} / 60 chars
                 </span>
               </div>
@@ -445,7 +445,7 @@ export default function AdminProductFormPage() {
                 <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                   SEO Meta Description
                 </label>
-                <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
+                <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-[#756657]/80'}`}>
                   {form.seoDescription.length} / 160 chars
                 </span>
               </div>
@@ -488,18 +488,18 @@ export default function AdminProductFormPage() {
 
             {/* Live Google SERP Snippet Preview */}
             <div className="mt-4 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#756657]">
                 Google SERP Snippet Preview
               </span>
               <div className="mt-2 space-y-1">
-                <div className="flex items-center gap-1.5 text-xs text-[#B8C2D9] truncate">
-                  <Globe className="h-3 w-3 text-[#B8C2D9]/70" />
+                <div className="flex items-center gap-1.5 text-xs text-[#756657] truncate">
+                  <Globe className="h-3 w-3 text-[#756657]/80" />
                   <span>{serpUrl}</span>
                 </div>
                 <div className="text-sm font-bold text-blue-800 hover:underline cursor-pointer">
                   {serpTitle}
                 </div>
-                <div className="text-xs text-[#B8C2D9] line-clamp-2">
+                <div className="text-xs text-[#756657] line-clamp-2">
                   {serpDesc}
                 </div>
               </div>

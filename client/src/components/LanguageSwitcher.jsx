@@ -74,7 +74,7 @@ export default function LanguageSwitcher({ className = '', variant = 'pill' }) {
         onClick={toggleLanguage}
         className={`${className.includes('hidden') ? '' : 'inline-flex '}items-center gap-1.5 text-xs font-bold transition-all cursor-pointer ${
           isArabic
-            ? 'text-[#795C43] hover:text-white'
+            ? 'text-[#795C43] hover:text-[#352719]'
             : 'text-[#352719] hover:text-[#795C43]'
         } ${className}`}
         title={isArabic ? 'Switch to English' : 'التحويل إلى اللغة العربية'}

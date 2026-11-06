@@ -49,7 +49,7 @@ export default function AdminCustomersPage() {
           <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Customer Directory
           </h1>
-          <p className="mt-0.5 text-xs text-[#B8C2D9]">
+          <p className="mt-0.5 text-xs text-[#756657]">
             Manage corporate client profiles and user permissions.
           </p>
         </div>
@@ -68,11 +68,11 @@ export default function AdminCustomersPage() {
       {notification && (
         <div className="rounded-2xl border border-neutral-700 bg-neutral-900 p-4 text-xs font-bold text-white flex items-center justify-between shadow-xl">
           <span className="flex items-center gap-2">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700" />
             {notification}
           </span>
           <button onClick={() => setNotification(null)}>
-            <X className="h-4 w-4 text-[#B8C2D9]/70 hover:text-white" />
+            <X className="h-4 w-4 text-[#756657]/80 hover:text-[#352719]" />
           </button>
         </div>
       )}
@@ -80,7 +80,7 @@ export default function AdminCustomersPage() {
       {/* Filter */}
       <div className="bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         <div className="relative max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             value={search}
@@ -95,7 +95,7 @@ export default function AdminCustomersPage() {
       <div className="w-full overflow-x-auto rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
         <table className="w-full min-w-[650px] text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+            <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#756657]">
               <th className="py-3.5 px-4">Name</th>
               <th className="py-3.5 px-4">Email</th>
               <th className="py-3.5 px-4">Company</th>
@@ -108,9 +108,9 @@ export default function AdminCustomersPage() {
             {filtered.map((c) => (
               <tr key={c.id} className="hover:bg-[#F5F0E7]/60 transition-colors">
                 <td className="py-3 px-4 font-bold text-[#352719]">{c.name}</td>
-                <td className="py-3 px-4 font-mono text-[11px] text-[#B8C2D9]">{c.email}</td>
+                <td className="py-3 px-4 font-mono text-[11px] text-[#756657]">{c.email}</td>
                 <td className="py-3 px-4 text-[#352719]">{c.company}</td>
-                <td className="py-3 px-4 text-[#B8C2D9]">{c.phone}</td>
+                <td className="py-3 px-4 text-[#756657]">{c.phone}</td>
                 <td className="py-3 px-4">
                   <span
                     className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase ${
@@ -126,7 +126,7 @@ export default function AdminCustomersPage() {
                   <div className="flex items-center justify-end gap-2">
                     <button
                       onClick={() => navigate(`/admin/customers/${c.id}/edit`)}
-                      className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
+                      className="rounded-lg p-1.5 text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors"
                       title="Edit Customer"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -147,7 +147,7 @@ export default function AdminCustomersPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#756657]">
         <div>
           Showing <span className="font-bold text-[#352719]">{filtered.length}</span> of{' '}
           <span className="font-bold text-[#352719]">{customers.length}</span> customers
@@ -156,7 +156,7 @@ export default function AdminCustomersPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
@@ -166,7 +166,7 @@ export default function AdminCustomersPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -183,7 +183,7 @@ export default function AdminCustomersPage() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-[#352719]">Delete Customer?</h3>
-                <p className="text-xs text-[#B8C2D9]">
+                <p className="text-xs text-[#756657]">
                   Are you sure you want to delete &quot;{deletingCustomer.name}&quot;?
                 </p>
               </div>

@@ -61,7 +61,7 @@ export default function AdminMessagesPage() {
       {/* Toast Notification */}
       {toast && (
         <div className="fixed top-6 right-6 left-4 sm:left-auto max-w-[calc(100vw-2rem)] z-50 flex items-center gap-2.5 rounded-2xl bg-neutral-900 border border-neutral-700 px-4 py-3 text-xs font-bold text-white shadow-2xl">
-          <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+          <CheckCircle2 className="h-4 w-4 text-emerald-700" />
           <span>{toast}</span>
         </div>
       )}
@@ -76,7 +76,7 @@ export default function AdminMessagesPage() {
           <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Contact Messages & Inquiries
           </h1>
-          <p className="mt-0.5 text-xs text-[#B8C2D9]">
+          <p className="mt-0.5 text-xs text-[#756657]">
             Review inquiries, custom print questions, and client contact messages.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function AdminMessagesPage() {
       {/* Filter Bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             value={search}
@@ -96,7 +96,7 @@ export default function AdminMessagesPage() {
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <Filter className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
+          <Filter className="h-4 w-4 text-[#756657]/80 shrink-0" />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -115,7 +115,7 @@ export default function AdminMessagesPage() {
         {/* Messages List Column */}
         <div className="lg:col-span-5 space-y-3">
           {filtered.length === 0 ? (
-            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 text-center text-xs text-[#B8C2D9]">
+            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 text-center text-xs text-[#756657]">
               No messages found matching search criteria.
             </div>
           ) : (
@@ -148,7 +148,7 @@ export default function AdminMessagesPage() {
                           ? 'bg-amber-100 text-amber-800 border border-amber-200'
                           : msg.status === 'replied'
                           ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                          : 'bg-neutral-100 text-[#B8C2D9] border border-[#DED2C1]'
+                          : 'bg-neutral-100 text-[#756657] border border-[#DED2C1]'
                       }`}
                     >
                       {msg.status || 'unread'}
@@ -158,11 +158,11 @@ export default function AdminMessagesPage() {
                   <div className="text-[11px] font-semibold text-[#352719] mt-1 line-clamp-1">
                     {msg.subject || 'Direct Studio Inquiry'}
                   </div>
-                  <p className="text-[11px] text-[#B8C2D9] mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] text-[#756657] mt-1 line-clamp-2 leading-relaxed">
                     {msg.message}
                   </p>
 
-                  <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[#B8C2D9]/70 border-t border-[#DED2C1] pt-2">
+                  <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[#756657]/80 border-t border-[#DED2C1] pt-2">
                     <span className="truncate min-w-0">{msg.email}</span>
                     <span className="shrink-0">{formattedDate}</span>
                   </div>
@@ -181,7 +181,7 @@ export default function AdminMessagesPage() {
                   <h2 className="font-display text-xl font-bold text-[#352719]">
                     {selectedMessage.subject}
                   </h2>
-                  <p className="text-xs text-[#B8C2D9] mt-0.5">Received on {selectedMessage.createdAt}</p>
+                  <p className="text-xs text-[#756657] mt-0.5">Received on {selectedMessage.createdAt}</p>
                 </div>
 
                 <button
@@ -199,7 +199,7 @@ export default function AdminMessagesPage() {
                 <div className="flex items-center gap-2">
                   <User className="h-4 w-4 text-[#795C43] shrink-0" />
                   <div>
-                    <div className="text-[10px] uppercase font-bold text-[#B8C2D9]/70">Sender</div>
+                    <div className="text-[10px] uppercase font-bold text-[#756657]/80">Sender</div>
                     <div className="font-bold text-[#352719]">{selectedMessage.name}</div>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function AdminMessagesPage() {
                 <div className="flex items-center gap-2 min-w-0">
                   <Mail className="h-4 w-4 text-[#795C43] shrink-0" />
                   <div className="min-w-0">
-                    <div className="text-[10px] uppercase font-bold text-[#B8C2D9]/70">Email</div>
+                    <div className="text-[10px] uppercase font-bold text-[#756657]/80">Email</div>
                     <div className="font-mono text-[#352719] break-all">{selectedMessage.email}</div>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export default function AdminMessagesPage() {
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-[#795C43] shrink-0" />
                   <div>
-                    <div className="text-[10px] uppercase font-bold text-[#B8C2D9]/70">Phone</div>
+                    <div className="text-[10px] uppercase font-bold text-[#756657]/80">Phone</div>
                     <div className="font-bold text-[#352719]">{selectedMessage.phone || '—'}</div>
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export default function AdminMessagesPage() {
 
               {/* Message Body */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]/70 block mb-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#756657]/80 block mb-2">
                   Message Content
                 </label>
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 text-xs text-[#352719] leading-relaxed whitespace-pre-wrap font-medium">
@@ -243,7 +243,7 @@ export default function AdminMessagesPage() {
               </div>
             </div>
           ) : (
-            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-xs text-[#B8C2D9]/70">
+            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-12 text-center text-xs text-[#756657]/80">
               Select a message from the left list to view details.
             </div>
           )}

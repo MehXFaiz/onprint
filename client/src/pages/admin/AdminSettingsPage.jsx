@@ -37,7 +37,7 @@ export default function AdminSettingsPage() {
       {/* Toast Notification */}
       {toast && (
         <div className="fixed top-6 right-6 left-4 sm:left-auto max-w-[calc(100vw-2rem)] z-50 flex items-center gap-2.5 rounded-2xl bg-neutral-900 border border-neutral-700 px-4 py-3 text-xs font-bold text-white shadow-2xl">
-          <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+          <CheckCircle2 className="h-4 w-4 text-emerald-700" />
           <span>{toast}</span>
         </div>
       )}
@@ -52,7 +52,7 @@ export default function AdminSettingsPage() {
           <h1 className="font-display mt-1 text-2xl font-black text-[#352719]">
             Website & Studio Settings
           </h1>
-          <p className="mt-0.5 text-xs text-[#B8C2D9]">
+          <p className="mt-0.5 text-xs text-[#756657]">
             Configure studio brand details, customer service contact info, tax parameters, and store operation settings.
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function AdminSettingsPage() {
               <Building className="h-4 w-4 text-[#795C43]" />
               Studio Branding & Identity
             </h3>
-            <p className="text-xs text-[#B8C2D9]">Business identity shown in footers, invoices, and customer communications.</p>
+            <p className="text-xs text-[#756657]">Business identity shown in footers, invoices, and customer communications.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -122,7 +122,7 @@ export default function AdminSettingsPage() {
               <Mail className="h-4 w-4 text-[#795C43]" />
               Customer Contact & Dispatch Info
             </h3>
-            <p className="text-xs text-[#B8C2D9]">Email addresses and phone numbers displayed on the website contact page.</p>
+            <p className="text-xs text-[#756657]">Email addresses and phone numbers displayed on the website contact page.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -197,7 +197,7 @@ export default function AdminSettingsPage() {
               <Globe className="h-4 w-4 text-[#795C43]" />
               Commercial & Tax Parameters
             </h3>
-            <p className="text-xs text-[#B8C2D9]">VAT calculations, default currency, and quote submission controls.</p>
+            <p className="text-xs text-[#756657]">VAT calculations, default currency, and quote submission controls.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

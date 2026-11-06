@@ -214,12 +214,12 @@ export default function GeoFaqManagerTab({ showToast }) {
                 <HelpCircle className="h-3.5 w-3.5" />
                 GEO &amp; AEO Answer Engine
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 27</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirement 27</span>
             </div>
             <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               GEO FAQ Database Manager
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Authentic, verified Dubai printing FAQs structured for generative AI citation, direct answer extraction, and automated JSON-LD schema generation.
             </p>
           </div>
@@ -252,23 +252,23 @@ export default function GeoFaqManagerTab({ showToast }) {
         {/* Stats Row */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#DED2C1] pt-4 text-xs">
           <div>
-            <span className="text-[#B8C2D9] block">Total FAQs in Database</span>
+            <span className="text-[#756657] block">Total FAQs in Database</span>
             <span className="text-lg font-black text-[#352719]">{faqs.length}</span>
           </div>
           <div>
-            <span className="text-[#B8C2D9] block">Active / Published</span>
+            <span className="text-[#756657] block">Active / Published</span>
             <span className="text-lg font-black text-emerald-600">
               {faqs.filter((f) => f.is_active).length}
             </span>
           </div>
           <div>
-            <span className="text-[#B8C2D9] block">Unique Target URLs</span>
+            <span className="text-[#756657] block">Unique Target URLs</span>
             <span className="text-lg font-black text-[#352719]">
               {new Set(faqs.map((f) => f.target_url)).size}
             </span>
           </div>
           <div>
-            <span className="text-[#B8C2D9] block">Coverage Disciplines</span>
+            <span className="text-[#756657] block">Coverage Disciplines</span>
             <span className="text-lg font-black text-[#795C43]">8 Categories</span>
           </div>
         </div>
@@ -277,7 +277,7 @@ export default function GeoFaqManagerTab({ showToast }) {
       {/* Filter & Search Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             value={search}
@@ -317,12 +317,12 @@ export default function GeoFaqManagerTab({ showToast }) {
       {/* FAQ Items List */}
       <div className="space-y-3">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+          <div className="p-12 text-center text-xs text-[#756657] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading GEO FAQ Database…
           </div>
         ) : filteredFaqs.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+          <div className="p-12 text-center text-xs text-[#756657] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             No FAQs match your search criteria.
           </div>
         ) : (
@@ -358,7 +358,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                           </span>
                         )}
                         {!faq.is_active && faq.status !== 'published' && (
-                          <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
+                          <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-[#756657]">
                             Inactive
                           </span>
                         )}
@@ -379,7 +379,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setSchemaPreviewItem(faq)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
+                        className="p-2 text-[#756657] hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="View JSON-LD Schema snippet"
                       >
                         <Code className="h-4 w-4" />
@@ -387,7 +387,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => openEditModal(faq)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] transition-colors"
+                        className="p-2 text-[#756657] hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="Edit FAQ"
                       >
                         <Edit3 className="h-4 w-4" />
@@ -395,7 +395,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setDeletingItem(faq)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors"
+                        className="p-2 text-[#756657]/80 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors"
                         title="Delete FAQ"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -403,7 +403,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : faq.id)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
+                        className="p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5] transition-colors"
                         title="Toggle Details"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -419,7 +419,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                           <span className="font-bold text-[#352719] block mb-1">
                             Expanded Comprehensive Answer:
                           </span>
-                          <p className="text-[#B8C2D9] leading-relaxed whitespace-pre-line bg-[#FAF8F3] p-3 rounded-lg border border-[#DED2C1]">
+                          <p className="text-[#756657] leading-relaxed whitespace-pre-line bg-[#FAF8F3] p-3 rounded-lg border border-[#DED2C1]">
                             {faq.expanded_answer}
                           </p>
                         </div>
@@ -427,8 +427,8 @@ export default function GeoFaqManagerTab({ showToast }) {
 
                       {faq.keywords && (
                         <div className="flex items-center gap-2">
-                          <Tag className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
-                          <span className="font-semibold text-[#B8C2D9]">Target Keywords:</span>
+                          <Tag className="h-3.5 w-3.5 text-[#756657]/80" />
+                          <span className="font-semibold text-[#756657]">Target Keywords:</span>
                           <span className="text-[#352719]">{faq.keywords}</span>
                         </div>
                       )}
@@ -462,7 +462,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+              className="absolute top-5 right-5 p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -470,7 +470,7 @@ export default function GeoFaqManagerTab({ showToast }) {
             <h3 className="font-display text-xl font-black text-[#352719]">
               {editingItem ? 'Edit GEO FAQ' : 'Add New GEO FAQ'}
             </h3>
-            <p className="mt-1 text-xs text-[#B8C2D9]">
+            <p className="mt-1 text-xs text-[#756657]">
               Formulate a direct, factual answer that AI engines (ChatGPT, Perplexity, Gemini) can parse as a self-contained snippet.
             </p>
 
@@ -553,7 +553,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                     placeholder="e.g. business card printing dubai"
                     className="w-full rounded-xl border border-[#DED2C1] px-3 py-2 text-xs focus:outline-none focus:border-[#C5A989]"
                   />
-                  <p className="text-[10px] text-[#B8C2D9]/70 mt-0.5">Primary query targeted by this answer</p>
+                  <p className="text-[10px] text-[#756657]/80 mt-0.5">Primary query targeted by this answer</p>
                 </div>
 
                 <div>
@@ -613,7 +613,7 @@ export default function GeoFaqManagerTab({ showToast }) {
         >
           <div className="w-full max-w-md rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl">
             <h4 className="font-display text-lg font-black text-[#352719]">Delete FAQ?</h4>
-            <p className="mt-2 text-xs text-[#B8C2D9]">
+            <p className="mt-2 text-xs text-[#756657]">
               Are you sure you want to delete: <strong>&ldquo;{deletingItem.question}&rdquo;</strong>? This will remove it from the database and generated FAQ schemas.
             </p>
             <div className="mt-6 flex justify-end gap-3">
@@ -649,7 +649,7 @@ export default function GeoFaqManagerTab({ showToast }) {
             <button
               type="button"
               onClick={() => setSchemaPreviewItem(null)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+              className="absolute top-5 right-5 p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -657,7 +657,7 @@ export default function GeoFaqManagerTab({ showToast }) {
             <h3 className="font-display text-lg font-black text-[#352719]">
               FAQPage JSON-LD Schema Snippet
             </h3>
-            <p className="mt-1 text-xs text-[#B8C2D9]">
+            <p className="mt-1 text-xs text-[#756657]">
               This schema is injected on <code>https://www.0nprint.com{schemaPreviewItem.target_url}</code> for Google Rich Snippets &amp; LLM extraction.
             </p>
 

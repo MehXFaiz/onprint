@@ -51,15 +51,15 @@ export default function AdminPortfolioFormPage() {
   return (
     <div className="space-y-6 max-w-4xl">
       {/* Breadcrumbs */}
-      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#756657]">
         <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Admin
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <Link to="/admin/portfolio" className="hover:text-[#352719] transition-colors">
           Portfolio
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <span className="text-[#352719] font-bold">{isEdit ? 'Edit Item' : 'Add New Item'}</span>
       </nav>
 
@@ -76,7 +76,7 @@ export default function AdminPortfolioFormPage() {
           <h1 className="font-display text-2xl font-black text-[#352719]">
             {isEdit ? `Edit Project: ${form.title}` : 'Add Portfolio Showcase Item'}
           </h1>
-          <p className="text-xs text-[#B8C2D9] mt-0.5">
+          <p className="text-xs text-[#756657] mt-0.5">
             Add completed client print projects to showcase gallery.
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function AdminPortfolioFormPage() {
               <ImageIcon className="h-4 w-4 text-[#795C43]" />
               Project Showcase Details
             </h3>
-            <p className="text-xs text-[#B8C2D9]">Project title, client name, and category.</p>
+            <p className="text-xs text-[#756657]">Project title, client name, and category.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

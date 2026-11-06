@@ -91,7 +91,7 @@ export default function FinishingShowcasePage() {
           </div>
 
           <div className="mt-8 pt-8 border-t border-[#DED2C1] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-[#6B7C96]">
+            <p className="text-xs text-[#756657]">
               Need assistance setting up your artwork layers? Our Al Quoz prepress team provides complimentary file pre-flight checks.
             </p>
             <Link

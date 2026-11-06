@@ -54,7 +54,7 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#795C43]">
               Dubai Press Production
             </p>
-            <span className="text-[10px] font-semibold text-neutral-400">Case Study</span>
+            <span className="text-[10px] font-semibold text-[#756657]">Case Study</span>
           </div>
           <h3 className="font-display mt-1.5 text-lg font-black tracking-tight text-[#352719] group-hover:text-[#795C43] transition-colors">
             {item.title}
@@ -74,7 +74,7 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
         <div className="mt-5 space-y-2.5 border-t border-[#DED2C1] pt-4">
           {item.relatedProduct && (
             <div className="flex items-center justify-between text-xs">
-              <span className="font-semibold text-neutral-500">Matching Product:</span>
+              <span className="font-semibold text-[#756657]">Matching Product:</span>
               <Link
                 to={item.relatedProduct.url}
                 className="inline-flex items-center gap-1 font-extrabold text-[#352719] hover:text-[#795C43] hover:underline"
@@ -225,14 +225,14 @@ export default function PortfolioPage() {
           onClick={() => setSelectedCaseStudy(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 sm:p-8 shadow-2xl text-white"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 sm:p-8 shadow-2xl text-[#352719]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setSelectedCaseStudy(null)}
-              className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#F5F0E7] text-slate-300 hover:text-white transition-colors cursor-pointer border border-[#DED2C1]"
+              className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#F5F0E7] text-[#756657] hover:text-[#352719] transition-colors cursor-pointer border border-[#DED2C1]"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -244,11 +244,11 @@ export default function PortfolioPage() {
                 <span className="rounded-full bg-[#795C43]/10 px-2.5 py-0.5 font-extrabold uppercase text-[#795C43]">
                   {selectedCaseStudy.category}
                 </span>
-                <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2.5 py-0.5 font-bold text-slate-300">
+                <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2.5 py-0.5 font-bold text-[#756657]">
                   Industry: {selectedCaseStudy.industry || selectedCaseStudy.clientSector}
                 </span>
               </div>
-              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-black text-white">
+              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-black text-[#352719]">
                 {selectedCaseStudy.projectName || selectedCaseStudy.title}
               </h2>
               <p className="mt-1 text-sm font-semibold text-[#795C43]">
@@ -269,44 +269,44 @@ export default function PortfolioPage() {
             <div className="mt-8 space-y-6">
               {/* Challenge */}
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#352719]">
                   <Briefcase className="h-4 w-4 text-[#795C43]" />
                   <span>The Project Challenge</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                <p className="mt-2 text-sm leading-relaxed text-[#756657]">
                   {selectedCaseStudy.challenge || 'Client required high-precision commercial printing with strict color calibration and fast delivery in the UAE.'}
                 </p>
               </div>
 
               {/* Solution */}
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#352719]">
                   <FileText className="h-4 w-4 text-[#795C43]" />
                   <span>The Engineering &amp; Press Solution</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                <p className="mt-2 text-sm leading-relaxed text-[#756657]">
                   {selectedCaseStudy.solution || 'Produced on calibrated presses with custom dieline verification, pre-flight file checks, and hand-finished embellishments.'}
                 </p>
               </div>
 
               {/* Materials & Finishes */}
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#352719]">
                   <Layers className="h-4 w-4 text-[#795C43]" />
                   <span>Materials &amp; Finishes Used</span>
                 </div>
-                <p className="mt-2 text-sm font-semibold text-slate-200">
+                <p className="mt-2 text-sm font-semibold text-[#352719]">
                   {selectedCaseStudy.materialsAndFinishes || selectedCaseStudy.specs}
                 </p>
               </div>
 
               {/* Verified Result */}
-              <div className="rounded-xl border border-emerald-500/40 bg-emerald-950/40 p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+              <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-5">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-700">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-700" />
                   <span>Verified Outcome</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-emerald-300 font-medium">
+                <p className="mt-2 text-sm leading-relaxed text-emerald-700 font-medium">
                   {selectedCaseStudy.result || 'Delivered on schedule with 100% color fidelity and client approval across the UAE.'}
                 </p>
               </div>
@@ -314,7 +314,7 @@ export default function PortfolioPage() {
 
             {/* Modal Actions */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#DED2C1] pt-6">
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-[#756657]">
                 Facility: Al Quoz, Dubai
               </span>
               <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">

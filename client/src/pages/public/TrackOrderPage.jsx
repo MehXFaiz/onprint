@@ -171,11 +171,11 @@ export default function TrackOrderPage() {
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF8F3] border border-[#C5A989]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43]">
             <Sparkles className="w-3.5 h-3.5 text-[#795C43]" /> Real-Time Production Tracker
           </span>
-          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#352719] sm:text-4xl">
             Track Your Print Order &amp; Quotation
           </h1>
           <p className="mt-2 text-sm text-[#756657]">
-            Enter your <strong className="text-white font-bold">Reference Number</strong> (e.g. <code className="text-[#795C43] bg-[#FAF8F3] px-1.5 py-0.5 rounded">ONP-2026-XXXXXX</code> or <code className="text-[#795C43] bg-[#FAF8F3] px-1.5 py-0.5 rounded">ONP-Q-XXXXXX</code>), email, or phone number to see real-time pre-press, printing, and courier delivery progress.
+            Enter your <strong className="text-[#352719] font-bold">Reference Number</strong> (e.g. <code className="text-[#795C43] bg-[#FAF8F3] px-1.5 py-0.5 rounded">ONP-2026-XXXXXX</code> or <code className="text-[#795C43] bg-[#FAF8F3] px-1.5 py-0.5 rounded">ONP-Q-XXXXXX</code>), email, or phone number to see real-time pre-press, printing, and courier delivery progress.
           </p>
         </div>
 
@@ -183,13 +183,13 @@ export default function TrackOrderPage() {
         <div className="mt-8 mx-auto max-w-2xl rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-6 shadow-sm">
           <form onSubmit={handleFormSubmit} className="flex flex-col sm:flex-row items-center gap-3">
             <div className="relative w-full">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#6B7C96]" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#756657]" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Enter Reference # (e.g. ONP-2026-584109 / ONP-Q-123456) or email"
-                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] py-3 pl-11 pr-4 text-sm font-medium text-white placeholder:text-[#6B7C96] focus:border-[#C5A989] focus:outline-none focus:ring-2 focus:ring-[#795C43]/20 transition-all font-mono"
+                className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] py-3 pl-11 pr-4 text-sm font-medium text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none focus:ring-2 focus:ring-[#795C43]/20 transition-all font-mono"
                 required
               />
             </div>
@@ -213,13 +213,13 @@ export default function TrackOrderPage() {
           {/* Quick lookup pills */}
           {recentOrders.length > 0 && (
             <div className="mt-4 pt-3 border-t border-[#DED2C1] flex flex-wrap items-center gap-2 text-xs">
-              <span className="font-semibold text-[#6B7C96]">Recent Orders:</span>
+              <span className="font-semibold text-[#756657]">Recent Orders:</span>
               {recentOrders.map((rec) => (
                 <button
                   key={rec.orderNumber}
                   type="button"
                   onClick={() => handleQuickLookup(rec.orderNumber)}
-                  className="rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-2.5 py-1 font-mono font-bold text-[#756657] hover:border-[#C5A989] hover:bg-amber-50 hover:text-white transition-all cursor-pointer"
+                  className="rounded-lg border border-[#DED2C1] bg-[#F5F0E7] px-2.5 py-1 font-mono font-bold text-[#756657] hover:border-[#C5A989] hover:bg-amber-50 hover:text-[#352719] transition-all cursor-pointer"
                 >
                   {rec.orderNumber}
                 </button>
@@ -269,41 +269,41 @@ export default function TrackOrderPage() {
         {!loading && order && (
           <div className="mt-10 space-y-6">
             {/* Top Order Card Header */}
-            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-sm text-white">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-sm text-[#352719]">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#DED2C1] pb-6">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#6B7C96]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#756657]">
                       {order.isQuote ? 'Quote Reference' : order.isCorporate ? 'Corporate Procurement RFQ' : 'Order Reference'}
                     </span>
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-bold border ${
                         order.status === 'Pending' || order.status === 'New'
-                          ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                          ? 'bg-amber-500/10 border-amber-500/30 text-amber-700'
                           : order.status === 'In Production' || order.status === 'Printing'
-                            ? 'bg-purple-500/10 border-purple-500/30 text-purple-400'
+                            ? 'bg-purple-500/10 border-purple-500/30 text-purple-700'
                             : order.status === 'Dispatched' || order.status === 'Out for Delivery'
-                              ? 'bg-blue-500/10 border-blue-500/30 text-blue-400'
-                              : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                              ? 'bg-blue-500/10 border-blue-500/30 text-blue-700'
+                              : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700'
                       }`}
                     >
                       {order.status || 'Pending'}
                     </span>
                   </div>
                   <div className="flex flex-wrap items-center gap-2 mt-1">
-                    <h2 className="break-all font-mono text-2xl sm:text-3xl font-black text-white">
+                    <h2 className="break-all font-mono text-2xl sm:text-3xl font-black text-[#352719]">
                       {order.orderNumber || order.quoteNumber}
                     </h2>
                     <button
                       type="button"
                       onClick={handleCopyOrderNumber}
                       title="Copy Reference Number"
-                      className="p-1.5 rounded-md hover:bg-[#F5F0E7] text-[#6B7C96] hover:text-white transition-colors cursor-pointer"
+                      className="p-1.5 rounded-md hover:bg-[#F5F0E7] text-[#756657] hover:text-[#352719] transition-colors cursor-pointer"
                     >
-                      {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                      {copied ? <Check className="h-4 w-4 text-emerald-700" /> : <Copy className="h-4 w-4" />}
                     </button>
                   </div>
-                  <p className="text-xs text-[#6B7C96] mt-1 flex items-center gap-1.5">
+                  <p className="text-xs text-[#756657] mt-1 flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5" /> Placed on{' '}
                     {order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-AE', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Recent'}
                   </p>
@@ -313,7 +313,7 @@ export default function TrackOrderPage() {
                   <button
                     type="button"
                     onClick={() => setShowInvoiceModal(true)}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2 text-xs font-bold text-slate-200 hover:border-[#C5A989] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3.5 py-2 text-xs font-bold text-[#352719] hover:border-[#C5A989] transition-colors cursor-pointer"
                   >
                     <FileText className="h-4 w-4 text-[#795C43]" /> View Tax Invoice
                   </button>
@@ -332,7 +332,7 @@ export default function TrackOrderPage() {
               {/* 9-Stage Progress Timeline Stepper */}
               <div className="pt-8">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#6B7C96]">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#756657]">
                     9-Stage Commercial Production Workflow
                   </h3>
                   <span className="text-xs font-bold text-[#795C43] bg-[#795C43]/10 px-2.5 py-0.5 rounded-full border border-[#C5A989]/30">
@@ -351,15 +351,15 @@ export default function TrackOrderPage() {
                               ? 'bg-[#FAF8F3] text-[#795C43] ring-1 ring-[#795C43]/40'
                               : s.current
                                 ? 'bg-[#795C43] text-white ring-4 ring-[#795C43]/20 animate-pulse font-black'
-                                : 'border border-[#DED2C1] bg-[#FAF8F3] text-slate-500'
+                                : 'border border-[#DED2C1] bg-[#FAF8F3] text-[#756657]'
                           }`}
                         >
                           <Icon className="h-4 w-4" />
                         </div>
-                        <p className={`text-[11px] font-bold mt-2 leading-tight ${s.done ? 'text-white' : s.current ? 'text-[#795C43] font-black' : 'text-[#6B7C96]'}`}>
+                        <p className={`text-[11px] font-bold mt-2 leading-tight ${s.done ? 'text-[#352719]' : s.current ? 'text-[#795C43] font-black' : 'text-[#756657]'}`}>
                           {s.title}
                         </p>
-                        <p className="text-[10px] text-[#6B7C96] leading-tight mt-0.5 hidden sm:block">
+                        <p className="text-[10px] text-[#756657] leading-tight mt-0.5 hidden sm:block">
                           {s.subtitle}
                         </p>
                       </div>
@@ -373,26 +373,26 @@ export default function TrackOrderPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Left Column: Specifications & Artwork */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-sm space-y-4 text-white">
-                  <h3 className="font-display text-base font-bold text-white border-b border-[#DED2C1] pb-3">
+                <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-sm space-y-4 text-[#352719]">
+                  <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
                     Project Specifications &amp; Artworking
                   </h3>
 
                   <div className="space-y-3 text-xs">
                     <div className="flex items-start justify-between gap-3">
-                      <span className="font-bold text-[#6B7C96]">Product / Item:</span>
-                      <span className="break-words font-extrabold text-white text-right">{order.productName || 'Custom Print Job'}</span>
+                      <span className="font-bold text-[#756657]">Product / Item:</span>
+                      <span className="break-words font-extrabold text-[#352719] text-right">{order.productName || 'Custom Print Job'}</span>
                     </div>
 
                     <div className="flex items-start justify-between gap-3">
-                      <span className="font-bold text-[#6B7C96]">Order Quantity:</span>
-                      <span className="font-bold text-white text-right">{order.quantity || 1} units</span>
+                      <span className="font-bold text-[#756657]">Order Quantity:</span>
+                      <span className="font-bold text-[#352719] text-right">{order.quantity || 1} units</span>
                     </div>
 
                     {order.specs && (
                       <div className="pt-2">
-                        <span className="font-bold text-[#6B7C96] block mb-1">Configuration &amp; Finishes:</span>
-                        <div className="break-words rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-slate-200 leading-relaxed font-mono text-[11px]">
+                        <span className="font-bold text-[#756657] block mb-1">Configuration &amp; Finishes:</span>
+                        <div className="break-words rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-[#352719] leading-relaxed font-mono text-[11px]">
                           {order.specs}
                         </div>
                       </div>
@@ -400,7 +400,7 @@ export default function TrackOrderPage() {
 
                     {order.notes && (
                       <div className="pt-2">
-                        <span className="font-bold text-[#6B7C96] block mb-1">Customer Special Instructions:</span>
+                        <span className="font-bold text-[#756657] block mb-1">Customer Special Instructions:</span>
                         <div className="break-words rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-[#756657] italic">
                           &quot;{order.notes}&quot;
                         </div>
@@ -409,9 +409,9 @@ export default function TrackOrderPage() {
 
                     {order.artworkFile && (
                       <div className="pt-2">
-                        <span className="font-bold text-[#6B7C96] block mb-1">Attached Artwork / Design File:</span>
-                        <div className="flex items-center justify-between gap-2 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-xs font-bold text-white">
-                          <span className="min-w-0 break-all text-slate-200">📎 {order.artworkFile}</span>
+                        <span className="font-bold text-[#756657] block mb-1">Attached Artwork / Design File:</span>
+                        <div className="flex items-center justify-between gap-2 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-xs font-bold text-[#352719]">
+                          <span className="min-w-0 break-all text-[#352719]">📎 {order.artworkFile}</span>
                           <span className="text-[10px] uppercase font-bold text-[#795C43] bg-[#FAF8F3] px-2 py-0.5 rounded border border-[#DED2C1] shrink-0">
                             Pre-Flight Passed
                           </span>
@@ -425,8 +425,8 @@ export default function TrackOrderPage() {
               {/* Right Column: Financials & Customer Info */}
               <div className="space-y-6">
                 {/* Financial Summary */}
-                <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-sm space-y-3 text-white">
-                  <h3 className="font-display text-base font-bold text-white border-b border-[#DED2C1] pb-3">
+                <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-sm space-y-3 text-[#352719]">
+                  <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
                     Invoice &amp; VAT Breakdown
                   </h3>
 
@@ -439,7 +439,7 @@ export default function TrackOrderPage() {
                       <span>5% UAE VAT</span>
                       <span>AED {vatAmount > 0 ? vatAmount.toFixed(2) : (totalAmount > 0 ? (totalAmount - totalAmount / 1.05).toFixed(2) : 'Quoted')}</span>
                     </div>
-                    <div className="flex justify-between font-black text-sm text-white border-t border-[#DED2C1] pt-2">
+                    <div className="flex justify-between font-black text-sm text-[#352719] border-t border-[#DED2C1] pt-2">
                       <span>Total (Incl. VAT)</span>
                       <span className="text-[#795C43]">
                         {totalAmount > 0 ? `AED ${totalAmount.toFixed(2)}` : 'Pricing on Request'}
@@ -447,7 +447,7 @@ export default function TrackOrderPage() {
                     </div>
                     <div className="flex justify-between items-center text-[#756657] pt-1">
                       <span>Payment Status</span>
-                      <span className="rounded-md bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.5 text-[10px] font-bold uppercase text-slate-200">
+                      <span className="rounded-md bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.5 text-[10px] font-bold uppercase text-[#352719]">
                         {order.paymentStatus || 'Pending'}
                       </span>
                     </div>
@@ -455,37 +455,37 @@ export default function TrackOrderPage() {
                 </div>
 
                 {/* Customer Details */}
-                <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-sm space-y-3 text-white">
-                  <h3 className="font-display text-base font-bold text-white border-b border-[#DED2C1] pb-3">
+                <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-sm space-y-3 text-[#352719]">
+                  <h3 className="font-display text-base font-bold text-[#352719] border-b border-[#DED2C1] pb-3">
                     Client &amp; Delivery Details
                   </h3>
 
                   <div className="space-y-2 text-xs">
                     <div>
-                      <span className="text-[#6B7C96] block text-[10px] font-bold uppercase">Client Name</span>
-                      <span className="font-bold text-white">{order.customerName || order.name || 'Valued Client'}</span>
+                      <span className="text-[#756657] block text-[10px] font-bold uppercase">Client Name</span>
+                      <span className="font-bold text-[#352719]">{order.customerName || order.name || 'Valued Client'}</span>
                     </div>
                     {order.company && (
                       <div>
-                        <span className="text-[#6B7C96] block text-[10px] font-bold uppercase">Company</span>
-                        <span className="font-semibold text-slate-200">{order.company}</span>
+                        <span className="text-[#756657] block text-[10px] font-bold uppercase">Company</span>
+                        <span className="font-semibold text-[#352719]">{order.company}</span>
                       </div>
                     )}
                     {order.customerEmail && (
                       <div>
-                        <span className="text-[#6B7C96] block text-[10px] font-bold uppercase">Email</span>
-                        <span className="break-all text-slate-200 font-mono">{order.customerEmail || order.email}</span>
+                        <span className="text-[#756657] block text-[10px] font-bold uppercase">Email</span>
+                        <span className="break-all text-[#352719] font-mono">{order.customerEmail || order.email}</span>
                       </div>
                     )}
                     {order.customerPhone && (
                       <div>
-                        <span className="text-[#6B7C96] block text-[10px] font-bold uppercase">Phone</span>
-                        <span className="text-slate-200 font-mono">{order.customerPhone || order.phone}</span>
+                        <span className="text-[#756657] block text-[10px] font-bold uppercase">Phone</span>
+                        <span className="text-[#352719] font-mono">{order.customerPhone || order.phone}</span>
                       </div>
                     )}
                     <div>
-                      <span className="text-[#6B7C96] block text-[10px] font-bold uppercase">Delivery Destination</span>
-                      <span className="text-slate-200">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</span>
+                      <span className="text-[#756657] block text-[10px] font-bold uppercase">Delivery Destination</span>
+                      <span className="text-[#352719]">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</span>
                     </div>
                   </div>
                 </div>
@@ -497,31 +497,31 @@ export default function TrackOrderPage() {
         {/* Initial Empty State / Turnaround Information */}
         {!loading && !searched && (
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs text-white">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs text-[#352719]">
               <div className="h-10 w-10 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] text-[#795C43] flex items-center justify-center mb-4">
                 <Clock className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-white text-sm">Fast Turnaround Times</h3>
+              <h3 className="font-bold text-[#352719] text-sm">Fast Turnaround Times</h3>
               <p className="text-xs text-[#756657] mt-1 leading-relaxed">
-                Standard digital print orders are dispatched in <strong className="text-white">24–48 hours</strong>. Express same-day production is available upon request.
+                Standard digital print orders are dispatched in <strong className="text-[#352719]">24–48 hours</strong>. Express same-day production is available upon request.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs text-white">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs text-[#352719]">
               <div className="h-10 w-10 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] text-[#795C43] flex items-center justify-center mb-4">
                 <FileCheck className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-white text-sm">Free Pre-Press Proofing</h3>
+              <h3 className="font-bold text-[#352719] text-sm">Free Pre-Press Proofing</h3>
               <p className="text-xs text-[#756657] mt-1 leading-relaxed">
                 Our pre-press department inspects every artwork file for bleed margins, resolution (300 DPI), and CMYK color accuracy before printing.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs text-white">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs text-[#352719]">
               <div className="h-10 w-10 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] text-[#795C43] flex items-center justify-center mb-4">
                 <Truck className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-white text-sm">UAE-Wide Express Delivery</h3>
+              <h3 className="font-bold text-[#352719] text-sm">UAE-Wide Express Delivery</h3>
               <p className="text-xs text-[#756657] mt-1 leading-relaxed">
                 Securely packaged in heavy-duty cartons and dispatched directly to your office or doorstep across Dubai, Abu Dhabi, and all 7 Emirates.
               </p>
@@ -537,10 +537,10 @@ export default function TrackOrderPage() {
               <div id="printable-tax-invoice" className="space-y-6">
                 <div className="flex items-start justify-between border-b border-[#DED2C1] pb-6">
                   <div>
-                    <h2 className="text-2xl font-black tracking-wider text-white">
+                    <h2 className="text-2xl font-black tracking-wider text-[#352719]">
                       ON<span className="text-[#795C43]">PRINT</span>
                     </h2>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-xs text-[#756657] mt-1">
                       Commercial Printing &amp; Custom Branding LLC<br />
                       Al Quoz Industrial Area 3, Dubai, UAE<br />
                       TRN: <strong>100482910400003</strong>
@@ -553,7 +553,7 @@ export default function TrackOrderPage() {
                     <p className="text-xs font-mono font-bold text-[#352719] mt-2">
                       Ref: {order.orderNumber || order.quoteNumber}
                     </p>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-[#756657]">
                       Date: {new Date().toLocaleDateString('en-AE')}
                     </p>
                   </div>
@@ -562,16 +562,16 @@ export default function TrackOrderPage() {
                 {/* Client info */}
                 <div className="grid grid-cols-2 gap-4 text-xs">
                   <div>
-                    <p className="text-[#6B7C96] font-bold uppercase">Billed To:</p>
+                    <p className="text-[#756657] font-bold uppercase">Billed To:</p>
                     <p className="font-bold text-[#352719] mt-1">{order.customerName || order.name || 'Client'}</p>
                     {order.company && <p className="text-[#756657]">{order.company}</p>}
                     {order.customerEmail && <p className="text-[#756657]">{order.customerEmail || order.email}</p>}
                     {order.customerPhone && <p className="text-[#756657]">{order.customerPhone || order.phone}</p>}
                   </div>
                   <div>
-                    <p className="text-[#6B7C96] font-bold uppercase">Delivery Location:</p>
+                    <p className="text-[#756657] font-bold uppercase">Delivery Location:</p>
                     <p className="text-[#756657] mt-1">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</p>
-                    <p className="text-[#6B7C96] font-bold uppercase mt-2">Status:</p>
+                    <p className="text-[#756657] font-bold uppercase mt-2">Status:</p>
                     <p className="font-bold text-emerald-700">{order.status || 'Active'}</p>
                   </div>
                 </div>
@@ -591,7 +591,7 @@ export default function TrackOrderPage() {
                       <tr>
                         <td className="py-3 px-3">
                           <p className="font-bold text-[#352719]">{order.productName || 'Commercial Printing Job'}</p>
-                          {order.specs && <p className="text-[11px] text-slate-500 mt-0.5">{order.specs}</p>}
+                          {order.specs && <p className="text-[11px] text-[#756657] mt-0.5">{order.specs}</p>}
                         </td>
                         <td className="py-3 px-3 text-center">{order.quantity || 1}</td>
                         <td className="py-3 px-3 text-right">
@@ -616,14 +616,14 @@ export default function TrackOrderPage() {
                       <span>5% UAE VAT (FTA):</span>
                       <span>AED {vatAmount > 0 ? vatAmount.toFixed(2) : (totalAmount - totalAmount / 1.05).toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between font-black text-sm text-white border-t border-[#DED2C1] pt-2">
+                    <div className="flex justify-between font-black text-sm text-[#352719] border-t border-[#DED2C1] pt-2">
                       <span>Total Amount:</span>
                       <span className="text-[#795C43]">AED {totalAmount > 0 ? totalAmount.toFixed(2) : 'Quoted'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-[11px] text-slate-500 border-t border-[#DED2C1] pt-4">
+                <div className="text-[11px] text-[#756657] border-t border-[#DED2C1] pt-4">
                   <p>
                     This is an electronically generated tax invoice from ONPRINT Commercial Pressroom. All printing services are executed under ISO 12647-2 color fidelity standards.
                   </p>

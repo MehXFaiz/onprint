@@ -156,7 +156,7 @@ export default function ArabicHomePage() {
                 <span>تنفيذ سريع خلال 24 ساعة</span>
               </div>
               <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#FAF8F3]/40 border border-[#DED2C1]">
-                <Truck className="h-4 w-4 text-emerald-400 shrink-0" />
+                <Truck className="h-4 w-4 text-emerald-700 shrink-0" />
                 <span>توصيل لكافة إمارات الدولة</span>
               </div>
               <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#FAF8F3]/40 border border-[#DED2C1]">
@@ -230,7 +230,7 @@ export default function ArabicHomePage() {
                   <div className="pt-6 mt-6 border-t border-[#DED2C1] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <Link
                       to={dept.slug}
-                      className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#795C43] hover:text-white transition-colors py-2"
+                      className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#795C43] hover:text-[#352719] transition-colors py-2"
                     >
                       <span>عرض التفاصيل والمواصفات</span>
                       <ArrowLeft className="h-3.5 w-3.5" />

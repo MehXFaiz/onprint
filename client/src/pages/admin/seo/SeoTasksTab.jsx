@@ -213,7 +213,7 @@ export default function SeoTasksTab({ showToast }) {
       case 'medium':
         return 'bg-blue-50 text-blue-700 border-blue-200'
       default:
-        return 'bg-neutral-100 text-[#B8C2D9] border-[#DED2C1]'
+        return 'bg-neutral-100 text-[#756657] border-[#DED2C1]'
     }
   }
 
@@ -247,12 +247,12 @@ export default function SeoTasksTab({ showToast }) {
                 <Layers className="h-3.5 w-3.5" />
                 Workflow Engine
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 22 &amp; 38</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirement 22 &amp; 38</span>
             </div>
             <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               SEO Action Tasks &amp; Execution Queue
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Track priority tasks across on-page optimization, technical fixes, GEO entities, schema markup, and high-impact striking distance keyword queries.
             </p>
           </div>
@@ -296,7 +296,7 @@ export default function SeoTasksTab({ showToast }) {
         {/* KPI Summary Cards */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-            <span className="text-[11px] font-bold text-[#B8C2D9] uppercase tracking-wider block mb-1">
+            <span className="text-[11px] font-bold text-[#756657] uppercase tracking-wider block mb-1">
               Total Tasks
             </span>
             <div className="text-2xl font-black text-[#352719]">{totalTasks}</div>
@@ -335,7 +335,7 @@ export default function SeoTasksTab({ showToast }) {
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="relative">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#756657]/80" />
             <input
               type="text"
               value={search}
@@ -392,12 +392,12 @@ export default function SeoTasksTab({ showToast }) {
       {/* Task List Table */}
       <div className="space-y-3">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+          <div className="p-12 text-center text-xs text-[#756657] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#795C43] mb-2" />
             Loading SEO task queue…
           </div>
         ) : filteredTasks.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
+          <div className="p-12 text-center text-xs text-[#756657] bg-[#FAF8F3] rounded-2xl border border-[#DED2C1]">
             No SEO tasks match your filter criteria. Click "Auto-Generate Tasks" to analyze audit issues.
           </div>
         ) : (
@@ -418,7 +418,7 @@ export default function SeoTasksTab({ showToast }) {
                       className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border transition-colors cursor-pointer ${
                         isCompleted
                           ? 'border-emerald-600 bg-emerald-600 text-white'
-                          : 'border-[#DED2C1] hover:border-[#C5A989] text-transparent hover:text-neutral-300'
+                          : 'border-[#DED2C1] hover:border-[#C5A989] text-transparent hover:text-[#756657]'
                       }`}
                       title={isCompleted ? 'Mark as incomplete' : 'Mark as completed'}
                     >
@@ -456,28 +456,28 @@ export default function SeoTasksTab({ showToast }) {
 
                       <h3
                         className={`font-display text-sm font-bold text-[#352719] ${
-                          isCompleted ? 'line-through text-[#B8C2D9]' : ''
+                          isCompleted ? 'line-through text-[#756657]' : ''
                         }`}
                       >
                         {task.title}
                       </h3>
 
                       {task.description && (
-                        <p className="text-xs text-[#B8C2D9] leading-relaxed max-w-3xl">
+                        <p className="text-xs text-[#756657] leading-relaxed max-w-3xl">
                           {task.description}
                         </p>
                       )}
 
-                      <div className="flex flex-wrap items-center gap-4 pt-1 text-[11px] text-[#B8C2D9]">
+                      <div className="flex flex-wrap items-center gap-4 pt-1 text-[11px] text-[#756657]">
                         {task.assigned_to && (
                           <span className="inline-flex items-center gap-1 font-medium">
-                            <User className="h-3 w-3 text-[#B8C2D9]/70" />
+                            <User className="h-3 w-3 text-[#756657]/80" />
                             {task.assigned_to}
                           </span>
                         )}
                         {task.due_date && (
                           <span className="inline-flex items-center gap-1 font-mono">
-                            <Calendar className="h-3 w-3 text-[#B8C2D9]/70" />
+                            <Calendar className="h-3 w-3 text-[#756657]/80" />
                             Due: {String(task.due_date).split('T')[0]}
                           </span>
                         )}
@@ -495,7 +495,7 @@ export default function SeoTasksTab({ showToast }) {
                     <button
                       type="button"
                       onClick={() => openEdit(task)}
-                      className="p-2 text-[#B8C2D9]/70 hover:text-[#352719] hover:bg-[#EDE3D5] rounded-lg transition-colors cursor-pointer"
+                      className="p-2 text-[#756657]/80 hover:text-[#352719] hover:bg-[#EDE3D5] rounded-lg transition-colors cursor-pointer"
                       title="Edit task"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -503,7 +503,7 @@ export default function SeoTasksTab({ showToast }) {
                     <button
                       type="button"
                       onClick={() => setDeletingItem(task)}
-                      className="p-2 text-[#B8C2D9]/70 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                      className="p-2 text-[#756657]/80 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
                       title="Delete task"
                     >
                       <Trash2 className="h-4 w-4" />
@@ -537,7 +537,7 @@ export default function SeoTasksTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+              className="absolute top-5 right-5 p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -545,7 +545,7 @@ export default function SeoTasksTab({ showToast }) {
             <h3 className="font-display text-xl font-black text-[#352719]">
               {editingItem ? 'Edit SEO Task' : 'Create SEO Task'}
             </h3>
-            <p className="mt-1 text-xs text-[#B8C2D9]">
+            <p className="mt-1 text-xs text-[#756657]">
               Add actionable optimization actions to keep ONPRINT ranking ahead in Dubai local and AI searches.
             </p>
 
@@ -671,7 +671,7 @@ export default function SeoTasksTab({ showToast }) {
         >
           <div className="relative w-full max-w-md rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-2xl">
             <h3 className="font-display text-lg font-black text-[#352719]">Delete SEO Task?</h3>
-            <p className="mt-2 text-xs text-[#B8C2D9]">
+            <p className="mt-2 text-xs text-[#756657]">
               Are you sure you want to permanently delete{' '}
               <strong className="text-[#352719] font-bold">"{deletingItem.title}"</strong>? This action cannot be undone.
             </p>

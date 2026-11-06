@@ -345,7 +345,7 @@ export default function StampsLandingPage() {
               ]}
             />
             <div className="hidden sm:flex items-center gap-4 text-[#756657]">
-              <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                 Al Quoz Atelier Active • 2-Hour Express Rush
               </span>
@@ -392,7 +392,7 @@ export default function StampsLandingPage() {
                   <div className="text-[10px] text-[#756657]">Emergency Al Quoz rush</div>
                 </div>
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/90 p-3.5 backdrop-blur-sm">
-                  <ShieldCheck className="h-5 w-5 text-emerald-400 mb-1.5" />
+                  <ShieldCheck className="h-5 w-5 text-emerald-700 mb-1.5" />
                   <div className="text-xs font-extrabold text-[#352719]">DED &amp; Freezone Legal</div>
                   <div className="text-[10px] text-[#756657]">Trade license compliant</div>
                 </div>
@@ -402,7 +402,7 @@ export default function StampsLandingPage() {
                   <div className="text-[10px] text-[#756657]">10,000+ crisp impressions</div>
                 </div>
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/90 p-3.5 backdrop-blur-sm">
-                  <Truck className="h-5 w-5 text-sky-400 mb-1.5" />
+                  <Truck className="h-5 w-5 text-sky-700 mb-1.5" />
                   <div className="text-xs font-extrabold text-[#352719]">All 7 Emirates</div>
                   <div className="text-[10px] text-[#756657]">Same-day Dubai courier</div>
                 </div>
@@ -491,7 +491,7 @@ export default function StampsLandingPage() {
                         <p className="text-[10px] text-[#756657] line-clamp-1 mb-2">
                           {type.tagline}
                         </p>
-                        <div className="flex items-center justify-between text-[9px] text-emerald-400 font-semibold pt-1 border-t border-[#DED2C1]">
+                        <div className="flex items-center justify-between text-[9px] text-emerald-700 font-semibold pt-1 border-t border-[#DED2C1]">
                           <span>{type.turnaround}</span>
                           <span className="text-[#756657]">{type.badge}</span>
                         </div>
@@ -556,7 +556,7 @@ export default function StampsLandingPage() {
                   <label className="block text-xs font-black uppercase tracking-wider text-[#795C43]">
                     4. Select Document Ink Color
                   </label>
-                  <span className="text-[11px] font-bold text-sky-400">
+                  <span className="text-[11px] font-bold text-sky-700">
                     Selected: {selectedInk.name}
                   </span>
                 </div>
@@ -591,7 +591,7 @@ export default function StampsLandingPage() {
                   })}
                 </div>
                 <p className="mt-3 text-[11px] text-[#756657] flex items-center gap-1.5">
-                  <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                  <ShieldCheck className="h-3.5 w-3.5 text-sky-700 shrink-0" />
                   <span>Blue ink is recommended by UAE commercial banks &amp; notary departments for immediate authenticity verification.</span>
                 </p>
               </div>
@@ -698,7 +698,7 @@ export default function StampsLandingPage() {
                     6. Order Quantity &amp; Corporate Fleet Discounts
                   </label>
                   {selectedQty.discount > 0 && (
-                    <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 px-2.5 py-0.5 text-xs font-extrabold">
+                    <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 px-2.5 py-0.5 text-xs font-extrabold">
                       🎉 {selectedQty.discount}% Volume Savings Applied
                     </span>
                   )}
@@ -720,7 +720,7 @@ export default function StampsLandingPage() {
                       >
                         <span className="text-xs font-extrabold">{tier.label}</span>
                         {tier.discount > 0 && (
-                          <span className={`text-[10px] font-bold ${isSelected ? 'text-white/90' : 'text-emerald-400'}`}>
+                          <span className={`text-[10px] font-bold ${isSelected ? 'text-white/90' : 'text-emerald-700'}`}>
                             Save {tier.discount}%
                           </span>
                         )}
@@ -843,13 +843,13 @@ export default function StampsLandingPage() {
                   </div>
                   <div className="flex items-center justify-between text-xs text-[#756657]">
                     <span>Prepress Vector QC:</span>
-                    <span className="font-bold text-emerald-400">Free Vector Check Included</span>
+                    <span className="font-bold text-emerald-700">Free Vector Check Included</span>
                   </div>
 
                   <div className="pt-2.5 border-t border-[#DED2C1] flex items-baseline justify-between">
                     <div>
                       <span className="text-[11px] font-bold text-[#756657]">Estimated Total (AED):</span>
-                      <div className="text-[10px] text-emerald-400">Inclusive of VAT &bull; Same-Day Dispatch</div>
+                      <div className="text-[10px] text-emerald-700">Inclusive of VAT &bull; Same-Day Dispatch</div>
                     </div>
                     <div className="text-right">
                       <div className="text-2xl font-black text-[#795C43]">
@@ -904,7 +904,7 @@ export default function StampsLandingPage() {
 
                 <div className="mt-4 pt-3 border-t border-[#DED2C1] flex items-center justify-between text-[10px] text-[#756657]">
                   <span className="flex items-center gap-1 font-semibold text-[#352719]">
-                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-700" />
                     <span>Prepress digital proof before laser cut</span>
                   </span>
                   <span className="font-bold text-[#795C43]">Al Quoz Pressroom</span>
@@ -1007,15 +1007,15 @@ export default function StampsLandingPage() {
                     {/* Features checklist */}
                     <div className="space-y-1.5 pt-3 border-t border-[#DED2C1] text-[11px] text-[#756657]">
                       <div className="flex items-center gap-1.5">
-                        <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                        <Check className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
                         <span>Casings: {prod.brands.slice(0, 2).join(' &bull; ')}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                        <Check className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
                         <span>Sizes: {prod.defaultSizes.slice(0, 2).join(', ')}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                        <Check className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
                         <span>Blue, Black, Red, Green &amp; Violet inks</span>
                       </div>
                     </div>
@@ -1066,7 +1066,7 @@ export default function StampsLandingPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-400">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-700">
                 <ShieldCheck className="h-4 w-4" />
                 <span>UAE LEGAL VERIFICATION STANDARD</span>
               </div>
@@ -1103,9 +1103,9 @@ export default function StampsLandingPage() {
                 </div>
 
                 <div className="flex items-start gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4">
-                  <CheckCircle2 className="h-6 w-6 text-emerald-400 shrink-0" />
+                  <CheckCircle2 className="h-6 w-6 text-emerald-700 shrink-0" />
                   <div>
-                    <h4 className="text-xs font-bold text-emerald-300">Non-Regulated Stamps Do Not Require Trade Licenses</h4>
+                    <h4 className="text-xs font-bold text-emerald-700">Non-Regulated Stamps Do Not Require Trade Licenses</h4>
                     <p className="text-[11px] text-[#756657] mt-0.5">
                       Personal name stamps, medical doctor license stamps, generic office markers (PAID, RECEIVED, APPROVED, DRAFT), and personal wax seal crests can be ordered immediately without a trade license.
                     </p>
@@ -1129,13 +1129,13 @@ export default function StampsLandingPage() {
                   </p>
                 </div>
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                  <div className="text-sky-400 font-extrabold mb-1">Document-Proof Ink</div>
+                  <div className="text-sky-700 font-extrabold mb-1">Document-Proof Ink</div>
                   <p className="text-[#756657] text-[11px]">
                     Certified to ISO 14145-2 anti-fraud standard. Non-toxic, archival, water-resistant, and indelible on standard bond papers.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-                  <div className="text-emerald-400 font-extrabold mb-1">10,000+ Impressions</div>
+                  <div className="text-emerald-700 font-extrabold mb-1">10,000+ Impressions</div>
                   <p className="text-[#756657] text-[11px]">
                     Built-in high-capacity ink pad delivers thousands of crisp stamps. Slide-out replacement pads are readily available.
                   </p>
@@ -1198,7 +1198,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5">Self-inking rotational die</td>
                   <td className="p-4 sm:p-5">10,000+ impressions</td>
                   <td className="p-4 sm:p-5">LLC agreements, bank accounts, official contracts</td>
-                  <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
+                  <td className="p-4 sm:p-5 text-emerald-700 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#795C43]">AED 95</td>
                 </tr>
                 <tr className="hover:bg-[#F5F0E7]/50 transition-colors">
@@ -1206,7 +1206,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5">Built-in pad self-inking</td>
                   <td className="p-4 sm:p-5">10,000+ impressions</td>
                   <td className="p-4 sm:p-5">Commercial invoices, delivery notes, PO box details</td>
-                  <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
+                  <td className="p-4 sm:p-5 text-emerald-700 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#795C43]">AED 85</td>
                 </tr>
                 <tr className="hover:bg-[#F5F0E7]/50 transition-colors">
@@ -1214,7 +1214,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5">Steel-core rotating wheels</td>
                   <td className="p-4 sm:p-5">15,000+ impressions</td>
                   <td className="p-4 sm:p-5">Accounting received, payment approvals, warehouse log</td>
-                  <td className="p-4 sm:p-5 text-sky-400 font-bold">Same-Day</td>
+                  <td className="p-4 sm:p-5 text-sky-700 font-bold">Same-Day</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#795C43]">AED 130</td>
                 </tr>
                 <tr className="hover:bg-[#F5F0E7]/50 transition-colors">
@@ -1222,7 +1222,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5">Slide-open portable format</td>
                   <td className="p-4 sm:p-5">5,000+ impressions</td>
                   <td className="p-4 sm:p-5">Doctors, engineers, lawyers, mobile executives</td>
-                  <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
+                  <td className="p-4 sm:p-5 text-emerald-700 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#795C43]">AED 95</td>
                 </tr>
                 <tr className="hover:bg-[#F5F0E7]/50 transition-colors">
@@ -1230,7 +1230,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5">Pre-formatted FTA box</td>
                   <td className="p-4 sm:p-5">10,000+ impressions</td>
                   <td className="p-4 sm:p-5">Tax invoices, credit notes, customs clearing</td>
-                  <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
+                  <td className="p-4 sm:p-5 text-emerald-700 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#795C43]">AED 85</td>
                 </tr>
                 <tr className="hover:bg-[#F5F0E7]/50 transition-colors">
@@ -1238,7 +1238,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5">Solid CNC brass + hot wax</td>
                   <td className="p-4 sm:p-5">Lifetime brass durability</td>
                   <td className="p-4 sm:p-5">VIP certificates, luxury packaging, wedding stationery</td>
-                  <td className="p-4 sm:p-5 text-amber-400 font-bold">24–48 Hours</td>
+                  <td className="p-4 sm:p-5 text-amber-700 font-bold">24–48 Hours</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#795C43]">AED 160</td>
                 </tr>
               </tbody>
@@ -1262,7 +1262,7 @@ export default function StampsLandingPage() {
             </div>
 
             <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6">
-              <Truck className="h-6 w-6 text-sky-400 mb-3" />
+              <Truck className="h-6 w-6 text-sky-700 mb-3" />
               <h3 className="font-display text-base font-extrabold text-[#352719]">
                 Same-Day Courier Across Dubai
               </h3>
@@ -1272,7 +1272,7 @@ export default function StampsLandingPage() {
             </div>
 
             <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6">
-              <Building2 className="h-6 w-6 text-emerald-400 mb-3" />
+              <Building2 className="h-6 w-6 text-emerald-700 mb-3" />
               <h3 className="font-display text-base font-extrabold text-[#352719]">
                 UAE-Wide Doorstep Delivery
               </h3>

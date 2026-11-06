@@ -48,7 +48,7 @@ export default function AdminLayout() {
       <div className="min-h-screen bg-[#F5F0E7] flex items-center justify-center text-[#352719]">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#C5A989] border-t-transparent" />
-          <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Verifying Admin Session...</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#756657]">Verifying Admin Session...</span>
         </div>
       </div>
     )
@@ -73,7 +73,7 @@ export default function AdminLayout() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-white hover:bg-[#FAF8F3] transition-colors cursor-pointer"
+          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-[#352719] hover:bg-[#FAF8F3] transition-colors cursor-pointer"
           aria-label="Toggle Navigation"
           aria-expanded={mobileMenuOpen}
         >
@@ -93,7 +93,7 @@ export default function AdminLayout() {
       {/* Sidebar Navigation */}
       <aside
         aria-label="Admin Sidebar Navigation"
-        className={`fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] h-screen max-h-screen overflow-y-auto transform bg-[#EDE3D5] border-r border-[#DED2C1] p-5 sm:p-6 text-[#B8C2D9] transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] h-screen max-h-screen overflow-y-auto transform bg-[#EDE3D5] border-r border-[#DED2C1] p-5 sm:p-6 text-[#756657] transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -120,7 +120,7 @@ export default function AdminLayout() {
           {/* User badge */}
           <div className="mt-4 px-1 py-2 border-b border-[#DED2C1] text-xs shrink-0">
             <div className="font-bold text-[#352719] truncate">{user?.name}</div>
-            <div className="text-[10px] text-[#B8C2D9] truncate">{user?.email}</div>
+            <div className="text-[10px] text-[#756657] truncate">{user?.email}</div>
           </div>
         </div>
 
@@ -147,7 +147,7 @@ export default function AdminLayout() {
                   `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all ${
                     isActive
                       ? 'bg-[#C5A989] text-white shadow-sm font-black'
-                      : 'text-[#B8C2D9] hover:bg-[#FAF8F3] hover:text-[#352719]'
+                      : 'text-[#756657] hover:bg-[#FAF8F3] hover:text-[#352719]'
                   }`
                 }
               >
@@ -162,7 +162,7 @@ export default function AdminLayout() {
         <div className="mt-auto pt-6 border-t border-[#DED2C1] shrink-0">
           <Link
             to="/"
-            className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] hover:text-[#795C43] transition-colors"
+            className="flex items-center gap-2 text-xs font-bold text-[#756657] hover:text-[#795C43] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             View Public Site

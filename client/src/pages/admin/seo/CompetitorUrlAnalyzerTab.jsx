@@ -57,19 +57,19 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
             <Crosshair className="h-3.5 w-3.5" />
             Competitive GEO Intelligence
           </span>
-          <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 31</span>
+          <span className="text-xs font-semibold text-[#756657]">Requirement 31</span>
         </div>
         <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
           Competitor URL Content Analyzer
         </h2>
-        <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+        <p className="mt-1 text-sm text-[#756657] max-w-2xl">
           Audit any competing Dubai printing website URL to inspect their metadata, content depth, schema markup, and identify technical differentiation angles for ONPRINT.
         </p>
 
         {/* Input Form */}
         <form onSubmit={handleAnalyze} className="mt-6 flex flex-col sm:flex-row items-stretch gap-3">
           <div className="relative flex-1">
-            <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+            <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
             <input
               type="url"
               value={competitorUrl}
@@ -81,7 +81,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
           </div>
 
           <div className="relative flex-1 sm:max-w-xs">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
             <input
               type="text"
               value={targetKeyword}
@@ -104,25 +104,25 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
           {/* Overview Metric Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
-              <span className="text-xs text-[#B8C2D9] block">Analyzed URL</span>
+              <span className="text-xs text-[#756657] block">Analyzed URL</span>
               <span className="text-xs font-mono font-bold text-[#352719] line-clamp-1 mt-1">
                 {analysisResult.analyzed_url}
               </span>
             </div>
             <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
-              <span className="text-xs text-[#B8C2D9] block">Content Word Count</span>
+              <span className="text-xs text-[#756657] block">Content Word Count</span>
               <span className="text-2xl font-black text-[#352719] mt-1 block">
                 {analysisResult.word_count || 'N/A'}
               </span>
             </div>
             <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
-              <span className="text-xs text-[#B8C2D9] block">Schema Types Present</span>
+              <span className="text-xs text-[#756657] block">Schema Types Present</span>
               <span className="text-sm font-bold text-[#795C43] mt-1 block">
                 {analysisResult.schema_types?.length > 0 ? analysisResult.schema_types.join(', ') : 'None Detected'}
               </span>
             </div>
             <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
-              <span className="text-xs text-[#B8C2D9] block">Differentiation Angles</span>
+              <span className="text-xs text-[#756657] block">Differentiation Angles</span>
               <span className="text-2xl font-black text-emerald-600 mt-1 block">
                 {analysisResult.differentiation_opportunities?.length || 4}
               </span>
@@ -137,17 +137,17 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div className="p-4 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] space-y-1">
-                <span className="font-bold text-[#B8C2D9] block uppercase tracking-wider text-[10px]">Title Tag</span>
+                <span className="font-bold text-[#756657] block uppercase tracking-wider text-[10px]">Title Tag</span>
                 <p className="font-semibold text-[#352719]">{analysisResult.title || 'Not found'}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] space-y-1">
-                <span className="font-bold text-[#B8C2D9] block uppercase tracking-wider text-[10px]">H1 Heading</span>
+                <span className="font-bold text-[#756657] block uppercase tracking-wider text-[10px]">H1 Heading</span>
                 <p className="font-semibold text-[#352719]">{analysisResult.h1 || 'Not found'}</p>
               </div>
 
               <div className="sm:col-span-2 p-4 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] space-y-1">
-                <span className="font-bold text-[#B8C2D9] block uppercase tracking-wider text-[10px]">Meta Description</span>
+                <span className="font-bold text-[#756657] block uppercase tracking-wider text-[10px]">Meta Description</span>
                 <p className="text-[#352719] leading-relaxed">{analysisResult.meta_description || 'Not found'}</p>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
                 <AlertTriangle className="h-4 w-4" />
                 <span>Identified Content Gaps</span>
               </div>
-              <p className="text-xs text-[#B8C2D9] mb-4">
+              <p className="text-xs text-[#756657] mb-4">
                 Critical information missing from their page that searchers and LLMs look for:
               </p>
               <ul className="space-y-2.5 text-xs">

@@ -40,7 +40,7 @@ export default function CustomerLayout() {
                   `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all ${
                     isActive
                       ? 'bg-[#C5A989] text-white font-black shadow-xs'
-                      : 'text-[#B8C2D9] hover:bg-[#FAF8F3] hover:text-[#352719]'
+                      : 'text-[#756657] hover:bg-[#FAF8F3] hover:text-[#352719]'
                   }`
                 }
               >
@@ -54,7 +54,7 @@ export default function CustomerLayout() {
         <div className="mt-auto pt-10 border-t border-[#DED2C1]">
           <Link
             to="/"
-            className="flex items-center gap-2 text-xs font-semibold text-[#B8C2D9] hover:text-[#795C43] transition-colors"
+            className="flex items-center gap-2 text-xs font-semibold text-[#756657] hover:text-[#795C43] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Website
@@ -71,7 +71,7 @@ export default function CustomerLayout() {
             </Link>
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#B8C2D9] hover:text-[#795C43] transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-[#756657] hover:text-[#795C43] transition-colors"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Website
@@ -85,7 +85,7 @@ export default function CustomerLayout() {
                 end={link.to === '/account'}
                 className={({ isActive }) =>
                   `shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${
-                    isActive ? 'bg-[#C5A989] text-white font-black shadow-xs' : 'text-[#B8C2D9] hover:bg-[#FAF8F3]'
+                    isActive ? 'bg-[#C5A989] text-white font-black shadow-xs' : 'text-[#756657] hover:bg-[#FAF8F3]'
                   }`
                 }
               >

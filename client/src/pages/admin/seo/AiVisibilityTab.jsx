@@ -106,12 +106,12 @@ export default function AiVisibilityTab({ showToast }) {
                 <Bot className="h-3.5 w-3.5" />
                 AI Search Monitor
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 30</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirement 30</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               AI Engine Visibility Tracking (GEO)
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Real-time monitoring across 13 core Dubai commercial printing queries in ChatGPT Search, Perplexity, Google AI Overviews, Gemini, and Microsoft Copilot.
             </p>
           </div>
@@ -158,7 +158,7 @@ export default function AiVisibilityTab({ showToast }) {
             className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
               categoryFilter === cat
                 ? 'bg-neutral-900 text-white shadow-xs'
-                : 'border border-[#DED2C1] bg-[#FAF8F3] text-[#B8C2D9] hover:border-neutral-400'
+                : 'border border-[#DED2C1] bg-[#FAF8F3] text-[#756657] hover:border-neutral-400'
             }`}
           >
             {cat}
@@ -170,7 +170,7 @@ export default function AiVisibilityTab({ showToast }) {
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+            <thead className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[10px] font-bold uppercase tracking-wider text-[#756657]">
               <tr>
                 <th className="px-5 py-3">Category</th>
                 <th className="px-5 py-3">Tracked Search Query</th>
@@ -182,14 +182,14 @@ export default function AiVisibilityTab({ showToast }) {
             <tbody className="divide-y divide-neutral-100">
               {loading ? (
                 <tr>
-                  <td colSpan={5} className="px-5 py-8 text-center text-[#B8C2D9]">
+                  <td colSpan={5} className="px-5 py-8 text-center text-[#756657]">
                     <RefreshCw className="h-5 w-5 animate-spin mx-auto text-[#795C43] mb-2" />
                     Loading tracked queries…
                   </td>
                 </tr>
               ) : filteredItems.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-5 py-8 text-center text-[#B8C2D9]">
+                  <td colSpan={5} className="px-5 py-8 text-center text-[#756657]">
                     No queries found in this category.
                   </td>
                 </tr>
@@ -204,7 +204,7 @@ export default function AiVisibilityTab({ showToast }) {
                     <td className="px-5 py-3.5 font-bold text-[#352719] max-w-md">
                       {q.query}
                     </td>
-                    <td className="px-5 py-3.5 text-[#B8C2D9] whitespace-nowrap">
+                    <td className="px-5 py-3.5 text-[#756657] whitespace-nowrap">
                       {q.intent || 'Commercial'}
                     </td>
                     <td className="px-5 py-3.5 whitespace-nowrap font-mono text-[11px] text-blue-700">
@@ -214,7 +214,7 @@ export default function AiVisibilityTab({ showToast }) {
                       <span
                         className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
                           q.status?.includes('unavailable')
-                            ? 'bg-neutral-100 text-[#B8C2D9] border border-[#DED2C1]'
+                            ? 'bg-neutral-100 text-[#756657] border border-[#DED2C1]'
                             : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                         }`}
                       >
@@ -236,17 +236,17 @@ export default function AiVisibilityTab({ showToast }) {
             <h3 className="font-display text-base font-bold text-[#352719]">
               Logged Real Citation Verifications
             </h3>
-            <p className="text-xs text-[#B8C2D9]">
+            <p className="text-xs text-[#756657]">
               Empirical verification records logged by technical staff testing queries in AI engines.
             </p>
           </div>
-          <span className="text-xs font-bold text-[#B8C2D9]">
+          <span className="text-xs font-bold text-[#756657]">
             {citationLogs.length} Verified Log{citationLogs.length === 1 ? '' : 's'}
           </span>
         </div>
 
         {citationLogs.length === 0 ? (
-          <div className="p-8 text-center text-xs text-[#B8C2D9] bg-[#F5F0E7] rounded-xl border border-[#DED2C1]">
+          <div className="p-8 text-center text-xs text-[#756657] bg-[#F5F0E7] rounded-xl border border-[#DED2C1]">
             No citation verifications logged yet. Click &ldquo;Log Real Citation&rdquo; to record manual tests from Perplexity or ChatGPT.
           </div>
         ) : (
@@ -256,14 +256,14 @@ export default function AiVisibilityTab({ showToast }) {
                 <div className="space-y-1 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-[#352719]">{log.ai_engine}</span>
-                    <span className="text-[#B8C2D9]/70">•</span>
-                    <span className="text-[#B8C2D9]">{new Date(log.tested_at || Date.now()).toLocaleDateString()}</span>
+                    <span className="text-[#756657]/80">•</span>
+                    <span className="text-[#756657]">{new Date(log.tested_at || Date.now()).toLocaleDateString()}</span>
                     {log.onprint_cited ? (
                       <span className="rounded-full bg-emerald-50 text-emerald-700 px-2 py-0.5 text-[10px] font-bold">
                         ONPRINT Cited #{log.citation_rank || 1}
                       </span>
                     ) : (
-                      <span className="rounded-full bg-neutral-100 text-[#B8C2D9] px-2 py-0.5 text-[10px] font-bold">
+                      <span className="rounded-full bg-neutral-100 text-[#756657] px-2 py-0.5 text-[10px] font-bold">
                         Not Cited
                       </span>
                     )}
@@ -272,7 +272,7 @@ export default function AiVisibilityTab({ showToast }) {
                     &ldquo;{log.query_prompt}&rdquo;
                   </p>
                   {log.extracted_snippet && (
-                    <p className="text-[#B8C2D9] bg-[#F5F0E7] p-2 rounded-lg border border-[#DED2C1] text-[11px]">
+                    <p className="text-[#756657] bg-[#F5F0E7] p-2 rounded-lg border border-[#DED2C1] text-[11px]">
                       {log.extracted_snippet}
                     </p>
                   )}
@@ -298,7 +298,7 @@ export default function AiVisibilityTab({ showToast }) {
             <button
               type="button"
               onClick={() => setShowLogModal(false)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+              className="absolute top-5 right-5 p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -306,7 +306,7 @@ export default function AiVisibilityTab({ showToast }) {
             <h3 className="font-display text-xl font-black text-[#352719]">
               Log Real Citation Verification
             </h3>
-            <p className="mt-1 text-xs text-[#B8C2D9]">
+            <p className="mt-1 text-xs text-[#756657]">
               Record empirical results when manually querying Perplexity, ChatGPT Search, Gemini, or Copilot.
             </p>
 

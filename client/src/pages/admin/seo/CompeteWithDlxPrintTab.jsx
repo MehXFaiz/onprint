@@ -168,7 +168,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
 
   if (loading && !data && gaps10Col.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-[#B8C2D9]">
+      <div className="flex flex-col items-center justify-center py-20 text-[#756657]">
         <RefreshCw className="h-8 w-8 animate-spin text-[#795C43] mb-3" />
         <p className="text-sm font-semibold">Loading DLXPrint Competitive Intelligence...</p>
       </div>
@@ -183,7 +183,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#C5A989]/30 border border-[#C5A989]/40 px-3 py-1 text-xs font-bold text-red-200">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#C5A989]/30 border border-[#C5A989]/40 px-3 py-1 text-xs font-bold text-red-800">
               <Target className="h-3.5 w-3.5 text-[#795C43]" />
               Competitor Gap Intelligence • DLXPrint (dlxprint.com)
             </div>
@@ -221,39 +221,39 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
         {/* Head-to-Head Comparison Summary Cards */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-neutral-800 pt-6">
           <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800 p-4">
-            <div className="flex items-center gap-2 text-[#B8C2D9]/70 text-xs font-semibold">
+            <div className="flex items-center gap-2 text-[#756657]/80 text-xs font-semibold">
               <MapPin className="h-4 w-4 text-[#795C43]" />
               <span>Location Moat</span>
             </div>
             <div className="mt-2 text-lg sm:text-xl font-black text-white">Al Quoz vs Al Qusais</div>
-            <p className="mt-1 text-[11px] text-[#B8C2D9]/70">10–15m to DIFC, Downtown, Bay</p>
+            <p className="mt-1 text-[11px] text-[#756657]/80">10–15m to DIFC, Downtown, Bay</p>
           </div>
 
           <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800 p-4">
-            <div className="flex items-center gap-2 text-[#B8C2D9]/70 text-xs font-semibold">
+            <div className="flex items-center gap-2 text-[#756657]/80 text-xs font-semibold">
               <Sparkles className="h-4 w-4 text-amber-500" />
               <span>Stamps &amp; Seals Moat</span>
             </div>
             <div className="mt-2 text-lg sm:text-xl font-black text-white">Same-Day Dispatch</div>
-            <p className="mt-1 text-[11px] text-[#B8C2D9]/70">Laser-engraved official company seals</p>
+            <p className="mt-1 text-[11px] text-[#756657]/80">Laser-engraved official company seals</p>
           </div>
 
           <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800 p-4">
-            <div className="flex items-center gap-2 text-[#B8C2D9]/70 text-xs font-semibold">
-              <CreditCard className="h-4 w-4 text-emerald-400" />
+            <div className="flex items-center gap-2 text-[#756657]/80 text-xs font-semibold">
+              <CreditCard className="h-4 w-4 text-emerald-700" />
               <span>Finishing Moat</span>
             </div>
             <div className="mt-2 text-lg sm:text-xl font-black text-white">600gsm Cotton Duplex</div>
-            <p className="mt-1 text-[11px] text-[#B8C2D9]/70">Painted edge vs 350gsm standard</p>
+            <p className="mt-1 text-[11px] text-[#756657]/80">Painted edge vs 350gsm standard</p>
           </div>
 
           <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800 p-4">
-            <div className="flex items-center gap-2 text-[#B8C2D9]/70 text-xs font-semibold">
-              <TrendingUp className="h-4 w-4 text-purple-400" />
+            <div className="flex items-center gap-2 text-[#756657]/80 text-xs font-semibold">
+              <TrendingUp className="h-4 w-4 text-purple-700" />
               <span>Target Coverage</span>
             </div>
             <div className="mt-2 text-lg sm:text-xl font-black text-white">220 Keywords / 11 Hubs</div>
-            <p className="mt-1 text-[11px] text-[#B8C2D9]/70">{gaps10Col.length || 16} competitive gaps mapped</p>
+            <p className="mt-1 text-[11px] text-[#756657]/80">{gaps10Col.length || 16} competitive gaps mapped</p>
           </div>
         </div>
       </div>
@@ -265,7 +265,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
             activeSubTab === 'matrix'
               ? 'bg-[#C5A989] text-white shadow-sm'
-              : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200'
+              : 'bg-neutral-100 text-[#756657] hover:bg-neutral-200'
           }`}
         >
           <TableIcon className="h-3.5 w-3.5" />
@@ -280,7 +280,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
             activeSubTab === 'playbook'
               ? 'bg-[#C5A989] text-white shadow-sm'
-              : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200'
+              : 'bg-neutral-100 text-[#756657] hover:bg-neutral-200'
           }`}
         >
           <Sparkles className="h-3.5 w-3.5" />
@@ -292,7 +292,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
             activeSubTab === 'clusters'
               ? 'bg-[#C5A989] text-white shadow-sm'
-              : 'bg-neutral-100 text-[#B8C2D9] hover:bg-neutral-200'
+              : 'bg-neutral-100 text-[#756657] hover:bg-neutral-200'
           }`}
         >
           <Compass className="h-3.5 w-3.5" />
@@ -314,13 +314,13 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                   DLXPrint 10-Column Competitor Gap Matrix
                 </h3>
               </div>
-              <p className="text-xs text-[#B8C2D9] mt-0.5">
+              <p className="text-xs text-[#756657] mt-0.5">
                 Exact 10-column competitor intelligence identifying target URLs, keywords, search intents, content strategy, link graph, and Al Quoz local advantage.
               </p>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-xs font-bold text-[#B8C2D9]">
+              <span className="text-xs font-bold text-[#756657]">
                 Showing {filtered10ColGaps.length} of {gaps10Col.length} records
               </span>
               <Button
@@ -329,7 +329,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                 onClick={handleExportCsv}
                 className="text-xs font-bold border-[#DED2C1] text-[#352719] hover:bg-[#F5F0E7]"
               >
-                <Download className="h-3.5 w-3.5 mr-1.5 text-[#B8C2D9]" />
+                <Download className="h-3.5 w-3.5 mr-1.5 text-[#756657]" />
                 Export CSV
               </Button>
             </div>
@@ -338,7 +338,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
           {/* Filter Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="relative">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
               <input
                 type="text"
                 value={search}
@@ -385,7 +385,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                   <th className="py-3 px-3 w-40">2. Competitor Topic</th>
                   <th className="py-3 px-3 w-44 text-[#FFA590]">3. ONPRINT URL</th>
                   <th className="py-3 px-3 w-56">4. Missing Topic Gap</th>
-                  <th className="py-3 px-3 w-44 text-amber-300">5. Keyword Opportunity</th>
+                  <th className="py-3 px-3 w-44 text-amber-700">5. Keyword Opportunity</th>
                   <th className="py-3 px-3 w-28 text-center">6. Intent</th>
                   <th className="py-3 px-3 w-64">7. Recommended Content</th>
                   <th className="py-3 px-3 w-52">8. Internal Link Strategy</th>
@@ -404,7 +404,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                         }`}
                       >
                         {/* Index */}
-                        <td className="py-3 px-3 text-center text-[#B8C2D9]/70 font-mono text-[11px]">
+                        <td className="py-3 px-3 text-center text-[#756657]/80 font-mono text-[11px]">
                           {idx + 1}
                         </td>
 
@@ -414,11 +414,11 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                             href={g.competitor_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#B8C2D9] hover:text-[#352719] hover:underline inline-flex items-center gap-1 max-w-[160px] truncate"
+                            className="text-[#756657] hover:text-[#352719] hover:underline inline-flex items-center gap-1 max-w-[160px] truncate"
                             title={g.competitor_url}
                           >
                             <span>{(g.competitor_url || '').replace('https://dlxprint.com', '') || '/'}</span>
-                            <ExternalLink className="h-3 w-3 shrink-0 text-[#B8C2D9]/70" />
+                            <ExternalLink className="h-3 w-3 shrink-0 text-[#756657]/80" />
                           </a>
                         </td>
 
@@ -466,12 +466,12 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                         </td>
 
                         {/* 7. Recommended Content */}
-                        <td className="py-3 px-3 text-[#B8C2D9] leading-snug">
+                        <td className="py-3 px-3 text-[#756657] leading-snug">
                           {g.recommended_content}
                         </td>
 
                         {/* 8. Internal Link Strategy */}
-                        <td className="py-3 px-3 text-[#B8C2D9] text-[11px] leading-snug">
+                        <td className="py-3 px-3 text-[#756657] text-[11px] leading-snug">
                           {g.internal_link_opportunity}
                         </td>
 
@@ -519,7 +519,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                   Top 5 Strategic Actions to Outperform DLXPrint
                 </h3>
               </div>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Ranked by Commercial ROI</span>
+              <span className="text-xs font-semibold text-[#756657]">Ranked by Commercial ROI</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -544,11 +544,11 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                       </span>
                     </div>
                     <h4 className="mt-2 text-xs font-bold text-[#352719]">{action.title}</h4>
-                    <p className="mt-1.5 text-xs text-[#B8C2D9] leading-relaxed">{action.action}</p>
+                    <p className="mt-1.5 text-xs text-[#756657] leading-relaxed">{action.action}</p>
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-[#DED2C1]/60 flex items-center justify-between text-xs">
-                    <span className="text-[#B8C2D9] font-mono text-[11px] truncate max-w-[180px]">
+                    <span className="text-[#756657] font-mono text-[11px] truncate max-w-[180px]">
                       {action.target_page}
                     </span>
                     <a
@@ -572,12 +572,12 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                   Core Commercial Differentiation Pillars
                 </h3>
               </div>
-              <span className="text-xs font-medium text-[#B8C2D9]">5 Strategic Vectors</span>
+              <span className="text-xs font-medium text-[#756657]">5 Strategic Vectors</span>
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-[#B8C2D9]">
-                <thead className="bg-[#F5F0E7] text-[11px] font-extrabold uppercase text-[#B8C2D9] border-b border-[#DED2C1]">
+              <table className="w-full text-left text-xs text-[#756657]">
+                <thead className="bg-[#F5F0E7] text-[11px] font-extrabold uppercase text-[#756657] border-b border-[#DED2C1]">
                   <tr>
                     <th className="py-3 px-4">Capability Pillar</th>
                     <th className="py-3 px-4 text-[#795C43]">ONPRINT Advantage (Al Quoz)</th>
@@ -595,7 +595,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                       <td className="py-3.5 px-4 font-medium text-[#352719] bg-red-50/30">
                         {item.onprint}
                       </td>
-                      <td className="py-3.5 px-4 text-[#B8C2D9]">
+                      <td className="py-3.5 px-4 text-[#756657]">
                         {item.dlxprint}
                       </td>
                       <td className="py-3.5 px-4 text-center">
@@ -603,7 +603,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                           {item.onprintAdvantageScore}%
                         </span>
                       </td>
-                      <td className="py-3.5 px-4 text-[#B8C2D9] italic">
+                      <td className="py-3.5 px-4 text-[#756657] italic">
                         {item.strategicAngle}
                       </td>
                     </tr>
@@ -625,7 +625,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                 11 Commercial Keyword Clusters (220 Keywords Total)
               </h3>
             </div>
-            <p className="text-xs text-[#B8C2D9] mt-0.5">
+            <p className="text-xs text-[#756657] mt-0.5">
               Each commercial cluster targets exactly 20 commercial, transactional, and local search queries specifically chosen to capture search share from DLXPrint in Dubai.
             </p>
           </div>
@@ -646,13 +646,13 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
                     </span>
                   </div>
                   <h4 className="mt-2.5 font-bold text-[#352719] text-sm">{c.name}</h4>
-                  <p className="mt-1 text-xs text-[#B8C2D9]">
+                  <p className="mt-1 text-xs text-[#756657]">
                     <strong className="text-[#352719]">Commercial Focus:</strong> {c.focus}
                   </p>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-[#DED2C1]/60 flex items-center justify-between text-xs">
-                  <span className="text-[#B8C2D9] font-mono text-[11px] truncate max-w-[170px]">
+                  <span className="text-[#756657] font-mono text-[11px] truncate max-w-[170px]">
                     {c.target}
                   </span>
                   <a
@@ -674,7 +674,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
               </div>
             </div>
             <div className="flex items-center gap-2 shrink-0">
-              <span className="text-xs font-bold text-[#B8C2D9]/70">Manage via:</span>
+              <span className="text-xs font-bold text-[#756657]/80">Manage via:</span>
               <span className="text-xs font-mono font-bold bg-neutral-800 text-white px-3 py-1.5 rounded-lg border border-neutral-700">
                 SEO Keywords Tab
               </span>

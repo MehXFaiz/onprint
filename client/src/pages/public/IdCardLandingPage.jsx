@@ -406,10 +406,10 @@ export default function IdCardLandingPage() {
                   <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
                   Professional UV ID Card Solutions
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#352719] mb-6">
                   UV ID Card Printing in Dubai
                 </h1>
-                <p className="text-lg md:text-xl text-slate-300 mb-8">
+                <p className="text-lg md:text-xl text-[#756657] mb-8">
                   High-definition UV printed employee identity cards, corporate staff badges, and VIP passes on premium CR80 PVC. Vibrant scratch-resistant cured inks, raised 3D spot UV, and frosted translucent finishes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -438,8 +438,8 @@ export default function IdCardLandingPage() {
                     className="bg-[#FAF8F3] rounded-xl p-6 shadow-sm border border-[#DED2C1] hover:border-[#C5A989] transition-all"
                   >
                     <feature.icon className="h-10 w-10 text-[#795C43] mb-4" />
-                    <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                    <p className="text-slate-300">{feature.desc}</p>
+                    <h3 className="text-xl font-semibold text-[#352719] mb-2">{feature.title}</h3>
+                    <p className="text-[#756657]">{feature.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -457,7 +457,7 @@ export default function IdCardLandingPage() {
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       selectedCategory === cat.id
                         ? 'bg-[#795C43] text-white font-bold'
-                        : 'bg-[#FAF8F3] text-slate-200 border border-[#DED2C1] hover:border-[#C5A989] hover:text-[#795C43]'
+                        : 'bg-[#FAF8F3] text-[#352719] border border-[#DED2C1] hover:border-[#C5A989] hover:text-[#795C43]'
                     }`}
                   >
                     {cat.name}
@@ -470,7 +470,7 @@ export default function IdCardLandingPage() {
           {/* ID Card Types Grid */}
           <Reveal>
             <section className="py-12 mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-8 text-center">
                 ID Card Types &amp; Variations
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -492,17 +492,17 @@ export default function IdCardLandingPage() {
                     <div className="p-5">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs font-semibold text-[#795C43]">{card.badge}</span>
-                        <span className="text-xs font-medium text-slate-400">{card.thickness}</span>
+                        <span className="text-xs font-medium text-[#756657]">{card.thickness}</span>
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2">{card.title}</h3>
-                      <p className="text-sm text-slate-300 mb-3">{card.description}</p>
-                      <div className="text-xs text-slate-400 mb-3">
-                        <p className="font-medium text-slate-300 mb-1">{card.specs}</p>
+                      <h3 className="text-lg font-bold text-[#352719] mb-2">{card.title}</h3>
+                      <p className="text-sm text-[#756657] mb-3">{card.description}</p>
+                      <div className="text-xs text-[#756657] mb-3">
+                        <p className="font-medium text-[#756657] mb-1">{card.specs}</p>
                       </div>
                       <p className="text-sm font-semibold text-[#795C43] mb-3">{card.priceHint}</p>
                       <div className="flex flex-wrap gap-1 mb-3">
                         {card.features.slice(0, 3).map((feature) => (
-                          <span key={feature} className="text-xs bg-[#F5F0E7] text-slate-300 border border-[#DED2C1] px-2 py-1 rounded">
+                          <span key={feature} className="text-xs bg-[#F5F0E7] text-[#756657] border border-[#DED2C1] px-2 py-1 rounded">
                             {feature}
                           </span>
                         ))}
@@ -526,7 +526,7 @@ export default function IdCardLandingPage() {
           {/* Industry Solutions */}
           <Reveal>
             <section className="py-16 mb-16 bg-[#FAF8F3]/50 border border-[#DED2C1] rounded-2xl p-6 sm:p-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-12 text-center">
                 Industry Solutions
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -539,8 +539,8 @@ export default function IdCardLandingPage() {
                     className="bg-[#FAF8F3] rounded-xl p-6 shadow-sm border border-[#DED2C1]"
                   >
                     <solution.icon className="h-10 w-10 text-[#795C43] mb-4" />
-                    <h3 className="text-xl font-semibold text-white mb-2">{solution.title}</h3>
-                    <p className="text-sm text-slate-300 mb-3">{solution.desc}</p>
+                    <h3 className="text-xl font-semibold text-[#352719] mb-2">{solution.title}</h3>
+                    <p className="text-sm text-[#756657] mb-3">{solution.desc}</p>
                     <div className="text-xs font-semibold text-[#795C43] bg-[#F5F0E7] border border-[#DED2C1] p-2 rounded">
                       {solution.recommended}
                     </div>
@@ -553,7 +553,7 @@ export default function IdCardLandingPage() {
           {/* Why Choose Us */}
           <Reveal>
             <section className="py-16 mb-16 bg-[#FAF8F3] rounded-2xl p-8 lg:p-12 border border-[#DED2C1]">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-8 text-center">
                 Why Choose ONPRINT for ID Cards?
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -575,7 +575,7 @@ export default function IdCardLandingPage() {
                     className="flex items-start gap-3"
                   >
                     <CheckCircle2 className="h-6 w-6 text-[#795C43] shrink-0 mt-0.5" />
-                    <span className="text-slate-200">{item}</span>
+                    <span className="text-[#352719]">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -585,10 +585,10 @@ export default function IdCardLandingPage() {
           {/* CTA Section */}
           <Reveal>
             <section className="py-16 mb-16 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#352719] mb-4">
                 Ready to Order ID Cards?
               </h2>
-              <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-[#756657] mb-8 max-w-2xl mx-auto">
                 Contact us today for a free quote on your ID card printing project. 
                 We deliver across Dubai, Abu Dhabi, Sharjah, and all UAE Emirates with fast turnaround.
               </p>
@@ -623,7 +623,7 @@ export default function IdCardLandingPage() {
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <WhatsAppIcon className="h-8 w-8 fill-[#25D366] mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1">WhatsApp &amp; Call</h3>
+                  <h3 className="font-semibold text-[#352719] mb-1">WhatsApp &amp; Call</h3>
                   <a
                     href={getServiceWhatsAppUrl('id-cards', {
                       productName: 'Corporate PVC ID Cards',
@@ -639,20 +639,20 @@ export default function IdCardLandingPage() {
                         button_location: 'id_card_contact_card',
                       })
                     }
-                    className="text-slate-300 hover:text-emerald-400 font-medium"
+                    className="text-[#756657] hover:text-emerald-700 font-medium"
                   >
                     {FORMATTED_PHONE}
                   </a>
                 </div>
                 <div>
                   <Mail className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1">Email Us</h3>
-                  <p className="text-slate-300">0nprint183@gmail.com</p>
+                  <h3 className="font-semibold text-[#352719] mb-1">Email Us</h3>
+                  <p className="text-[#756657]">0nprint183@gmail.com</p>
                 </div>
                 <div>
                   <Clock className="h-8 w-8 text-[#795C43] mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1">Working Hours</h3>
-                  <p className="text-slate-300">Mon - Sat: 8:30 AM - 6:30 PM</p>
+                  <h3 className="font-semibold text-[#352719] mb-1">Working Hours</h3>
+                  <p className="text-[#756657]">Mon - Sat: 8:30 AM - 6:30 PM</p>
                 </div>
               </div>
             </section>

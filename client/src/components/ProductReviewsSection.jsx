@@ -264,7 +264,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
       {/* Filter Active Pill */}
       {selectedRatingFilter && (
         <div className="mt-4 flex items-center gap-2 text-xs">
-          <span className="text-slate-500 font-semibold">Filtering by {selectedRatingFilter} Stars</span>
+          <span className="text-[#756657] font-semibold">Filtering by {selectedRatingFilter} Stars</span>
           <button
             type="button"
             onClick={() => setSelectedRatingFilter(null)}
@@ -286,7 +286,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                     {[1, 2, 3, 4, 5].map((st) => (
                       <Star
                         key={st}
-                        className={`h-4 w-4 ${st <= (rev.rating || 5) ? 'fill-current' : 'text-slate-300'}`}
+                        className={`h-4 w-4 ${st <= (rev.rating || 5) ? 'fill-current' : 'text-[#756657]'}`}
                       />
                     ))}
                   </div>
@@ -297,11 +297,11 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                   <span className="font-bold text-[#352719]">{rev.author_name}</span>
                   {rev.company && <span className="text-[#756657]/70">• {rev.company}</span>}
                   {rev.verified_purchase && (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-2 py-0.5">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-2 py-0.5">
                       <ShieldCheck className="h-3 w-3" /> Verified Order
                     </span>
                   )}
-                  <span className="text-slate-400">
+                  <span className="text-[#756657]">
                     • {rev.created_at ? new Date(rev.created_at).toLocaleDateString('en-AE', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent'}
                   </span>
                 </div>
@@ -348,7 +348,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
-              className="absolute right-4 top-4 text-slate-400 hover:text-[#352719]"
+              className="absolute right-4 top-4 text-[#756657] hover:text-[#352719]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -362,7 +362,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
 
             {submitSuccess ? (
               <div className="py-8 text-center">
-                <CheckCircle2 className="h-12 w-12 text-emerald-400 mx-auto mb-3" />
+                <CheckCircle2 className="h-12 w-12 text-emerald-700 mx-auto mb-3" />
                 <h4 className="font-bold text-[#352719]">Thank You For Your Review!</h4>
                 <p className="text-xs text-[#756657] mt-1">
                   Your feedback has been logged and published.

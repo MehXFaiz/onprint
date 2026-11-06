@@ -1283,7 +1283,7 @@ export default function HomePage() {
                   </div>
 
                   <div className="mt-6 pt-5 border-t border-[#DED2C1] flex items-center justify-between">
-                    <span className="text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1">
+                    <span className="text-xs font-mono text-emerald-700 font-semibold flex items-center gap-1">
                       <CheckCircle2 className="h-3.5 w-3.5" /> In-House Press
                     </span>
                     <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2.5 py-1 text-[10px] font-mono font-bold text-[#795C43]">
@@ -1388,11 +1388,11 @@ export default function HomePage() {
             <span>Dubai's Trusted Commercial &amp; Luxury Printing Partner</span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-4xl font-bold tracking-tight text-white">
+          <h2 className="font-serif text-2xl sm:text-4xl font-bold tracking-tight text-[#352719]">
             Ready to Start Your Print Project in Dubai?
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base text-[#756657] leading-relaxed max-w-2xl">
             From presidential cotton business cards and event roll-up banners to waterproof product stickers and official company stamps, get immediate pricing and turnaround times directly from our Al Quoz pressroom.
           </p>
 

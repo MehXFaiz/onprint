@@ -605,12 +605,12 @@ export default function TopicalAuthorityTab({ showToast }) {
                 <Network className="h-3.5 w-3.5" />
                 Topical Authority Architecture
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 4 &amp; 11</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirement 4 &amp; 11</span>
             </div>
             <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#352719]">
               Topical Map &amp; Pillar-Cluster Architecture
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               20 core commercial printing and corporate branding clusters (A–T) mapped to search intent, target landing URLs, and hub-and-spoke internal linking directives.
             </p>
           </div>
@@ -624,7 +624,7 @@ export default function TopicalAuthorityTab({ showToast }) {
         {/* Quick Stats Grid */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
-            <span className="text-[11px] font-bold text-[#B8C2D9] uppercase tracking-wider block mb-1">
+            <span className="text-[11px] font-bold text-[#756657] uppercase tracking-wider block mb-1">
               Topical Clusters
             </span>
             <div className="text-2xl font-black text-[#352719]">20</div>
@@ -657,7 +657,7 @@ export default function TopicalAuthorityTab({ showToast }) {
       {/* Filter Bar */}
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-xs flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             value={search}
@@ -668,7 +668,7 @@ export default function TopicalAuthorityTab({ showToast }) {
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <label className="text-xs font-bold text-[#B8C2D9] shrink-0">Search Intent:</label>
+          <label className="text-xs font-bold text-[#756657] shrink-0">Search Intent:</label>
           <select
             value={intentFilter}
             onChange={(e) => setIntentFilter(e.target.value)}
@@ -705,7 +705,7 @@ export default function TopicalAuthorityTab({ showToast }) {
 
                     <div className="space-y-1 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#B8C2D9]/70">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#756657]/80">
                           Cluster {cluster.letter}
                         </span>
                         <span
@@ -735,7 +735,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                         {cluster.name}
                       </h3>
 
-                      <p className="text-xs text-[#B8C2D9] font-medium">
+                      <p className="text-xs text-[#756657] font-medium">
                         Focus Entity: <span className="text-[#352719] font-semibold">{cluster.focus_entity}</span>
                       </p>
                     </div>
@@ -755,7 +755,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                       <Sparkles className="h-3.5 w-3.5 mr-1 text-[#795C43]" />
                       <span>Content Brief</span>
                     </Button>
-                    <div className="p-2 text-[#B8C2D9]/70">
+                    <div className="p-2 text-[#756657]/80">
                       <ChevronDown
                         className={`h-5 w-5 transition-transform duration-200 ${
                           isExpanded ? 'rotate-180 text-[#352719]' : ''
@@ -788,7 +788,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                           {copiedKeyword === kw ? (
                             <Check className="h-3 w-3 text-emerald-600" />
                           ) : (
-                            <Copy className="h-3 w-3 text-[#B8C2D9]/70" />
+                            <Copy className="h-3 w-3 text-[#756657]/80" />
                           )}
                         </button>
                       ))}
@@ -867,14 +867,14 @@ export default function TopicalAuthorityTab({ showToast }) {
               <button
                 type="button"
                 onClick={() => setBriefModalOpen(false)}
-                className="p-2 text-[#B8C2D9]/70 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
+                className="p-2 text-[#756657]/80 hover:text-[#352719] rounded-lg hover:bg-[#EDE3D5]"
               >
                 ✕
               </button>
             </div>
 
             {briefLoading ? (
-              <div className="py-16 text-center text-xs text-[#B8C2D9]">
+              <div className="py-16 text-center text-xs text-[#756657]">
                 <RefreshCw className="h-8 w-8 animate-spin mx-auto text-[#795C43] mb-3" />
                 Synthesizing Dubai search intent, technical specs, and H2/H3 outline…
               </div>
@@ -884,7 +884,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                 <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/70 p-4 space-y-2">
                   <div>
                     <span className="font-bold text-[#352719]">Target URL: </span>
-                    <span className="font-mono text-[#B8C2D9]">{activeBrief.target_url}</span>
+                    <span className="font-mono text-[#756657]">{activeBrief.target_url}</span>
                   </div>
                   <div>
                     <span className="font-bold text-[#352719]">Suggested Title: </span>
@@ -899,15 +899,15 @@ export default function TopicalAuthorityTab({ showToast }) {
                 {/* Scope & Word Count */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   <div className="rounded-xl border border-[#DED2C1] p-3">
-                    <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block">Search Intent</span>
+                    <span className="text-[10px] font-bold text-[#756657]/80 uppercase block">Search Intent</span>
                     <span className="text-xs font-bold text-[#352719]">{activeBrief.search_intent}</span>
                   </div>
                   <div className="rounded-xl border border-[#DED2C1] p-3">
-                    <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block">Word Count Target</span>
+                    <span className="text-[10px] font-bold text-[#756657]/80 uppercase block">Word Count Target</span>
                     <span className="text-xs font-bold text-[#352719]">{activeBrief.recommended_word_count}</span>
                   </div>
                   <div className="col-span-2 sm:col-span-1 rounded-xl border border-[#DED2C1] p-3">
-                    <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block">Primary Query</span>
+                    <span className="text-[10px] font-bold text-[#756657]/80 uppercase block">Primary Query</span>
                     <span className="text-xs font-bold text-[#352719] truncate block">{activeBrief.primary_keyword}</span>
                   </div>
                 </div>
@@ -924,7 +924,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                           </span>
                           <span className="font-bold text-[#352719]">{section.heading}</span>
                         </div>
-                        <ul className="list-disc pl-5 space-y-1 text-[#B8C2D9] text-[11px]">
+                        <ul className="list-disc pl-5 space-y-1 text-[#756657] text-[11px]">
                           {section.talking_points?.map((tp, tpIdx) => (
                             <li key={tpIdx}>{tp}</li>
                           ))}
@@ -942,7 +942,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                       {activeBrief.faq_targets.map((faq, idx) => (
                         <div key={idx} className="rounded-xl border border-[#DED2C1] p-3 bg-[#F5F0E7]">
                           <p className="font-bold text-[#352719]">Q: {faq.question}</p>
-                          <p className="mt-1 text-[#B8C2D9] text-[11px]">A: {faq.answer_guideline}</p>
+                          <p className="mt-1 text-[#756657] text-[11px]">A: {faq.answer_guideline}</p>
                         </div>
                       ))}
                     </div>

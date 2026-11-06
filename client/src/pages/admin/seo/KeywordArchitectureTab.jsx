@@ -325,14 +325,14 @@ export default function KeywordArchitectureTab({
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989]/10 px-3 py-1 text-xs font-bold text-[#795C43]">
                 <Key className="h-3.5 w-3.5" /> High-Intent SERP Architecture
               </span>
-              <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#B8C2D9]">
+              <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#756657]">
                 Dubai & UAE Regional Targeting
               </span>
             </div>
             <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#352719]">
               Commercial Keyword Architecture & SERP Dashboard
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-[#B8C2D9] max-w-3xl leading-relaxed">
+            <p className="mt-1 text-xs sm:text-sm text-[#756657] max-w-3xl leading-relaxed">
               Targeting high-intent B2B search terms across commercial printing, luxury corporate stationery, customized packaging, large format printing, and eco-friendly solutions. Strict single-owner mapping prevents internal keyword cannibalization.
             </p>
           </div>
@@ -360,7 +360,7 @@ export default function KeywordArchitectureTab({
               size="sm"
               icon={false}
               onClick={handleOpenAdd}
-              className="flex items-center gap-1.5 text-white"
+              className="flex items-center gap-1.5 text-[#352719]"
             >
               <Plus className="h-3.5 w-3.5" /> Add Keyword
             </Button>
@@ -378,7 +378,7 @@ export default function KeywordArchitectureTab({
         {/* Quick Filter & Search Bar */}
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
           <div className="relative">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#756657]/80" />
             <input
               type="text"
               placeholder="Search keywords or URL..."
@@ -470,7 +470,7 @@ export default function KeywordArchitectureTab({
         </div>
 
         {/* Count overview */}
-        <div className="mt-3 flex items-center justify-between text-xs text-[#B8C2D9]">
+        <div className="mt-3 flex items-center justify-between text-xs text-[#756657]">
           <span>
             Showing <strong className="text-[#352719]">{filteredItems.length}</strong> keywords (Page {currentPage} of {totalPages})
           </span>
@@ -498,7 +498,7 @@ export default function KeywordArchitectureTab({
           {paginatedItems.length > 0 ? (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/75 text-[10px] uppercase font-black text-[#756657]/80">
                   <th
                     className="p-3.5 cursor-pointer hover:text-[#352719]"
                     onClick={() => handleSort('keyword')}
@@ -554,7 +554,7 @@ export default function KeywordArchitectureTab({
                           <span>{item.keyword}</span>
                         </div>
                         {item.notes && (
-                          <div className="text-[10px] font-normal text-[#B8C2D9]/70 truncate mt-0.5">
+                          <div className="text-[10px] font-normal text-[#756657]/80 truncate mt-0.5">
                             {item.notes}
                           </div>
                         )}
@@ -568,7 +568,7 @@ export default function KeywordArchitectureTab({
                             <span className={`inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-bold ${
                               item.conversion_value === 'High'
                                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                                : 'bg-neutral-100 text-[#B8C2D9] border border-[#DED2C1]'
+                                : 'bg-neutral-100 text-[#756657] border border-[#DED2C1]'
                             }`}>
                               {item.conversion_value}
                             </span>
@@ -590,19 +590,19 @@ export default function KeywordArchitectureTab({
                             href={item.target_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[#B8C2D9] hover:text-[#795C43] font-medium"
+                            className="inline-flex items-center gap-1 text-[#756657] hover:text-[#795C43] font-medium"
                             title={item.target_url}
                           >
                             <span className="truncate">{item.target_page || item.target_url.replace(/^https?:\/\/[^/]+/, '') || '/'}</span>
                             <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
                           </a>
                         ) : (
-                          <span className="text-[#B8C2D9]/70 italic">Unassigned</span>
+                          <span className="text-[#756657]/80 italic">Unassigned</span>
                         )}
                       </td>
 
                       {/* Location */}
-                      <td className="p-3.5 whitespace-nowrap text-[#B8C2D9] font-medium">
+                      <td className="p-3.5 whitespace-nowrap text-[#756657] font-medium">
                         {item.city || 'Dubai'}, {item.country || 'UAE'}
                       </td>
 
@@ -616,14 +616,14 @@ export default function KeywordArchitectureTab({
                         {item.current_ranking != null ? (
                           <span className="font-bold text-[#352719]">{item.current_ranking}</span>
                         ) : (
-                          <span className="text-[#B8C2D9]/70 font-mono text-[11px]" title="Live SERP API not connected">
+                          <span className="text-[#756657]/80 font-mono text-[11px]" title="Live SERP API not connected">
                             —
                           </span>
                         )}
                       </td>
 
                       {/* Previous Ranking */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#756657]/80">
                         {item.previous_ranking != null ? (
                           <span>{item.previous_ranking}</span>
                         ) : (
@@ -636,26 +636,26 @@ export default function KeywordArchitectureTab({
                         {item.search_volume != null ? (
                           <span className="font-bold text-[#352719]">{item.search_volume}</span>
                         ) : (
-                          <span className="text-[10px] font-semibold text-[#B8C2D9]/70 bg-neutral-100/80 px-1.5 py-0.5 rounded" title="Connect GSC or Ads API for verified metrics">
+                          <span className="text-[10px] font-semibold text-[#756657]/80 bg-neutral-100/80 px-1.5 py-0.5 rounded" title="Connect GSC or Ads API for verified metrics">
                             Connect API
                           </span>
                         )}
                       </td>
 
                       {/* CPC */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70 font-mono text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#756657]/80 font-mono text-[11px]">
                         {item.cpc != null ? `$${item.cpc}` : '—'}
                       </td>
 
                       {/* Competition */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70 text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#756657]/80 text-[11px]">
                         {item.competition || '—'}
                       </td>
 
                       {/* Last Checked */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70 text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#756657]/80 text-[11px]">
                         {item.last_checked || (
-                          <span className="text-[10px] text-[#B8C2D9]/70 italic">Pending</span>
+                          <span className="text-[10px] text-[#756657]/80 italic">Pending</span>
                         )}
                       </td>
 
@@ -668,13 +668,13 @@ export default function KeywordArchitectureTab({
                                 ? 'text-emerald-600'
                                 : item.ranking_change < 0
                                 ? 'text-red-600'
-                                : 'text-[#B8C2D9]'
+                                : 'text-[#756657]'
                             }`}
                           >
                             {item.ranking_change > 0 ? `+${item.ranking_change}` : item.ranking_change}
                           </span>
                         ) : (
-                          <span className="text-[#B8C2D9]/70 font-mono text-[11px]">—</span>
+                          <span className="text-[#756657]/80 font-mono text-[11px]">—</span>
                         )}
                       </td>
 
@@ -683,14 +683,14 @@ export default function KeywordArchitectureTab({
                         <div className="flex items-center justify-end gap-1.5">
                           <button
                             onClick={() => handleOpenEdit(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
                             title="Edit Keyword"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
                           </button>
                           <button
                             onClick={() => setDeletingItem(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#756657] hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
                             title="Delete Keyword"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
@@ -703,10 +703,10 @@ export default function KeywordArchitectureTab({
               </tbody>
             </table>
           ) : (
-            <div className="py-16 text-center text-sm text-[#B8C2D9]">
-              <Key className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
+            <div className="py-16 text-center text-sm text-[#756657]">
+              <Key className="h-8 w-8 text-[#756657] mx-auto mb-2" />
               <p className="font-bold text-[#352719]">No keyword targets found</p>
-              <p className="text-xs text-[#B8C2D9]/70 mt-1">Try clearing your filters or add a new keyword target.</p>
+              <p className="text-xs text-[#756657]/80 mt-1">Try clearing your filters or add a new keyword target.</p>
             </div>
           )}
         </div>
@@ -714,7 +714,7 @@ export default function KeywordArchitectureTab({
         {/* Pagination Bar */}
         {totalPages > 1 && (
           <div className="border-t border-[#DED2C1] p-4 flex items-center justify-between text-xs">
-            <span className="text-[#B8C2D9]">
+            <span className="text-[#756657]">
               Showing {(currentPage - 1) * pageSize + 1} to{' '}
               {Math.min(currentPage * pageSize, filteredItems.length)} of {filteredItems.length}
             </span>
@@ -726,7 +726,7 @@ export default function KeywordArchitectureTab({
               >
                 Previous
               </button>
-              <span className="px-2 text-[#B8C2D9] font-bold">
+              <span className="px-2 text-[#756657] font-bold">
                 {currentPage} / {totalPages}
               </span>
               <button
@@ -749,7 +749,7 @@ export default function KeywordArchitectureTab({
               <h3 className="font-display text-lg font-bold text-[#352719]">Add Keyword Target</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
+                className="rounded-lg p-1 text-[#756657]/80 hover:text-[#352719] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -877,7 +877,7 @@ export default function KeywordArchitectureTab({
                   size="sm"
                   icon={false}
                   loading={actionLoading}
-                  className="text-white"
+                  className="text-[#352719]"
                 >
                   Save Keyword Target
                 </Button>
@@ -895,7 +895,7 @@ export default function KeywordArchitectureTab({
               <h3 className="font-display text-lg font-bold text-[#352719]">Edit Keyword Target</h3>
               <button
                 onClick={() => setEditingItem(null)}
-                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#352719] cursor-pointer"
+                className="rounded-lg p-1 text-[#756657]/80 hover:text-[#352719] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -992,7 +992,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={`${formData.city}, ${formData.country}`}
                     disabled
-                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 bg-neutral-100 text-[#B8C2D9] cursor-not-allowed"
+                    className="w-full rounded-xl border border-[#DED2C1] p-2.5 bg-neutral-100 text-[#756657] cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -1023,7 +1023,7 @@ export default function KeywordArchitectureTab({
                   size="sm"
                   icon={false}
                   loading={actionLoading}
-                  className="text-white"
+                  className="text-[#352719]"
                 >
                   Save Changes
                 </Button>
@@ -1041,7 +1041,7 @@ export default function KeywordArchitectureTab({
               <AlertCircle className="h-6 w-6 shrink-0" />
               <h3 className="font-display text-base font-bold text-[#352719]">Confirm Keyword Deletion</h3>
             </div>
-            <p className="text-xs text-[#B8C2D9] leading-relaxed">
+            <p className="text-xs text-[#756657] leading-relaxed">
               Are you sure you want to delete the keyword{' '}
               <strong className="text-[#352719] font-bold">"{deletingItem.keyword}"</strong>? This will remove it from SERP tracking and site architecture.
             </p>

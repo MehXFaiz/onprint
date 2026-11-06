@@ -13,7 +13,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
             <h3 className="font-display text-sm font-bold text-[#352719]">
               Zero Keyword Cannibalization Detected
             </h3>
-            <p className="text-xs text-[#B8C2D9] mt-0.5">
+            <p className="text-xs text-[#756657] mt-0.5">
               All indexable pages target distinct primary focus keywords without internal ranking competition.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
             <h3 className="font-display text-sm font-bold text-[#352719]">
               Keyword Cannibalization Detected ({reports.length} Conflict{reports.length > 1 ? 's' : ''})
             </h3>
-            <p className="text-xs text-[#B8C2D9] mt-0.5">
+            <p className="text-xs text-[#756657] mt-0.5">
               Multiple pages are competing in Google SERPs for identical primary queries, splitting internal page authority.
             </p>
           </div>
@@ -46,12 +46,12 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
           <div key={idx} className="bg-[#FAF8F3] rounded-xl border border-amber-200/80 p-4 shadow-xs space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DED2C1] pb-2.5">
               <div className="flex items-center gap-2">
-                <span className="text-xs text-[#B8C2D9]/70 font-bold uppercase">Shared Keyword:</span>
+                <span className="text-xs text-[#756657]/80 font-bold uppercase">Shared Keyword:</span>
                 <span className="rounded-md bg-[#C5A989]/10 text-[#795C43] px-2.5 py-0.5 text-xs font-black">
                   &quot;{item.keyword}&quot;
                 </span>
               </div>
-              <span className="text-[11px] text-[#B8C2D9]">
+              <span className="text-[11px] text-[#756657]">
                 {item.count} competing pages
               </span>
             </div>
@@ -71,7 +71,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
                   </button>
                 </div>
                 <div className="font-bold text-[#352719]">{item.primaryPage?.meta_title || item.primaryPage?.url}</div>
-                <div className="font-mono text-[11px] text-[#B8C2D9]">{item.primaryPage?.url}</div>
+                <div className="font-mono text-[11px] text-[#756657]">{item.primaryPage?.url}</div>
               </div>
 
               {/* Secondary Pages */}
@@ -83,7 +83,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
                   <div key={sIdx} className="flex items-center justify-between border-t border-red-100 pt-1.5 first:border-0 first:pt-0">
                     <div className="truncate max-w-[240px]">
                       <div className="font-bold text-[#352719] truncate">{sec.meta_title || sec.url}</div>
-                      <div className="font-mono text-[11px] text-[#B8C2D9] truncate">{sec.url}</div>
+                      <div className="font-mono text-[11px] text-[#756657] truncate">{sec.url}</div>
                     </div>
                     <button
                       onClick={() => onEditPage && onEditPage(sec)}
@@ -97,7 +97,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
             </div>
 
             {/* Resolution Strategy Guidance */}
-            <div className="rounded-lg bg-[#F5F0E7] p-2.5 text-[11px] text-[#B8C2D9] flex items-start gap-2">
+            <div className="rounded-lg bg-[#F5F0E7] p-2.5 text-[11px] text-[#756657] flex items-start gap-2">
               <Link2 className="h-3.5 w-3.5 text-[#795C43] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-[#352719] font-bold">Recommended Resolution: </strong>

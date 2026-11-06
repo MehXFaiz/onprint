@@ -89,8 +89,8 @@ function StepIndicator({ current }) {
                     done
                       ? 'bg-[#795C43] text-white shadow-xs'
                       : active
-                        ? 'bg-[#F5F0E7] text-white shadow-md ring-2 ring-[#795C43]'
-                        : 'border border-[#DED2C1] bg-[#F5F0E7] text-slate-400'
+                        ? 'bg-[#FAF8F3] text-[#352719] shadow-md ring-2 ring-[#795C43]'
+                        : 'border border-[#DED2C1] bg-[#F5F0E7] text-[#756657]'
                   }`}
                 >
                   {done ? <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[3]" /> : stepNumber}
@@ -118,13 +118,13 @@ function StepIndicator({ current }) {
 function FieldLabel({ htmlFor, children, optional }) {
   return (
     <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wider text-[#352719]">
-      {children} {optional && <span className="font-normal text-slate-400 lowercase">(optional)</span>}
+      {children} {optional && <span className="font-normal text-[#756657] lowercase">(optional)</span>}
     </label>
   )
 }
 
 const inputClasses =
-  'mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-4 py-3 text-sm font-medium text-[#352719] placeholder:text-slate-400 transition-colors focus:border-[#C5A989] focus:outline-none focus:ring-2 focus:ring-[#795C43]/20 shadow-2xs'
+  'mt-2 w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-4 py-3 text-sm font-medium text-[#352719] placeholder:text-[#756657] transition-colors focus:border-[#C5A989] focus:outline-none focus:ring-2 focus:ring-[#795C43]/20 shadow-2xs'
 
 export default function GetQuotePage() {
   const { state } = useLocation()
@@ -445,17 +445,17 @@ export default function GetQuotePage() {
         </p>
 
         {/* WhatsApp Card */}
-        <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-950/40 border border-emerald-500/30 p-5 text-center space-y-3 shadow-xs">
+        <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-500/10 border border-emerald-500/30 p-5 text-center space-y-3 shadow-xs">
           {submissionError && (
-            <div className="rounded-xl border border-amber-500/30 bg-amber-500/15 p-2.5 text-xs text-amber-200 text-left">
+            <div className="rounded-xl border border-amber-500/30 bg-amber-500/15 p-2.5 text-xs text-amber-800 text-left">
               <strong>Notice:</strong> {submissionError}
             </div>
           )}
-          <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
+          <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-700">
             <WhatsAppIcon className="h-4 w-4 fill-emerald-400" />
             <span>Express WhatsApp Priority Channel</span>
           </div>
-          <p className="text-xs text-emerald-200 leading-relaxed">
+          <p className="text-xs text-emerald-800 leading-relaxed">
             Need urgent same-day turnaround or custom material consultation? Chat directly with our senior pressman on WhatsApp quoting reference <code className="font-bold text-[#795C43] font-mono bg-[#F5F0E7] px-1.5 py-0.5 rounded border border-[#DED2C1]">{quoteNum}</code>.
           </p>
           <a
@@ -861,7 +861,7 @@ export default function GetQuotePage() {
                           type="button"
                           onClick={() => removeFile(index)}
                           aria-label={`Remove ${file.name}`}
-                          className="ml-3 shrink-0 text-slate-400 hover:text-rose-600 cursor-pointer"
+                          className="ml-3 shrink-0 text-[#756657] hover:text-rose-600 cursor-pointer"
                         >
                           <X className="h-4 w-4" />
                         </button>
@@ -999,8 +999,8 @@ export default function GetQuotePage() {
               </dl>
 
               {/* Express WhatsApp Banner */}
-              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
-                <div className="flex items-center gap-2.5 text-xs text-emerald-200 font-medium text-left">
+              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                <div className="flex items-center gap-2.5 text-xs text-emerald-800 font-medium text-left">
                   <WhatsAppIcon className="h-5 w-5 fill-emerald-400 shrink-0" />
                   <span>Prefer an instant quotation on WhatsApp? Send these specs directly to our production engineer.</span>
                 </div>

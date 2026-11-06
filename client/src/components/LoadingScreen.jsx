@@ -128,7 +128,7 @@ export default function LoadingScreen() {
         <motion.div
           key="onprint-luxury-splash"
           onClick={() => setVisible(false)}
-          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#F5F0E7] text-white overflow-hidden select-none cursor-pointer"
+          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#F5F0E7] text-[#352719] overflow-hidden select-none cursor-pointer"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
@@ -138,12 +138,12 @@ export default function LoadingScreen() {
           aria-live="polite"
           aria-label="ONPRINT Luxury Printing Dubai"
         >
-          {/* Subtle Atelier Ambient Vignette (Deep Midnight Navy Depth) */}
+          {/* Subtle Atelier Ambient Vignette (Warm Ivory Depth) */}
           <div
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(121, 92, 67, 0.1) 65%, #EDE3D5 100%)',
+                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(250, 248, 243, 0.9) 0%, rgba(121, 92, 67, 0.08) 65%, #EDE3D5 100%)',
             }}
           />
 
@@ -154,7 +154,7 @@ export default function LoadingScreen() {
               e.stopPropagation()
               setVisible(false)
             }}
-            className="absolute top-5 right-5 sm:top-6 sm:right-8 z-50 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors pointer-events-auto cursor-pointer"
+            className="absolute top-5 right-5 sm:top-6 sm:right-8 z-50 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#756657] hover:text-[#352719] bg-[#FAF8F3] hover:bg-[#EDE3D5] border border-[#DED2C1] transition-colors pointer-events-auto cursor-pointer"
             aria-label="Skip splash screen"
           >
             SKIP ✕
@@ -192,7 +192,7 @@ export default function LoadingScreen() {
 
                 {/* Official ONPRINT Brand Wordmark */}
                 <div className="flex flex-col justify-center leading-none">
-                  <span className="font-black uppercase font-display text-3xl sm:text-4xl md:text-5xl tracking-widest text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]">
+                  <span className="font-black uppercase font-display text-3xl sm:text-4xl md:text-5xl tracking-widest text-[#352719] drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]">
                     ON<span className="text-[#795C43]">PRINT</span>
                   </span>
                 </div>
@@ -269,7 +269,7 @@ export default function LoadingScreen() {
             {/* "YOUR IDEAS. BEAUTIFULLY PRINTED."                       */}
             {/* ======================================================== */}
             <motion.p
-              className="mt-3.5 sm:mt-4 text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.22em] sm:tracking-[0.32em] text-slate-200 uppercase text-center"
+              className="mt-3.5 sm:mt-4 text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.22em] sm:tracking-[0.32em] text-[#352719] uppercase text-center"
               initial={{ opacity: 0, y: 6 }}
               animate={
                 phase >= 4

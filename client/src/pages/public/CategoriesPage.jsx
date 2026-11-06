@@ -103,7 +103,7 @@ export default function CategoriesPage() {
   ]
 
   return (
-    <div className="bg-[#F5F0E7] text-slate-200 py-12 sm:py-16">
+    <div className="bg-[#F5F0E7] text-[#352719] py-12 sm:py-16">
       {/* SEO Head Management */}
       <SEOHead
         title="Printing Categories & Departments Dubai | Commercial Printing Catalog | ONPRINT"
@@ -129,10 +129,10 @@ export default function CategoriesPage() {
               <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
               Dubai Commercial Printing Press • Master Architecture
             </div>
-            <h1 className="font-display mt-4 text-3xl font-black tracking-tight text-white sm:text-5xl">
+            <h1 className="font-display mt-4 text-3xl font-black tracking-tight text-[#352719] sm:text-5xl">
               Printing Departments &amp; Categories
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#756657] sm:text-lg">
               Explore ONPRINT's 5 master commercial printing departments. Find luxury stationery, high-volume promotional items, large format displays, and custom corporate gifts manufactured locally in Al Quoz, Dubai.
             </p>
           </Reveal>
@@ -146,7 +146,7 @@ export default function CategoriesPage() {
                 className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
                   selectedDeptFilter === 'all'
                     ? 'bg-[#795C43] text-white shadow-sm'
-                    : 'bg-[#FAF8F3] border border-[#DED2C1] text-slate-300 hover:text-white'
+                    : 'bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:text-[#352719]'
                 }`}
               >
                 All Departments (5)
@@ -159,7 +159,7 @@ export default function CategoriesPage() {
                   className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                     selectedDeptFilter === dept.slug
                       ? 'bg-[#795C43] text-white shadow-sm'
-                      : 'bg-[#FAF8F3] border border-[#DED2C1] text-slate-300 hover:text-white'
+                      : 'bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:text-[#352719]'
                   }`}
                 >
                   {dept.shortName || dept.name}
@@ -168,19 +168,19 @@ export default function CategoriesPage() {
             </div>
 
             <div className="relative w-full sm:w-72 shrink-0">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search categories (e.g. Business Cards)..."
-                className="w-full rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] pl-10 pr-9 py-2.5 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#C5A989] focus:outline-none shadow-xs"
+                className="w-full rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] pl-10 pr-9 py-2.5 text-xs font-semibold text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none shadow-xs"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white cursor-pointer"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#756657] hover:text-[#352719] cursor-pointer"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -222,14 +222,14 @@ export default function CategoriesPage() {
                           <span className="text-[10px] font-black uppercase tracking-widest text-[#795C43]">
                             {dept.eyebrow}
                           </span>
-                          <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.2 text-[9px] font-bold text-slate-300">
+                          <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.2 text-[9px] font-bold text-[#756657]">
                             {totalProdCount} Products
                           </span>
                         </div>
-                        <h2 className="font-display text-2xl font-black text-white sm:text-3xl mt-0.5">
+                        <h2 className="font-display text-2xl font-black text-[#352719] sm:text-3xl mt-0.5">
                           {dept.name}
                         </h2>
-                        <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mt-1">
+                        <p className="text-xs sm:text-sm text-[#756657] max-w-2xl mt-1">
                           {dept.description}
                         </p>
                       </div>
@@ -265,14 +265,14 @@ export default function CategoriesPage() {
                             />
                           </div>
                           <div className="flex items-center justify-between mb-1">
-                            <h3 className="font-display text-xs font-bold text-white group-hover:text-[#795C43] transition-colors truncate">
+                            <h3 className="font-display text-xs font-bold text-[#352719] group-hover:text-[#795C43] transition-colors truncate">
                               {sub.name}
                             </h3>
-                            <span className="rounded-full bg-[#FAF8F3] border border-[#DED2C1] px-1.5 py-0.2 text-[9px] font-bold text-slate-400 shrink-0">
+                            <span className="rounded-full bg-[#FAF8F3] border border-[#DED2C1] px-1.5 py-0.2 text-[9px] font-bold text-[#756657] shrink-0">
                               {sub.productSlugs.length}
                             </span>
                           </div>
-                          <p className="text-[11px] text-slate-300 line-clamp-2 leading-relaxed">
+                          <p className="text-[11px] text-[#756657] line-clamp-2 leading-relaxed">
                             {sub.shortDesc}
                           </p>
                         </div>
@@ -330,8 +330,8 @@ export default function CategoriesPage() {
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-white">Strict Quality Control</h4>
-                <p className="mt-1 text-xs text-slate-300">
+                <h4 className="font-bold text-sm text-[#352719]">Strict Quality Control</h4>
+                <p className="mt-1 text-xs text-[#756657]">
                   Every print job undergoes prepress verification, Fogra39 color calibration, and tactile finishing inspections.
                 </p>
               </div>
@@ -342,8 +342,8 @@ export default function CategoriesPage() {
                 <Zap className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-white">Express Same-Day Turnaround</h4>
-                <p className="mt-1 text-xs text-slate-300">
+                <h4 className="font-bold text-sm text-[#352719]">Express Same-Day Turnaround</h4>
+                <p className="mt-1 text-xs text-[#756657]">
                   Need urgent collaterals for a Dubai World Trade Centre exhibition? We dispatch fast across the UAE.
                 </p>
               </div>
@@ -354,8 +354,8 @@ export default function CategoriesPage() {
                 <Award className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-white">Luxury Paper Stocks</h4>
-                <p className="mt-1 text-xs text-slate-300">
+                <h4 className="font-bold text-sm text-[#352719]">Luxury Paper Stocks</h4>
+                <p className="mt-1 text-xs text-[#756657]">
                   Curated selection of FSC-certified cardstocks, soft-touch laminates, 24K hot foils, and painted edges.
                 </p>
               </div>

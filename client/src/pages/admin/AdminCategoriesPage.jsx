@@ -143,9 +143,9 @@ export default function AdminCategoriesPage() {
           }`}
         >
           {typeof toast === 'object' && toast.type === 'error' ? (
-            <XCircle className="h-4 w-4 text-red-400" />
+            <XCircle className="h-4 w-4 text-red-600" />
           ) : (
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700" />
           )}
           <span>{typeof toast === 'string' ? toast : toast.message}</span>
         </div>
@@ -161,7 +161,7 @@ export default function AdminCategoriesPage() {
           <h1 className="font-display mt-1 text-2xl font-black tracking-tight text-[#352719]">
             Category Management
           </h1>
-          <p className="mt-0.5 text-xs text-[#B8C2D9]">
+          <p className="mt-0.5 text-xs text-[#756657]">
             Manage your product categories in GoDaddy MySQL database.
           </p>
         </div>
@@ -181,7 +181,7 @@ export default function AdminCategoriesPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs">
         {/* Search */}
         <div className="md:col-span-5 relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             value={searchTerm}
@@ -193,7 +193,7 @@ export default function AdminCategoriesPage() {
 
         {/* Status Filter */}
         <div className="md:col-span-3 flex items-center gap-2">
-          <Filter className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
+          <Filter className="h-4 w-4 text-[#756657]/80 shrink-0" />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -207,7 +207,7 @@ export default function AdminCategoriesPage() {
 
         {/* Sort dropdown */}
         <div className="md:col-span-3 flex items-center gap-2">
-          <ArrowUpDown className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
+          <ArrowUpDown className="h-4 w-4 text-[#756657]/80 shrink-0" />
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
@@ -228,7 +228,7 @@ export default function AdminCategoriesPage() {
             onClick={() => fetchCategoryList(true)}
             disabled={refreshing}
             title="Refresh from MySQL"
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#DED2C1] bg-[#F5F0E7] text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors disabled:opacity-50 cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#DED2C1] bg-[#F5F0E7] text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors disabled:opacity-50 cursor-pointer"
           >
             <RefreshCw className={`h-4 w-4 text-[#795C43] ${refreshing ? 'animate-spin' : ''}`} />
           </button>
@@ -262,7 +262,7 @@ export default function AdminCategoriesPage() {
           </div>
           <div>
             <h3 className="font-display text-lg font-bold text-[#352719]">No categories found</h3>
-            <p className="mt-1 text-xs text-[#B8C2D9] max-w-sm mx-auto">
+            <p className="mt-1 text-xs text-[#756657] max-w-sm mx-auto">
               {searchTerm
                 ? 'No categories match your search terms.'
                 : 'Get started by creating your first product category.'}
@@ -279,7 +279,7 @@ export default function AdminCategoriesPage() {
           <div className="hidden md:block w-full overflow-x-auto rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs">
             <table className="w-full min-w-[750px] text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7] text-[11px] font-extrabold uppercase tracking-wider text-[#756657]">
                   <th className="py-3.5 px-4">Image</th>
                   <th className="py-3.5 px-4">Category Name</th>
                   <th className="py-3.5 px-4">Slug</th>
@@ -302,7 +302,7 @@ export default function AdminCategoriesPage() {
                           {cat.image ? (
                             <img src={cat.image} alt={cat.name} className="h-full w-full object-cover" />
                           ) : (
-                            <ImageIcon className="h-4 w-4 text-[#B8C2D9]/70" />
+                            <ImageIcon className="h-4 w-4 text-[#756657]/80" />
                           )}
                         </div>
                       </td>
@@ -318,10 +318,10 @@ export default function AdminCategoriesPage() {
                       </td>
 
                       {/* Slug */}
-                      <td className="py-3 px-4 font-mono text-[11px] text-[#B8C2D9]">{cat.slug}</td>
+                      <td className="py-3 px-4 font-mono text-[11px] text-[#756657]">{cat.slug}</td>
 
                       {/* Description */}
-                      <td className="py-3 px-4 max-w-xs truncate text-[#B8C2D9]">
+                      <td className="py-3 px-4 max-w-xs truncate text-[#756657]">
                         {cat.description || '—'}
                       </td>
 
@@ -334,7 +334,7 @@ export default function AdminCategoriesPage() {
                           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider transition-colors cursor-pointer ${
                             isActive
                               ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100'
-                              : 'bg-neutral-100 text-[#B8C2D9] border border-[#DED2C1] hover:bg-neutral-200'
+                              : 'bg-neutral-100 text-[#756657] border border-[#DED2C1] hover:bg-neutral-200'
                           }`}
                         >
                           <span
@@ -354,7 +354,7 @@ export default function AdminCategoriesPage() {
                       {/* Products Count */}
                       <td className="py-3 px-4 text-center">
                         <span className="inline-flex items-center gap-1 rounded-md bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#352719]">
-                          <Package className="h-3 w-3 text-[#B8C2D9]" />
+                          <Package className="h-3 w-3 text-[#756657]" />
                           {cat.productCount || 0}
                         </span>
                       </td>
@@ -366,7 +366,7 @@ export default function AdminCategoriesPage() {
                             type="button"
                             onClick={() => navigate(`/admin/categories/${targetId}/edit`)}
                             title="Edit Category"
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
                           >
                             <Edit2 className="h-4 w-4" />
                           </button>
@@ -403,12 +403,12 @@ export default function AdminCategoriesPage() {
                         {cat.image ? (
                           <img src={cat.image} alt={cat.name} className="h-full w-full object-cover" />
                         ) : (
-                          <ImageIcon className="h-4 w-4 text-[#B8C2D9]/70" />
+                          <ImageIcon className="h-4 w-4 text-[#756657]/80" />
                         )}
                       </div>
                       <div className="min-w-0">
                         <div className="font-bold text-sm text-[#352719] truncate">{cat.name}</div>
-                        <div className="font-mono text-[10px] text-[#B8C2D9] truncate">{cat.slug}</div>
+                        <div className="font-mono text-[10px] text-[#756657] truncate">{cat.slug}</div>
                       </div>
                     </div>
 
@@ -416,7 +416,7 @@ export default function AdminCategoriesPage() {
                       type="button"
                       onClick={() => handleToggleStatus(cat)}
                       className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider ${
-                        isActive ? 'bg-emerald-50 text-emerald-700' : 'bg-neutral-100 text-[#B8C2D9]'
+                        isActive ? 'bg-emerald-50 text-emerald-700' : 'bg-neutral-100 text-[#756657]'
                       }`}
                     >
                       {isActive ? 'Active' : 'Inactive'}
@@ -424,11 +424,11 @@ export default function AdminCategoriesPage() {
                   </div>
 
                   {cat.description && (
-                    <p className="text-xs text-[#B8C2D9] line-clamp-2">{cat.description}</p>
+                    <p className="text-xs text-[#756657] line-clamp-2">{cat.description}</p>
                   )}
 
                   <div className="flex items-center justify-between border-t border-[#DED2C1] pt-3 text-xs">
-                    <span className="text-[#B8C2D9] font-medium">Order: {cat.displayOrder || 0}</span>
+                    <span className="text-[#756657] font-medium">Order: {cat.displayOrder || 0}</span>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
@@ -452,7 +452,7 @@ export default function AdminCategoriesPage() {
           </div>
 
           {/* Pagination Controls */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FAF8F3] p-4 rounded-2xl border border-[#DED2C1] shadow-xs text-xs font-semibold text-[#756657]">
             <div>
               Showing <span className="font-bold text-[#352719]">{filteredCategories.length}</span> of{' '}
               <span className="font-bold text-[#352719]">{categories.length}</span> categories
@@ -461,7 +461,7 @@ export default function AdminCategoriesPage() {
               <button
                 type="button"
                 disabled
-                className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+                className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
               >
                 Previous
               </button>
@@ -474,7 +474,7 @@ export default function AdminCategoriesPage() {
               <button
                 type="button"
                 disabled
-                className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+                className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-1.5 text-[#756657]/80 opacity-60 cursor-not-allowed"
               >
                 Next
               </button>
@@ -493,7 +493,7 @@ export default function AdminCategoriesPage() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-[#352719]">Delete Category?</h3>
-                <p className="text-xs text-[#B8C2D9]">
+                <p className="text-xs text-[#756657]">
                   Are you sure you want to delete &quot;{deletingCategory.name}&quot;?
                 </p>
               </div>

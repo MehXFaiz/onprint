@@ -696,15 +696,15 @@ export default function AdminBlogFormPage() {
   return (
     <div className="space-y-6">
       {/* Breadcrumbs Navigation */}
-      <nav className="flex items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+      <nav className="flex items-center gap-2 text-xs font-semibold text-[#756657]">
         <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Admin
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <Link to="/admin/blog" className="hover:text-[#352719] transition-colors">
           Blog Articles
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <span className="text-[#352719] font-bold">{isEdit ? 'Edit Article' : 'Write New Article'}</span>
       </nav>
 
@@ -714,7 +714,7 @@ export default function AdminBlogFormPage() {
           <h1 className="font-display text-2xl font-black tracking-tight text-[#352719]">
             {isEdit ? `Edit Article: ${form.title || 'Untitled'}` : 'Write New Blog Article'}
           </h1>
-          <p className="text-xs text-[#B8C2D9] mt-1">
+          <p className="text-xs text-[#756657] mt-1">
             Author SEO-optimized long-form content connected directly to MySQL categories &amp; products.
           </p>
         </div>
@@ -805,7 +805,7 @@ export default function AdminBlogFormPage() {
                   type="button"
                   onClick={() => setPreviewMode(false)}
                   className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                    !previewMode ? 'bg-[#FAF8F3] text-[#352719] shadow-xs' : 'text-[#B8C2D9] hover:text-[#352719]'
+                    !previewMode ? 'bg-[#FAF8F3] text-[#352719] shadow-xs' : 'text-[#756657] hover:text-[#352719]'
                   }`}
                 >
                   <FileCode className="h-3.5 w-3.5 inline mr-1" />
@@ -815,7 +815,7 @@ export default function AdminBlogFormPage() {
                   type="button"
                   onClick={() => setPreviewMode(true)}
                   className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                    previewMode ? 'bg-[#FAF8F3] text-[#352719] shadow-xs' : 'text-[#B8C2D9] hover:text-[#352719]'
+                    previewMode ? 'bg-[#FAF8F3] text-[#352719] shadow-xs' : 'text-[#756657] hover:text-[#352719]'
                   }`}
                 >
                   <Eye className="h-3.5 w-3.5 inline mr-1" />
@@ -844,8 +844,8 @@ export default function AdminBlogFormPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
                 SEO URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#C5A989]">
-                <span className="text-[#B8C2D9]/70">/blog/</span>
+              <div className="flex items-center rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#756657] focus-within:border-[#C5A989]">
+                <span className="text-[#756657]/80">/blog/</span>
                 <input
                   type="text"
                   value={form.slug}
@@ -937,7 +937,7 @@ export default function AdminBlogFormPage() {
                   Target Location
                 </label>
                 <div className="flex items-center rounded-xl border border-[#DED2C1] px-3 py-2 text-xs font-semibold text-[#352719] focus-within:border-[#C5A989]">
-                  <MapPin className="h-3.5 w-3.5 text-[#B8C2D9]/70 mr-1 shrink-0" />
+                  <MapPin className="h-3.5 w-3.5 text-[#756657]/80 mr-1 shrink-0" />
                   <input
                     type="text"
                     value={form.target_location}
@@ -980,7 +980,7 @@ export default function AdminBlogFormPage() {
                 <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-6 min-h-[300px]">
                   <div
                     className="prose prose-neutral max-w-none text-xs leading-relaxed text-[#352719] [&_h2]:font-bold [&_h2]:text-base [&_h2]:mt-4 [&_h3]:font-bold [&_h3]:text-sm [&_h3]:mt-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1"
-                    dangerouslySetInnerHTML={{ __html: form.content || '<p class="text-[#B8C2D9]/70 italic">No content yet.</p>' }}
+                    dangerouslySetInnerHTML={{ __html: form.content || '<p class="text-[#756657]/80 italic">No content yet.</p>' }}
                   />
                 </div>
               )}
@@ -1128,7 +1128,7 @@ export default function AdminBlogFormPage() {
 
             {/* Open Graph Overrides */}
             <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-4 space-y-3">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#756657]">
                 Open Graph / Social Sharing Meta
               </span>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -1161,18 +1161,18 @@ export default function AdminBlogFormPage() {
 
             {/* Live Google SERP Snippet Preview */}
             <div className="mt-4 rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/80 p-4">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#756657]">
                 Google Search SERP Preview
               </span>
               <div className="mt-2 space-y-1">
-                <div className="flex items-center gap-1.5 text-xs text-[#B8C2D9] truncate">
-                  <Globe className="h-3 w-3 text-[#B8C2D9]/70 shrink-0" />
+                <div className="flex items-center gap-1.5 text-xs text-[#756657] truncate">
+                  <Globe className="h-3 w-3 text-[#756657]/80 shrink-0" />
                   <span>{serpUrl}</span>
                 </div>
                 <div className="text-sm font-bold text-blue-800 hover:underline cursor-pointer">
                   {form.meta_title || serpTitle}
                 </div>
-                <div className="text-xs text-[#B8C2D9] line-clamp-2">
+                <div className="text-xs text-[#756657] line-clamp-2">
                   {form.meta_description || serpDesc}
                 </div>
               </div>
@@ -1198,13 +1198,13 @@ export default function AdminBlogFormPage() {
               </button>
             </div>
 
-            <p className="text-xs text-[#B8C2D9]">
+            <p className="text-xs text-[#756657]">
               Approved FAQs appear as an interactive accordion on the article and are automatically injected as Google <code className="font-mono text-[#352719]">FAQPage</code> structured data for SERP rich results.
             </p>
 
             {(!form.faqs || form.faqs.length === 0) ? (
-              <div className="rounded-xl border border-dashed border-[#DED2C1] p-6 text-center text-xs text-[#B8C2D9]">
-                <HelpCircle className="mx-auto h-8 w-8 text-neutral-300 mb-2" />
+              <div className="rounded-xl border border-dashed border-[#DED2C1] p-6 text-center text-xs text-[#756657]">
+                <HelpCircle className="mx-auto h-8 w-8 text-[#756657] mb-2" />
                 <span>No FAQs added yet. Click &ldquo;Add Question&rdquo; or use &ldquo;Generate SEO with AI&rdquo; to populate FAQs.</span>
               </div>
             ) : (
@@ -1215,7 +1215,7 @@ export default function AdminBlogFormPage() {
                     className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7]/60 p-4 space-y-3"
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">
                         FAQ #{idx + 1}
                       </span>
                       <div className="flex items-center gap-2">
@@ -1225,7 +1225,7 @@ export default function AdminBlogFormPage() {
                           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold cursor-pointer transition-colors ${
                             faq.is_approved !== false
                               ? 'bg-emerald-100 text-emerald-800'
-                              : 'bg-neutral-200 text-[#B8C2D9]'
+                              : 'bg-neutral-200 text-[#756657]'
                           }`}
                         >
                           <Check className="h-3 w-3" />
@@ -1234,7 +1234,7 @@ export default function AdminBlogFormPage() {
                         <button
                           type="button"
                           onClick={() => handleDeleteFaq(idx)}
-                          className="text-red-400 hover:text-red-600 p-1 cursor-pointer"
+                          className="text-red-600 hover:text-red-600 p-1 cursor-pointer"
                           title="Remove Question"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
@@ -1298,7 +1298,7 @@ export default function AdminBlogFormPage() {
 
             {/* Score & Health Badge */}
             <div className="rounded-xl bg-[#F5F0E7]/80 p-4 border border-[#DED2C1] text-center">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-[#756657]">
                 Live Optimization Score
               </div>
               <div className="mt-1 flex items-baseline justify-center gap-1">
@@ -1315,7 +1315,7 @@ export default function AdminBlogFormPage() {
                 >
                   {seoEvaluation?.score ?? form.seo_score ?? '—'}
                 </span>
-                <span className="text-xs font-bold text-[#B8C2D9]/70">/100</span>
+                <span className="text-xs font-bold text-[#756657]/80">/100</span>
               </div>
               <div className="mt-1">
                 <span
@@ -1343,19 +1343,19 @@ export default function AdminBlogFormPage() {
             {/* Quick Metrics */}
             <div className="grid grid-cols-3 gap-2 text-center text-xs">
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-2">
-                <div className="text-[10px] text-[#B8C2D9]/70 font-bold uppercase">Words</div>
+                <div className="text-[10px] text-[#756657]/80 font-bold uppercase">Words</div>
                 <div className="font-bold text-[#352719] mt-0.5">
                   {seoEvaluation?.wordCount ?? form.word_count ?? (form.content ? form.content.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length : 0)}
                 </div>
               </div>
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-2">
-                <div className="text-[10px] text-[#B8C2D9]/70 font-bold uppercase">Readability</div>
+                <div className="text-[10px] text-[#756657]/80 font-bold uppercase">Readability</div>
                 <div className="font-bold text-[#352719] mt-0.5">
                   {seoEvaluation?.readabilityScore ?? form.readability_score ?? '—'}
                 </div>
               </div>
               <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-2">
-                <div className="text-[10px] text-[#B8C2D9]/70 font-bold uppercase">Density</div>
+                <div className="text-[10px] text-[#756657]/80 font-bold uppercase">Density</div>
                 <div className="font-bold text-[#352719] mt-0.5">
                   {seoEvaluation?.keywordDensity != null ? `${seoEvaluation.keywordDensity}%` : form.keyword_density ? `${form.keyword_density}%` : '—'}
                 </div>
@@ -1368,7 +1368,7 @@ export default function AdminBlogFormPage() {
                 <span className="font-bold text-[#352719] uppercase tracking-wider text-[10px]">
                   10-Point SEO Checklist
                 </span>
-                <span className="text-[10px] font-bold text-[#B8C2D9] bg-neutral-100 px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-bold text-[#756657] bg-neutral-100 px-2 py-0.5 rounded-full">
                   {computedChecklist.filter((c) => c.status === 'green').length}/10 Passed
                 </span>
               </div>
@@ -1409,7 +1409,7 @@ export default function AdminBlogFormPage() {
                   <span className="font-bold text-[#352719] uppercase tracking-wider text-[10px]">
                     Actionable AI Recommendations
                   </span>
-                  <span className="text-[10px] text-[#B8C2D9]/70">
+                  <span className="text-[10px] text-[#756657]/80">
                     {seoEvaluation.recommendations.length} items
                   </span>
                 </div>
@@ -1434,7 +1434,7 @@ export default function AdminBlogFormPage() {
                           {rec.priority}
                         </span>
                       </div>
-                      <div className="text-[#B8C2D9] text-[10px] line-clamp-2">
+                      <div className="text-[#756657] text-[10px] line-clamp-2">
                         {rec.why || rec.solution}
                       </div>
                       {rec.suggestedValue && rec.targetField && (
@@ -1501,7 +1501,7 @@ export default function AdminBlogFormPage() {
             <div className="flex items-center justify-between rounded-xl border border-[#DED2C1] p-3">
               <div>
                 <span className="block text-xs font-bold text-[#352719]">Featured Article</span>
-                <span className="block text-[11px] text-[#B8C2D9]">Showcase on ONPRINT Homepage</span>
+                <span className="block text-[11px] text-[#756657]">Showcase on ONPRINT Homepage</span>
               </div>
               <input
                 type="checkbox"
@@ -1588,13 +1588,13 @@ export default function AdminBlogFormPage() {
               <button
                 type="button"
                 onClick={() => setShowAiModal(false)}
-                className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#EDE3D5] hover:text-[#352719] text-sm font-bold cursor-pointer"
+                className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-[#EDE3D5] hover:text-[#352719] text-sm font-bold cursor-pointer"
               >
                 ✕
               </button>
             </div>
 
-            <p className="text-xs text-[#B8C2D9] leading-relaxed">
+            <p className="text-xs text-[#756657] leading-relaxed">
               Generate an authentic, long-form commercial printing guide with technical paper GSM specifications, substrate comparison tables, CMYK pre-press checklists, FAQs, and high-converting CTAs tailored for businesses in the UAE.
             </p>
 
@@ -1731,7 +1731,7 @@ export default function AdminBlogFormPage() {
             </div>
 
             {/* Content Safety Guarantee Badge */}
-            <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-[11px] text-[#B8C2D9] space-y-1">
+            <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-[11px] text-[#756657] space-y-1">
               <div className="font-bold text-[#352719] flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                 <span>Strict Content Safety &amp; Quality Guarantee</span>
@@ -1780,7 +1780,7 @@ export default function AdminBlogFormPage() {
               <button
                 type="button"
                 onClick={() => setShowSeoReviewModal(false)}
-                className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-neutral-200 hover:text-[#352719] transition-colors cursor-pointer"
+                className="rounded-lg p-1.5 text-[#756657]/80 hover:bg-neutral-200 hover:text-[#352719] transition-colors cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -1844,7 +1844,7 @@ export default function AdminBlogFormPage() {
                     {seoAiSuggestions.faqs.map((f, fi) => (
                       <div key={fi} className="border-l-2 border-[#C5A989] pl-3 py-0.5">
                         <div className="font-bold text-[#352719]">{f.question}</div>
-                        <div className="text-[#B8C2D9] text-[11px] mt-0.5">{f.answer}</div>
+                        <div className="text-[#756657] text-[11px] mt-0.5">{f.answer}</div>
                       </div>
                     ))}
                   </div>
@@ -1886,17 +1886,17 @@ export default function AdminBlogFormPage() {
               </h3>
             </div>
 
-            <p className="text-xs text-[#B8C2D9] leading-relaxed">
+            <p className="text-xs text-[#756657] leading-relaxed">
               Are you sure you want to apply this AI optimization to <strong>{confirmApplyModal.field}</strong>?
             </p>
 
             <div className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 space-y-2 text-xs">
               <div>
-                <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Reason:</span>
+                <span className="text-[10px] font-bold text-[#756657]/80 uppercase">Reason:</span>
                 <p className="text-[#352719] font-medium">{confirmApplyModal.problem}</p>
               </div>
               <div>
-                <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Proposed Value:</span>
+                <span className="text-[10px] font-bold text-[#756657]/80 uppercase">Proposed Value:</span>
                 <p className="font-semibold text-emerald-800 bg-emerald-50 p-2 rounded-lg mt-0.5">
                   {typeof confirmApplyModal.value === 'string'
                     ? confirmApplyModal.value

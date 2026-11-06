@@ -94,15 +94,15 @@ export default function AdminOrderFormPage() {
   return (
     <div className="space-y-6 max-w-4xl">
       {/* Breadcrumbs */}
-      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#756657]">
         <Link to="/admin" className="hover:text-[#352719] transition-colors">
           Admin
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <Link to="/admin/orders" className="hover:text-[#352719] transition-colors">
           Orders
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+        <ChevronRight className="h-3.5 w-3.5 text-[#756657]/80" />
         <span className="text-[#352719] font-bold">{isEdit ? 'Edit Order' : 'Create New Order'}</span>
       </nav>
 
@@ -119,7 +119,7 @@ export default function AdminOrderFormPage() {
           <h1 className="font-display text-2xl font-black text-[#352719]">
             {isEdit ? `Edit Order: ${form.orderNumber}` : 'Create Manual Production Order'}
           </h1>
-          <p className="text-xs text-[#B8C2D9] mt-0.5">
+          <p className="text-xs text-[#756657] mt-0.5">
             Manage client order details, production status, and price totals.
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function AdminOrderFormPage() {
               <ShoppingBag className="h-4 w-4 text-[#795C43]" />
               Order Specifications
             </h3>
-            <p className="text-xs text-[#B8C2D9]">Customer information and ordered items.</p>
+            <p className="text-xs text-[#756657]">Customer information and ordered items.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -155,12 +155,12 @@ Dubai, UAE`
                 <Sparkles className="h-3.5 w-3.5" />
                 Unlinked Brand Mentions & PR
               </span>
-              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 30 & 31</span>
+              <span className="text-xs font-semibold text-[#756657]">Requirements 30 & 31</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#352719]">
               Brand Mention Tracker & Reclamation
             </h2>
-            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
+            <p className="mt-1 text-sm text-[#756657] max-w-2xl">
               Tracks editorial citations and press mentions of &quot;ONPRINT&quot; and &quot;0nprint&quot; across UAE media and directories to convert unlinked brand equity into high-authority dofollow backlinks.
             </p>
           </div>
@@ -182,9 +182,9 @@ Dubai, UAE`
         {/* Top Metric Cards */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="rounded-xl border border-[#DED2C1]/70 bg-[#F5F0E7] p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Mentions</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#756657]">Total Mentions</div>
             <div className="mt-1 text-2xl font-black text-[#352719]">{summary.total}</div>
-            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Tracked in media</div>
+            <div className="mt-0.5 text-[10px] text-[#756657]">Tracked in media</div>
           </div>
 
           <div className="rounded-xl border border-amber-200/70 bg-amber-50/50 p-4">
@@ -210,7 +210,7 @@ Dubai, UAE`
       {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#756657]/80" />
           <input
             type="text"
             placeholder="Search domain, article, or snippet..."
@@ -237,18 +237,18 @@ Dubai, UAE`
       {/* Mentions Table */}
       <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             Loading brand mentions...
           </div>
         ) : filteredMentions.length === 0 ? (
-          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+          <div className="p-12 text-center text-sm text-[#756657]">
             No brand mentions match the active filter.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#DED2C1] bg-[#F5F0E7]/80 text-[#756657] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Publication Domain & Title</th>
                   <th className="py-3 px-3">DR</th>
                   <th className="py-3 px-4">Brand Mention Snippet</th>
@@ -266,7 +266,7 @@ Dubai, UAE`
                         <div className="font-bold text-[#352719] truncate">
                           {item.mentioning_domain}
                         </div>
-                        <div className="text-[11px] text-[#B8C2D9] truncate mt-0.5">
+                        <div className="text-[11px] text-[#756657] truncate mt-0.5">
                           {item.article_title || 'Article Feature'}
                         </div>
                       </td>
@@ -301,7 +301,7 @@ Dubai, UAE`
                               ? 'bg-emerald-50 text-emerald-700'
                               : item.outreach_status === 'CONTACTED'
                               ? 'bg-blue-50 text-blue-700'
-                              : 'bg-neutral-100 text-[#B8C2D9]'
+                              : 'bg-neutral-100 text-[#756657]'
                           }`}
                         >
                           {item.outreach_status}
@@ -338,7 +338,7 @@ Dubai, UAE`
                             href={item.source_url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-[#B8C2D9]/70 hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5]"
+                            className="p-1.5 text-[#756657]/80 hover:text-[#795C43] rounded-lg hover:bg-[#EDE3D5]"
                             title="View Mention Live"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -347,7 +347,7 @@ Dubai, UAE`
                           <button
                             type="button"
                             onClick={() => handleDelete(item.id)}
-                            className="p-1.5 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
+                            className="p-1.5 text-[#756657]/80 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                           </button>
@@ -370,7 +370,7 @@ Dubai, UAE`
               <h3 className="font-black text-lg text-[#352719]">Log Discovered Brand Mention</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 text-[#B8C2D9]/70 hover:text-[#352719]"
+                className="p-1 text-[#756657]/80 hover:text-[#352719]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -492,14 +492,14 @@ Dubai, UAE`
             <div className="flex items-center justify-between border-b pb-3">
               <div>
                 <h3 className="font-black text-lg text-[#352719]">Editorial Reclamation Pitch</h3>
-                <p className="text-xs text-[#B8C2D9]">Pre-composed email template for {showPitchModal.mentioning_domain}</p>
+                <p className="text-xs text-[#756657]">Pre-composed email template for {showPitchModal.mentioning_domain}</p>
               </div>
               <button
                 onClick={() => {
                   setShowPitchModal(null)
                   setCopied(false)
                 }}
-                className="p-1 text-[#B8C2D9]/70 hover:text-[#352719]"
+                className="p-1 text-[#756657]/80 hover:text-[#352719]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -510,7 +510,7 @@ Dubai, UAE`
             </div>
 
             <div className="flex items-center justify-between pt-2">
-              <span className="text-xs text-[#B8C2D9]">
+              <span className="text-xs text-[#756657]">
                 Target link: <span className="font-mono text-[#352719] font-bold">https://www.0nprint.com</span>
               </span>
               <div className="flex items-center gap-2">

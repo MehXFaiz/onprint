@@ -13,6 +13,7 @@ import {
   Search,
   Sparkles,
   MapPin,
+  HelpCircle,
   Copy,
   Check,
   ArrowRight,
@@ -307,6 +308,7 @@ export default function SiteHeader() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [whatsappMenuOpen, setWhatsappMenuOpen] = useState(false)
+  const [companyMenuOpen, setCompanyMenuOpen] = useState(false)
   const [copiedPhone, setCopiedPhone] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -324,6 +326,7 @@ export default function SiteHeader() {
   const headerRef = useRef(null)
   const megaMenuTimeoutRef = useRef(null)
   const whatsappMenuRef = useRef(null)
+  const companyMenuRef = useRef(null)
   const userMenuRef = useRef(null)
 
   const { user, logout, isAuthenticated, isAdmin } = useAuth()
@@ -335,6 +338,7 @@ export default function SiteHeader() {
     setMegaMenuOpen(false)
     setUserMenuOpen(false)
     setWhatsappMenuOpen(false)
+    setCompanyMenuOpen(false)
     setSearchOpen(false)
     if (megaMenuTimeoutRef.current) {
       clearTimeout(megaMenuTimeoutRef.current)
@@ -390,6 +394,9 @@ export default function SiteHeader() {
         if (whatsappMenuRef.current && !whatsappMenuRef.current.contains(event.target)) {
           setWhatsappMenuOpen(false)
         }
+        if (companyMenuRef.current && !companyMenuRef.current.contains(event.target)) {
+          setCompanyMenuOpen(false)
+        }
         if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
           setUserMenuOpen(false)
         }
@@ -414,6 +421,7 @@ export default function SiteHeader() {
         setMegaMenuOpen(false)
         setUserMenuOpen(false)
         setWhatsappMenuOpen(false)
+        setCompanyMenuOpen(false)
         setMobileMenuOpen(false)
       }
     }
@@ -558,207 +566,303 @@ export default function SiteHeader() {
             : 'max-h-11 opacity-100 border-b border-[#DED2C1]/80'
         }`}
       >
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 text-[11px] font-medium">
-          {/* Left: Dubai Pressroom Credentials */}
-          <div className="flex items-center gap-4 min-w-0">
-            <span className="inline-flex items-center gap-1.5 font-semibold text-[#352719] truncate">
-              <MapPin className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
-              <span>Al Quoz Industrial Area, Dubai • Commercial Offset &amp; Digital Pressroom</span>
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-3 sm:px-6 lg:px-8 py-1.5 text-[11px] font-medium">
+          {/* Left: Pressroom Dispatch & Delivery Badges */}
+          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 text-[#352719]">
+            <span className="inline-flex items-center gap-1.5 font-semibold truncate">
+              <MapPin className="h-3 w-3 text-[#795C43] shrink-0" />
+              <span>Dubai, UAE • Doorstep Express Dispatch</span>
             </span>
-            <span className="hidden xl:inline-block h-3 w-px bg-[#C5A989]/60" />
-            <span className="hidden xl:inline-flex items-center gap-1.5 text-[#5C4938]">
-              <Zap className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
-              <span>Same-Day Express Print &amp; 24h UAE Delivery</span>
+            <span className="text-[#C5A989]/80">•</span>
+            <span className="inline-flex items-center gap-1.5 text-emerald-800 font-semibold truncate">
+              <Truck className="h-3 w-3 text-emerald-600 shrink-0" />
+              <span>Doorstep UAE Delivery • Express 24h Turnaround</span>
             </span>
           </div>
 
-          {/* Right: Customer Service Links & Language Switcher */}
-          <div className="flex items-center gap-4 shrink-0">
+          {/* Right: Direct Customer Service Links */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 text-[#756657]">
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
               className="inline-flex items-center gap-1.5 font-bold text-[#352719] hover:text-[#795C43] transition-colors"
               title="Call ONPRINT Pressroom Hotline"
             >
               <Phone className="h-3 w-3 text-[#795C43]" />
-              <span>{FORMATTED_PHONE}</span>
+              <span>Hotline: {FORMATTED_PHONE}</span>
             </a>
 
-            <span className="h-3 w-px bg-[#C5A989]/60" />
+            <span className="text-[#C5A989]/80">•</span>
 
             <Link
               to="/corporate-quotes"
-              className="hidden lg:inline-flex items-center gap-1 font-semibold text-[#5C4938] hover:text-[#352719] transition-colors"
+              className="inline-flex items-center gap-1 font-semibold text-[#5C4938] hover:text-[#352719] transition-colors"
             >
-              <Building2 className="h-3 w-3 text-[#795C43]" />
-              <span>Corporate B2B Accounts</span>
+              <span>Corporate Quotes</span>
             </Link>
 
-            <span className="hidden lg:inline-block h-3 w-px bg-[#C5A989]/60" />
+            <span className="text-[#C5A989]/80">•</span>
 
             <Link
               to="/track-order"
               className="inline-flex items-center gap-1 font-semibold text-[#5C4938] hover:text-[#352719] transition-colors"
             >
-              <Truck className="h-3.5 w-3.5 text-[#795C43]" />
               <span>Track Order</span>
             </Link>
-
-            <span className="h-3 w-px bg-[#C5A989]/60" />
-
-            <LanguageSwitcher />
           </div>
         </div>
       </div>
 
       {/* =====================================================================
-          2. MAIN NAVIGATION BAR (Logo + Primary Nav + Customer Action Area)
+          2. MAIN NAVIGATION BAR (Pixel-Perfect, Fully Responsive)
          ===================================================================== */}
-      <div className="mx-auto max-w-[1440px] px-3 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-2.5 sm:px-4 lg:px-6 2xl:px-8">
         <div
-          className={`flex items-center justify-between gap-2 lg:gap-4 transition-all duration-300 ${
-            scrolled ? 'h-16' : 'h-18 sm:h-20'
+          className={`flex items-center justify-between gap-1.5 sm:gap-2 lg:gap-3 transition-all duration-300 ${
+            scrolled ? 'h-15 sm:h-16' : 'h-17 sm:h-19'
           }`}
         >
-          {/* A. BRAND LOGO */}
-          <div className="flex items-center shrink-0">
-            <Logo
-              variant="default"
-              size={scrolled ? 'sm' : 'md'}
-              className="transition-transform duration-200 hover:scale-[1.01]"
-            />
+          {/* A. BRAND LOGO & DUBAI PRESSROOM BADGE */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+            <Link to="/" className="flex items-center shrink-0" onClick={() => setMobileMenuOpen(false)}>
+              <Logo
+                variant="default"
+                size={scrolled ? 'sm' : 'md'}
+                className="transition-transform duration-200 hover:scale-[1.01]"
+              />
+            </Link>
+
+            <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-2.5 sm:pl-3 border-l border-[#DED2C1] shrink-0">
+              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#795C43] whitespace-nowrap">
+                DUBAI • PRESSROOM
+              </span>
+            </div>
           </div>
 
-          {/* B. PRIMARY DESKTOP NAVIGATION (lg and above) */}
+          {/* B. CENTER FLOATING PILL ISLAND (lg and above) */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1 2xl:gap-1.5"
+            className="hidden lg:flex items-center justify-center min-w-0"
           >
-            {PRIMARY_NAV_ITEMS.map((item) => {
-              const active = isNavItemActive(item)
-
-              // Products Mega Menu Trigger + Crawlable Anchor Link
-              if (item.isMegaTrigger) {
-                const isOpen = megaMenuOpen
-                return (
-                  <div
-                    key={item.label}
-                    className="relative"
-                    onMouseEnter={handleMegaMouseEnter}
-                    onMouseLeave={handleMegaMouseLeave}
-                  >
-                    <Link
-                      to={item.to}
-                      aria-expanded={isOpen}
-                      aria-haspopup="true"
-                      aria-controls="products-mega-menu"
-                      onClick={(e) => {
-                        // On touch/keyboard toggle if not already open, while keeping real href for crawlers
-                        if (!isOpen && window.innerWidth < 1280) {
-                          e.preventDefault()
-                          setMegaMenuOpen(true)
-                        } else {
-                          setMegaMenuOpen(false)
-                        }
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
-                          if (e.key === 'ArrowDown') {
-                            e.preventDefault()
-                            setMegaMenuOpen(true)
-                          }
-                        }
-                      }}
-                      className={`group inline-flex items-center gap-1 rounded-lg px-2.5 xl:px-3 py-2 text-[13px] xl:text-[13.5px] font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                        isOpen || active
-                          ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
-                          : 'text-[#352719] hover:bg-[#EDE3D5]/70 hover:text-[#795C43]'
-                      }`}
-                    >
-                      <Layers className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        className={`h-3.5 w-3.5 text-[#756657] transition-transform duration-200 ${
-                          isOpen ? 'rotate-180 text-[#795C43]' : 'group-hover:text-[#795C43]'
-                        }`}
-                      />
-                    </Link>
-                  </div>
-                )
-              }
-
-              // Hide 'Home' on tight 1024px–1180px screens if needed (Logo already links Home), show from xl+
-              const responsiveVisibility =
-                item.to === '/'
-                  ? 'hidden xl:inline-flex'
-                  : item.to === '/about'
-                  ? 'hidden min-[1140px]:inline-flex'
-                  : 'inline-flex'
-
-              return (
-                <NavLink
-                  key={item.label}
-                  to={item.to}
-                  end={item.end}
-                  onMouseEnter={() => {
-                    if (megaMenuOpen) handleMegaMouseLeave()
+            <div className="inline-flex items-center rounded-full border border-[#DED2C1] bg-[#FAF8F3] px-1.5 xl:px-2 py-1 shadow-2xs gap-0.5 xl:gap-1 text-[12px] xl:text-[13px] font-bold text-[#352719] whitespace-nowrap">
+              {/* 1. Catalog (Mega Menu Trigger) */}
+              <div
+                className="relative"
+                onMouseEnter={handleMegaMouseEnter}
+                onMouseLeave={handleMegaMouseLeave}
+              >
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCompanyMenuOpen(false)
+                    setWhatsappMenuOpen(false)
+                    setMegaMenuOpen((prev) => !prev)
                   }}
-                  className={`${responsiveVisibility} relative items-center rounded-lg px-2.5 xl:px-3 py-2 text-[13px] xl:text-[13.5px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                    active
-                      ? 'bg-[#EDE3D5] font-bold text-[#352719]'
-                      : 'text-[#352719]/90 hover:bg-[#EDE3D5]/60 hover:text-[#795C43]'
+                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 xl:px-3 py-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    megaMenuOpen
+                      ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                      : 'text-[#352719] hover:bg-[#EDE3D5]/80 hover:text-[#795C43]'
                   }`}
                 >
-                  <span>{item.label}</span>
-                  {active && (
-                    <span className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full bg-[#795C43]" />
+                  <Layers className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                  <span>Catalog</span>
+                  <ChevronDown
+                    className={`h-3 w-3 text-[#756657] transition-transform duration-200 ${
+                      megaMenuOpen ? 'rotate-180 text-[#795C43]' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {/* 2. Cards (with DUBAI badge) */}
+              <NavLink
+                to="/business-card-printing-dubai"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-1.5 rounded-full px-2.5 xl:px-3 py-1.5 transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                      : 'text-[#352719] hover:bg-[#EDE3D5]/80 hover:text-[#795C43]'
+                  }`
+                }
+              >
+                <CreditCard className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                <span>Cards</span>
+                <span className="rounded-full bg-[#795C43] text-white text-[9px] font-black px-1.5 py-0.5 leading-none tracking-wider">
+                  DUBAI
+                </span>
+              </NavLink>
+
+              {/* 3. Stamps & Seals (with 2H badge) */}
+              <NavLink
+                to="/categories/stamps-printing-dubai"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-1.5 rounded-full px-2 xl:px-2.5 py-1.5 transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                      : 'text-[#352719] hover:bg-[#EDE3D5]/80 hover:text-[#795C43]'
+                  }`
+                }
+              >
+                <Stamp className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                <span>Stamps &amp; Seals</span>
+                <span className="rounded-full border border-[#C5A989] text-[#795C43] text-[9px] font-bold px-1.5 py-0.2 leading-none">
+                  2H
+                </span>
+              </NavLink>
+
+              {/* 4. Stickers */}
+              <NavLink
+                to="/sticker-printing-dubai"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-1.5 rounded-full px-2.5 xl:px-3 py-1.5 transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                      : 'text-[#352719] hover:bg-[#EDE3D5]/80 hover:text-[#795C43]'
+                  }`
+                }
+              >
+                <Tag className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                <span>Stickers</span>
+              </NavLink>
+
+              {/* 5. Finishes (hide on compact 1024-1240px to ensure zero overflow) */}
+              <NavLink
+                to="/finishes"
+                className={({ isActive }) =>
+                  `hidden min-[1240px]:inline-flex items-center gap-1.5 rounded-full px-2.5 xl:px-3 py-1.5 transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                      : 'text-[#352719] hover:bg-[#EDE3D5]/80 hover:text-[#795C43]'
+                  }`
+                }
+              >
+                <Sparkles className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                <span>Finishes</span>
+              </NavLink>
+
+              {/* 6. Company Dropdown */}
+              <div
+                className="relative"
+                ref={companyMenuRef}
+                onMouseEnter={() => setCompanyMenuOpen(true)}
+                onMouseLeave={() => setCompanyMenuOpen(false)}
+              >
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMegaMenuOpen(false)
+                    setWhatsappMenuOpen(false)
+                    setCompanyMenuOpen((prev) => !prev)
+                  }}
+                  className={`inline-flex items-center gap-1 rounded-full px-2.5 xl:px-3 py-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    companyMenuOpen
+                      ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                      : 'text-[#352719] hover:bg-[#EDE3D5]/80 hover:text-[#795C43]'
+                  }`}
+                >
+                  <span>Company</span>
+                  <ChevronDown
+                    className={`h-3 w-3 text-[#756657] transition-transform duration-200 ${
+                      companyMenuOpen ? 'rotate-180 text-[#795C43]' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Company Dropdown Menu */}
+                <AnimatePresence>
+                  {companyMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 mt-2 w-56 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-1.5 shadow-xl z-50 text-xs font-bold text-[#352719]"
+                    >
+                      <Link
+                        to="/about"
+                        onClick={() => setCompanyMenuOpen(false)}
+                        className="flex items-center gap-2.5 rounded-xl px-3 py-2 hover:bg-[#EDE3D5] transition-colors"
+                      >
+                        <Building2 className="h-4 w-4 text-[#795C43]" />
+                        <span>About ONPRINT Pressroom</span>
+                      </Link>
+                      <Link
+                        to="/corporate-quotes"
+                        onClick={() => setCompanyMenuOpen(false)}
+                        className="flex items-center gap-2.5 rounded-xl px-3 py-2 hover:bg-[#EDE3D5] transition-colors"
+                      >
+                        <Briefcase className="h-4 w-4 text-[#795C43]" />
+                        <span>Corporate B2B Services</span>
+                      </Link>
+                      <Link
+                        to="/track-order"
+                        onClick={() => setCompanyMenuOpen(false)}
+                        className="flex items-center gap-2.5 rounded-xl px-3 py-2 hover:bg-[#EDE3D5] transition-colors"
+                      >
+                        <Truck className="h-4 w-4 text-[#795C43]" />
+                        <span>Track Existing Order</span>
+                      </Link>
+                      <Link
+                        to="/faq"
+                        onClick={() => setCompanyMenuOpen(false)}
+                        className="flex items-center gap-2.5 rounded-xl px-3 py-2 hover:bg-[#EDE3D5] transition-colors"
+                      >
+                        <HelpCircle className="h-4 w-4 text-[#795C43]" />
+                        <span>Frequently Asked Questions</span>
+                      </Link>
+                      <Link
+                        to="/contact"
+                        onClick={() => setCompanyMenuOpen(false)}
+                        className="flex items-center gap-2.5 rounded-xl px-3 py-2 hover:bg-[#EDE3D5] transition-colors"
+                      >
+                        <Phone className="h-4 w-4 text-[#795C43]" />
+                        <span>Contact &amp; Location</span>
+                      </Link>
+                    </motion.div>
                   )}
-                </NavLink>
-              )
-            })}
+                </AnimatePresence>
+              </div>
+            </div>
           </nav>
 
-          {/* C. CUSTOMER SERVICES & ACTION AREA */}
+          {/* C. CUSTOMER ACTION AREA (Right Side) */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* 1. Search Button */}
+            {/* 1. Circular Phone Button (Visible on screens >= 1360px, hides on compact desktop to guarantee zero clipping) */}
+            <a
+              href={`tel:+${RAW_WHATSAPP_NUMBER}`}
+              title={`Call ONPRINT Pressroom: ${FORMATTED_PHONE}`}
+              aria-label={`Call ONPRINT Pressroom at ${FORMATTED_PHONE}`}
+              className="hidden min-[1360px]:inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] text-[#795C43] transition-colors shadow-2xs shrink-0"
+            >
+              <Phone className="h-4 w-4" />
+            </a>
+
+            {/* 2. Circular Search Button (Visible on all desktop, tablet & mobile) */}
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              aria-label="Search printing products and categories"
+              aria-label="Search catalog"
               title="Search Products (Press / or Ctrl+K)"
-              className="inline-flex items-center gap-2 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-2.5 sm:px-3 h-10 text-xs font-bold text-[#352719] transition-all cursor-pointer shadow-2xs"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] text-[#795C43] transition-colors cursor-pointer shadow-2xs shrink-0"
             >
-              <Search className="h-4 w-4 text-[#795C43] shrink-0" />
-              <span className="hidden 2xl:inline text-[#756657] font-semibold">Search...</span>
-              <kbd className="hidden 2xl:inline-block rounded bg-[#EDE3D5] px-1.5 py-0.5 text-[10px] font-bold text-[#5C4938] border border-[#DED2C1]">
-                /
-              </kbd>
+              <Search className="h-4 w-4" />
             </button>
 
-            {/* 2. Direct Phone Action (Desktop/Tablet) */}
-            <a
-              href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              title={`Call ONPRINT Dubai: ${FORMATTED_PHONE}`}
-              aria-label={`Call ONPRINT Dubai at ${FORMATTED_PHONE}`}
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-2.5 h-10 text-xs font-bold text-[#352719] transition-all shadow-2xs"
-            >
-              <Phone className="h-4 w-4 text-[#795C43] shrink-0" />
-              <span className="hidden min-[1360px]:inline whitespace-nowrap">{FORMATTED_PHONE}</span>
-            </a>
-
-            {/* 3. Track Order Action (Scrolled or Tablet/Desktop quick utility) */}
+            {/* 3. Circular Track Order Button (Visible on full 2XL screens >= 1440px) */}
             <Link
               to="/track-order"
               title="Track Existing Order"
               aria-label="Track Existing Order"
-              className="hidden md:inline-flex lg:hidden xl:inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-2.5 h-10 text-xs font-bold text-[#352719] transition-all shadow-2xs"
+              className="hidden 2xl:inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] text-[#795C43] transition-colors shadow-2xs shrink-0"
             >
-              <Truck className="h-4 w-4 text-[#795C43] shrink-0" />
-              <span className="hidden min-[1420px]:inline whitespace-nowrap">Track Order</span>
+              <Truck className="h-4 w-4" />
             </Link>
 
-            {/* 4. WhatsApp Action + Concierge Dropdown */}
-            <div className="relative" ref={whatsappMenuRef}>
-              <div className="inline-flex items-center rounded-xl border border-[#25D366]/40 bg-[#FAF8F3] hover:bg-[#EDE3D5] transition-all h-10 shadow-2xs overflow-hidden">
+            {/* 4. Language Switcher Pill (Arabic Switcher, visible from sm+) */}
+            <LanguageSwitcher variant="pill" className="hidden sm:inline-flex shrink-0" />
+
+            {/* 5. WhatsApp Dropdown Pill Button */}
+            <div className="relative shrink-0" ref={whatsappMenuRef}>
+              <div className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-50/80 hover:bg-emerald-100/90 transition-all h-9 shadow-2xs overflow-hidden">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -771,26 +875,30 @@ export default function SiteHeader() {
                     })
                   }
                   title={`WhatsApp Instant Quote: ${FORMATTED_PHONE}`}
-                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 h-full text-xs font-bold text-[#352719] hover:text-[#1da851] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 h-full text-xs font-bold text-emerald-900 hover:text-emerald-950 transition-colors"
                 >
-                  <span className="relative flex h-5 w-5 items-center justify-center rounded-full bg-[#25D366] text-white shrink-0">
-                    <WhatsAppIcon className="h-3 w-3 fill-current" />
-                  </span>
+                  <WhatsAppIcon className="h-4 w-4 fill-emerald-600 text-emerald-600 shrink-0" />
                   <span className="hidden sm:inline font-extrabold">WhatsApp</span>
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                  </span>
                 </a>
                 <button
                   type="button"
                   onClick={() => {
                     setMegaMenuOpen(false)
+                    setCompanyMenuOpen(false)
+                    setUserMenuOpen(false)
                     setWhatsappMenuOpen((prev) => !prev)
                   }}
                   aria-label="Open WhatsApp print desk details"
                   aria-expanded={whatsappMenuOpen}
-                  className="hidden sm:inline-flex items-center justify-center px-1.5 h-full border-l border-[#DED2C1] text-[#756657] hover:text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer"
+                  className="hidden sm:inline-flex items-center justify-center px-1.5 h-full border-l border-emerald-300/40 text-emerald-800 hover:text-emerald-950 hover:bg-emerald-100 transition-colors cursor-pointer"
                 >
                   <ChevronDown
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      whatsappMenuOpen ? 'rotate-180 text-[#795C43]' : ''
+                      whatsappMenuOpen ? 'rotate-180 text-emerald-900' : ''
                     }`}
                   />
                 </button>
@@ -886,26 +994,25 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* 5. Prominent Primary CTA: Get a Quote */}
+            {/* 6. Primary CTA: Get a Quote (Deep Brown Pill) */}
             <Link
               to="/get-a-quote"
               onClick={() => trackGetQuoteClick({ source_page: 'header_navbar' })}
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-xl bg-[#795C43] hover:bg-[#5D442E] px-3.5 xl:px-4 h-10 text-xs xl:text-[13px] font-bold text-white shadow-sm hover:shadow-md transition-all duration-200 whitespace-nowrap"
+              className="hidden sm:inline-flex items-center justify-center rounded-full bg-[#795C43] hover:bg-[#5D442E] px-3.5 sm:px-4.5 h-9 text-xs font-bold text-white shadow-2xs hover:shadow-md transition-all duration-200 whitespace-nowrap shrink-0"
             >
               <span>Get a Quote</span>
-              <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </Link>
 
-            {/* 6. Admin User Dropdown (Only when authenticated as admin) */}
+            {/* 7. Admin User Dropdown (if logged in as admin) */}
             {isAuthenticated && isAdmin && (
-              <div className="relative" ref={userMenuRef}>
+              <div className="relative shrink-0" ref={userMenuRef}>
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((prev) => !prev)}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#C5A989] bg-[#FAF8F3] px-2.5 h-10 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#C5A989] bg-[#FAF8F3] px-2.5 h-9 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer shadow-2xs"
                 >
                   <ShieldCheck className="h-4 w-4 text-[#795C43]" />
-                  <span className="hidden xl:inline max-w-[90px] truncate">
+                  <span className="hidden xl:inline max-w-[80px] truncate">
                     {user?.name || 'Admin'}
                   </span>
                   <ChevronDown className="h-3.5 w-3.5 text-[#756657]" />
@@ -944,14 +1051,14 @@ export default function SiteHeader() {
               </div>
             )}
 
-            {/* 7. Mobile & Tablet Hamburger Button (Visible below lg) */}
+            {/* 8. Mobile & Tablet Hamburger Button (Visible below lg) */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
-              className="inline-flex lg:hidden items-center justify-center rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] h-10 w-10 text-[#352719] transition-colors cursor-pointer shadow-2xs"
+              className="inline-flex lg:hidden items-center justify-center rounded-full border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] h-9 w-9 text-[#352719] transition-colors cursor-pointer shadow-2xs shrink-0"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>

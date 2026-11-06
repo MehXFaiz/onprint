@@ -370,8 +370,8 @@ const STICKER_FAQS = [
     answer: 'Yes. We manufacture precision roll labels compatible with commercial automatic label applicators and tabletop dispensers, supplied on standard 25mm (1 inch) or 76mm (3 inch) inner cardboard cores with customized rewind winding directions (top-off, bottom-off, left, or right).'
   },
   {
-    question: 'What is the fastest turnaround time for urgent sticker printing in Dubai?',
-    answer: 'We provide Same-Day 4-Hour Express production for print-ready vector artwork approved before 11:00 AM with rapid courier dispatch across Dubai. Standard production turnaround is 1 to 2 business days with express courier delivery across Dubai, Abu Dhabi, Sharjah, and all UAE emirates.'
+    question: 'Where to get custom stickers printed in Dubai with fast turnaround?',
+    answer: 'ONPRINT is a trusted commercial press for custom sticker printing in Dubai and across the UAE. We offer Same-Day 4-Hour Express production for print-ready vector artwork approved before 11:00 AM with rapid courier dispatch to Al Quoz, DIFC, Downtown, Business Bay, and DWTC, plus 24–48 hour delivery across Abu Dhabi, Sharjah, and all UAE emirates.'
   },
   {
     question: 'What artwork file formats are required for sticker printing?',
@@ -386,8 +386,8 @@ const STICKER_FAQS = [
     answer: 'Yes. We supply removable adhesive labels in the UAE engineered with clean-peel acrylic adhesives. They hold firmly on glass jars, retail windows, electronics, and reusable containers during use, yet peel away cleanly without leaving sticky glue residue.'
   },
   {
-    question: 'Can small businesses order custom packaging labels in low quantities or wholesale bulk?',
-    answer: 'Yes. We support custom labels for small businesses in Dubai with low minimum order quantities starting at just 100 stickers—including multi-design kiss-cut sticker sheets and QR code product stickers—while also offering wholesale custom stickers and bulk roll labels up to 50,000+ units.'
+    question: 'Do you offer affordable sticker printing in Dubai for small businesses and bulk packaging?',
+    answer: 'Yes. We provide affordable sticker printing in Dubai starting from AED 40 for 100 custom stickers—ideal for custom stickers for small businesses, startups, and custom logo stickers for packaging—while offering wholesale bulk sticker printing in Dubai on machine rolls or sheets up to 50,000+ units.'
   }
 ]
 
@@ -547,9 +547,9 @@ export default function StickersLandingPage() {
     <div className="bg-[#F5F0E7] text-[#352719] min-h-screen">
       {/* 1. SEO Head Metadata with FAQ & LocalBusiness Schema */}
       <SEOHead
-        title="Sticker Printing Dubai | Custom Stickers & Labels | ONPRINT"
-        description="Order custom stickers and product labels from ONPRINT in Dubai. Explore available materials, shapes and finishes, and request a quote for your printing requirements."
-        keywords="sticker printing dubai, custom stickers dubai, sticker printing in dubai, vinyl sticker printing dubai, waterproof vinyl labels dubai, clear transparent stickers dubai, custom die cut logo stickers uae, roll label printing uae, cosmetic product labels dubai, jar label printing uae, barcode stickers dubai, removable adhesive labels uae, food packaging labels dubai, qr code product stickers uae, custom bottle labels dubai, retail packaging stickers uae, product branding labels dubai, kiss cut sticker sheets uae, small business packaging labels dubai, wholesale custom stickers dubai, bulk promotional stickers uae, custom labels for small businesses dubai, branded packaging labels for businesses dubai"
+        title="Sticker Printing Dubai | Custom Stickers & Vinyl Labels | ONPRINT"
+        description="Custom sticker printing in Dubai & UAE. Waterproof vinyl stickers, die-cut stickers, custom logo stickers, bottle labels & bulk packaging labels. Fast delivery."
+        keywords="sticker printing dubai, custom stickers dubai, custom sticker printing dubai, sticker printing uae, vinyl sticker printing dubai, die cut stickers dubai, waterproof sticker printing dubai, custom logo stickers dubai, branding stickers dubai, affordable sticker printing dubai, custom stickers for small businesses, where to get custom stickers printed in dubai"
         canonicalPath="/sticker-printing-dubai"
         breadcrumbs={breadcrumbsList}
         faqList={STICKER_FAQS}
@@ -1654,7 +1654,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Final Section 12 Bottom CTA Banner */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F5F0E7] to-[#0A1222] text-center border-t border-[#DED2C1]">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F5F0E7] to-[#EDE3D5] text-center border-t border-[#DED2C1]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989] bg-[#795C43]/10 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#795C43]">

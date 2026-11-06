@@ -199,11 +199,10 @@ function App() {
             <Route path="/flyer-and-leaflet-printing" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
             <Route path="/flyers-and-leaflets" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
             <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
-            <Route path="/stickers" element={<StickersLandingPage />} />
-            <Route path="/stickers-labels-printing" element={<StickersLandingPage />} />
-            <Route path="/categories/stickers-labels-printing" element={<StickersLandingPage />} />
-            <Route path="/quote/stickers" element={<StickersLandingPage />} />
-            <Route path="/custom-stickers-dubai" element={<StickersLandingPage />} />
+            <Route path="/stickers" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/stickers-labels-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/quote/stickers" element={<StickersLeadPage />} />
+            <Route path="/custom-stickers-dubai" element={<Navigate to="/sticker-printing-dubai" replace />} />
             {/* Direct Sticker Category Mapping */}
             <Route path="/stickers/custom-stickers" element={<Navigate to="/products/die-cut-stickers" replace />} />
             <Route path="/stickers/logo-stickers" element={<Navigate to="/products/custom-logo-stickers" replace />} />

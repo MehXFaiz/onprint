@@ -527,13 +527,13 @@ const COMMERCIAL_LANDING_PAGES = {
     "label-printing-dubai": {
       "slug": "label-printing-dubai",
       "path": "/label-printing-dubai",
-      "title": "Label Printing Dubai | Custom Product Labels & Roll Printing | ONPRINT",
-      "metaDescription": "Custom product label printing in Dubai. Roll labels and sheet labels for cosmetics, perfume bottles, food jars, candles & packaging. Fast UAE delivery.",
+      "title": "Label Printing Dubai | Product Labels & Roll Printing | ONPRINT",
+      "metaDescription": "Custom product label printing in Dubai & UAE. Waterproof roll labels, custom bottle labels, food packaging labels & cosmetic stickers. Fast UAE delivery.",
       "focusKeyword": "label printing dubai",
-      "secondaryKeywords": "custom label printing dubai, product label printing dubai, bottle label printing dubai, roll label printing dubai, transparent label printing dubai, packaging sticker printing dubai, food packaging label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, barcode label printing dubai, embossed sticker printing dubai",
+      "secondaryKeywords": "product label printing dubai, custom product labels uae, custom bottle labels dubai, food packaging labels dubai, product packaging stickers dubai, custom labels for product packaging, roll label printing dubai, custom logo stickers for packaging",
       "badge": "PRODUCT ROLL LABELS & BOTTLING",
       "h1": "Custom Product Label & Roll Printing Solutions in Dubai",
-      "subheading": "Precision roll and sheet labels for cosmetics, perfumes, food & beverage jars, candle packaging, pharmaceutical containers, and retail boxes. Certified water, oil, and chemical resistant.",
+      "subheading": "Precision roll and sheet product label printing in Dubai for cosmetics, custom bottle labels, food packaging labels, candle jars, pharmaceutical containers, and retail product packaging across the UAE. Certified water, oil, and chemical resistant.",
       "stats": [
         {
           "label": "Format",
@@ -541,7 +541,7 @@ const COMMERCIAL_LANDING_PAGES = {
         },
         {
           "label": "Materials",
-          "detail": "BOPP, Paper, Metallized"
+          "value": "BOPP, Paper, Metallized"
         },
         {
           "label": "Roll Core Sizes",

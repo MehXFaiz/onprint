@@ -100,7 +100,7 @@ const CARD_VARIATIONS = [
     badge: 'Budget Friendly • Fast Turnaround',
     image: '/assets/products/business-cards/bc_corporate_batches.jpg',
     description:
-      'Affordable and cheap business card printing in Dubai for startups, retail staff, and exhibition handouts. Lightweight, practical 300 GSM cardstock with sharp typography, vivid colors, and low minimum order quantities.',
+      'Affordable business card printing in Dubai for startups, small businesses, retail staff, and exhibition handouts. Practical 300 GSM cardstock with sharp double-sided typography, vivid colors, and low minimum order quantities.',
     specs: '300 GSM Cardstock • Full Color CMYK • Fast 24h Turnaround • Low Minimums',
     suitableFor: 'Exhibitions, Event Handouts, Field Staff, Freelancers, Startup Launches',
     popularFinishes: ['Single Sided', 'Double Sided', 'Square Cut'],
@@ -991,7 +991,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#C5A989]/50 bg-[#FAF8F3]/10 hover:bg-[#795C43] hover:text-white px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#C5A989] bg-[#FAF8F3] hover:bg-[#795C43] hover:text-white px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#352719] transition-all cursor-pointer"
                   >
                     <Mail className="h-4 w-4" />
                     <span>Inquire Studio</span>
@@ -2765,7 +2765,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* CROSS-CATEGORY STATIONERY & BRANDING SYNERGY */}
-        <section className="mt-14 sm:mt-20 rounded-3xl border border-[#DED2C1] bg-[#121F38] p-6 sm:p-10 text-white shadow-xl">
+        <section className="mt-14 sm:mt-20 rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-10 text-[#352719] shadow-xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/40 bg-[#795C43]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43] mb-2.5">

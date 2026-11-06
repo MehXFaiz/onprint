@@ -4,7 +4,6 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
   ChevronDown,
   Menu,
-  Mail,
   X,
   LogOut,
   ShieldCheck,
@@ -24,15 +23,15 @@ import {
   Building2,
   BookOpen,
   ChevronRight,
-  Plus,
-  Minus,
   Zap,
   Tag,
   Palette,
   Stamp,
   BadgeCheck,
   Briefcase,
-  Megaphone
+  Megaphone,
+  Package,
+  Home,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Logo from './Logo'
@@ -42,817 +41,724 @@ import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 import { getProducts } from '../services/products'
 import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../utils/whatsapp'
-import { MASTER_DEPARTMENTS, isDepartmentSlug } from '../data/masterDepartments'
 
-const DEPARTMENT_ICONS = {
-  'business-office-printing': Briefcase,
-  'marketing-promotional-printing': Megaphone,
-  'stickers-labels-packaging': Tag,
-  'signage-displays-banners': Layers,
-  'specialty-corporate-gifts': Sparkles,
-}
-
-const NAV_GROUPS = [
+// ---------------------------------------------------------------------------
+// 1. STRUCTURED MEGA MENU ARCHITECTURE (5 Core Product Categories)
+// ---------------------------------------------------------------------------
+const MEGA_MENU_CATEGORIES = [
   {
-    key: 'cards',
-    label: 'Business Cards (Dubai Flagship)',
-    description: 'Executive 350–700 GSM cotton, soft-touch, 24K hot foil & 3D spot UV',
-    icon: CreditCard,
-    badge: 'Priority #1',
-    keywords: ['business card', 'visiting card', 'card'],
+    key: 'business-corporate',
+    title: 'Business & Corporate Printing',
+    subtitle: 'Executive Cards & Office Identity',
+    icon: Briefcase,
+    overviewPath: '/categories/office-stationery-printing',
+    items: [
+      {
+        label: 'Business Cards',
+        to: '/business-card-printing-dubai',
+        badge: 'Popular',
+        desc: '350–450 GSM matte, gloss & silk cards',
+      },
+      {
+        label: 'Premium Business Cards',
+        to: '/premium-business-cards',
+        badge: 'Luxury',
+        desc: '600 GSM cotton, 24K foil & 3D spot UV',
+      },
+      {
+        label: 'Corporate Stationery',
+        to: '/categories/office-stationery-printing',
+        desc: 'Complete brand stationery suites',
+      },
+      {
+        label: 'Letterheads',
+        to: '/categories/letterheads-printing-dubai',
+        desc: '120 GSM laser-safe Conqueror & bond',
+      },
+      {
+        label: 'Envelopes',
+        to: '/products/matching-corporate-envelopes',
+        desc: 'Custom DL, C5 & C4 window envelopes',
+      },
+      {
+        label: 'Presentation Folders & NCR',
+        to: '/products/corporate-presentation-folders',
+        desc: 'Die-cut pocket folders & invoice books',
+      },
+      {
+        label: 'PVC ID Cards & Lanyards',
+        to: '/categories/id-card-printing-dubai',
+        desc: 'CR80 smart cards & sublimated lanyards',
+      },
+    ],
   },
   {
-    key: 'signage',
-    label: 'Roll-Up Banners & Signage',
-    description: 'Retractable roll-up stands, pull-up banners & exhibition displays',
-    icon: Layers,
-    badge: 'Priority #2',
-    keywords: ['banner', 'rollup', 'roll up', 'roll-up', 'pull up', 'stand', 'signage'],
+    key: 'marketing-promotional',
+    title: 'Marketing & Promotional',
+    subtitle: 'Campaigns, Events & Displays',
+    icon: Megaphone,
+    overviewPath: '/categories/flyers-printing-in-dubai',
+    items: [
+      {
+        label: 'Flyers & Leaflets',
+        to: '/categories/flyers-printing-in-dubai',
+        badge: 'Express',
+        desc: 'A6, A5, A4 & DL high-speed handouts',
+      },
+      {
+        label: 'Folded Brochures',
+        to: '/brochure-printing-dubai',
+        desc: 'Bi-fold, tri-fold & Z-fold company profiles',
+      },
+      {
+        label: 'Large Format Posters',
+        to: '/products/large-format-posters',
+        desc: 'A3, A2, A1 & A0 high-resolution photo prints',
+      },
+      {
+        label: 'Roll-Up Banners',
+        to: '/services/rollup-banners',
+        badge: 'Same-Day',
+        desc: '85×200cm curl-free stands with carry case',
+      },
+      {
+        label: 'Catalogs & Booklets',
+        to: '/categories/catalogs-booklets-printing',
+        desc: 'Saddle-stitched & PUR perfect-bound books',
+      },
+      {
+        label: 'Hospitality & Menus',
+        to: '/categories/hospitality-event-printing',
+        desc: 'Waterproof café menus, tent cards & coasters',
+      },
+    ],
   },
   {
-    key: 'stickers',
-    label: 'Stickers & Product Labels',
-    description: 'Die-cut vinyl, waterproof roll labels & metallic foils',
+    key: 'stickers-labels',
+    title: 'Stickers & Labels',
+    subtitle: 'Waterproof Vinyl & Roll Labels',
     icon: Tag,
-    badge: 'Priority #3',
-    keywords: ['sticker', 'label', 'vinyl', 'decal'],
+    overviewPath: '/sticker-printing-dubai',
+    items: [
+      {
+        label: 'Custom Stickers',
+        to: '/sticker-printing-dubai',
+        badge: 'Bestseller',
+        desc: 'All custom shapes, finishes & sizes',
+      },
+      {
+        label: 'Product Roll Labels',
+        to: '/products/custom-roll-labels',
+        desc: 'Machine & hand-dispensed BOPP packaging rolls',
+      },
+      {
+        label: 'Vinyl Stickers',
+        to: '/products/waterproof-vinyl-stickers',
+        badge: 'Waterproof',
+        desc: 'UV-resistant outdoor & dishwasher-safe vinyl',
+      },
+      {
+        label: 'Die-Cut Stickers',
+        to: '/products/die-cut-stickers',
+        desc: 'Precision optical contour-cut brand decals',
+      },
+      {
+        label: 'Custom Packaging Labels',
+        to: '/products/cosmetic-bottle-labels',
+        desc: 'Oil-proof jar, bottle & retail box seals',
+      },
+      {
+        label: 'Gold Foil & Clear Labels',
+        to: '/products/gold-foil-stickers',
+        desc: 'Metallic hot-stamped & transparent labels',
+      },
+    ],
   },
   {
-    key: 'stamps',
-    label: 'Company Stamps & Seals',
-    description: 'Self-inking Trodat stamps, pocket stamps, dater machines & wax seals',
+    key: 'stamps-seals',
+    title: 'Stamps & Seals',
+    subtitle: 'Official UAE Company Stamps',
     icon: Stamp,
-    badge: 'Priority #4',
-    keywords: ['stamp', 'seal', 'dater', 'wax seal', 'rubber stamp', 'self-inking'],
+    overviewPath: '/categories/stamps-printing-dubai',
+    items: [
+      {
+        label: 'Company Stamps',
+        to: '/categories/stamps-printing-dubai',
+        badge: 'DED Approved',
+        desc: 'Official Arabic/English mainland & freezone',
+      },
+      {
+        label: 'Self-Inking Stamps',
+        to: '/products/self-inking-company-stamps',
+        desc: 'Original Trodat & Shiny 10,000+ impressions',
+      },
+      {
+        label: 'Rubber & Dater Stamps',
+        to: '/products/heavy-duty-dater-stamps',
+        desc: 'Heavy-duty steel frame date & received stamps',
+      },
+      {
+        label: 'Pocket Mobile Stamps',
+        to: '/products/pocket-mobile-stamps',
+        desc: 'Compact flip-open stamps for executives',
+      },
+      {
+        label: 'Custom Seals',
+        to: '/products/luxury-brass-wax-seal-stamps',
+        badge: 'Bespoke',
+        desc: '3D CNC-engraved brass wax seals & embossers',
+      },
+    ],
   },
   {
-    key: 'bottles',
-    label: 'Custom Bottle Printing',
-    description: 'Smart LED temperature bottles, stainless steel flasks & drinkware',
-    icon: Sparkles,
-    badge: 'Priority #5',
-    keywords: ['bottle', 'flask', 'mug', 'tumbler', 'drinkware', 'gift'],
-  },
-  {
-    key: 'stationery',
-    label: 'Brochures, Flyers & Stationery',
-    description: 'Executive letterheads, presentation folders & marketing collaterals',
-    icon: FileText,
-    badge: 'Commercial',
-    keywords: ['brochure', 'flyer', 'letterhead', 'stationery', 'folder', 'envelope', 'notebook', 'catalog', 'booklet'],
-  },
-  {
-    key: 'badges',
-    label: 'ID Cards & Lanyards',
-    description: 'NFC PVC smart badges, magnetic name tags & custom neck straps',
-    icon: ShieldCheck,
-    badge: 'Security',
-    keywords: ['id card', 'lanyard', 'name badge', 'badge'],
+    key: 'packaging-custom',
+    title: 'Packaging & Custom Printing',
+    subtitle: 'Bottles, Boxes, Signage & Merch',
+    icon: Package,
+    overviewPath: '/services/luxury-packaging-custom-boxes',
+    items: [
+      {
+        label: 'Bottle Printing',
+        to: '/bottle-printing-dubai',
+        badge: '360° UV / Laser',
+        desc: 'Smart LED flasks, thermal bottles & tumblers',
+      },
+      {
+        label: 'Custom Packaging',
+        to: '/services/luxury-packaging-custom-boxes',
+        desc: 'Magnetic rigid boxes, mailers & paper bags',
+      },
+      {
+        label: 'Custom Ceramic Mugs',
+        to: '/categories/mug-printing-dubai',
+        desc: 'Dishwasher-safe corporate & magic photo mugs',
+      },
+      {
+        label: 'Name Badges & Plaques',
+        to: '/categories/name-badges-printing-dubai',
+        desc: 'Magnetic brushed gold/silver staff badges',
+      },
+      {
+        label: 'Signage & Event Flags',
+        to: '/categories/signage-banners-printing',
+        desc: '3D acrylic letters, backdrops & feather flags',
+      },
+      {
+        label: 'Corporate Gifts & Apparel',
+        to: '/categories/corporate-gift-items',
+        desc: 'VIP onboarding kits, polo shirts & uniforms',
+      },
+    ],
   },
 ]
 
-function normalizeText(value = '') {
-  return String(value).toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim()
-}
+// Featured Spotlight Products shown inside the Mega Menu
+const FEATURED_MEGA_PRODUCTS = [
+  {
+    title: '600 GSM Luxury Foil Cards',
+    category: 'Business & Corporate',
+    badge: 'Same-Day Express',
+    image: '/assets/products/luxury_business_cards_dubai.jpg',
+    to: '/premium-business-cards',
+    priceText: 'From AED 149',
+  },
+  {
+    title: 'Waterproof Die-Cut Stickers',
+    category: 'Stickers & Labels',
+    badge: '100% Weatherproof',
+    image: '/assets/products/stickers/die-cut-vinyl-stickers.jpg',
+    to: '/sticker-printing-dubai',
+    priceText: 'From AED 40',
+  },
+  {
+    title: 'Official UAE Company Stamps',
+    category: 'Stamps & Seals',
+    badge: 'Ready in 2 Hours',
+    image: '/assets/products/stamps/self-inking-company-stamp.jpg',
+    to: '/categories/stamps-printing-dubai',
+    priceText: 'From AED 65',
+  },
+]
 
-function buildMegaMenuGroups(categories = []) {
-  const activeCategories = (categories || []).filter((cat) => {
-    const status = cat?.status || (cat?.active ? 'active' : 'inactive')
-    return status === 'active' || cat?.active !== false
-  })
+// Primary Main Navigation Links
+const PRIMARY_NAV_ITEMS = [
+  { label: 'Home', to: '/', end: true },
+  { label: 'Products', to: '/products', isMegaTrigger: true },
+  { label: 'Business Cards', to: '/business-card-printing-dubai' },
+  { label: 'Stickers', to: '/sticker-printing-dubai' },
+  { label: 'Stamps & Seals', to: '/categories/stamps-printing-dubai' },
+  { label: 'Finishing', to: '/finishes' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Contact', to: '/contact' },
+]
 
-  const grouped = NAV_GROUPS.map((group) => {
-    const items = activeCategories.filter((cat) => {
-      const haystack = normalizeText(`${cat?.name || ''} ${cat?.slug || ''} ${cat?.description || ''}`)
-      return group.keywords.some((keyword) => haystack.includes(normalizeText(keyword)))
-    })
-
-    return {
-      ...group,
-      items: items.sort((a, b) => (Number(a.displayOrder ?? a.display_order ?? 0) - Number(b.displayOrder ?? b.display_order ?? 0))),
-    }
-  }).filter((group) => group.items.length > 0)
-
-  if (!grouped.length && activeCategories.length > 0) {
-    return [{
-      key: 'all',
-      label: 'All Categories',
-      description: 'Explore full commercial printing solutions',
-      icon: Layers,
-      items: activeCategories.slice(0, 8).sort((a, b) => (Number(a.displayOrder ?? a.display_order ?? 0) - Number(b.displayOrder ?? b.display_order ?? 0))),
-    }]
-  }
-
-  return grouped
-}
+// Quick Search Popular Suggestions
+const POPULAR_SEARCHES = [
+  { label: 'Luxury Foil Business Cards', to: '/premium-business-cards' },
+  { label: 'Waterproof Vinyl Stickers', to: '/sticker-printing-dubai' },
+  { label: 'Roll-Up Banner 85×200cm', to: '/services/rollup-banners' },
+  { label: 'Self-Inking Company Stamp', to: '/categories/stamps-printing-dubai' },
+  { label: 'Custom Bottle Printing', to: '/bottle-printing-dubai' },
+  { label: 'Folded Company Brochures', to: '/brochure-printing-dubai' },
+]
 
 export default function SiteHeader() {
-  const { user, isAuthenticated, isAdmin, logout } = useAuth()
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState(null)
-  const [hoveredNav, setHoveredNav] = useState(null)
-  const [activeMegaDeptSlug, setActiveMegaDeptSlug] = useState('business-office-printing')
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
+  const [whatsappMenuOpen, setWhatsappMenuOpen] = useState(false)
+  const [copiedPhone, setCopiedPhone] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  // Mobile Drawer Accordion State (default open first category)
+  const [mobileOpenCategory, setMobileOpenCategory] = useState('business-corporate')
+
+  // Universal Search Modal State
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
-  const [whatsappPopoverOpen, setWhatsappPopoverOpen] = useState(false)
-  const [searchModalOpen, setSearchModalOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
-  const [copied, setCopied] = useState(false)
-  const [mobileOpenDept, setMobileOpenDept] = useState('business-office-printing')
-
-  const location = useLocation()
   const searchInputRef = useRef(null)
-  const dropdownTimeoutRef = useRef(null)
 
-  const activeMegaDepartment = useMemo(() => {
-    return MASTER_DEPARTMENTS.find((d) => d.slug === activeMegaDeptSlug) || MASTER_DEPARTMENTS[0]
-  }, [activeMegaDeptSlug])
+  // Refs for outside-click detection & hover intent
+  const headerRef = useRef(null)
+  const megaMenuTimeoutRef = useRef(null)
+  const whatsappMenuRef = useRef(null)
+  const userMenuRef = useRef(null)
 
-  const handleCopyNumber = () => {
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText(FORMATTED_PHONE)
-    }
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+  const { user, logout, isAuthenticated, isAdmin } = useAuth()
+  const location = useLocation()
 
-  const handleMouseEnterDropdown = (key) => {
-    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current)
-    setActiveDropdown(key)
-  }
-
-  const handleMouseLeaveDropdown = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null)
-    }, 200)
-  }
-
-  const productsLoadedRef = useRef(false)
-
-  const loadSearchProducts = () => {
-    if (productsLoadedRef.current) return
-    productsLoadedRef.current = true
-    getProducts({ active: true, limit: 120 })
-      .then((prodList) => {
-        setProducts(Array.isArray(prodList) ? prodList : prodList?.products || [])
-      })
-      .catch(() => {})
-  }
-
-  useEffect(() => {
-    let isMounted = true
-
-    async function loadData() {
-      try {
-        const catList = await getCategories({ status: 'active', sort: 'display_order_asc' }).catch(() => [])
-        if (isMounted) {
-          setCategories(catList || [])
-        }
-      } catch (error) {
-        console.warn('[Header] Failed to load header catalog data:', error)
-      }
-    }
-
-    loadData()
-
-    const timer = setTimeout(() => {
-      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        window.requestIdleCallback(() => loadSearchProducts(), { timeout: 4000 })
-      } else {
-        loadSearchProducts()
-      }
-    }, 2000)
-
-    return () => {
-      isMounted = false
-      clearTimeout(timer)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (searchModalOpen) {
-      loadSearchProducts()
-    }
-  }, [searchModalOpen])
-
-  const searchResults = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase()
-    if (!q) return { products: [], categories: [], departments: [] }
-
-    const matchedProds = (products || [])
-      .filter((p) => {
-        const name = (p.name || '').toLowerCase()
-        const desc = (p.shortDescription || p.description || '').toLowerCase()
-        const cat = (p.category?.name || '').toLowerCase()
-        return name.includes(q) || desc.includes(q) || cat.includes(q)
-      })
-      .slice(0, 6)
-
-    const matchedDepts = MASTER_DEPARTMENTS.filter(
-      (d) => d.name.toLowerCase().includes(q) || d.description.toLowerCase().includes(q)
-    ).slice(0, 3)
-
-    const allSubcats = []
-    MASTER_DEPARTMENTS.forEach((dept) => {
-      dept.subcategories.forEach((sub) => {
-        if (sub.name.toLowerCase().includes(q) || sub.shortDesc.toLowerCase().includes(q)) {
-          allSubcats.push({
-            ...sub,
-            departmentSlug: dept.slug,
-            departmentName: dept.name,
-          })
-        }
-      })
-    })
-
-    return {
-      products: matchedProds,
-      categories: allSubcats.slice(0, 4),
-      departments: matchedDepts,
-    }
-  }, [searchQuery, products])
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 20)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
+  // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false)
-    setActiveDropdown(null)
-    setWhatsappPopoverOpen(false)
-    setSearchModalOpen(false)
+    setMegaMenuOpen(false)
     setUserMenuOpen(false)
-    setSearchQuery('')
-    setHoveredNav(null)
+    setWhatsappMenuOpen(false)
+    setSearchOpen(false)
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current)
+    }
   }, [location.pathname])
 
+  // Load categories & products for Universal Search
   useEffect(() => {
-    document.body.style.overflow = (mobileMenuOpen || searchModalOpen) ? 'hidden' : ''
+    let isMounted = true
+    async function loadNavigationData() {
+      try {
+        const [catRes, prodRes] = await Promise.all([
+          getCategories({ status: 'active' }),
+          getProducts({ status: 'active', limit: 150 }),
+        ])
+        if (isMounted) {
+          if (catRes?.success) {
+            setCategories(catRes.data.categories || [])
+          }
+          if (prodRes?.success) {
+            setProducts(prodRes.data.products || [])
+          }
+        }
+      } catch (err) {
+        console.warn('Could not load navigation catalog data:', err.message)
+      }
+    }
+    loadNavigationData()
     return () => {
-      document.body.style.overflow = ''
+      isMounted = false
     }
-  }, [mobileMenuOpen, searchModalOpen])
+  }, [])
 
+  // Sticky Header Scroll Listener
   useEffect(() => {
-    if (searchModalOpen && searchInputRef.current) {
-      setTimeout(() => searchInputRef.current?.focus(), 80)
+    const handleScroll = () => {
+      const y = window.scrollY
+      setScrolled((prev) => (prev ? y > 8 : y > 24))
     }
-  }, [searchModalOpen])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
+  // Outside-Click Handler for Dropdowns
   useEffect(() => {
-    function handleKeyDown(e) {
-      if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
-        e.preventDefault()
-        setSearchModalOpen(true)
-      } else if (e.key === 'Escape') {
-        setSearchModalOpen(false)
-        setActiveDropdown(null)
-        setWhatsappPopoverOpen(false)
-        setMobileMenuOpen(false)
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setMegaMenuOpen(false)
+        setWhatsappMenuOpen(false)
         setUserMenuOpen(false)
+      } else {
+        if (whatsappMenuRef.current && !whatsappMenuRef.current.contains(event.target)) {
+          setWhatsappMenuOpen(false)
+        }
+        if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+          setUserMenuOpen(false)
+        }
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  // Global Keyboard Shortcuts (Escape to close, '/' or Cmd+K to search)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (
+        (e.key === '/' || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) &&
+        !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)
+      ) {
+        e.preventDefault()
+        setSearchOpen(true)
+      }
+      if (e.key === 'Escape') {
+        setSearchOpen(false)
+        setMegaMenuOpen(false)
+        setUserMenuOpen(false)
+        setWhatsappMenuOpen(false)
+        setMobileMenuOpen(false)
       }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  // Focus search input when modal opens
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      const timer = setTimeout(() => searchInputRef.current?.focus(), 50)
+      return () => clearTimeout(timer)
+    }
+  }, [searchOpen])
+
+  // Prevent background scrolling when Mobile Drawer or Search Modal is open
+  useEffect(() => {
+    if (mobileMenuOpen || searchOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileMenuOpen, searchOpen])
+
+  // Hover intent handlers for Products Mega Menu
+  const handleMegaMouseEnter = () => {
+    if (megaMenuTimeoutRef.current) clearTimeout(megaMenuTimeoutRef.current)
+    setWhatsappMenuOpen(false)
+    setUserMenuOpen(false)
+    setMegaMenuOpen(true)
+  }
+
+  const handleMegaMouseLeave = () => {
+    if (megaMenuTimeoutRef.current) clearTimeout(megaMenuTimeoutRef.current)
+    megaMenuTimeoutRef.current = setTimeout(() => {
+      setMegaMenuOpen(false)
+    }, 180)
+  }
+
+  // Filter products & categories for Universal Search Modal
+  const searchResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase()
+    if (!q) return { matchedCategories: [], matchedProducts: [], matchedMenuLinks: [] }
+
+    const matchedCategories = categories
+      .filter(
+        (c) =>
+          c.name?.toLowerCase().includes(q) ||
+          c.shortDescription?.toLowerCase().includes(q) ||
+          c.slug?.toLowerCase().includes(q)
+      )
+      .slice(0, 6)
+
+    const matchedProducts = products
+      .filter(
+        (p) =>
+          p.name?.toLowerCase().includes(q) ||
+          p.shortDescription?.toLowerCase().includes(q) ||
+          p.category?.name?.toLowerCase().includes(q) ||
+          p.slug?.toLowerCase().includes(q)
+      )
+      .slice(0, 10)
+
+    const allMenuItems = MEGA_MENU_CATEGORIES.flatMap((cat) =>
+      cat.items.map((item) => ({ ...item, groupTitle: cat.title }))
+    )
+    const matchedMenuLinks = allMenuItems
+      .filter(
+        (item) =>
+          item.label.toLowerCase().includes(q) ||
+          item.desc?.toLowerCase().includes(q) ||
+          item.groupTitle.toLowerCase().includes(q)
+      )
+      .slice(0, 6)
+
+    return { matchedCategories, matchedProducts, matchedMenuLinks }
+  }, [searchQuery, categories, products])
+
+  const handleCopyPhone = (e) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(FORMATTED_PHONE)
+    setCopiedPhone(true)
+    setTimeout(() => setCopiedPhone(false), 2000)
+  }
+
+  // Helper to check if a primary nav item is active
+  const isNavItemActive = (item) => {
+    const path = location.pathname
+    if (item.to === '/') return path === '/'
+    if (item.isMegaTrigger) {
+      return (
+        path === '/products' ||
+        path === '/categories' ||
+        path.startsWith('/products/') ||
+        (path.startsWith('/categories/') && !path.includes('stamps-printing-dubai'))
+      )
+    }
+    if (item.to === '/business-card-printing-dubai') {
+      return (
+        path === '/business-card-printing-dubai' ||
+        path === '/premium-business-cards' ||
+        path === '/luxury-business-cards' ||
+        path === '/foil-business-cards' ||
+        path === '/spot-uv-business-cards' ||
+        path === '/matte-business-cards' ||
+        path === '/corporate-business-cards' ||
+        path === '/categories/business-cards-printing'
+      )
+    }
+    if (item.to === '/sticker-printing-dubai') {
+      return (
+        path === '/sticker-printing-dubai' ||
+        path === '/stickers' ||
+        path === '/categories/stickers-labels-printing'
+      )
+    }
+    if (item.to === '/categories/stamps-printing-dubai') {
+      return path === '/categories/stamps-printing-dubai' || path === '/stamps'
+    }
+    return path === item.to || path.startsWith(`${item.to}/`)
+  }
+
   return (
-    <header className="sticky top-0 z-50 w-full select-none bg-[#F5F0E7]/95 backdrop-blur-md border-b border-[#DED2C1] shadow-md transition-all duration-200 text-[#352719]">
-      {/* Top Utility Bar (Al Quoz Pressroom & Hotline - inspired by DLX Print) */}
-      <div className="hidden md:block bg-[#EDE3D5] border-b border-[#DED2C1] text-[11px] text-[#756657] py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
-        <div className="mx-auto max-w-[1440px] flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 font-medium text-[#756657]">
-              <MapPin className="h-3 w-3 text-[#795C43]" />
-              <span>Dubai, UAE • Doorstep Express Dispatch</span>
+    <header
+      ref={headerRef}
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#F5F0E7]/98 backdrop-blur-xl border-b border-[#DED2C1] shadow-[0_8px_30px_rgb(53,39,25,0.08)]'
+          : 'bg-[#F5F0E7] border-b border-[#DED2C1]'
+      }`}
+    >
+      {/* =====================================================================
+          1. TOP INFORMATION BAR (Desktop & Tablet — Compact Corporate Utility)
+         ===================================================================== */}
+      <div
+        className={`hidden md:block bg-[#EDE3D5] text-[#5C4938] transition-all duration-300 overflow-hidden ${
+          scrolled
+            ? 'max-h-0 opacity-0 border-b-0'
+            : 'max-h-11 opacity-100 border-b border-[#DED2C1]/80'
+        }`}
+      >
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 text-[11px] font-medium">
+          {/* Left: Dubai Pressroom Credentials */}
+          <div className="flex items-center gap-4 min-w-0">
+            <span className="inline-flex items-center gap-1.5 font-semibold text-[#352719] truncate">
+              <MapPin className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+              <span>Al Quoz Industrial Area, Dubai • Commercial Offset &amp; Digital Pressroom</span>
             </span>
-            <span className="text-[#DED2C1]">•</span>
-            <span className="flex items-center gap-1.5 text-[#756657]">
-              <Truck className="h-3 w-3 text-emerald-700" />
-              <span>Doorstep UAE Delivery • Express 24h Turnaround</span>
+            <span className="hidden xl:inline-block h-3 w-px bg-[#C5A989]/60" />
+            <span className="hidden xl:inline-flex items-center gap-1.5 text-[#5C4938]">
+              <Zap className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+              <span>Same-Day Express Print &amp; 24h UAE Delivery</span>
             </span>
           </div>
-          <div className="flex items-center gap-4 font-semibold">
-            <a href={`tel:+${RAW_WHATSAPP_NUMBER}`} className="flex items-center gap-1 text-[#756657] hover:text-[#795C43] transition-colors">
+
+          {/* Right: Customer Service Links & Language Switcher */}
+          <div className="flex items-center gap-4 shrink-0">
+            <a
+              href={`tel:+${RAW_WHATSAPP_NUMBER}`}
+              className="inline-flex items-center gap-1.5 font-bold text-[#352719] hover:text-[#795C43] transition-colors"
+              title="Call ONPRINT Pressroom Hotline"
+            >
               <Phone className="h-3 w-3 text-[#795C43]" />
-              <span>Hotline: {FORMATTED_PHONE}</span>
+              <span>{FORMATTED_PHONE}</span>
             </a>
-            <span className="text-[#DED2C1]">•</span>
-            <Link to="/corporate-quotes" className="text-[#756657] hover:text-[#795C43] transition-colors">
-              Corporate Quotes
+
+            <span className="h-3 w-px bg-[#C5A989]/60" />
+
+            <Link
+              to="/corporate-quotes"
+              className="hidden lg:inline-flex items-center gap-1 font-semibold text-[#5C4938] hover:text-[#352719] transition-colors"
+            >
+              <Building2 className="h-3 w-3 text-[#795C43]" />
+              <span>Corporate B2B Accounts</span>
             </Link>
-            <span className="text-[#DED2C1]">•</span>
-            <Link to="/track-order" className="text-[#756657] hover:text-[#795C43] transition-colors">
-              Track Order
+
+            <span className="hidden lg:inline-block h-3 w-px bg-[#C5A989]/60" />
+
+            <Link
+              to="/track-order"
+              className="inline-flex items-center gap-1 font-semibold text-[#5C4938] hover:text-[#352719] transition-colors"
+            >
+              <Truck className="h-3.5 w-3.5 text-[#795C43]" />
+              <span>Track Order</span>
             </Link>
+
+            <span className="h-3 w-px bg-[#C5A989]/60" />
+
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1440px] px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3 lg:gap-4 min-w-0">
-        {/* Brand Logo & Dubai Flagship Pill */}
-        <Link
-          to="/"
-          onClick={() => setMobileMenuOpen(false)}
-          className="group shrink-0 flex items-center gap-2 sm:gap-3 min-w-0"
+      {/* =====================================================================
+          2. MAIN NAVIGATION BAR (Logo + Primary Nav + Customer Action Area)
+         ===================================================================== */}
+      <div className="mx-auto max-w-[1440px] px-3 sm:px-6 lg:px-8">
+        <div
+          className={`flex items-center justify-between gap-2 lg:gap-4 transition-all duration-300 ${
+            scrolled ? 'h-16' : 'h-18 sm:h-20'
+          }`}
         >
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 25 }}
-            className="flex items-center"
-          >
-            <Logo variant="default" size="md" />
-          </motion.div>
-          <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-3 border-l border-[#DED2C1]">
-            <span className="text-[10px] font-black uppercase tracking-wider text-[#352719]">
-              DUBAI
-            </span>
-            <span className="h-1 w-1 rounded-full bg-[#795C43]" />
-            <span className="text-[9px] font-semibold text-[#795C43] uppercase tracking-tight">
-              PRESSROOM
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Navigation Links — Unified Glider */}
-        <nav
-          className="hidden lg:flex items-center gap-0.5 bg-[#FAF8F3]/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#DED2C1] shadow-2xs backdrop-blur-md relative shrink-0"
-          aria-label="Main Navigation"
-          onMouseLeave={() => setHoveredNav(null)}
-        >
-          {/* Catalog Mega-Menu Trigger */}
-          <div
-            className="relative"
-            onMouseEnter={() => {
-              handleMouseEnterDropdown('catalog')
-              setHoveredNav('catalog')
-            }}
-            onMouseLeave={handleMouseLeaveDropdown}
-          >
-            <button
-              type="button"
-              onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
-              className={`relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
-                activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                  ? 'text-[#795C43] font-black'
-                  : 'text-[#352719] hover:text-[#795C43]'
-              }`}
-            >
-              <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#795C43]' : 'text-[#756657]'}`} />
-              <span>Catalog</span>
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'catalog' ? 'rotate-180 text-[#795C43]' : 'text-[#756657]'
-                }`}
-              />
-
-              {/* Animated active/hover background pill */}
-              {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#F5F0E7] shadow-xs border border-[#DED2C1] text-[#352719] -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </button>
-
-            {/* Mega-Menu Dropdown Panel with DLX-Inspired Master Department Architecture */}
-            <AnimatePresence>
-              {activeDropdown === 'catalog' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                  transition={{ duration: 0.18 }}
-                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#DED2C1] bg-[#FAF8F3]/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(121, 92, 67, 0.1)] z-50 text-[#352719]"
-                >
-                  <div className="grid grid-cols-12 gap-5">
-                    {/* Left Column: 5 Master Departments */}
-                    <div className="col-span-5 border-r border-[#DED2C1] pr-4 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-[#DED2C1]">
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[#795C43]">
-                            Master Departments
-                          </span>
-                          <span className="text-[10px] font-bold text-[#756657]">110+ Products</span>
-                        </div>
-                        <div className="space-y-1">
-                          {MASTER_DEPARTMENTS.map((dept) => {
-                            const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
-                            const isSelected = activeMegaDeptSlug === dept.slug
-                            const prodCount = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
-                            return (
-                              <button
-                                key={dept.slug}
-                                type="button"
-                                onMouseEnter={() => setActiveMegaDeptSlug(dept.slug)}
-                                onClick={() => setActiveMegaDeptSlug(dept.slug)}
-                                className={`w-full text-left flex items-center justify-between p-2.5 rounded-2xl transition-all cursor-pointer group ${
-                                  isSelected
-                                    ? 'bg-gradient-to-r from-[#F5F0E7] to-[#EDE3D5] text-[#352719] shadow-md'
-                                    : 'hover:bg-[#FAF8F3] text-[#756657]'
-                                }`}
-                              >
-                                <div className="flex items-center gap-2.5 min-w-0">
-                                  <div
-                                    className={`flex h-8 w-8 items-center justify-center rounded-xl shrink-0 transition-colors ${
-                                      isSelected
-                                        ? 'bg-[#795C43] text-white'
-                                        : 'bg-[#F5F0E7] border border-[#DED2C1] text-[#756657] group-hover:text-[#795C43]'
-                                    }`}
-                                  >
-                                    <Icon className="h-4 w-4" />
-                                  </div>
-                                  <div className="min-w-0">
-                                    <div className={`text-xs font-bold truncate ${isSelected ? 'text-[#795C43]' : 'text-[#352719]'}`}>
-                                      {dept.name}
-                                    </div>
-                                    <div className={`text-[10px] truncate ${isSelected ? 'text-[#795C43]' : 'text-[#756657]'}`}>
-                                      {dept.subcategories.length} subcategories • {prodCount} products
-                                    </div>
-                                  </div>
-                                </div>
-                                <ChevronRight
-                                  className={`h-4 w-4 shrink-0 transition-transform ${
-                                    isSelected ? 'text-[#795C43] translate-x-0.5' : 'text-[#756657] group-hover:text-[#795C43]'
-                                  }`}
-                                />
-                              </button>
-                            )
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Bottom Footer Actions */}
-                      <div className="pt-3 border-t border-[#DED2C1] space-y-2 mt-2">
-                        <Link
-                          to="/products"
-                          onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-[#F5F0E7] hover:bg-[#EDE3D5] border border-[#DED2C1] text-xs font-bold text-[#352719] transition-colors"
-                        >
-                          <span className="flex items-center gap-1.5">
-                            <Layers className="h-3.5 w-3.5 text-[#795C43]" />
-                            <span>Browse All 110+ Products</span>
-                          </span>
-                          <ArrowRight className="h-3 w-3 text-[#795C43]" />
-                        </Link>
-                        <Link
-                          to="/corporate-quotes"
-                          onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-[#795C43]/10 hover:bg-[#795C43]/20 border border-[#C5A989]/30 text-xs font-bold text-[#795C43] transition-colors"
-                        >
-                          <span className="flex items-center gap-1.5">
-                            <Building2 className="h-3.5 w-3.5 text-[#795C43]" />
-                            <span>Corporate &amp; Trade RFQ</span>
-                          </span>
-                          <ArrowUpRight className="h-3 w-3 text-[#795C43]" />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Right Column: Selected Department Subcategories */}
-                    <div className="col-span-7 flex flex-col justify-between">
-                      <div>
-                        {/* Department Header Banner */}
-                        <div className="flex items-start justify-between pb-3 mb-3 border-b border-[#DED2C1]">
-                          <div>
-                            <span className="text-[9px] font-black uppercase tracking-widest text-[#795C43] block">
-                              {activeMegaDepartment.eyebrow}
-                            </span>
-                            <h4 className="text-base font-black text-[#352719] tracking-tight">
-                              {activeMegaDepartment.name}
-                            </h4>
-                            <p className="text-[11px] text-[#756657] leading-snug line-clamp-1 mt-0.5">
-                              {activeMegaDepartment.description}
-                            </p>
-                          </div>
-                          <Link
-                            to={`/categories/${activeMegaDepartment.slug}`}
-                            onClick={() => setActiveDropdown(null)}
-                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#795C43] hover:text-[#352719] px-2.5 py-1 rounded-full bg-[#795C43]/10 border border-[#C5A989]/30 hover:bg-[#795C43]/20 transition-all"
-                          >
-                            <span>Explore Department</span>
-                            <ArrowRight className="h-3 w-3" />
-                          </Link>
-                        </div>
-
-                        {/* Subcategory Cards Grid */}
-                        <div className="grid grid-cols-2 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
-                          {activeMegaDepartment.subcategories.map((sub) => (
-                            <Link
-                              key={sub.slug}
-                              to={`/categories/${sub.slug}`}
-                              onClick={() => setActiveDropdown(null)}
-                              className="group p-2.5 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#FAF8F3] hover:border-[#C5A989] hover:shadow-sm transition-all flex flex-col justify-between"
-                            >
-                              <div>
-                                <div className="flex items-center justify-between mb-1">
-                                  <span className="text-xs font-bold text-[#352719] group-hover:text-[#795C43] transition-colors truncate">
-                                    {sub.name}
-                                  </span>
-                                  <span className="rounded-full bg-[#FAF8F3] border border-[#DED2C1] px-1.5 py-0.2 text-[9px] font-bold text-[#756657] shrink-0">
-                                    {sub.productSlugs?.length || 0}
-                                  </span>
-                                </div>
-                                <p className="text-[10px] text-[#756657] leading-snug line-clamp-2">
-                                  {sub.shortDesc}
-                                </p>
-                              </div>
-                              {sub.featuredBadge && (
-                                <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#DED2C1]">
-                                  <span className="text-[9px] font-extrabold text-[#795C43] uppercase tracking-wider">
-                                    {sub.featuredBadge}
-                                  </span>
-                                  <ChevronRight className="h-3 w-3 text-[#756657] group-hover:text-[#795C43] group-hover:translate-x-0.5 transition-all" />
-                                </div>
-                              )}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Reassurance Footer Banner */}
-                      <div className="mt-3 pt-2.5 border-t border-[#DED2C1] flex items-center justify-between text-[10px] text-[#756657]">
-                        <span className="flex items-center gap-1 font-semibold text-[#352719]">
-                          <Truck className="h-3 w-3 text-emerald-700" />
-                          <span>Dubai Online Production • Express Dispatch Across UAE</span>
-                        </span>
-                        <span className="font-bold text-[#795C43]">Heidelberg &amp; HP Indigo Press</span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+          {/* A. BRAND LOGO */}
+          <div className="flex items-center shrink-0">
+            <Logo
+              variant="default"
+              size={scrolled ? 'sm' : 'md'}
+              className="transition-transform duration-200 hover:scale-[1.01]"
+            />
           </div>
 
-            {/* Business Cards Link */}
-            <NavLink
-              to="/business-card-printing-dubai"
-              onMouseEnter={() => setHoveredNav('cards')}
-              className={({ isActive }) =>
-                `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#795C43] font-black' : 'text-[#352719] hover:text-[#795C43]'
-                }`
-              }
-            >
-              <CreditCard className="h-3.5 w-3.5 text-[#795C43]" />
-              <span>Cards</span>
-              <span className="rounded-full bg-[#795C43] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
-                DUBAI
-              </span>
+          {/* B. PRIMARY DESKTOP NAVIGATION (lg and above) */}
+          <nav
+            aria-label="Primary Navigation"
+            className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1 2xl:gap-1.5"
+          >
+            {PRIMARY_NAV_ITEMS.map((item) => {
+              const active = isNavItemActive(item)
 
-              {hoveredNav === 'cards' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#F5F0E7] shadow-xs border border-[#DED2C1] text-[#352719] -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </NavLink>
-
-            {/* Stamps & Seals — Clearly Visible Main Navigation Item */}
-            <NavLink
-              to="/categories/stamps-printing-dubai"
-              onMouseEnter={() => setHoveredNav('stamps')}
-              className={({ isActive }) =>
-                `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#795C43] font-black' : 'text-[#352719] hover:text-[#795C43]'
-                }`
-              }
-            >
-              <Stamp className="h-3.5 w-3.5 text-[#795C43]" />
-              <span>Stamps &amp; Seals</span>
-              <span className="rounded-full bg-[#F5F0E7] border border-[#DED2C1] text-[#795C43] px-1.5 py-0.2 text-[8px] font-black uppercase">
-                2H
-              </span>
-
-              {hoveredNav === 'stamps' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#F5F0E7] shadow-xs border border-[#DED2C1] text-[#352719] -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </NavLink>
-
-            {/* Stickers & Labels */}
-            <NavLink
-              to="/categories/stickers-labels-printing"
-              onMouseEnter={() => setHoveredNav('stickers')}
-              className={({ isActive }) =>
-                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#795C43] font-black' : 'text-[#352719] hover:text-[#795C43]'
-                }`
-              }
-            >
-              <Tag className="h-3.5 w-3.5 text-[#795C43]" />
-              <span>Stickers</span>
-
-              {hoveredNav === 'stickers' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#F5F0E7] shadow-xs border border-[#DED2C1] text-[#352719] -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </NavLink>
-
-            {/* Luxury Finishes Showcase */}
-            <NavLink
-              to="/finishes"
-              onMouseEnter={() => setHoveredNav('finishes')}
-              className={({ isActive }) =>
-                `relative z-10 hidden lg:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#795C43] font-black' : 'text-[#352719] hover:text-[#795C43]'
-                }`
-              }
-            >
-              <Palette className="h-3.5 w-3.5 text-[#795C43]" />
-              <span>Finishes</span>
-
-              {hoveredNav === 'finishes' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#F5F0E7] shadow-xs border border-[#DED2C1] text-[#352719] -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </NavLink>
-
-            {/* Company Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => {
-                handleMouseEnterDropdown('company')
-                setHoveredNav('company')
-              }}
-              onMouseLeave={handleMouseLeaveDropdown}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
-                className={`relative z-10 flex items-center gap-1 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
-                  activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact', '/corporate-quotes'].includes(location.pathname)
-                    ? 'text-[#795C43] font-black'
-                    : 'text-[#352719] hover:text-[#795C43]'
-                }`}
-              >
-                <span>Company</span>
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'company' ? 'rotate-180 text-[#795C43]' : 'text-[#756657]'
-                  }`}
-                />
-
-                {(hoveredNav === 'company' || activeDropdown === 'company') && (
-                  <motion.div
-                    layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-[#F5F0E7] shadow-xs border border-[#DED2C1] text-[#352719] -z-10"
-                    transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                  />
-                )}
-              </button>
-
-              <AnimatePresence>
-                {activeDropdown === 'company' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                    transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-[#352719]"
+              // Products Mega Menu Trigger + Crawlable Anchor Link
+              if (item.isMegaTrigger) {
+                const isOpen = megaMenuOpen
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={handleMegaMouseEnter}
+                    onMouseLeave={handleMegaMouseLeave}
                   >
                     <Link
-                      to="/services"
-                      onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#795C43] transition-colors"
+                      to={item.to}
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                      aria-controls="products-mega-menu"
+                      onClick={(e) => {
+                        // On touch/keyboard toggle if not already open, while keeping real href for crawlers
+                        if (!isOpen && window.innerWidth < 1280) {
+                          e.preventDefault()
+                          setMegaMenuOpen(true)
+                        } else {
+                          setMegaMenuOpen(false)
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+                          if (e.key === 'ArrowDown') {
+                            e.preventDefault()
+                            setMegaMenuOpen(true)
+                          }
+                        }
+                      }}
+                      className={`group inline-flex items-center gap-1 rounded-lg px-2.5 xl:px-3 py-2 text-[13px] xl:text-[13.5px] font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                        isOpen || active
+                          ? 'bg-[#EDE3D5] text-[#352719] shadow-2xs'
+                          : 'text-[#352719] hover:bg-[#EDE3D5]/70 hover:text-[#795C43]'
+                      }`}
                     >
-                      <Sparkles className="h-4 w-4 text-[#795C43]" />
-                      <div>
-                        <div className="leading-tight">All Printing Services</div>
-                        <span className="text-[10px] font-normal text-[#756657]">Offset, Digital &amp; Large Format</span>
-                      </div>
+                      <Layers className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`h-3.5 w-3.5 text-[#756657] transition-transform duration-200 ${
+                          isOpen ? 'rotate-180 text-[#795C43]' : 'group-hover:text-[#795C43]'
+                        }`}
+                      />
                     </Link>
+                  </div>
+                )
+              }
 
-                    <Link
-                      to="/finishes"
-                      onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#795C43] transition-colors"
-                    >
-                      <Palette className="h-4 w-4 text-[#795C43]" />
-                      <div>
-                        <div className="leading-tight">Luxury Finishes Showcase</div>
-                        <span className="text-[10px] font-normal text-[#756657]">Foil, Spot UV, Debossing &amp; Edges</span>
-                      </div>
-                    </Link>
+              // Hide 'Home' on tight 1024px–1180px screens if needed (Logo already links Home), show from xl+
+              const responsiveVisibility =
+                item.to === '/'
+                  ? 'hidden xl:inline-flex'
+                  : item.to === '/about'
+                  ? 'hidden min-[1140px]:inline-flex'
+                  : 'inline-flex'
 
-                    <Link
-                      to="/corporate-quotes"
-                      onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#795C43] transition-colors"
-                    >
-                      <Building2 className="h-4 w-4 text-[#795C43]" />
-                      <div>
-                        <div className="leading-tight">Corporate &amp; Bulk Quotes</div>
-                        <span className="text-[10px] font-normal text-[#756657]">Trade credit &amp; multi-product RFQ</span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      to="/about"
-                      onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#795C43] transition-colors"
-                    >
-                      <Building2 className="h-4 w-4 text-[#795C43]" />
-                      <div>
-                        <div className="leading-tight">About ONPRINT</div>
-                        <span className="text-[10px] font-normal text-[#756657]">Dubai Pressroom &amp; Plant</span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      to="/blog"
-                      onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#795C43] transition-colors"
-                    >
-                      <BookOpen className="h-4 w-4 text-[#795C43]" />
-                      <div>
-                        <div className="leading-tight">Printing Insights</div>
-                        <span className="text-[10px] font-normal text-[#756657]">Paper stocks &amp; finishing</span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      to="/contact"
-                      onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#F5F0E7] hover:text-[#795C43] transition-colors"
-                    >
-                      <MapPin className="h-4 w-4 text-[#795C43]" />
-                      <div>
-                        <div className="leading-tight">Contact &amp; Location</div>
-                        <span className="text-[10px] font-normal text-[#756657]">Al Quoz Industrial 4, Dubai</span>
-                      </div>
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              return (
+                <NavLink
+                  key={item.label}
+                  to={item.to}
+                  end={item.end}
+                  onMouseEnter={() => {
+                    if (megaMenuOpen) handleMegaMouseLeave()
+                  }}
+                  className={`${responsiveVisibility} relative items-center rounded-lg px-2.5 xl:px-3 py-2 text-[13px] xl:text-[13.5px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                    active
+                      ? 'bg-[#EDE3D5] font-bold text-[#352719]'
+                      : 'text-[#352719]/90 hover:bg-[#EDE3D5]/60 hover:text-[#795C43]'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {active && (
+                    <span className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full bg-[#795C43]" />
+                  )}
+                </NavLink>
+              )
+            })}
           </nav>
 
-          {/* Right Action Hub */}
-          <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-2.5 shrink-0">
-            {/* Direct Phone Hotline */}
+          {/* C. CUSTOMER SERVICES & ACTION AREA */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* 1. Search Button */}
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Search printing products and categories"
+              title="Search Products (Press / or Ctrl+K)"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-2.5 sm:px-3 h-10 text-xs font-bold text-[#352719] transition-all cursor-pointer shadow-2xs"
+            >
+              <Search className="h-4 w-4 text-[#795C43] shrink-0" />
+              <span className="hidden 2xl:inline text-[#756657] font-semibold">Search...</span>
+              <kbd className="hidden 2xl:inline-block rounded bg-[#EDE3D5] px-1.5 py-0.5 text-[10px] font-bold text-[#5C4938] border border-[#DED2C1]">
+                /
+              </kbd>
+            </button>
+
+            {/* 2. Direct Phone Action (Desktop/Tablet) */}
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#FAF8F3] hover:border-[#C5A989] text-xs font-bold text-[#352719] transition-all whitespace-nowrap shadow-2xs"
-              title={`Direct Pressroom Hotline: ${FORMATTED_PHONE}`}
-              aria-label="Call Pressroom"
+              title={`Call ONPRINT Dubai: ${FORMATTED_PHONE}`}
+              aria-label={`Call ONPRINT Dubai at ${FORMATTED_PHONE}`}
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-2.5 h-10 text-xs font-bold text-[#352719] transition-all shadow-2xs"
             >
-              <Phone className="h-3.5 w-3.5 text-[#795C43]" />
-              <span className="hidden min-[1680px]:inline text-[11px] font-semibold">{FORMATTED_PHONE}</span>
+              <Phone className="h-4 w-4 text-[#795C43] shrink-0" />
+              <span className="hidden min-[1360px]:inline whitespace-nowrap">{FORMATTED_PHONE}</span>
             </a>
 
-            {/* Quick Search Capsule Button */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              type="button"
-              onClick={() => setSearchModalOpen(true)}
-              className="flex h-10 w-10 sm:h-9 sm:w-9 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#FAF8F3] hover:border-[#C5A989] text-xs text-[#352719] transition-all cursor-pointer group shrink-0"
-              title="Search products (Press / or ⌘K)"
-              aria-label="Search products"
-            >
-              <Search className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-[#795C43] group-hover:scale-110 transition-transform shrink-0" />
-              <span className="hidden min-[1600px]:inline text-[11px] font-medium text-[#756657]">Search...</span>
-              <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#FAF8F3] border border-[#DED2C1] px-1 py-0.2 text-[8px] font-bold text-[#756657]">
-                ⌘K
-              </kbd>
-            </motion.button>
-
-            {/* Track Orders Button */}
+            {/* 3. Track Order Action (Scrolled or Tablet/Desktop quick utility) */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-9 w-9 items-center justify-center rounded-full border border-[#DED2C1] bg-[#FAF8F3] text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-all shadow-2xs shrink-0"
-              title="Track Production & Delivery"
-              aria-label="Track order"
+              title="Track Existing Order"
+              aria-label="Track Existing Order"
+              className="hidden md:inline-flex lg:hidden xl:inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-2.5 h-10 text-xs font-bold text-[#352719] transition-all shadow-2xs"
             >
-              <Truck className="h-3.5 w-3.5" />
+              <Truck className="h-4 w-4 text-[#795C43] shrink-0" />
+              <span className="hidden min-[1420px]:inline whitespace-nowrap">Track Order</span>
             </Link>
 
-            <LanguageSwitcher className="hidden sm:inline-flex" />
-
-            {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
-            <div className="relative flex items-center shrink-0">
-              <div className="inline-flex items-center h-10 sm:h-9 rounded-full border border-emerald-500 bg-emerald-50 shadow-2xs overflow-hidden">
+            {/* 4. WhatsApp Action + Concierge Dropdown */}
+            <div className="relative" ref={whatsappMenuRef}>
+              <div className="inline-flex items-center rounded-xl border border-[#25D366]/40 bg-[#FAF8F3] hover:bg-[#EDE3D5] transition-all h-10 shadow-2xs overflow-hidden">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -860,382 +766,504 @@ export default function SiteHeader() {
                   onClick={() =>
                     trackWhatsAppClick({
                       source_page: location.pathname,
-                      button_location: 'site_header_primary',
-                      label: 'header_whatsapp_direct',
+                      button_location: 'header_navbar',
+                      label: 'navbar_whatsapp_direct',
                     })
                   }
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer h-full"
-                  aria-label="Get Price on WhatsApp"
-                  title="Chat directly on WhatsApp"
+                  title={`WhatsApp Instant Quote: ${FORMATTED_PHONE}`}
+                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 h-full text-xs font-bold text-[#352719] hover:text-[#1da851] transition-colors"
                 >
-                  <WhatsAppIcon className="h-4 w-4 sm:h-3.5 sm:w-3.5 fill-current shrink-0" />
-                  <span className="hidden min-[420px]:inline text-[11px] font-extrabold">WhatsApp</span>
-                  <span className="relative flex h-2 w-2 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  <span className="relative flex h-5 w-5 items-center justify-center rounded-full bg-[#25D366] text-white shrink-0">
+                    <WhatsAppIcon className="h-3 w-3 fill-current" />
                   </span>
+                  <span className="hidden sm:inline font-extrabold">WhatsApp</span>
                 </a>
                 <button
                   type="button"
                   onClick={() => {
-                    setWhatsappPopoverOpen((v) => !v)
-                    setUserMenuOpen(false)
+                    setMegaMenuOpen(false)
+                    setWhatsappMenuOpen((prev) => !prev)
                   }}
-                  className={`px-2 py-1 border-l border-emerald-300 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer h-full flex items-center justify-center ${
-                    whatsappPopoverOpen ? 'bg-emerald-100' : ''
-                  }`}
-                  aria-label="Show WhatsApp hotline number"
-                  title="View & copy WhatsApp number"
+                  aria-label="Open WhatsApp print desk details"
+                  aria-expanded={whatsappMenuOpen}
+                  className="hidden sm:inline-flex items-center justify-center px-1.5 h-full border-l border-[#DED2C1] text-[#756657] hover:text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer"
                 >
-                  <ChevronDown className="h-3.5 w-3.5" />
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      whatsappMenuOpen ? 'rotate-180 text-[#795C43]' : ''
+                    }`}
+                  />
                 </button>
               </div>
 
-              {/* WhatsApp Dropdown Popover */}
+              {/* WhatsApp Concierge Popover */}
               <AnimatePresence>
-                {whatsappPopoverOpen && (
+                {whatsappMenuOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
                     transition={{ duration: 0.16 }}
-                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-2xl z-50 text-[#352719]"
+                    className="absolute right-0 mt-2.5 w-80 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 shadow-[0_20px_50px_rgba(53,39,25,0.16)] z-50"
                   >
-                    <div className="flex items-center justify-between border-b border-[#DED2C1] pb-3 mb-3">
+                    <div className="flex items-start justify-between gap-3 pb-3 border-b border-[#DED2C1]">
                       <div className="flex items-center gap-2.5">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs">
-                          <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-sm shrink-0">
+                          <WhatsAppIcon className="h-5 w-5 fill-current" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[#352719] leading-tight">WhatsApp Concierge</div>
-                          <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-700">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            <span>Online • Instant Turnaround</span>
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-xs font-black text-[#352719]">
+                              ONPRINT WhatsApp Desk
+                            </span>
+                            <span className="h-2 w-2 rounded-full bg-[#25D366]" />
                           </div>
+                          <p className="text-[11px] text-[#756657]">
+                            Direct Pre-Press &amp; Pricing Specialist
+                          </p>
                         </div>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => setWhatsappPopoverOpen(false)}
-                        className="text-[#756657] hover:text-[#352719] p-1 rounded-md hover:bg-[#F5F0E7] transition-colors cursor-pointer"
-                        aria-label="Close"
-                      >
-                        <X className="h-4 w-4" />
-                      </button>
                     </div>
 
-                    <div className="rounded-xl bg-[#F5F0E7] p-3 border border-[#DED2C1] mb-3">
-                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]">Direct Hotline</span>
-                      <div className="mt-1 flex items-center justify-between gap-2">
-                        <span className="text-sm font-black tracking-tight text-[#795C43]">{FORMATTED_PHONE}</span>
+                    <div className="py-3 space-y-2.5">
+                      <div className="flex items-center justify-between rounded-xl bg-[#F5F0E7] border border-[#DED2C1] px-3 py-2">
+                        <div>
+                          <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]">
+                            Official Hotline
+                          </span>
+                          <span className="text-sm font-black text-[#352719]">
+                            {FORMATTED_PHONE}
+                          </span>
+                        </div>
                         <button
                           type="button"
-                          onClick={handleCopyNumber}
-                          className="flex items-center gap-1 rounded-lg bg-[#FAF8F3] px-2 py-1 text-[11px] font-bold text-[#352719] shadow-2xs border border-[#DED2C1] hover:bg-[#EDE3D5] transition-colors cursor-pointer shrink-0"
+                          onClick={handleCopyPhone}
+                          className="inline-flex items-center gap-1 rounded-lg border border-[#DED2C1] bg-[#FAF8F3] px-2.5 py-1.5 text-[11px] font-bold text-[#352719] hover:border-[#795C43] transition-colors cursor-pointer"
                         >
-                          {copied ? (
+                          {copiedPhone ? (
                             <>
-                              <Check className="h-3 w-3 text-emerald-700" />
-                              <span className="text-emerald-700">Copied!</span>
+                              <Check className="h-3.5 w-3.5 text-emerald-700" />
+                              <span className="text-emerald-700">Copied</span>
                             </>
                           ) : (
                             <>
-                              <Copy className="h-3 w-3 text-[#795C43]" />
+                              <Copy className="h-3.5 w-3.5 text-[#795C43]" />
                               <span>Copy</span>
                             </>
                           )}
                         </button>
                       </div>
-                    </div>
 
-                    <a
-                      href={getServiceWhatsAppUrl(location.pathname)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => {
-                        setWhatsappPopoverOpen(false)
-                        trackWhatsAppClick({
-                          source_page: location.pathname,
-                          button_location: 'header_concierge_popover',
-                          label: 'header_concierge_start_chat',
-                        })
-                      }}
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
-                    >
-                      <WhatsAppIcon className="h-4 w-4 fill-current" />
-                      <span>Start Chat on WhatsApp</span>
-                    </a>
+                      <a
+                        href={getServiceWhatsAppUrl(location.pathname)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                          setWhatsappMenuOpen(false)
+                          trackWhatsAppClick({
+                            source_page: location.pathname,
+                            button_location: 'header_popover',
+                            label: 'start_whatsapp_chat',
+                          })
+                        }}
+                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1da851] py-2.5 px-4 text-xs font-black text-white shadow-sm transition-all"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-current" />
+                        <span>Start WhatsApp Chat Now</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+
+                      <a
+                        href={`tel:+${RAW_WHATSAPP_NUMBER}`}
+                        className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] py-2 px-4 text-xs font-bold text-[#352719] transition-colors"
+                      >
+                        <Phone className="h-3.5 w-3.5 text-[#795C43]" />
+                        <span>Call Pressroom Directly</span>
+                      </a>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Authenticated Admin Badge */}
-            {isAuthenticated && isAdmin ? (
-              <div className="relative shrink-0">
+            {/* 5. Prominent Primary CTA: Get a Quote */}
+            <Link
+              to="/get-a-quote"
+              onClick={() => trackGetQuoteClick({ source_page: 'header_navbar' })}
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-xl bg-[#795C43] hover:bg-[#5D442E] px-3.5 xl:px-4 h-10 text-xs xl:text-[13px] font-bold text-white shadow-sm hover:shadow-md transition-all duration-200 whitespace-nowrap"
+            >
+              <span>Get a Quote</span>
+              <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+            </Link>
+
+            {/* 6. Admin User Dropdown (Only when authenticated as admin) */}
+            {isAuthenticated && isAdmin && (
+              <div className="relative" ref={userMenuRef}>
                 <button
                   type="button"
-                  onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-1.5 rounded-full border border-[#DED2C1] bg-[#F5F0E7] px-2.5 py-1.5 text-xs font-semibold text-[#352719] hover:bg-[#FAF8F3] cursor-pointer shadow-2xs"
+                  onClick={() => setUserMenuOpen((prev) => !prev)}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#C5A989] bg-[#FAF8F3] px-2.5 h-10 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer"
                 >
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#795C43] text-white text-[10px] font-bold">
-                    {user?.name?.[0]?.toUpperCase() || 'A'}
-                  </div>
-                  <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3 w-3 text-[#756657] transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <ShieldCheck className="h-4 w-4 text-[#795C43]" />
+                  <span className="hidden xl:inline max-w-[90px] truncate">
+                    {user?.name || 'Admin'}
+                  </span>
+                  <ChevronDown className="h-3.5 w-3.5 text-[#756657]" />
                 </button>
 
                 <AnimatePresence>
                   {userMenuOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 6 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-2 shadow-xl z-50 text-[#352719]"
+                      className="absolute right-0 mt-2 w-52 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-2 shadow-xl z-50"
                     >
-                      <div className="px-3 py-2 border-b border-[#DED2C1] mb-1">
-                        <div className="font-bold text-xs text-[#352719] truncate">{user?.name || 'Administrator'}</div>
-                        <div className="text-[10px] text-[#756657] truncate">{user?.email}</div>
-                      </div>
-
                       <Link
-                        to="/admin"
+                        to="/admin/dashboard"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-[#352719] hover:text-[#795C43] hover:bg-[#F5F0E7] rounded-lg transition-colors"
+                        className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
                       >
-                        <ShieldCheck className="w-4 h-4 text-[#795C43]" />
+                        <ShieldCheck className="h-4 w-4 text-[#795C43]" />
                         <span>Admin Dashboard</span>
                       </Link>
-
                       <button
                         type="button"
                         onClick={() => {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#DED2C1] cursor-pointer"
+                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold text-rose-700 hover:bg-rose-50 cursor-pointer"
                       >
-                        <LogOut className="w-4 h-4" />
+                        <LogOut className="h-4 w-4" />
                         <span>Sign Out</span>
                       </button>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            ) : null}
+            )}
 
-            {/* Primary High-Converting CTA Button */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-              className="hidden sm:block shrink-0"
-            >
-              <Link
-                to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#795C43] hover:bg-[#5D442E] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-white shadow-sm transition-all whitespace-nowrap overflow-hidden"
-                onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
-              >
-                <span>Get Instant Quote</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" />
-              </Link>
-            </motion.div>
-
-            {/* Mobile / Tablet Hamburger Toggle */}
+            {/* 7. Mobile & Tablet Hamburger Button (Visible below lg) */}
             <button
               type="button"
-              onClick={() => setMobileMenuOpen((v) => !v)}
-              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-10 w-10 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-drawer"
+              className="inline-flex lg:hidden items-center justify-center rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] h-10 w-10 text-[#352719] transition-colors cursor-pointer shadow-2xs"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
+      </div>
 
-      {/* 3. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
+      {/* =====================================================================
+          3. PREMIUM MULTI-COLUMN PRODUCTS MEGA MENU (Desktop lg+)
+         ===================================================================== */}
       <AnimatePresence>
-        {searchModalOpen && (
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label="Search Products and Categories"
-            className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-24 px-3 sm:px-4 bg-slate-900/60 backdrop-blur-sm"
+        {megaMenuOpen && (
+          <motion.div
+            id="products-mega-menu"
+            role="region"
+            aria-label="Products Mega Menu"
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            onMouseEnter={handleMegaMouseEnter}
+            onMouseLeave={handleMegaMouseLeave}
+            className="hidden lg:block absolute left-0 right-0 top-full border-b border-[#C5A989] bg-[#FAF8F3] shadow-[0_28px_60px_-12px_rgba(53,39,25,0.22)] z-50"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: -16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -16 }}
-              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-2xl rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-4 sm:p-6 shadow-2xl text-[#352719]"
-            >
-              {/* Search Bar Input */}
-              <div className="flex items-center justify-between border-b border-[#DED2C1] pb-3.5 sm:pb-4 gap-2">
-                <div className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0">
-                  <Search className="h-5 w-5 text-[#795C43] shrink-0" />
-                  <input
-                    ref={searchInputRef}
-                    type="search"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search 200+ products, categories, or finishes..."
-                    aria-label="Search products, categories, or finishes"
-                    className="w-full bg-transparent text-base font-semibold text-[#352719] placeholder:text-[#756657] focus:outline-none min-w-0"
-                  />
+            <div className="mx-auto max-w-[1440px] px-6 lg:px-8 py-6">
+              {/* Top 5-Column Category Grid */}
+              <div className="grid grid-cols-5 gap-5 xl:gap-6">
+                {MEGA_MENU_CATEGORIES.map((category) => {
+                  const Icon = category.icon
+                  return (
+                    <div key={category.key} className="flex flex-col">
+                      {/* Category Column Header */}
+                      <Link
+                        to={category.overviewPath}
+                        onClick={() => setMegaMenuOpen(false)}
+                        className="group flex items-start gap-2.5 pb-3 mb-2.5 border-b border-[#DED2C1] hover:border-[#795C43] transition-colors"
+                      >
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#EDE3D5] text-[#795C43] group-hover:bg-[#795C43] group-hover:text-white transition-colors shrink-0 mt-0.5">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="text-[13px] font-extrabold text-[#352719] group-hover:text-[#795C43] transition-colors leading-snug">
+                            {category.title}
+                          </h3>
+                          <p className="text-[11px] text-[#756657] truncate mt-0.5">
+                            {category.subtitle}
+                          </p>
+                        </div>
+                      </Link>
+
+                      {/* Category Product Links */}
+                      <ul className="space-y-1 flex-1">
+                        {category.items.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              to={item.to}
+                              onClick={() => setMegaMenuOpen(false)}
+                              className="group flex flex-col rounded-xl px-2.5 py-1.5 hover:bg-[#EDE3D5]/80 transition-colors"
+                            >
+                              <div className="flex items-center justify-between gap-1.5">
+                                <span className="text-[12.5px] font-bold text-[#352719] group-hover:text-[#795C43] transition-colors">
+                                  {item.label}
+                                </span>
+                                {item.badge && (
+                                  <span className="shrink-0 rounded-md bg-[#EDE3D5] group-hover:bg-[#795C43] px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[#795C43] group-hover:text-white transition-colors">
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </div>
+                              {item.desc && (
+                                <span className="text-[11px] text-[#756657] line-clamp-1 mt-0.5">
+                                  {item.desc}
+                                </span>
+                              )}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Bottom Featured Products Showcase + View All Bar */}
+              <div className="mt-6 pt-5 border-t border-[#DED2C1] flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-4">
+                {/* Featured Product Cards with Lazy-Loaded Real Product Images */}
+                <div className="grid grid-cols-3 gap-3.5 flex-1">
+                  {FEATURED_MEGA_PRODUCTS.map((feat) => (
+                    <Link
+                      key={feat.title}
+                      to={feat.to}
+                      onClick={() => setMegaMenuOpen(false)}
+                      className="group flex items-center gap-3 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] hover:border-[#C5A989] p-2.5 transition-all"
+                    >
+                      <div className="h-14 w-16 rounded-lg overflow-hidden bg-[#EDE3D5] border border-[#DED2C1] shrink-0">
+                        <img
+                          src={feat.image}
+                          alt={feat.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#795C43]">
+                            {feat.badge}
+                          </span>
+                        </div>
+                        <h4 className="text-xs font-extrabold text-[#352719] group-hover:text-[#795C43] truncate mt-0.5">
+                          {feat.title}
+                        </h4>
+                        <div className="flex items-center justify-between mt-1">
+                          <span className="text-[11px] font-bold text-[#5C4938]">
+                            {feat.priceText}
+                          </span>
+                          <span className="inline-flex items-center gap-0.5 text-[11px] font-bold text-[#795C43] group-hover:translate-x-0.5 transition-transform">
+                            <span>Explore</span>
+                            <ChevronRight className="h-3 w-3" />
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
+
+                {/* Action Links: View All Products & Categories */}
+                <div className="flex items-center justify-end gap-2.5 shrink-0">
+                  <Link
+                    to="/categories"
+                    onClick={() => setMegaMenuOpen(false)}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-[#C5A989] bg-[#F5F0E7] hover:bg-[#EDE3D5] px-4 py-2.5 text-xs font-bold text-[#352719] transition-colors"
+                  >
+                    <ShoppingBag className="h-3.5 w-3.5 text-[#795C43]" />
+                    <span>All 19 Categories</span>
+                  </Link>
+
+                  <Link
+                    to="/products"
+                    onClick={() => setMegaMenuOpen(false)}
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#795C43] hover:bg-[#5D442E] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all"
+                  >
+                    <span>View All Products</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* =====================================================================
+          4. UNIVERSAL SEARCH MODAL
+         ===================================================================== */}
+      <AnimatePresence>
+        {searchOpen && (
+          <div className="fixed inset-0 z-60 flex items-start justify-center pt-12 sm:pt-20 px-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSearchOpen(false)}
+              className="fixed inset-0 bg-[#352719]/50 backdrop-blur-xs"
+            />
+
+            {/* Modal Container */}
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Search ONPRINT Catalog"
+              initial={{ opacity: 0, y: -12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              className="relative z-10 w-full max-w-2xl rounded-2xl border border-[#C5A989] bg-[#FAF8F3] shadow-[0_25px_70px_rgba(53,39,25,0.28)] overflow-hidden"
+            >
+              {/* Search Input Bar */}
+              <div className="flex items-center gap-3 border-b border-[#DED2C1] bg-[#F5F0E7] px-4 py-3.5">
+                <Search className="h-5 w-5 text-[#795C43] shrink-0" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search business cards, stickers, stamps, roll-up banners, bottles..."
+                  className="w-full bg-transparent text-sm sm:text-base font-medium text-[#352719] placeholder:text-[#756657] focus:outline-none"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="rounded-lg px-2 py-1 text-xs font-bold text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719]"
+                  >
+                    Clear
+                  </button>
+                )}
                 <button
                   type="button"
-                  onClick={() => setSearchModalOpen(false)}
-                  aria-label="Close search dialog"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full p-1.5 text-[#756657] hover:text-[#352719] hover:bg-[#F5F0E7] cursor-pointer shrink-0"
+                  onClick={() => setSearchOpen(false)}
+                  aria-label="Close search"
+                  className="rounded-lg border border-[#DED2C1] bg-[#FAF8F3] p-1.5 text-[#756657] hover:text-[#352719] hover:bg-[#EDE3D5] cursor-pointer"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4" />
                 </button>
               </div>
 
-              {/* Suggestions / Results */}
-              <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
-                {searchQuery.trim() === '' ? (
-                  <div className="py-2">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#795C43] block mb-2.5">
-                      Explore Master Departments (Dubai Pressroom)
-                    </span>
-                    <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-2">
-                      {MASTER_DEPARTMENTS.map((dept) => {
-                        const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
-                        const count = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
-                        return (
+              {/* Search Body */}
+              <div className="max-h-[68vh] overflow-y-auto p-4 sm:p-5 space-y-5">
+                {!searchQuery.trim() ? (
+                  <>
+                    <div>
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43] block mb-2.5">
+                        Popular Printing Searches
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {POPULAR_SEARCHES.map((item) => (
                           <Link
-                            key={dept.slug}
-                            to={`/categories/${dept.slug}`}
-                            onClick={() => setSearchModalOpen(false)}
-                            className="p-3 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] hover:bg-[#FAF8F3] text-xs font-bold text-[#352719] transition-all flex items-center justify-between group shadow-2xs"
+                            key={item.label}
+                            to={item.to}
+                            onClick={() => setSearchOpen(false)}
+                            className="inline-flex items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] hover:border-[#C5A989] px-3 py-2 text-xs font-bold text-[#352719] transition-colors"
                           >
-                            <div className="flex items-center gap-2 min-w-0">
-                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#FAF8F3] border border-[#DED2C1] text-[#795C43] shrink-0">
-                                <Icon className="h-3.5 w-3.5" />
-                              </div>
-                              <div className="min-w-0">
-                                <div className="truncate group-hover:text-[#352719] transition-colors font-extrabold text-[#352719]">{dept.shortName || dept.name}</div>
-                                <div className="text-[9px] text-[#756657] font-semibold">{count} products</div>
-                              </div>
-                            </div>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-[#756657] group-hover:text-[#795C43] shrink-0" />
+                            <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
+                            <span>{item.label}</span>
                           </Link>
-                        )
-                      })}
-                      <Link
-                        to="/products"
-                        onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-2xl border border-dashed border-[#C5A989] bg-[#795C43]/10 hover:bg-[#795C43]/20 text-xs font-black text-[#352719] transition-all flex items-center justify-between group"
-                      >
-                        <div className="flex items-center gap-2">
-                          <Layers className="h-4 w-4 text-[#795C43]" />
-                          <span>All 110+ Products</span>
-                        </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-[#795C43] group-hover:translate-x-0.5 transition-transform" />
-                      </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div>
-                    {searchResults.departments?.length > 0 && (
-                      <div className="mb-3.5">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#795C43] block mb-2">
-                          Matching Master Departments
-                        </span>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {searchResults.departments.map((dept) => {
-                            const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
-                            return (
-                              <Link
-                                key={dept.slug}
-                                to={`/categories/${dept.slug}`}
-                                onClick={() => setSearchModalOpen(false)}
-                                className="flex items-center justify-between p-2.5 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] hover:bg-[#FAF8F3] transition-all"
-                              >
-                                <div className="flex items-center gap-2">
-                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#795C43] border border-[#DED2C1]">
-                                    <Icon className="h-3 w-3" />
-                                  </div>
-                                  <span className="text-xs font-extrabold text-[#352719]">{dept.name}</span>
-                                </div>
-                                <ArrowRight className="h-3 w-3 text-[#795C43]" />
-                              </Link>
-                            )
-                          })}
-                        </div>
-                      </div>
-                    )}
 
-                    {searchResults.products?.length > 0 && (
-                      <div className="mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#795C43] block mb-2">
-                          Matching Products ({searchResults.products.length})
-                        </span>
-                        <div className="space-y-2">
-                          {searchResults.products.map((p) => {
-                            const imgSrc = p.images?.[0] || p.image || '/assets/products/luxury_business_cards_dubai.jpg'
-                            return (
-                              <Link
-                                key={p._id || p.id}
-                                to={`/products/${p.slug}`}
-                                onClick={() => setSearchModalOpen(false)}
-                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] hover:bg-[#FAF8F3] hover:shadow-xs transition-all gap-3"
-                              >
-                                <div className="flex items-center gap-3 min-w-0">
-                                  <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#FAF8F3] border border-[#DED2C1] shrink-0">
-                                    <img
-                                      src={imgSrc}
-                                      alt={p.name}
-                                      className="h-full w-full object-cover group-hover:scale-105 transition-transform"
-                                      onError={(e) => { e.currentTarget.style.display = 'none' }}
-                                    />
-                                  </div>
-                                  <div className="min-w-0">
-                                    <div className="flex items-center gap-1.5">
-                                      <h6 className="text-xs font-black text-[#352719] group-hover:text-[#795C43] transition-colors truncate">{p.name}</h6>
-                                      {p.category?.name && (
-                                        <span className="hidden sm:inline-block rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-1.5 py-0.2 text-[8px] font-bold text-[#795C43] uppercase shrink-0">
-                                          {p.category.name}
-                                        </span>
-                                      )}
-                                    </div>
-                                    <p className="text-[10px] text-[#756657] line-clamp-1 mt-0.5">{p.shortDescription || p.description}</p>
-                                  </div>
-                                </div>
-                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#795C43] group-hover:text-[#352719] px-2.5 py-1 rounded-full bg-[#795C43]/10 shrink-0">
-                                  <span>View &amp; Quote</span>
-                                  <ArrowRight className="h-3 w-3" />
-                                </span>
-                              </Link>
-                            )
-                          })}
-                        </div>
-                      </div>
-                    )}
-
-                    {searchResults.categories?.length > 0 && (
-                      <div>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#795C43] block mb-2">
-                          Matching Categories &amp; Subcategories
-                        </span>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {searchResults.categories.map((c) => (
+                    <div>
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43] block mb-2.5">
+                        Browse by Department
+                      </span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {MEGA_MENU_CATEGORIES.map((cat) => {
+                          const Icon = cat.icon
+                          return (
                             <Link
-                              key={c.slug || c.id}
-                              to={`/categories/${c.slug}`}
-                              onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] hover:bg-[#FAF8F3] text-xs font-bold text-[#352719] hover:text-[#795C43] transition-colors flex items-center justify-between"
+                              key={cat.key}
+                              to={cat.overviewPath}
+                              onClick={() => setSearchOpen(false)}
+                              className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] p-3 transition-colors"
                             >
-                              <div className="truncate">
-                                <div>{c.name}</div>
-                                {c.departmentName && (
-                                  <div className="text-[9px] text-[#756657] font-normal">{c.departmentName}</div>
-                                )}
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#EDE3D5] text-[#795C43] shrink-0">
+                                  <Icon className="h-4 w-4" />
+                                </div>
+                                <div className="min-w-0">
+                                  <div className="text-xs font-extrabold text-[#352719] truncate">
+                                    {cat.title}
+                                  </div>
+                                  <div className="text-[11px] text-[#756657] truncate">
+                                    {cat.subtitle}
+                                  </div>
+                                </div>
                               </div>
+                              <ChevronRight className="h-4 w-4 text-[#795C43] shrink-0" />
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Quick Menu Matches */}
+                    {searchResults.matchedMenuLinks.length > 0 && (
+                      <div>
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43] block mb-2">
+                          Recommended Solutions
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {searchResults.matchedMenuLinks.map((item) => (
+                            <Link
+                              key={`${item.groupTitle}-${item.label}`}
+                              to={item.to}
+                              onClick={() => setSearchOpen(false)}
+                              className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] p-2.5 transition-colors"
+                            >
+                              <div className="min-w-0">
+                                <div className="text-xs font-extrabold text-[#352719] truncate">
+                                  {item.label}
+                                </div>
+                                <div className="text-[11px] text-[#756657] truncate">
+                                  {item.desc || item.groupTitle}
+                                </div>
+                              </div>
+                              <ArrowRight className="h-3.5 w-3.5 text-[#795C43] shrink-0 ml-2" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Category Matches */}
+                    {searchResults.matchedCategories.length > 0 && (
+                      <div>
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43] block mb-2">
+                          Matching Categories ({searchResults.matchedCategories.length})
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {searchResults.matchedCategories.map((cat) => (
+                            <Link
+                              key={cat.slug || cat.id}
+                              to={`/categories/${cat.slug}`}
+                              onClick={() => setSearchOpen(false)}
+                              className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] p-2.5 transition-colors"
+                            >
+                              <span className="text-xs font-bold text-[#352719] truncate">
+                                {cat.name}
+                              </span>
                               <ChevronRight className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
                             </Link>
                           ))}
@@ -1243,19 +1271,67 @@ export default function SiteHeader() {
                       </div>
                     )}
 
-                    {searchResults.products?.length === 0 && searchResults.categories?.length === 0 && (!searchResults.departments || searchResults.departments.length === 0) && (
-                      <div className="py-8 text-center">
-                        <p className="text-xs text-[#756657]">No direct matches found for "{searchQuery}".</p>
-                        <Link
-                          to={`/products?search=${encodeURIComponent(searchQuery)}`}
-                          onClick={() => setSearchModalOpen(false)}
-                          className="mt-2 inline-block text-xs font-bold text-[#795C43] underline"
-                        >
-                          Search entire store catalog
-                        </Link>
+                    {/* Product Matches */}
+                    {searchResults.matchedProducts.length > 0 && (
+                      <div>
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43] block mb-2">
+                          Matching Products ({searchResults.matchedProducts.length})
+                        </span>
+                        <div className="space-y-1.5">
+                          {searchResults.matchedProducts.map((prod) => (
+                            <Link
+                              key={prod.slug || prod.id}
+                              to={`/products/${prod.slug}`}
+                              onClick={() => setSearchOpen(false)}
+                              className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:bg-[#EDE3D5] px-3 py-2.5 transition-colors"
+                            >
+                              <div className="min-w-0 pr-3">
+                                <div className="text-xs font-extrabold text-[#352719] truncate">
+                                  {prod.name}
+                                </div>
+                                {prod.shortDescription && (
+                                  <div className="text-[11px] text-[#756657] truncate">
+                                    {prod.shortDescription}
+                                  </div>
+                                )}
+                              </div>
+                              <ArrowRight className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
-                  </div>
+
+                    {/* Empty State */}
+                    {searchResults.matchedCategories.length === 0 &&
+                      searchResults.matchedProducts.length === 0 &&
+                      searchResults.matchedMenuLinks.length === 0 && (
+                        <div className="text-center py-8">
+                          <p className="text-sm font-bold text-[#352719]">
+                            No exact matches found for &ldquo;{searchQuery}&rdquo;
+                          </p>
+                          <p className="text-xs text-[#756657] mt-1">
+                            Explore our full catalog or request a custom quote from our Dubai pressroom.
+                          </p>
+                          <div className="mt-4 flex items-center justify-center gap-3">
+                            <Link
+                              to="/products"
+                              onClick={() => setSearchOpen(false)}
+                              className="rounded-xl bg-[#795C43] px-4 py-2 text-xs font-bold text-white"
+                            >
+                              Browse All Products
+                            </Link>
+                            <Link
+                              to="/get-a-quote"
+                              onClick={() => setSearchOpen(false)}
+                              className="rounded-xl border border-[#C5A989] bg-[#F5F0E7] px-4 py-2 text-xs font-bold text-[#352719]"
+                            >
+                              Request Custom Quote
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                  </>
                 )}
               </div>
             </motion.div>
@@ -1263,373 +1339,339 @@ export default function SiteHeader() {
         )}
       </AnimatePresence>
 
-      {/* 4. MODERN MOBILE & TABLET DRAWER WITH STAGGERED SPRING ANIMATION */}
+      {/* =====================================================================
+          5. MOBILE & TABLET SLIDE-IN NAVIGATION DRAWER (Below lg)
+         ===================================================================== */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div
+            id="mobile-navigation-drawer"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile Navigation Menu"
-            className="fixed inset-0 z-50 lg:hidden flex"
+            className="fixed inset-0 z-60 lg:hidden"
           >
-            {/* Backdrop */}
+            {/* Dark Warm Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"
+              className="fixed inset-0 bg-[#352719]/55 backdrop-blur-xs"
             />
 
-            {/* Slide-in Drawer Container */}
+            {/* Slide-In Drawer Panel */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#F5F0E7] border-l border-[#DED2C1] shadow-2xl z-50 overflow-hidden text-[#352719]"
+              transition={{ type: 'tween', duration: 0.26, ease: 'easeOut' }}
+              className="fixed inset-y-0 right-0 z-10 flex w-full max-w-[380px] flex-col bg-[#F5F0E7] border-l border-[#DED2C1] shadow-2xl"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-[#DED2C1] p-4 shrink-0">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
-                  <Logo variant="default" size="sm" />
-                </Link>
-                <div className="flex items-center gap-2 ml-auto mr-2">
-                  <LanguageSwitcher variant="compact" />
+              <div className="flex items-center justify-between border-b border-[#DED2C1] bg-[#EDE3D5] px-4 py-3.5 shrink-0">
+                <Logo variant="default" size="sm" />
+                <div className="flex items-center gap-2">
+                  <LanguageSwitcher />
+                  <button
+                    type="button"
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-label="Close navigation menu"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] hover:bg-[#EDE3D5] transition-colors cursor-pointer"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FAF8F3] border border-[#DED2C1] text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors cursor-pointer"
-                  aria-label="Close menu"
-                >
-                  <X className="h-5 w-5" />
-                </button>
               </div>
 
-              {/* Drawer Body (Scrollable) */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                {/* Search Box Trigger */}
+              {/* Drawer Scrollable Content */}
+              <div className="flex-1 overflow-y-auto px-4 py-4 space-y-5">
+                {/* Quick Search Trigger */}
                 <button
                   type="button"
                   onClick={() => {
                     setMobileMenuOpen(false)
-                    setSearchModalOpen(true)
+                    setTimeout(() => setSearchOpen(true), 120)
                   }}
-                  className="flex w-full items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3 text-xs text-[#756657] hover:bg-[#EDE3D5] transition-all cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-3 text-left text-xs font-bold text-[#756657] hover:border-[#C5A989] transition-colors shadow-2xs"
                 >
-                  <div className="flex items-center gap-2">
+                  <span className="flex items-center gap-2.5">
                     <Search className="h-4 w-4 text-[#795C43]" />
-                    <span>Search 200+ print products...</span>
-                  </div>
-                  <ArrowRight className="h-3.5 w-3.5 text-[#756657]" />
+                    <span>Search 120+ printing products...</span>
+                  </span>
+                  <span className="rounded bg-[#EDE3D5] px-2 py-0.5 text-[10px] font-extrabold text-[#352719]">
+                    Search
+                  </span>
                 </button>
 
-                {/* WhatsApp Concierge Card */}
-                <a
-                  href={getServiceWhatsAppUrl('general')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    trackWhatsAppClick({ source_page: 'header_mobile_menu', service: 'general', button_location: 'mobile_concierge' })
-                  }}
-                  className="flex items-center justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-[#352719] transition-all shadow-xs"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs shrink-0">
-                      <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-bold text-[#352719]">WhatsApp Concierge</span>
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      </div>
-                      <span className="text-[11px] font-bold text-emerald-700">{FORMATTED_PHONE}</span>
-                    </div>
+                {/* Expandable Product Categories (Accordion) */}
+                <div>
+                  <div className="flex items-center justify-between px-1 mb-2">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43]">
+                      Product Categories
+                    </span>
+                    <Link
+                      to="/products"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[11px] font-bold text-[#352719] hover:text-[#795C43] inline-flex items-center gap-1"
+                    >
+                      <span>View All</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
                   </div>
-                  <span className="rounded-lg bg-[#25D366] text-white px-2.5 py-1 text-[11px] font-bold shadow-xs">
-                    Chat
-                  </span>
-                </a>
 
-                {/* Navigation Items & Master Department Accordions */}
-                <div className="space-y-1">
-                  {/* Home */}
-                  <Link
-                    to="/"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3]"
-                  >
-                    <span>Home</span>
-                  </Link>
+                  <div className="space-y-2">
+                    {MEGA_MENU_CATEGORIES.map((category) => {
+                      const Icon = category.icon
+                      const isExpanded = mobileOpenCategory === category.key
 
-                  {/* Business Cards (Highlighted Dubai Flagship) */}
-                  <Link
-                    to="/business-card-printing-dubai"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] bg-[#795C43]/10 border border-[#C5A989]/30"
-                  >
-                    <div className="flex items-center gap-2">
-                      <CreditCard className="h-4 w-4 text-[#795C43]" />
-                      <span>Luxury Business Cards</span>
-                    </div>
-                    <span className="rounded bg-[#795C43] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      DUBAI FLAGSHIP
-                    </span>
-                  </Link>
-
-                  {/* Stamps & Seals (Clearly Visible Main Navigation Item) */}
-                  <Link
-                    to="/categories/stamps-printing-dubai"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] bg-[#FAF8F3] border border-[#DED2C1] hover:border-[#C5A989] hover:text-[#795C43] transition-colors"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Stamp className="h-4 w-4 text-[#795C43]" />
-                      <span>Stamps &amp; Seals</span>
-                    </div>
-                    <span className="rounded bg-[#795C43] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      2-HOUR EXPRESS
-                    </span>
-                  </Link>
-
-                  {/* Stickers & Product Labels (Dedicated Section in Mobile Drawer) */}
-                  <Link
-                    to="/categories/stickers-labels-printing"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] bg-[#FAF8F3] border border-[#DED2C1] hover:border-[#C5A989] hover:text-[#795C43] transition-colors"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Tag className="h-4 w-4 text-[#795C43]" />
-                      <span>Stickers &amp; Product Labels</span>
-                    </div>
-                    <span className="rounded bg-[#795C43] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      WATERPROOF
-                    </span>
-                  </Link>
-
-                  {/* Master Department Accordions */}
-                  <div className="pt-2 pb-1">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#795C43] px-3.5 block mb-1">
-                      Departments &amp; Catalog
-                    </span>
-
-                    <div className="space-y-1 border-y border-[#DED2C1] py-1.5">
-                      {MASTER_DEPARTMENTS.map((dept) => {
-                        const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
-                        const isOpen = mobileOpenDept === dept.slug
-                        const count = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
-
-                        return (
-                          <div key={dept.slug} className="rounded-xl overflow-hidden border border-[#DED2C1] bg-[#FAF8F3]">
-                            <button
-                              type="button"
-                              onClick={() => setMobileOpenDept((cur) => (cur === dept.slug ? null : dept.slug))}
-                              className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-[#352719] hover:bg-[#EDE3D5] transition-colors"
-                            >
-                              <div className="flex items-center gap-2.5 min-w-0">
-                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#795C43] text-white' : 'bg-[#F5F0E7] text-[#756657] border border-[#DED2C1]'} shrink-0`}>
-                                  <Icon className="h-3.5 w-3.5" />
+                      return (
+                        <div
+                          key={category.key}
+                          className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] overflow-hidden"
+                        >
+                          <button
+                            type="button"
+                            aria-expanded={isExpanded}
+                            onClick={() =>
+                              setMobileOpenCategory((prev) =>
+                                prev === category.key ? null : category.key
+                              )
+                            }
+                            className="flex w-full items-center justify-between px-3.5 py-3 text-left transition-colors hover:bg-[#EDE3D5]/60 cursor-pointer"
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <div
+                                className={`flex h-8 w-8 items-center justify-center rounded-lg shrink-0 transition-colors ${
+                                  isExpanded
+                                    ? 'bg-[#795C43] text-white'
+                                    : 'bg-[#EDE3D5] text-[#795C43]'
+                                }`}
+                              >
+                                <Icon className="h-4 w-4" />
+                              </div>
+                              <div className="min-w-0">
+                                <div className="text-[13px] font-extrabold text-[#352719] truncate">
+                                  {category.title}
                                 </div>
-                                <div className="min-w-0">
-                                  <div className="truncate font-extrabold text-[#352719]">{dept.name}</div>
-                                  <div className="text-[9px] text-[#756657] font-semibold">{dept.subcategories.length} subcategories • {count} prods</div>
+                                <div className="text-[11px] text-[#756657] truncate">
+                                  {category.subtitle}
                                 </div>
                               </div>
-                              <ChevronDown className={`h-4 w-4 text-[#756657] shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#795C43]' : ''}`} />
-                            </button>
+                            </div>
+                            <ChevronDown
+                              className={`h-4 w-4 text-[#756657] shrink-0 transition-transform duration-200 ${
+                                isExpanded ? 'rotate-180 text-[#795C43]' : ''
+                              }`}
+                            />
+                          </button>
 
-                            <AnimatePresence>
-                              {isOpen && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: 'auto' }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  className="px-3 pb-3 pt-1 border-t border-[#DED2C1] bg-[#F5F0E7] space-y-1"
-                                >
+                          <AnimatePresence initial={false}>
+                            {isExpanded && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="border-t border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 space-y-1"
+                              >
+                                {category.items.map((item) => (
                                   <Link
-                                    to={`/categories/${dept.slug}`}
+                                    key={item.label}
+                                    to={item.to}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-between rounded-lg p-2 text-xs font-black text-[#795C43] bg-[#795C43]/10 hover:bg-[#795C43]/20 mb-2"
+                                    className="flex items-center justify-between rounded-lg px-2.5 py-2 text-xs font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43] transition-colors"
                                   >
-                                    <span>Explore Department Overview</span>
-                                    <ArrowRight className="h-3 w-3" />
+                                    <span className="truncate">{item.label}</span>
+                                    {item.badge ? (
+                                      <span className="rounded bg-[#EDE3D5] px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-[#795C43] shrink-0">
+                                        {item.badge}
+                                      </span>
+                                    ) : (
+                                      <ChevronRight className="h-3.5 w-3.5 text-[#756657] shrink-0" />
+                                    )}
                                   </Link>
-
-                                  {dept.subcategories.map((sub) => (
-                                    <Link
-                                      key={sub.slug}
-                                      to={`/categories/${sub.slug}`}
-                                      onClick={() => setMobileMenuOpen(false)}
-                                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43] transition-colors"
-                                    >
-                                      <span className="truncate font-medium">{sub.name}</span>
-                                      <span className="text-[10px] text-[#756657] font-bold shrink-0">{sub.productSlugs?.length || 0} items</span>
-                                    </Link>
-                                  ))}
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        )
-                      })}
-                    </div>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )
+                    })}
                   </div>
+                </div>
 
-                  {/* All Products Catalog Link */}
-                  <Link
-                    to="/products"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-[#795C43] hover:bg-[#795C43]/10"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-[#795C43]" />
-                      <span>All 120+ Products Catalog</span>
-                    </div>
-                    <ArrowRight className="h-3.5 w-3.5 text-[#795C43]" />
-                  </Link>
-
-                  {/* Direct 1-Tap Access to All 19 Store Categories */}
-                  {categories.length > 0 && (
-                    <div className="pt-2 pb-1">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-[#795C43] px-3.5 block mb-1.5">
-                        Direct Jump • All {categories.length} Categories
+                {/* Main Navigation Links */}
+                <div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#795C43] px-1 block mb-2">
+                    Main Navigation
+                  </span>
+                  <div className="grid grid-cols-1 gap-1.5">
+                    <Link
+                      to="/"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <Home className="h-4 w-4 text-[#795C43]" />
+                        <span>Home</span>
                       </span>
-                      <div className="grid grid-cols-2 gap-1.5 px-1">
-                        {categories.map((cat) => (
-                          <Link
-                            key={cat.slug || cat.id}
-                            to={`/categories/${cat.slug}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-2.5 py-2 text-[11px] font-bold text-[#352719] hover:border-[#C5A989] hover:text-[#795C43] transition-colors min-h-[38px]"
-                          >
-                            <span className="truncate">{cat.name}</span>
-                            <ChevronRight className="h-3 w-3 text-[#795C43] shrink-0" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
 
-                  {/* Services */}
-                  <Link
-                    to="/services"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-[#795C43]" />
-                      <span>Printing Services &amp; Solutions</span>
-                    </div>
-                  </Link>
+                    <Link
+                      to="/business-card-printing-dubai"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <CreditCard className="h-4 w-4 text-[#795C43]" />
+                        <span>Business Cards</span>
+                      </span>
+                      <span className="rounded bg-[#EDE3D5] px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-[#795C43]">
+                        Flagship
+                      </span>
+                    </Link>
 
-                  {/* Luxury Finishes Showcase */}
-                  <Link
-                    to="/finishes"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Palette className="h-4 w-4 text-[#795C43]" />
-                      <span>Luxury Finishes (Foil &amp; 3D UV)</span>
-                    </div>
-                    <span className="rounded bg-[#795C43] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      8 CRAFTS
-                    </span>
-                  </Link>
+                    <Link
+                      to="/sticker-printing-dubai"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <Tag className="h-4 w-4 text-[#795C43]" />
+                        <span>Stickers &amp; Labels</span>
+                      </span>
+                      <span className="rounded bg-[#EDE3D5] px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-[#795C43]">
+                        Waterproof
+                      </span>
+                    </Link>
 
-                  {/* Corporate & Bulk Quotes */}
-                  <Link
-                    to="/corporate-quotes"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-[#795C43]" />
-                      <span>Corporate &amp; Bulk Quotes</span>
-                    </div>
-                    <span className="rounded bg-[#F5F0E7] border border-[#DED2C1] text-[#795C43] px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      B2B
-                    </span>
-                  </Link>
+                    <Link
+                      to="/categories/stamps-printing-dubai"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <Stamp className="h-4 w-4 text-[#795C43]" />
+                        <span>Stamps &amp; Seals</span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
 
-                  {/* About */}
-                  <Link
-                    to="/about"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-[#795C43]" />
-                      <span>About ONPRINT Pressroom</span>
-                    </div>
-                  </Link>
+                    <Link
+                      to="/finishes"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <Palette className="h-4 w-4 text-[#795C43]" />
+                        <span>Finishing (Foil &amp; 3D Spot UV)</span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
 
-                  {/* Blog */}
-                  <Link
-                    to="/blog"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4 text-[#795C43]" />
-                      <span>Blog &amp; Insights</span>
-                    </div>
-                  </Link>
+                    <Link
+                      to="/corporate-quotes"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <Building2 className="h-4 w-4 text-[#795C43]" />
+                        <span>Corporate &amp; Bulk Quotes</span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
 
-                  {/* Contact */}
-                  <Link
-                    to="/contact"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#352719] hover:bg-[#FAF8F3] hover:text-[#795C43]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-[#795C43]" />
-                      <span>Contact &amp; Pressroom</span>
-                    </div>
-                  </Link>
+                    <Link
+                      to="/about"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <BadgeCheck className="h-4 w-4 text-[#795C43]" />
+                        <span>About Us</span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
+
+                    <Link
+                      to="/blog"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <BookOpen className="h-4 w-4 text-[#795C43]" />
+                        <span>Blog &amp; Print Guides</span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
+
+                    <Link
+                      to="/contact"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl border border-[#DED2C1] bg-[#FAF8F3] px-3.5 py-2.5 text-xs font-bold text-[#352719] hover:bg-[#EDE3D5]"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <MapPin className="h-4 w-4 text-[#795C43]" />
+                        <span>Contact Us</span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 text-[#756657]" />
+                    </Link>
+                  </div>
                 </div>
               </div>
 
-              {/* Drawer Footer Actions */}
-              <div className="border-t border-[#DED2C1] p-4 space-y-2 shrink-0 bg-[#EDE3D5]">
-                <a
-                  href={getServiceWhatsAppUrl(location.pathname)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    trackWhatsAppClick({
-                      source_page: location.pathname,
-                      button_location: 'header_mobile_drawer',
-                      label: 'mobile_drawer_whatsapp',
-                    })
-                  }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 text-sm font-black text-white shadow-md shadow-emerald-600/20 transition-all"
-                >
-                  <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
-                  <span>Get Price on WhatsApp</span>
-                </a>
-
+              {/* Sticky Drawer Footer: Customer Service & Quote Actions */}
+              <div className="border-t border-[#DED2C1] bg-[#EDE3D5] p-4 space-y-2.5 shrink-0">
                 <Link
                   to="/get-a-quote"
                   onClick={() => {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#795C43] hover:bg-[#5D442E] py-3 text-sm font-black text-white shadow-md transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#795C43] hover:bg-[#5D442E] py-3 text-xs font-black text-white shadow-sm transition-all"
                 >
-                  <span>Get Instant Quote</span>
+                  <span>Get a Quote</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={getServiceWhatsAppUrl(location.pathname)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      setMobileMenuOpen(false)
+                      trackWhatsAppClick({
+                        source_page: location.pathname,
+                        button_location: 'header_mobile_drawer',
+                        label: 'mobile_drawer_whatsapp',
+                      })
+                    }}
+                    className="flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#1da851] py-2.5 px-3 text-xs font-black text-white shadow-2xs transition-colors"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-current shrink-0" />
+                    <span>WhatsApp</span>
+                  </a>
+
+                  <a
+                    href={`tel:+${RAW_WHATSAPP_NUMBER}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#F5F0E7] py-2.5 px-3 text-xs font-bold text-[#352719] transition-colors"
+                  >
+                    <Phone className="h-3.5 w-3.5 text-[#795C43] shrink-0" />
+                    <span>Call Us</span>
+                  </a>
+                </div>
 
                 <Link
                   to="/track-order"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] py-2.5 text-xs font-bold text-[#756657] hover:bg-[#EDE3D5] hover:text-[#352719] transition-colors shadow-2xs"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] py-2 text-xs font-bold text-[#5C4938] hover:text-[#352719] transition-colors"
                 >
-                  <Truck className="h-4 w-4 text-[#795C43]" />
+                  <Truck className="h-3.5 w-3.5 text-[#795C43]" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>

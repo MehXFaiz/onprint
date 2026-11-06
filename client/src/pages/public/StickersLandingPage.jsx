@@ -604,7 +604,7 @@ export default function StickersLandingPage() {
 
               <Reveal delay={0.2}>
                 <p className="text-base sm:text-lg text-[#756657] leading-relaxed max-w-2xl font-sans">
-                  Give your products and packaging a professional look with custom stickers from ONPRINT. Explore available sticker types, shapes, sizes, materials, and finishing options for your business. Contact our team for a quotation based on your requirements.
+                  Elevate your brand with custom sticker printing in Dubai and professional custom label printing across the UAE. Order durable waterproof vinyl stickers, precision die-cut stickers, custom logo decals, bottle labels, food packaging labels, and retail product labels in low quantities or wholesale bulk. Explore materials below and request an instant quotation tailored to your specifications.
                 </p>
               </Reveal>
 

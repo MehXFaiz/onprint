@@ -100,7 +100,7 @@ const CARD_VARIATIONS = [
     badge: 'Budget Friendly • Fast Turnaround',
     image: '/assets/products/business-cards/bc_corporate_batches.jpg',
     description:
-      'Lightweight, practical 300 GSM cardstock with sharp typography and vivid colors. Perfect for fast marketing handouts, event promotions, and budget-conscious bulk orders with low minimums.',
+      'Affordable and cheap business card printing in Dubai for startups, retail staff, and exhibition handouts. Lightweight, practical 300 GSM cardstock with sharp typography, vivid colors, and low minimum order quantities.',
     specs: '300 GSM Cardstock • Full Color CMYK • Fast 24h Turnaround • Low Minimums',
     suitableFor: 'Exhibitions, Event Handouts, Field Staff, Freelancers, Startup Launches',
     popularFinishes: ['Single Sided', 'Double Sided', 'Square Cut'],

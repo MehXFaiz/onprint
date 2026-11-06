@@ -17023,6 +17023,28 @@
   ],
   "seo_conversions": [
     {
+      "id": 20,
+      "conversion_type": "quote_request",
+      "landing_page": "/business-card-printing-dubai",
+      "referrer": "https://www.google.ae/",
+      "source_label": "business_card_calculator",
+      "query_string": "",
+      "ip_hash": "12ca17b49af22894",
+      "user_agent": "GPTBot/1.0 (+https://openai.com/gptbot)",
+      "created_at": "2026-11-06T20:58:38.246Z"
+    },
+    {
+      "id": 19,
+      "conversion_type": "whatsapp_click",
+      "landing_page": "/business-card-printing-dubai",
+      "referrer": "https://chatgpt.com/",
+      "source_label": "hero_whatsapp_cta",
+      "query_string": "",
+      "ip_hash": "12ca17b49af22894",
+      "user_agent": "GPTBot/1.0 (+https://openai.com/gptbot)",
+      "created_at": "2026-11-06T20:58:38.215Z"
+    },
+    {
       "id": 18,
       "conversion_type": "quote_request",
       "landing_page": "/business-card-printing-dubai",

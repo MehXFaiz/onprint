@@ -792,6 +792,96 @@ const BUSINESS_CARDS_LANDING_DATA = {
       },
     ],
   },
+
+  'custom-business-cards-dubai': {
+    slug: 'custom-business-cards-dubai',
+    path: '/custom-business-cards-dubai',
+    title: 'Custom Business Cards Dubai | Bespoke Sizes, Shapes & Finishes | ONPRINT',
+    metaDescription: 'Custom business card printing in Dubai. Bespoke die-cut shapes, 85x55mm & square sizes, 350–600 GSM paper stocks, foil, Spot UV & fast UAE delivery.',
+    focusKeyword: 'custom business cards dubai',
+    secondaryKeywords: 'custom printed business cards dubai, bespoke business cards dubai, die cut business cards dubai, square business cards dubai, rounded corner business cards dubai, vertical business cards dubai, custom business cards for small businesses, custom business cards for startups in dubai',
+    badge: 'BESPOKE DIE-CUT SHAPES • CUSTOM DIMENSIONS • 350–600 GSM',
+    h1: 'Custom Business Cards in Dubai',
+    subheading: 'Design and print completely custom business cards in Dubai tailored to your brand identity. Choose standard 85x55mm or 90x50mm dimensions, modern 65x65mm squares, vertical portrait layouts, folded tent cards, or CNC contour die-cut silhouettes on 350–600 GSM European and Italian cardstocks.',
+    cardCategory: 'specialty',
+    heroStats: [
+      { label: 'Custom Formats', val: 'Square, Slim, Die-Cut' },
+      { label: 'Paper Caliper', val: '350 – 600 GSM' },
+      { label: 'Minimum Order', val: 'From 100 Cards' },
+      { label: 'Turnaround', val: 'Same-Day / 24–48h' },
+    ],
+    ctaText: 'Get Custom Card Quote',
+    whatsappText: 'Hello ONPRINT Dubai, I would like a quotation for Custom Business Cards in Dubai. Quantity: 250. Size/Shape: Custom. Paper/GSM: 400 GSM Matte. Delivery location: Dubai.',
+    technicalSpecs: [
+      { feature: 'Custom Sizes & Formats', detail: '85 x 55 mm (EU), 90 x 50 mm (US), 65 x 65 mm Square, 85 x 40 mm Mini Slim, 170 x 55 mm Folded 4-Panel, Custom CNC Die-Cut Silhouettes' },
+      { feature: 'Corner Styles', detail: 'Sharp 90° Architectural Corners or 3mm / 6mm Precision Die-Cut Rounded Corners' },
+      { feature: 'Available Substrates', detail: '350 GSM Silk, 400 GSM Heavy Matte, 450 GSM Velvet Soft-Touch, 600 GSM Italian Cotton, 760μ Waterproof PVC, 350 GSM Recycled Kraft' },
+      { feature: 'Custom Embellishments', detail: '24K Gold / Silver / Rose Gold Hot Foil, Raised 3D Scodix Spot UV, Blind Embossing & Debossing, Painted Edges' },
+      { feature: 'Bilingual & Variable Data', detail: 'Double-sided English & Arabic typography, custom dynamic QR codes, and individual staff name personalization' },
+      { feature: 'Production & Delivery', detail: 'In-house Al Quoz, Dubai pressroom with express courier delivery across Dubai, Abu Dhabi, Sharjah & UAE' },
+    ],
+    faqs: [
+      {
+        question: 'What custom sizes and shapes can you print for business cards in Dubai?',
+        answer: 'Beyond standard 85 x 55 mm and 90 x 50 mm cards, we manufacture 65 x 65 mm square cards, 85 x 40 mm slim mini cards, vertical portrait cards, 4-page scored folded business cards, and custom CNC die-cut shapes cut to your logo outline.',
+      },
+      {
+        question: 'Can small businesses and startups order custom business cards in low quantities?',
+        answer: 'Yes. Our minimum order quantity starts at just 100 custom business cards per name, making it easy for Dubai startups, freelancers, and small businesses to order custom printed business cards without excess inventory.',
+      },
+      {
+        question: 'How do I prepare artwork for custom die-cut or rounded-corner business cards?',
+        answer: 'Supply a 300 DPI vector PDF in CMYK color mode with a 3mm outer bleed and a 4mm inner safe margin. Include your custom die-cut or rounded-corner contour on a separate vector layer named "CutContour" in 100% magenta stroke. Our pre-press team also provides free file verification.',
+      },
+      {
+        question: 'Can I combine multiple custom finishes like Velvet Lamination, Foil, and Spot UV?',
+        answer: 'Yes. Our 450 GSM velvet soft-touch board is specifically engineered to accept both heated metallic foil stamping on your primary emblem and raised 3D Spot UV gloss on secondary patterns or typography.',
+      },
+    ],
+  },
+
+  'premium-business-cards-uae': {
+    slug: 'premium-business-cards-uae',
+    path: '/premium-business-cards-uae',
+    title: 'Premium Business Cards UAE | 400–600 GSM Executive Cards | ONPRINT',
+    metaDescription: 'Order premium business cards across the UAE. Heavy 400–600 GSM matte, velvet soft-touch, 24K foil & embossed corporate cards delivered to Dubai, Abu Dhabi & Sharjah.',
+    focusKeyword: 'premium business cards uae',
+    secondaryKeywords: 'executive business cards uae, heavy 450 gsm business cards uae, luxury corporate business cards uae, premium visiting cards uae, thick business cards uae, premium corporate business card printing',
+    badge: 'UAE EXECUTIVE STATIONERY • 400–600 GSM • ALL 7 EMIRATES',
+    h1: 'Premium Business Cards in the UAE',
+    subheading: 'Command immediate boardroom credibility across Dubai, Abu Dhabi, Sharjah, and all seven Emirates with heavyweight 400–600 GSM premium business cards. Engineered with anti-scuff velvet lamination, calibrated Pantone spot colors, hot metallic foil stamping, and 3D tactile relief.',
+    cardCategory: 'luxury',
+    heroStats: [
+      { label: 'Paper Caliper', val: '400 – 600 GSM' },
+      { label: 'UAE Delivery', val: '24–48h Doorstep' },
+      { label: 'Surface Finish', val: 'Velvet / Matte / Cotton' },
+      { label: 'Corporate Billing', val: 'FTA VAT Invoice' },
+    ],
+    ctaText: 'Get UAE Premium Card Quote',
+    whatsappText: 'Hello ONPRINT UAE, I would like a quotation for Premium Business Cards (450 GSM Velvet / Foil) with UAE delivery.',
+    technicalSpecs: [
+      { feature: 'Executive Board Weights', detail: '400 GSM Heavy Matte, 450 GSM Velvet Soft-Touch, 600 GSM Archival Italian Cotton' },
+      { feature: 'Protective Laminations', detail: '30-micron Thermal Velvet Peach-Skin or Anti-Reflective Scratch-Resistant Matte' },
+      { feature: 'Prestige Finishes', detail: '24K Mirror Gold Foil, Chrome Silver Foil, Raised 3D Spot UV, CNC Brass-Die Embossing' },
+      { feature: 'Corporate Batch Support', detail: 'Multi-employee name runs (5 to 500+ staff sets) with archived master brand templates' },
+      { feature: 'Nationwide UAE Logistics', detail: 'Tracked courier delivery to DIFC, Business Bay, ADGM Abu Dhabi, SAIF Zone Sharjah & all UAE Emirates' },
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between standard 350 GSM and premium 450 GSM business cards in the UAE?',
+        answer: 'While 350 GSM (~380 microns) is a reliable everyday commercial card, 450 GSM (~490 microns) laminated with 30-micron velvet film is noticeably thicker, stiffer, and resists bending or edge dog-earing in wallets—making it the preferred benchmark for UAE executives, consultants, and luxury brands.',
+      },
+      {
+        question: 'Do you deliver premium business cards to Abu Dhabi, Sharjah, and Ajman?',
+        answer: 'Yes. All premium business card orders are produced in our Al Quoz, Dubai pressroom and dispatched via insured 24–48 hour courier to corporate offices across Abu Dhabi (ADGM, Al Maryah Island), Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.',
+      },
+      {
+        question: 'Can corporate companies order premium business cards for multiple employees at volume rates?',
+        answer: 'Yes. You can pool multiple employee names into a single production run (for example, 10 executives x 250 cards = 2,500 cards) to unlock volume tier pricing while maintaining 100% identical paper caliper and Pantone color fidelity.',
+      },
+    ],
+  },
+
 }
 
 export { BUSINESS_CARDS_LANDING_DATA };

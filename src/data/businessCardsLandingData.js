@@ -2,24 +2,24 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'business-card-printing-dubai': {
     slug: 'business-card-printing-dubai',
     path: '/business-card-printing-dubai',
-    title: 'Business Card Printing in Dubai | ONPRINT',
-    metaDescription: 'Explore custom business cards, premium finishes and corporate printing options from ONPRINT. Request a business card quotation for your requirements in Dubai and the UAE.',
+    title: 'Business Card Printing Dubai | Custom & Corporate Cards | ONPRINT',
+    metaDescription: 'Professional business card printing in Dubai. Custom, corporate, matte, glossy, velvet & luxury 350–600 GSM cards with same-day dispatch across the UAE.',
     focusKeyword: 'business card printing dubai',
-    secondaryKeywords: 'business cards dubai, luxury business card printing dubai, same day business card printing dubai, corporate business cards uae, custom business cards dubai, foil business card printing dubai, embossed business card printing dubai, spot uv business cards dubai, matte laminated business cards dubai, soft touch business cards dubai, cotton business cards dubai, plastic business cards dubai, transparent business cards dubai, metallic foil business cards dubai, letterpress business cards dubai, executive business cards dubai, textured paper business cards dubai, kraft business cards dubai, nfc business cards dubai, magnetic business cards dubai, square business cards dubai, folded business cards dubai, affordable business cards dubai, urgent business card printing dubai',
-    badge: 'DUBAI BUSINESS CARD PRESS • FROM AED 45 • AL QUOZ',
-    h1: 'Business Card Printing in Dubai, UAE',
-    subheading: 'Dubai’s premier commercial pressroom for professional, custom, and luxury business cards. From affordable everyday 350 GSM cards starting at AED 45 to double-sided matte, glossy, textured cotton, 24K hot gold foil, and sculptural embossed cards. Order business cards online with 4-hour express rush or visit our Al Quoz press studio.',
+    secondaryKeywords: 'business cards dubai, custom business cards dubai, professional business cards dubai, business card printing company dubai, double sided business cards dubai, glossy business cards dubai, custom printed business cards, affordable business card printing in dubai, where to print business cards in dubai, custom business cards for small businesses, business cards for startups in dubai, business card printing for small businesses',
+    badge: 'DUBAI BUSINESS CARD ATELIER • BESPOKE FINISHES • EXPRESS DELIVERY',
+    h1: 'Business Card Printing in Dubai',
+    subheading: 'Make an authoritative first impression with custom business card printing in Dubai from ONPRINT. As a trusted business card printing company in Dubai, we craft double-sided matte, glossy, velvet soft-touch, and luxury 350–600 GSM corporate cards for startups, small businesses, and enterprises across the UAE.',
     cardCategory: 'all',
     heroStats: [
-      { label: 'Starting Price', val: 'From AED 45 / 100' },
+      { label: 'Pricing Model', val: 'Bespoke Custom Quote' },
       { label: 'Same-Day Rush', val: '4-Hour Express' },
       { label: 'Paper Caliper', val: '300 – 700 GSM Thick' },
       { label: 'Standard & Custom', val: '85x55, 90x50, Custom' },
     ],
     ctaText: 'Get Free Instant Quote',
-    whatsappText: 'Hello ONPRINT, I would like a quotation for business cards. Quantity: 100. Paper/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai. Please share pricing and available options.',
+    whatsappText: 'Hello ONPRINT, I want to order business cards in Dubai. Please share your available designs, paper options, finishes, prices and delivery details.',
     technicalSpecs: [
-      { feature: 'Available Dimensions', detail: 'EU Standard 85 x 55 mm, US Standard 90 x 50 mm, Square 65 x 65 mm, Slim 85 x 40 mm, Custom CNC Die-Cut Shapes' },
+      { feature: 'Available Dimensions & Orientations', detail: 'Landscape 85 x 55 mm (EU) & 90 x 50 mm (US), Vertical Portrait 55 x 85 mm, Square 65 x 65 mm, Compact Mini 85 x 40 mm, Folded 4-Panel 170 x 55 mm, Custom CNC Die-Cut Shapes' },
       { feature: 'Core Substrates', detail: '300 GSM Economy Artboard, 350 GSM Standard Silk/Matte, 400 GSM Heavyweight Matte, 450 GSM Velvet Board, 600–700 GSM Italian Archival Cotton' },
       { feature: 'Tactile Coatings & Textures', detail: 'Silky Smooth Protective Matte, High-Gloss UV Polymer, Uncoated Textured Linen/Kraft Writable, Sensory Velvet Soft-Touch' },
       { feature: 'Luxury Embellishments', detail: '24K Mirror Gold Foil, Silver/Rose Gold Foil, Raised 3D Scodix UV Gloss, Blind Embossing & Debossing, 360° Gilded Edges' },
@@ -27,16 +27,20 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { feature: 'Minimum Order Quantity', detail: 'From 100 cards per name; Multi-employee corporate batches up to 5,000+ cards with volume tiered pricing' },
       { feature: 'Press Technology', detail: 'Industrial Heidelberg Speedmaster Offset Litho & HP Indigo 7K Digital Presses' },
       { feature: 'Turnaround Times', detail: 'Same-Day 4-Hour Express Rush (Orders before 11 AM) or Standard 24–48 Hours Doorstep UAE Courier' },
-      { feature: 'Production Pressroom', detail: 'Al Quoz Industrial Area 3, Dubai, UAE (Central Proximity to DIFC, Downtown, and Business Bay)' },
+      { feature: 'Production Pressroom', detail: 'Dubai, UAE (Express Doorstep Delivery to DIFC, Downtown, and Business Bay)' },
     ],
     faqs: [
       {
         question: 'How much does business card printing cost in Dubai?',
-        answer: 'Simple, standard 300–350 GSM business cards start from just AED 45 to AED 50 for 100 cards with full-colour digital printing (and AED 120 for 500 cards). If you wish to upgrade to premium soft-touch lamination, cards start at AED 75. For luxury embellishments like 24K hot foil stamping or raised 3D spot UV, executive cards start from AED 150. Large corporate volume orders (1,000+ cards) drop down to AED 0.19 per card.',
+        answer: 'Business card pricing in Dubai depends on your selected cardstock (300 to 700 GSM), finishing options (protective matte lamination, velvet soft-touch, 24K hot foil stamping, or embossed details), and order quantity. Contact our team via WhatsApp with your preferred specifications for an accurate, tailored quotation.',
       },
       {
-        question: 'Where can I find business card printing near me in Dubai?',
-        answer: 'ONPRINT is centrally located in Al Quoz Industrial Area, Dubai, making us the premier destination for customers searching for "business card printing near me" in Downtown Dubai, DIFC, Business Bay, Al Barsha, Jumeirah, and Dubai Marina. You can visit our press facility for physical paper swatch checks or enjoy direct 30-minute express courier delivery to your office.',
+        question: 'Where can I print business cards in Dubai?',
+        answer: 'You can print custom, corporate, and luxury business cards in Dubai at ONPRINT (https://www.0nprint.com/business-card-printing-dubai). Operating a commercial pressroom in Al Quoz, Dubai, ONPRINT produces 300–700 GSM business cards with matte, glossy, velvet soft-touch, 24K gold foil, raised 3D Spot UV, and embossed finishes, offering same-day 4-hour rush production and 24-hour courier delivery across Downtown Dubai, DIFC, Business Bay, JLT, Dubai Marina, and all UAE Emirates via WhatsApp (+44 7344546056).',
+      },
+      {
+        question: 'Where to print business cards in Dubai with same-day or 24-hour delivery?',
+        answer: 'ONPRINT is a premier business card printing company in Dubai offering same-day 4-hour rush production and 24-hour doorstep courier delivery to Downtown Dubai, DIFC, Business Bay, Al Quoz, JLT, Dubai Marina, and DWTC. We provide high-resolution digital proofs and pre-press quality verification before every print run.',
       },
       {
         question: 'Can I order double-sided business card printing and custom sizes in Dubai?',
@@ -48,7 +52,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       },
       {
         question: 'Can I get same-day urgent business card printing in Dubai?',
-        answer: 'Yes. ONPRINT offers Same-Day 4-Hour Express rush printing for orders with print-ready vector PDF files submitted before 11:00 AM. Cards can be picked up directly at our Al Quoz pressroom or delivered via express courier across Dubai.',
+        answer: 'Yes. ONPRINT offers Same-Day 4-Hour Express rush printing for orders with print-ready vector PDF files submitted before 11:00 AM. Cards are delivered via express courier directly to your office or hotel across Dubai.',
       },
       {
         question: 'Can companies order bulk business cards with multiple employee names?',
@@ -58,16 +62,24 @@ const BUSINESS_CARDS_LANDING_DATA = {
         question: 'What is the difference between matte, glossy, and textured business cards?',
         answer: 'Matte cards feature an anti-reflective, silky protective coating that eliminates glare and resists fingerprints, giving a modern understated executive feel. Glossy cards utilize a reflective UV polymer that enhances vibrant color saturation and photographic imagery. Textured cards use uncoated tactile papers such as Italian cotton, laid linen, or organic kraft that provide a distinct organic, earthy touch and allow smooth pen writing.',
       },
+      {
+        question: 'Can you print QR code business cards and smart NFC business cards in Dubai?',
+        answer: 'Yes. We print high-contrast vector QR code business cards in Dubai linking directly to your digital vCard, WhatsApp chat, portfolio, or company website, and we manufacture smart NFC business cards embedded with contactless NTAG215/216 microchips inside 600 GSM multi-ply cardstock or waterproof 760-micron PVC.',
+      },
+      {
+        question: 'Do you offer affordable business card printing in Dubai for startups and small businesses?',
+        answer: 'Yes. We provide affordable business card printing in Dubai starting from 100 cards per name on 350 GSM silk or matte cardstock, ideal for custom business cards for small businesses and business cards for startups in Dubai. We also print custom appointment cards and loyalty stamp cards with an uncoated writable reverse side.',
+      },
     ],
   },
 
   'business-card-printing-uae': {
     slug: 'business-card-printing-uae',
     path: '/business-card-printing-uae',
-    title: 'Business Card Printing UAE | Express Delivery Across All 7 Emirates | ONPRINT',
-    metaDescription: 'Nationwide business card printing in the UAE. Executive visiting cards, corporate staff batches & luxury finishes delivered to Dubai, Abu Dhabi, Sharjah & all Emirates.',
+    title: 'Business Card Printing UAE | Express Delivery All 7 Emirates | ONPRINT',
+    metaDescription: 'Nationwide business card printing in the UAE. Business card printing for companies in UAE with corporate batches & luxury finishes delivered across all 7 Emirates.',
     focusKeyword: 'business card printing uae',
-    secondaryKeywords: 'business cards uae, visiting card printing uae, corporate business cards uae, online business cards uae, custom business cards uae',
+    secondaryKeywords: 'business cards uae, business card printing for companies in uae, corporate business cards uae, online business cards uae, custom business cards uae, visiting card printing uae, business card printing for startups uae',
     badge: 'NATIONWIDE UAE CORPORATE PRINTING',
     h1: 'Business Card Printing Across the UAE',
     subheading: 'Centralized corporate business card manufacturing with insured doorstep delivery across all seven Emirates. From government entities in Abu Dhabi and multinationals in Dubai to trading firms in Sharjah and Ajman, ONPRINT delivers unified corporate identity and color-calibrated excellence.',
@@ -93,7 +105,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     faqs: [
       {
         question: 'Do you deliver business cards across all 7 Emirates in the UAE?',
-        answer: 'Yes. While our primary production facility is located in Al Quoz, Dubai, we dispatch daily courier shipments to Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain with 24-hour insured doorstep delivery.',
+        answer: 'Yes. We dispatch daily courier shipments to Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain with 24-hour insured doorstep delivery.',
       },
       {
         question: 'Can UAE enterprises set up corporate accounts for multi-branch business card re-orders?',
@@ -113,16 +125,16 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'visiting-card-printing-dubai': {
     slug: 'visiting-card-printing-dubai',
     path: '/visiting-card-printing-dubai',
-    title: 'Visiting Card Printing Dubai | Custom Company Visiting Cards | ONPRINT',
-    metaDescription: 'Standard & executive visiting card printing in Dubai from AED 45. Custom bilingual English & Arabic layouts, 300-400gsm stocks, fast same-day Al Quoz dispatch.',
+    title: 'Visiting Card Printing Dubai | Bilingual Business Cards | ONPRINT',
+    metaDescription: 'Professional visiting card printing in Dubai. Custom bilingual English & Arabic visiting cards on 350–450 GSM stocks with fast same-day Dubai courier dispatch.',
     focusKeyword: 'visiting card printing dubai',
-    secondaryKeywords: 'visiting cards dubai, company visiting card printing dubai, custom visiting card dubai, visiting card design dubai, urgent visiting card printing dubai',
-    badge: 'COMMERCIAL VISITING CARDS • FROM AED 45 • AL QUOZ',
+    secondaryKeywords: 'visiting cards dubai, company visiting card printing dubai, custom visiting card dubai, visiting card design dubai, urgent visiting card printing dubai, bilingual business cards english arabic uae, double sided visiting cards uae, executive name cards uae',
+    badge: 'COMMERCIAL VISITING CARDS • DUBAI EXPRESS DISPATCH',
     h1: 'Visiting Card Printing Services in Dubai',
-    subheading: 'High-quality visiting cards engineered for Dubai entrepreneurs, trade houses, executive managers, and consulting firms. From basic affordable 300-350 GSM cards starting at AED 45 to standard bilingual English-Arabic cards and executive gold-foiled cards, ONPRINT provides fast, dependable pressroom fulfillment.',
+    subheading: 'High-quality visiting cards engineered for Dubai entrepreneurs, trade houses, executive managers, and consulting firms. From durable 300-350 GSM cards to standard bilingual English-Arabic layouts and executive gold-foiled cards, ONPRINT provides fast, dependable pressroom fulfillment.',
     cardCategory: 'corporate',
     heroStats: [
-      { label: 'Starting Price', val: 'From AED 45 / 100' },
+      { label: 'Pricing Model', val: 'Bespoke Custom Quote' },
       { label: 'Paper Stock', val: '300 - 450 GSM' },
       { label: 'Bilingual Layout', val: 'Arabic + English' },
       { label: 'Turnaround', val: 'Same-Day / 24h' },
@@ -135,7 +147,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { feature: 'Available Dimensions', detail: '85 x 55 mm (standard wallet size) & 90 x 50 mm (traditional visiting card)' },
       { feature: 'Paper Thickness', detail: '350 GSM Silk Artboard, 400 GSM Matte Card, 450 GSM Velvet Laminated' },
       { feature: 'Popular Finishes', detail: 'Gold Foil Stamped Arabic Logo, Spot UV High-Gloss on Typography, Rounded Corners' },
-      { feature: 'Production Center', detail: 'Al Quoz, Dubai with daily dispatch across Deira, Bur Dubai, and Business Bay' },
+      { feature: 'Production Center', detail: 'Dubai, UAE with daily courier dispatch across Deira, Bur Dubai, and Business Bay' },
     ],
     faqs: [
       {
@@ -148,7 +160,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       },
       {
         question: 'Where can I get urgent visiting card printing in Deira or Bur Dubai?',
-        answer: 'ONPRINT prints visiting cards at our Al Quoz 3 press with immediate morning and afternoon courier delivery across Deira, Bur Dubai, Karama, Downtown, and Business Bay.',
+        answer: 'ONPRINT prints visiting cards with immediate morning and afternoon express courier delivery across Deira, Bur Dubai, Karama, Downtown, and Business Bay.',
       },
       {
         question: 'Can I add QR codes linking to WhatsApp or vCard on visiting cards?',
@@ -160,13 +172,13 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'premium-business-cards': {
     slug: 'premium-business-cards',
     path: '/premium-business-cards',
-    title: 'Custom Business Card Printing | Premium Finishes | ONPRINT',
-    metaDescription: 'Order custom business cards with premium printing and finishing options. Explore your choices and request a personalized printing quote from ONPRINT.',
+    title: 'Premium Business Cards Dubai | 400–450 GSM Custom Cards | ONPRINT',
+    metaDescription: 'Order premium business cards in Dubai on heavyweight 400–450 GSM European artboard. Custom matte, silk & glossy finishes with fast UAE courier delivery.',
     focusKeyword: 'premium business cards dubai',
-    secondaryKeywords: 'premium business cards, 400 gsm business cards dubai, 450 gsm business cards uae, executive matte business cards, heavy business cards dubai',
+    secondaryKeywords: 'premium corporate business card printing, custom business cards dubai, 400 gsm business cards dubai, 450 gsm business cards uae, glossy business cards dubai, custom printed business cards, executive business cards dubai',
     badge: 'EXECUTIVE 400–450 GSM STANDARDS',
-    h1: 'Premium Business Card Printing in Dubai',
-    subheading: 'Upgrade from flimsy lightweight flyers to rigid, substantial 400 GSM and 450 GSM premium artboard business cards. Sealed with dual-sided protective matte coating that eliminates edge peeling, resists thumbprints, and ensures razor-sharp black typography.',
+    h1: 'Premium Business Cards in Dubai — 400–450 GSM Executive Stocks',
+    subheading: 'Upgrade from lightweight cards to rigid, substantial 400 GSM and 450 GSM premium business cards in Dubai. Engineered for premium corporate business card printing with dual-sided protective matte or high-gloss UV coating that eliminates edge peeling, resists thumbprints, and ensures razor-sharp typography.',
     cardCategory: 'corporate',
     heroStats: [
       { label: 'Paper Caliper', val: '400 – 450 GSM' },
@@ -206,7 +218,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Luxury Business Cards Dubai | 600–700 GSM Cotton & Gilded Edges | ONPRINT',
     metaDescription: 'Ultra-luxury business card printing in Dubai. 600 GSM Italian archival cotton, 700 GSM triplex sandwich boards, 24K gold foil & 360° mirror gilded edges.',
     focusKeyword: 'luxury business cards dubai',
-    secondaryKeywords: 'luxury business cards uae, 600 gsm cotton business cards dubai, gilded edge business cards, letterpress business cards dubai, thick luxury cards dubai',
+    secondaryKeywords: 'luxury business cards uae, 600 gsm cotton business cards dubai, painted edge business cards uae, triplex business cards uae, luxury black business cards dubai, gilded edge business cards, letterpress business cards dubai, thick luxury cards dubai',
     badge: 'HAUTE IMPRIMERIE • 600–700 GSM ATELIER',
     h1: 'Luxury Business Card Printing in Dubai',
     subheading: 'For founders, C-suite executives, luxury property moguls, and family office principals who accept nothing less than absolute distinction. Handcrafted on triple-ply 100% Italian archival cotton boards with 24K mirror foil, deep sculptural debossing, and 360-degree mirror gold gilded edges.',
@@ -238,7 +250,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       },
       {
         question: 'Can I inspect physical cotton and gilded edge samples in Dubai?',
-        answer: 'Yes. Clients are welcome to visit our Al Quoz, Dubai pressroom to feel physical sample swatches of 600 GSM cotton, velvet foil, and gilded edge samples in person.',
+        answer: 'Yes. Our print specialists can share detailed close-up photos, video proofs, and paper weight guides via WhatsApp, followed by express doorstep delivery of your finished business cards.',
       },
     ],
   },
@@ -249,7 +261,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Foil Business Cards Dubai | 24K Gold, Rose Gold & Metallic Foil | ONPRINT',
     metaDescription: 'Metallic foil business card printing in Dubai. Hot stamped 24K gold, rose gold, silver & holographic foils on 450gsm velvet soft-touch boards. Zero flaking.',
     focusKeyword: 'foil business cards dubai',
-    secondaryKeywords: 'gold foil business cards dubai, silver foil business cards dubai, rose gold foil cards uae, hot foil stamping dubai, metallic business cards dubai',
+    secondaryKeywords: 'gold foil business cards dubai, silver foil business cards dubai, rose gold foil cards uae, hot foil stamping dubai, metallic finish business cards uae, luxury black business cards dubai, luxury foil stamped visiting cards dubai',
     badge: 'HOT FOIL STAMPING ATELIER DUBAI',
     h1: 'Metallic Foil Business Card Printing in Dubai',
     subheading: 'Add radiant metallic prestige to your brand emblem. ONPRINT bonds reflective metallic foil onto heavy 450 GSM velvet artboard using precision CNC-cut brass dies and heated hydraulic presses. Available in 24K Mirror Gold, Champagne, Rose Gold, Chrome Silver, Copper, and Holographic Prism foils.',
@@ -292,7 +304,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Spot UV Business Cards Dubai | Raised 3D Scodix Gloss Contrast | ONPRINT',
     metaDescription: 'Spot UV business cards in Dubai. Raised 3D polymer gloss contrast over silky velvet matte artboard. Highlight logos with tactile dimensionality. Fast dispatch.',
     focusKeyword: 'spot uv business cards dubai',
-    secondaryKeywords: 'raised spot uv business cards dubai, 3d scodix business cards uae, gloss logo business cards, spot varnish cards dubai',
+    secondaryKeywords: 'raised spot uv business cards dubai, 3d scodix business cards uae, gloss logo business cards, spot varnish cards dubai, spot uv visiting cards uae',
     badge: '3D TACTILE GLOSS POLYMER • SCODIX',
     h1: 'Spot UV & Raised 3D Business Card Printing Dubai',
     subheading: 'Create irresistible tactile contrast that prompts every recipient to trace their fingers over your logo. We cure high-build 100-micron clear gloss liquid polymer over ultra-smooth velvet soft-touch backgrounds, creating a stunning interplay of light reflection and matte restraint.',
@@ -310,7 +322,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { feature: 'Base Laminate', detail: 'Velvet soft-touch matte lamination to provide maximum specular contrast' },
       { feature: 'Base Stock', detail: '400 GSM & 450 GSM Heavy Premium Artboard' },
       { feature: 'Creative Uses', detail: 'Emphasize company logo, blind gloss patterns on the reverse, textured watermarks' },
-      { feature: 'Turnaround Time', detail: '48 hours at our Al Quoz pressroom' },
+      { feature: 'Turnaround Time', detail: '48 hours with express UAE delivery' },
     ],
     faqs: [
       {
@@ -334,7 +346,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Velvet Business Cards Dubai | Soft-Touch Anti-Scuff Cards | ONPRINT',
     metaDescription: 'Velvet business card printing in Dubai. 30-micron thermal velvet soft-touch lamination on 450gsm cardstock. Fingerprint-resistant luxury touch with fast delivery.',
     focusKeyword: 'velvet business cards dubai',
-    secondaryKeywords: 'velvet soft touch business cards dubai, soft touch business cards uae, peach skin business cards, luxury velvet cards dubai',
+    secondaryKeywords: 'velvet soft touch business cards dubai, soft touch business cards uae, peach skin business cards, luxury velvet cards dubai, velvet laminated business cards dubai',
     badge: '30-MICRON THERMAL VELVET LAMINATION',
     h1: 'Velvet Business Card Printing in Dubai',
     subheading: 'Experience the signature peach-skin tactile feel of authentic velvet lamination. Our 30-micron thermal velvet film permanently bonds to rigid 450 GSM artboard, creating a non-glare, anti-scuff surface that completely eliminates finger smudges and feels like fine suede in the palm of your hand.',
@@ -407,7 +419,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     slug: 'embossed-business-cards',
     path: '/embossed-business-cards',
     title: 'Embossed Business Cards Dubai | Sculptural 3D Relief & Deboss | ONPRINT',
-    metaDescription: 'Custom embossed business cards in Dubai. Sculptural raised relief and deep letterpress debossing on 450gsm–600gsm boards. CNC brass dies in Al Quoz.',
+    metaDescription: 'Custom embossed business cards in Dubai. Sculptural raised relief and deep letterpress debossing on 450gsm–600gsm boards. precision CNC brass dies and express delivery.',
     focusKeyword: 'embossed business cards dubai',
     secondaryKeywords: 'debossed business cards dubai, 3d embossed cards uae, letterpress debossing dubai, blind emboss business cards dubai, sculptural relief cards',
     badge: 'SCULPTURAL BRASS DIE EMBOSSING',
@@ -444,9 +456,9 @@ const BUSINESS_CARDS_LANDING_DATA = {
     slug: 'corporate-business-cards',
     path: '/corporate-business-cards',
     title: 'Corporate Business Cards Dubai | Multi-Employee Batch Printing | ONPRINT',
-    metaDescription: 'Corporate business card printing in Dubai. Centralized multi-employee name batches (5 to 500+ names) with 100% Pantone color consistency. Direct invoicing.',
+    metaDescription: 'Corporate business cards in Dubai for companies & DIFC enterprises. Multi-employee name batches (5 to 500+ names) with 100% Pantone color consistency.',
     focusKeyword: 'corporate business cards dubai',
-    secondaryKeywords: 'company business cards dubai, business card printing company dubai, employee business cards uae, bulk business cards dubai, corporate stationery dubai',
+    secondaryKeywords: 'corporate business card printing, business card printing for companies in uae, professional business cards dubai, company business cards dubai, business card printing company dubai, employee name card printing dubai, premium corporate business card printing, corporate staff business cards uae',
     badge: 'B2B CORPORATE BATCH MANAGEMENT',
     h1: 'Corporate Business Card Printing in Dubai',
     subheading: 'Streamlined procurement and brand identity compliance for Dubai enterprises, legal practices, engineering consultancies, and multinational corporations. Order 5 to 500 employee name sets with volume tier discounts and guaranteed Pantone spot-color fidelity across every onboarding cycle.',
@@ -468,6 +480,10 @@ const BUSINESS_CARDS_LANDING_DATA = {
     ],
     faqs: [
       {
+        question: 'What are the best business cards for corporate companies?',
+        answer: 'The best business cards for corporate companies in Dubai and the UAE are 400 GSM to 450 GSM heavyweight artboard cards with anti-glare matte or 30-micron velvet soft-touch lamination for executive durability, paired with Pantone PMS spot-color brand matching. For C-suite executives and board directors, 600 GSM Italian archival cotton cards with 24K hot foil stamping or blind debossing provide maximum prestige, while multi-employee onboarding rosters benefit from standardized 350–400 GSM double-sided bilingual (English/Arabic) corporate batches.',
+      },
+      {
         question: 'How do we order corporate business cards for multiple new employees at once?',
         answer: 'Simply share your Excel roster with employee names, job titles, direct WhatsApp numbers, and email addresses. Our pre-press team populates your approved master template and sends a consolidated proof book for one-click approval.',
       },
@@ -475,18 +491,22 @@ const BUSINESS_CARDS_LANDING_DATA = {
         question: 'Can you match our exact corporate Pantone PMS brand color?',
         answer: 'Yes. For corporate enterprise contracts, we mix genuine Pantone Matching System (PMS) spot inks on Heidelberg presses to eliminate the color variance common in standard digital toner printers.',
       },
+      {
+        question: 'Do you offer a business card reprint service and recurring corporate printing in the UAE?',
+        answer: 'Yes. As a dedicated company visiting card supplier in Dubai, we archive your approved vector master templates, font outlines, and Pantone color profiles. Office managers and HR teams can request fast employee name card reprints or recurring monthly onboarding batches via WhatsApp with zero re-setup hassle.',
+      },
     ],
   },
 
   'business-card-design': {
     slug: 'business-card-design',
     path: '/business-card-design',
-    title: 'Business Card Design Dubai | Templates, Dielines & Pre-Press | ONPRINT',
-    metaDescription: 'Professional business card design in Dubai. 85x55mm & 90x50mm dielines, bilingual Arabic-English typography, vector pre-press audit & print-ready PDF prep.',
-    focusKeyword: 'business card design dubai',
-    secondaryKeywords: 'business card templates dubai, visiting card design dubai, bilingual business card design, graphic design business cards dubai, print ready pdf setup',
+    title: 'Business Card Design and Printing Dubai | Custom Studio | ONPRINT',
+    metaDescription: 'Professional business card design and printing in Dubai. 85x55mm & 90x50mm dielines, bilingual Arabic-English typography, QR code setup & press production.',
+    focusKeyword: 'business card design and printing dubai',
+    secondaryKeywords: 'business card design dubai, business card templates dubai, visiting card design dubai, business cards with design assistance dubai, bilingual business cards english arabic uae, custom layout business cards dubai',
     badge: 'PRE-PRESS STUDIO & DESIGN VERIFICATION',
-    h1: 'Business Card Design & Pre-Press Studio Dubai',
+    h1: 'Business Card Design and Printing in Dubai',
     subheading: 'Ensure your business cards print with razor-sharp vector crispness and zero trimming errors. Our in-house pre-press designers audit bleed margins, CMYK color spaces, font outlines, and create bespoke bilingual Arabic-English layouts that command authority across Dubai and the UAE.',
     cardCategory: 'specialty',
     heroStats: [
@@ -520,18 +540,18 @@ const BUSINESS_CARDS_LANDING_DATA = {
     slug: 'same-day-business-card-printing',
     path: '/same-day-business-card-printing',
     title: 'Same Day Business Card Printing Dubai | 4-Hour Express Rush | ONPRINT',
-    metaDescription: 'Urgent same-day business card printing in Dubai. Ready in 4 hours on 350gsm silk & 400gsm matte artboard. Direct Al Quoz press pickup or courier to DIFC & DWTC.',
+    metaDescription: 'Urgent same-day business card printing in Dubai. Ready in 4 hours on 350gsm silk & 400gsm matte artboard. Express courier directly to your office in DIFC, Downtown, or stand at DWTC.',
     focusKeyword: 'same day business card printing dubai',
     secondaryKeywords: 'urgent business card printing dubai, express business cards dubai, fast business cards dubai, rush printing dubai, same day visiting card dubai',
-    badge: '4-HOUR RUSH DISPATCH • AL QUOZ PRESSROOM',
+    badge: '4-HOUR RUSH DISPATCH • DUBAI EXPRESS DELIVERY',
     h1: 'Same-Day Business Card Printing in Dubai',
-    subheading: 'Flying into Dubai for an emergency investor meeting? Exhibiting at Dubai World Trade Centre (DWTC) and just ran out of cards? ONPRINT provides emergency 4-hour rush printing on industrial digital presses in Al Quoz, Dubai. Order before 11:00 AM for afternoon collection or express courier dispatch.',
+    subheading: 'Flying into Dubai for an emergency investor meeting? Exhibiting at Dubai World Trade Centre (DWTC) and just ran out of cards? ONPRINT provides emergency 4-hour rush printing on industrial digital presses in Dubai. Order before 11:00 AM for same-day express courier dispatch directly to your office, hotel, or exhibition stand.',
     cardCategory: 'corporate',
     heroStats: [
       { label: 'Turnaround', val: '4-Hour Express' },
       { label: 'Press Type', val: 'HP Indigo Digital' },
       { label: 'Stock Weight', val: '350 – 400 GSM' },
-      { label: 'Location', val: 'Al Quoz, Dubai' },
+      { label: 'Location', val: 'Dubai, UAE' },
     ],
     ctaText: 'Order Emergency Rush Cards',
     whatsappText: 'URGENT: Hello ONPRINT Dubai, I need same-day business card printing in 4 hours.',
@@ -539,13 +559,13 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { feature: 'Rush Speed Options', detail: '4-Hour Express Rush or Same-Day Evening Dispatch' },
       { feature: 'Cut-off Time', detail: 'Submit approved print-ready vector PDF before 11:00 AM for same-day delivery' },
       { feature: 'Available Substrates', detail: '350 GSM Silk Coated Artboard & 400 GSM Premium Matte Artboard' },
-      { feature: 'Collection / Delivery', detail: 'Direct pickup at Al Quoz, Dubai, or courier to DWTC, DIFC, Downtown' },
+      { feature: 'Collection / Delivery', detail: 'Express courier directly to DWTC, DIFC, Downtown, or anywhere in Dubai' },
       { feature: 'Minimum Rush Quantity', detail: '100, 250, or 500 cards per name' },
     ],
     faqs: [
       {
         question: 'How quickly can I collect my business cards in Dubai?',
-        answer: 'With our 4-Hour Express Rush service, cards submitted with print-ready vector PDF files by 11:00 AM are printed, die-cut, and boxed for pickup at our Al Quoz, Dubai press by 3:00 PM the same day.',
+        answer: 'With our 4-Hour Express Rush service, cards submitted with print-ready vector PDF files by 11:00 AM are printed, die-cut, and boxed for express courier dispatch directly to your door by 3:00 PM the same day.',
       },
       {
         question: 'Can same-day business cards be delivered directly to DWTC exhibition halls?',
@@ -563,7 +583,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     secondaryKeywords: 'business cards abu dhabi, visiting card printing abu dhabi, luxury business cards abu dhabi, adgm business cards, corporate printing abu dhabi',
     badge: 'CAPITAL CORPORATE DESPATCH • ABU DHABI',
     h1: 'Business Card Printing for Abu Dhabi & ADGM',
-    subheading: 'Premium executive stationery and corporate business cards tailored for sovereign wealth funds, ADGM financial firms, international law offices, and government entities in Abu Dhabi. Manufactured in our Al Quoz industrial press with insured 24-hour doorstep delivery to Al Maryah Island, Corniche, and Khalifa City.',
+    subheading: 'Premium executive stationery and corporate business cards tailored for sovereign wealth funds, ADGM financial firms, international law offices, and government entities in Abu Dhabi. Manufactured with precision and backed by insured 24-hour doorstep delivery to Al Maryah Island, Corniche, and Khalifa City.',
     cardCategory: 'luxury',
     heroStats: [
       { label: 'Dispatch', val: '24-Hour Insured' },
@@ -671,9 +691,9 @@ const BUSINESS_CARDS_LANDING_DATA = {
     slug: 'matte-business-cards',
     path: '/matte-business-cards',
     title: 'Matte Business Cards Dubai | Anti-Glare Laminated Cards | ONPRINT',
-    metaDescription: 'Custom matte business card printing in Dubai from AED 45. Durable 350–400 GSM artboard with anti-glare protective lamination. Double-sided printing & fast Al Quoz dispatch.',
+    metaDescription: 'Custom matte business card printing in Dubai. Durable 350–400 GSM artboard with anti-glare protective lamination. Double-sided printing & fast Dubai courier dispatch.',
     focusKeyword: 'matte business cards dubai',
-    secondaryKeywords: 'laminated business cards dubai, double sided business cards dubai, matte laminated business cards uae, anti glare visiting cards dubai, matte card printing dubai, textured business cards dubai',
+    secondaryKeywords: 'laminated business cards dubai, double sided business cards dubai, matte laminated business cards uae, uncoated business cards dubai, silk finish visiting cards dubai, rounded corner business cards uae, anti glare visiting cards dubai, matte card printing dubai',
     badge: 'ANTI-GLARE PROTECTIVE MATTE • 350–400 GSM',
     h1: 'Matte Business Card Printing in Dubai',
     subheading: 'Understated elegance, zero reflection, and durable protection. Our matte laminated business cards are engineered with a microscopic anti-glare thermal coating over rigid 350 GSM or 400 GSM artboard. Crisp typography, smooth pen-writable surface, and full-color double-sided printing for bilingual Arabic and English cards.',
@@ -694,7 +714,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { feature: 'Available Dimensions', detail: '85 x 55 mm (European standard), 90 x 50 mm (US standard), or custom sizes' },
       { feature: 'Corner Customization', detail: 'Standard 90° square-cut corners or 3mm/6mm precision die-cut rounded corners' },
       { feature: 'Writing Compatibility', detail: 'Smooth writable surface compatible with permanent ink and ballpoint pens' },
-      { feature: 'Production Center', detail: 'Al Quoz Industrial Area, Dubai with express delivery across the UAE' },
+      { feature: 'Production Center', detail: 'Dubai, UAE with express courier delivery across the UAE' },
     ],
     faqs: [
       {
@@ -723,17 +743,17 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'bulk-business-cards': {
     slug: 'bulk-business-cards',
     path: '/bulk-business-cards',
-    title: 'Bulk Business Card Printing Dubai | Volume Prices from AED 0.19 | ONPRINT',
-    metaDescription: 'Bulk business card printing in Dubai with wholesale pricing from AED 0.19 per card. Multi-employee name batches, 300–400 GSM cardstock, free pre-press audit & UAE-wide delivery.',
+    title: 'Bulk Business Card Printing Dubai | Volume Corporate Cards | ONPRINT',
+    metaDescription: 'Bulk business card printing in Dubai with tiered corporate volume pricing. Multi-employee name batches, 300–400 GSM cardstock, free pre-press audit & UAE-wide delivery.',
     focusKeyword: 'bulk business card printing dubai',
-    secondaryKeywords: 'bulk business cards price dubai, business card printing price dubai, affordable business card printing dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai',
-    badge: 'VOLUME WHOLESALE PRICING • FROM AED 0.19/CARD',
+    secondaryKeywords: 'cheap business card printing dubai, bulk business cards price dubai, business card printing price dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai, bulk visiting card printing uae, business card printing for startups uae, business card printing for small businesses',
+    badge: 'VOLUME CORPORATE PRICING • MULTI-NAME BATCHES',
     h1: 'Bulk Business Card Printing in Dubai',
-    subheading: 'Maximize your marketing budget with high-volume commercial business card printing. Whether you are ordering 500 cards for a trade fair or 10,000 cards across multiple employee name sets, ONPRINT offers transparent volume-tiered pricing, ISO color consistency, and fast doorstep delivery across Dubai and the UAE.',
+    subheading: 'Maximize your marketing budget with high-volume commercial business card printing. Whether you are ordering 500 cards for a trade fair or corporate sets across multiple employee name sets, ONPRINT offers transparent volume-tiered pricing, ISO color consistency, and fast doorstep delivery across Dubai and the UAE.',
     cardCategory: 'corporate',
     heroStats: [
       { label: 'Bulk Tiers', val: '250 to 10,000+ Cards' },
-      { label: 'Unit Cost', val: 'From AED 0.19 / Card' },
+      { label: 'Corporate Rates', val: 'Tiered Volume Quotes' },
       { label: 'Multi-Name', val: 'Staff Batch Pooling' },
       { label: 'Turnaround', val: '24–48h Dispatch' },
     ],
@@ -752,7 +772,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     faqs: [
       {
         question: 'How much does bulk business card printing cost in Dubai?',
-        answer: 'Our bulk business card pricing is tiered for maximum savings. Standard 350 GSM cards start at AED 45 for 100 cards, AED 120 for 500 cards, and drop down to as low as AED 0.19 to AED 0.25 per card for orders of 1,000+ cards. Contact us on WhatsApp for an instant tiered volume quote.',
+        answer: 'Our bulk business card pricing is tiered for maximum value based on volume and specifications. Standard 350 GSM cards offer generous volume savings for runs of 500, 1,000, and multi-employee corporate pools. Contact us on WhatsApp for an instant tiered volume quote tailored to your exact team size.',
       },
       {
         question: 'Can we split a bulk order across multiple employee names?',
@@ -760,7 +780,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       },
       {
         question: 'What is the fastest way to get a business card quotation in Dubai?',
-        answer: 'Click our WhatsApp enquiry CTA with your estimated total quantity, preferred paper thickness (350 GSM or 400 GSM), and finish. Our Al Quoz print estimators reply within minutes with clear price options and artwork check.',
+        answer: 'Click our WhatsApp enquiry CTA with your estimated total quantity, preferred paper thickness (350 GSM or 400 GSM), and finish. Our Dubai print estimators reply within minutes with clear price options and artwork check.',
       },
       {
         question: 'Do you offer free digital proofs before printing bulk business cards?',
@@ -768,10 +788,100 @@ const BUSINESS_CARDS_LANDING_DATA = {
       },
       {
         question: 'How long does bulk business card production take?',
-        answer: 'Digital runs of up to 2,500 cards typically dispatch within 24 to 48 hours. Large offset litho runs of 5,000 to 20,000 cards take 3 to 4 business days at our Al Quoz pressroom.',
+        answer: 'Digital runs of up to 2,500 cards typically dispatch within 24 to 48 hours. Large offset litho runs of 5,000 to 20,000 cards take 3 to 4 business days with express courier delivery across Dubai.',
       },
     ],
   },
+
+  'custom-business-cards-dubai': {
+    slug: 'custom-business-cards-dubai',
+    path: '/custom-business-cards-dubai',
+    title: 'Custom Business Cards Dubai | Bespoke Sizes, Shapes & Finishes | ONPRINT',
+    metaDescription: 'Custom business card printing in Dubai. Bespoke die-cut shapes, 85x55mm & square sizes, 350–600 GSM paper stocks, foil, Spot UV & fast UAE delivery.',
+    focusKeyword: 'custom business cards dubai',
+    secondaryKeywords: 'custom printed business cards dubai, bespoke business cards dubai, die cut business cards dubai, square business cards dubai, rounded corner business cards dubai, vertical business cards dubai, custom business cards for small businesses, custom business cards for startups in dubai',
+    badge: 'BESPOKE DIE-CUT SHAPES • CUSTOM DIMENSIONS • 350–600 GSM',
+    h1: 'Custom Business Cards in Dubai',
+    subheading: 'Design and print completely custom business cards in Dubai tailored to your brand identity. Choose standard 85x55mm or 90x50mm dimensions, modern 65x65mm squares, vertical portrait layouts, folded tent cards, or CNC contour die-cut silhouettes on 350–600 GSM European and Italian cardstocks.',
+    cardCategory: 'specialty',
+    heroStats: [
+      { label: 'Custom Formats', val: 'Square, Slim, Die-Cut' },
+      { label: 'Paper Caliper', val: '350 – 600 GSM' },
+      { label: 'Minimum Order', val: 'From 100 Cards' },
+      { label: 'Turnaround', val: 'Same-Day / 24–48h' },
+    ],
+    ctaText: 'Get Custom Card Quote',
+    whatsappText: 'Hello ONPRINT Dubai, I would like a quotation for Custom Business Cards in Dubai. Quantity: 250. Size/Shape: Custom. Paper/GSM: 400 GSM Matte. Delivery location: Dubai.',
+    technicalSpecs: [
+      { feature: 'Custom Sizes & Formats', detail: '85 x 55 mm (EU), 90 x 50 mm (US), 65 x 65 mm Square, 85 x 40 mm Mini Slim, 170 x 55 mm Folded 4-Panel, Custom CNC Die-Cut Silhouettes' },
+      { feature: 'Corner Styles', detail: 'Sharp 90° Architectural Corners or 3mm / 6mm Precision Die-Cut Rounded Corners' },
+      { feature: 'Available Substrates', detail: '350 GSM Silk, 400 GSM Heavy Matte, 450 GSM Velvet Soft-Touch, 600 GSM Italian Cotton, 760μ Waterproof PVC, 350 GSM Recycled Kraft' },
+      { feature: 'Custom Embellishments', detail: '24K Gold / Silver / Rose Gold Hot Foil, Raised 3D Scodix Spot UV, Blind Embossing & Debossing, Painted Edges' },
+      { feature: 'Bilingual & Variable Data', detail: 'Double-sided English & Arabic typography, custom dynamic QR codes, and individual staff name personalization' },
+      { feature: 'Production & Delivery', detail: 'In-house Al Quoz, Dubai pressroom with express courier delivery across Dubai, Abu Dhabi, Sharjah & UAE' },
+    ],
+    faqs: [
+      {
+        question: 'What custom sizes and shapes can you print for business cards in Dubai?',
+        answer: 'Beyond standard 85 x 55 mm and 90 x 50 mm cards, we manufacture 65 x 65 mm square cards, 85 x 40 mm slim mini cards, vertical portrait cards, 4-page scored folded business cards, and custom CNC die-cut shapes cut to your logo outline.',
+      },
+      {
+        question: 'Can small businesses and startups order custom business cards in low quantities?',
+        answer: 'Yes. Our minimum order quantity starts at just 100 custom business cards per name, making it easy for Dubai startups, freelancers, and small businesses to order custom printed business cards without excess inventory.',
+      },
+      {
+        question: 'How do I prepare artwork for custom die-cut or rounded-corner business cards?',
+        answer: 'Supply a 300 DPI vector PDF in CMYK color mode with a 3mm outer bleed and a 4mm inner safe margin. Include your custom die-cut or rounded-corner contour on a separate vector layer named "CutContour" in 100% magenta stroke. Our pre-press team also provides free file verification.',
+      },
+      {
+        question: 'Can I combine multiple custom finishes like Velvet Lamination, Foil, and Spot UV?',
+        answer: 'Yes. Our 450 GSM velvet soft-touch board is specifically engineered to accept both heated metallic foil stamping on your primary emblem and raised 3D Spot UV gloss on secondary patterns or typography.',
+      },
+    ],
+  },
+
+  'premium-business-cards-uae': {
+    slug: 'premium-business-cards-uae',
+    path: '/premium-business-cards-uae',
+    title: 'Premium Business Cards UAE | 400–600 GSM Executive Cards | ONPRINT',
+    metaDescription: 'Order premium business cards across the UAE. Heavy 400–600 GSM matte, velvet soft-touch, 24K foil & embossed corporate cards delivered to Dubai, Abu Dhabi & Sharjah.',
+    focusKeyword: 'premium business cards uae',
+    secondaryKeywords: 'executive business cards uae, heavy 450 gsm business cards uae, luxury corporate business cards uae, premium visiting cards uae, thick business cards uae, premium corporate business card printing',
+    badge: 'UAE EXECUTIVE STATIONERY • 400–600 GSM • ALL 7 EMIRATES',
+    h1: 'Premium Business Cards in the UAE',
+    subheading: 'Command immediate boardroom credibility across Dubai, Abu Dhabi, Sharjah, and all seven Emirates with heavyweight 400–600 GSM premium business cards. Engineered with anti-scuff velvet lamination, calibrated Pantone spot colors, hot metallic foil stamping, and 3D tactile relief.',
+    cardCategory: 'luxury',
+    heroStats: [
+      { label: 'Paper Caliper', val: '400 – 600 GSM' },
+      { label: 'UAE Delivery', val: '24–48h Doorstep' },
+      { label: 'Surface Finish', val: 'Velvet / Matte / Cotton' },
+      { label: 'Corporate Billing', val: 'FTA VAT Invoice' },
+    ],
+    ctaText: 'Get UAE Premium Card Quote',
+    whatsappText: 'Hello ONPRINT UAE, I would like a quotation for Premium Business Cards (450 GSM Velvet / Foil) with UAE delivery.',
+    technicalSpecs: [
+      { feature: 'Executive Board Weights', detail: '400 GSM Heavy Matte, 450 GSM Velvet Soft-Touch, 600 GSM Archival Italian Cotton' },
+      { feature: 'Protective Laminations', detail: '30-micron Thermal Velvet Peach-Skin or Anti-Reflective Scratch-Resistant Matte' },
+      { feature: 'Prestige Finishes', detail: '24K Mirror Gold Foil, Chrome Silver Foil, Raised 3D Spot UV, CNC Brass-Die Embossing' },
+      { feature: 'Corporate Batch Support', detail: 'Multi-employee name runs (5 to 500+ staff sets) with archived master brand templates' },
+      { feature: 'Nationwide UAE Logistics', detail: 'Tracked courier delivery to DIFC, Business Bay, ADGM Abu Dhabi, SAIF Zone Sharjah & all UAE Emirates' },
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between standard 350 GSM and premium 450 GSM business cards in the UAE?',
+        answer: 'While 350 GSM (~380 microns) is a reliable everyday commercial card, 450 GSM (~490 microns) laminated with 30-micron velvet film is noticeably thicker, stiffer, and resists bending or edge dog-earing in wallets—making it the preferred benchmark for UAE executives, consultants, and luxury brands.',
+      },
+      {
+        question: 'Do you deliver premium business cards to Abu Dhabi, Sharjah, and Ajman?',
+        answer: 'Yes. All premium business card orders are produced in our Al Quoz, Dubai pressroom and dispatched via insured 24–48 hour courier to corporate offices across Abu Dhabi (ADGM, Al Maryah Island), Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.',
+      },
+      {
+        question: 'Can corporate companies order premium business cards for multiple employees at volume rates?',
+        answer: 'Yes. You can pool multiple employee names into a single production run (for example, 10 executives x 250 cards = 2,500 cards) to unlock volume tier pricing while maintaining 100% identical paper caliper and Pantone color fidelity.',
+      },
+    ],
+  },
+
 }
 
 module.exports = { BUSINESS_CARDS_LANDING_DATA };

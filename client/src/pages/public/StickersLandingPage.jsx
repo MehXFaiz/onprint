@@ -1609,6 +1609,53 @@ export default function StickersLandingPage() {
             </Link>
           </div>
 
+          {/* Specialized Sticker & Label Hubs Directory */}
+          <div className="mb-8 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-6">
+            <span className="text-[11px] font-black uppercase tracking-widest text-[#795C43]">
+              DEDICATED STICKER &amp; LABEL DIVISIONS
+            </span>
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#352719] mt-1">
+              Specialized Sticker &amp; Label Printing Hubs in Dubai
+            </h3>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              <Link
+                to="/sticker-printing-dubai"
+                className="p-3.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:border-[#C5A989] transition-all group"
+              >
+                <div className="text-xs font-bold text-[#352719] group-hover:text-[#795C43]">Sticker Printing Dubai</div>
+                <p className="text-[11px] text-[#756657] mt-1">Custom vinyl, BOPP &amp; metallic stickers for UAE brands.</p>
+              </Link>
+              <Link
+                to="/waterproof-stickers-dubai"
+                className="p-3.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:border-[#C5A989] transition-all group"
+              >
+                <div className="text-xs font-bold text-[#352719] group-hover:text-[#795C43]">Waterproof Stickers Dubai</div>
+                <p className="text-[11px] text-[#756657] mt-1">UV, ice-bucket &amp; dishwasher-safe PVC/BOPP stickers.</p>
+              </Link>
+              <Link
+                to="/die-cut-stickers-dubai"
+                className="p-3.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:border-[#C5A989] transition-all group"
+              >
+                <div className="text-xs font-bold text-[#352719] group-hover:text-[#795C43]">Die Cut Stickers Dubai</div>
+                <p className="text-[11px] text-[#756657] mt-1">Optical laser contour die-cut &amp; kiss-cut custom shapes.</p>
+              </Link>
+              <Link
+                to="/product-label-printing-dubai"
+                className="p-3.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:border-[#C5A989] transition-all group"
+              >
+                <div className="text-xs font-bold text-[#352719] group-hover:text-[#795C43]">Product Label Printing Dubai</div>
+                <p className="text-[11px] text-[#756657] mt-1">Machine roll labels (76mm/25mm cores) &amp; ESMA labels.</p>
+              </Link>
+              <Link
+                to="/packaging-stickers-dubai"
+                className="p-3.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:border-[#C5A989] transition-all group"
+              >
+                <div className="text-xs font-bold text-[#352719] group-hover:text-[#795C43]">Packaging Stickers Dubai</div>
+                <p className="text-[11px] text-[#756657] mt-1">Tamper-evident box seals, delivery bag &amp; pouch stickers.</p>
+              </Link>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/business-card-printing-dubai"

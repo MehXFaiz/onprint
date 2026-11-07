@@ -1,4 +1,254 @@
 const COMMERCIAL_LANDING_PAGES = {
+      "waterproof-stickers-dubai": {
+      "slug": "waterproof-stickers-dubai",
+      "path": "/waterproof-stickers-dubai",
+      "title": "Waterproof Stickers Dubai | Heat & Oil-Proof Vinyl Labels | ONPRINT",
+      "metaDescription": "100% waterproof sticker printing in Dubai. Heavy-duty polymeric PVC vinyl & BOPP labels resistant to water, oil, freezer moisture & 80°C UAE heat. Fast delivery.",
+      "focusKeyword": "waterproof stickers dubai",
+      "secondaryKeywords": "waterproof sticker printing dubai, waterproof vinyl stickers uae, weatherproof outdoor decals dubai, dishwasher safe bottle stickers dubai, oil proof cosmetic labels uae, freezer grade food stickers dubai",
+      "badge": "100% WATERPROOF POLYMERIC VINYL & BOPP",
+      "h1": "Waterproof Sticker & Weatherproof Decal Printing in Dubai",
+      "subheading": "Engineered for Dubai's climate and demanding product environments. Our 100% waterproof polymeric PVC vinyl and BOPP polypropylene stickers withstand ice-bucket immersion, essential oils, dishwasher cycles, and outdoor UAE desert temperatures up to 80°C without peeling or fading.",
+      "stats": [
+        { "label": "Material", "value": "100μ Polymeric Vinyl & BOPP" },
+        { "label": "Heat Rating", "value": "-20°C Freezer to +80°C Sun" },
+        { "label": "Protection", "value": "UV Matte / Gloss Lamination" },
+        { "label": "Turnaround", "value": "Same-Day / 24h Dispatch" }
+      ],
+      "highlights": [
+        {
+          "title": "Water, Ice & Condensation Proof",
+          "description": "Synthetic PVC and BOPP films never absorb moisture or turn pulpy—ideal for chilled beverage bottles, iced coffee PET cups, and water flasks."
+        },
+        {
+          "title": "Oil, Perfume & Chemical Resistant",
+          "description": "Sealed with cross-linked protective overlaminates that prevent ink smudging when exposed to cosmetic serums, oud oils, soaps, and sanitizers."
+        },
+        {
+          "title": "UAE Outdoor & UV Sunlight Rated",
+          "description": "Printed with UV-curable and eco-solvent inks paired with UV-inhibiting laminate to resist yellowing and fading on vehicles, signage, and outdoor equipment."
+        },
+        {
+          "title": "Permanent Solvent or Clean-Peel Adhesives",
+          "description": "Choose aggressive permanent acrylic adhesive for curved bottles and industrial gear, or residue-free removable adhesive for glass and electronics."
+        }
+      ],
+      "technicalSpecs": [
+        { "feature": "Face Film Substrates", "detail": "100-Micron White Polymeric Vinyl, Optically Clear Vinyl, 60-Micron White/Clear BOPP" },
+        { "feature": "Overlaminate Protection", "detail": "30-Micron UV Matte Lamination, High-Gloss UV Lamination, or Velvet Soft-Touch" },
+        { "feature": "Adhesive Options", "detail": "Permanent Solvent Acrylic, High-Tack Industrial, Deep-Freeze (-20°C), or Clean-Peel Removable" },
+        { "feature": "Supply Formats", "detail": "Individual Die-Cut Stickers, Multi-Sticker Kiss-Cut Sheets, or Machine Applicator Rolls" },
+        { "feature": "Minimum Order Quantity", "detail": "From 100 waterproof stickers (starting at AED 45)" },
+        { "feature": "Production & Delivery", "detail": "Al Quoz, Dubai pressroom with same-day 4h express rush & 24h UAE courier delivery" }
+      ],
+      "faqs": [
+        {
+          "question": "What makes ONPRINT waterproof stickers different from standard paper stickers?",
+          "answer": "Standard paper stickers absorb moisture and disintegrate when wet. ONPRINT waterproof stickers are extruded from synthetic 100-micron polymeric PVC vinyl or BOPP polypropylene film and sealed with a protective thermal laminate, making them 100% impervious to water, ice condensation, oils, and tearing."
+        },
+        {
+          "question": "Can your waterproof stickers survive dishwashers and outdoor Dubai summer heat?",
+          "answer": "Yes. Our polymeric vinyl decals with permanent solvent adhesive and UV overlamination are rated for outdoor temperatures up to 80°C and repeated top-rack dishwasher cycles on stainless steel water bottles and tumblers."
+        },
+        {
+          "question": "Are waterproof stickers suitable for perfume bottles, cosmetic jars, and candle containers?",
+          "answer": "Yes. For cosmetics and fragrances, we recommend white or clear BOPP waterproof labels on rolls or sheets, which resist alcohol, essential oils, and bathroom humidity without edge lifting."
+        },
+        {
+          "question": "How fast can I order waterproof stickers in Dubai?",
+          "answer": "Orders with print-ready artwork approved before 11:00 AM qualify for Same-Day 4-Hour Express production in Al Quoz, Dubai, with standard delivery across Dubai, Abu Dhabi, and Sharjah in 24 to 48 hours."
+        }
+      ],
+      "relatedServices": [
+        { "name": "Sticker Printing Dubai", "path": "/sticker-printing-dubai" },
+        { "name": "Die Cut Stickers Dubai", "path": "/die-cut-stickers-dubai" },
+        { "name": "Product Label Printing Dubai", "path": "/product-label-printing-dubai" }
+      ]
+    },
+    "die-cut-stickers-dubai": {
+      "slug": "die-cut-stickers-dubai",
+      "path": "/die-cut-stickers-dubai",
+      "title": "Die Cut Stickers Dubai | Custom Contour Vinyl Stickers | ONPRINT",
+      "metaDescription": "Precision die cut stickers in Dubai. Optical laser contour cutting to any custom logo shape on waterproof matte, gloss, clear & holographic vinyl. From AED 40.",
+      "focusKeyword": "die cut stickers dubai",
+      "secondaryKeywords": "custom die cut stickers uae, contour cut vinyl stickers dubai, custom shape logo stickers dubai, kiss cut vs die cut stickers dubai, laptop logo stickers dubai, holographic die cut stickers uae",
+      "badge": "OPTICAL LASER CONTOUR CUTTING • ±0.2MM PRECISION",
+      "h1": "Custom Die-Cut Sticker Printing in Dubai",
+      "subheading": "Turn any logo, mascot, or typography into a precision contour-cut vinyl sticker. Our optical-sensor flatbed and roll plotters cut cleanly through both the waterproof vinyl face and backing liner to follow the exact silhouette of your artwork with ±0.2mm accuracy.",
+      "stats": [
+        { "label": "Cutting Accuracy", "value": "±0.2mm Optical Sensor" },
+        { "label": "Starting Price", "value": "From AED 40 / 100 pcs" },
+        { "label": "Vinyl Stocks", "value": "Matte, Gloss, Clear, Holo" },
+        { "label": "Turnaround", "value": "Same-Day / 24 Hours" }
+      ],
+      "highlights": [
+        {
+          "title": "Exact Silhouette Contour Cutting",
+          "description": "No awkward white squares—every die-cut sticker is trimmed around your exact brand perimeter, making it an instant collectible handout."
+        },
+        {
+          "title": "Die-Cut Singles & Kiss-Cut Sheets",
+          "description": "Order individual die-cut stickers for event swag and merch packs, or easy-peel kiss-cut sheets for rapid retail packaging fulfillment."
+        },
+        {
+          "title": "Holographic, Clear & Metallic Finishes",
+          "description": "Print custom die-cut shapes on 100% waterproof white vinyl, rainbow holographic prism film, optically clear vinyl with white ink, or 24K gold foil."
+        },
+        {
+          "title": "Free CutContour Dieline Setup",
+          "description": "Upload a vector PDF, AI, SVG, or high-resolution PNG—our Dubai pre-press specialists generate and verify your custom vector cutline at no extra charge."
+        }
+      ],
+      "technicalSpecs": [
+        { "feature": "Cut Styles", "detail": "Through-Cut Individual Die-Cut Stickers or Peelable Kiss-Cut Singles/Sheets" },
+        { "feature": "Plotter Technology", "detail": "CCD Camera Optical Registration Contour Cutters (±0.2mm tolerance)" },
+        { "feature": "Available Substrates", "detail": "100μ White Vinyl, Transparent Vinyl (with White Ink), Rainbow Holographic, Brushed Gold/Silver" },
+        { "feature": "Protective Finishes", "detail": "Anti-Glare Silk Matte Lamination, High-Gloss UV, or Velvet Soft-Touch" },
+        { "feature": "Popular Dimensions", "detail": "38x38mm, 50x50mm (2x2 in), 75x75mm (3x3 in), 100x100mm, or any bespoke dimension" },
+        { "feature": "Minimum Order", "detail": "Starts from 100 custom die-cut stickers" }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between die-cut stickers and kiss-cut stickers?",
+          "answer": "Die-cut stickers are cut completely through both the vinyl sticker layer and the paper backing liner to the exact shape of your design. Kiss-cut stickers are cut only through the top vinyl layer while leaving a wider square or rectangular paper backing border around the sticker for faster peeling."
+        },
+        {
+          "question": "Do I need to create the CutContour vector path myself?",
+          "answer": "If you use Adobe Illustrator, you can add a 100% magenta vector stroke named 'CutContour' with a 2mm bleed. If you only have a PNG or standard PDF logo, our pre-press team will trace and send you a digital cutline proof free of charge before printing."
+        },
+        {
+          "question": "How much do 100 or 1,000 die-cut stickers cost in Dubai?",
+          "answer": "100 custom die-cut vinyl stickers start from AED 40, while 1,000 die-cut stickers benefit from wholesale volume discounting (approximately AED 0.15–0.18 per sticker depending on dimensions and finish). Request an instant WhatsApp quote (+44 7344546056) for exact tiered pricing."
+        }
+      ],
+      "relatedServices": [
+        { "name": "Sticker Printing Dubai", "path": "/sticker-printing-dubai" },
+        { "name": "Waterproof Stickers Dubai", "path": "/waterproof-stickers-dubai" },
+        { "name": "Packaging Stickers Dubai", "path": "/packaging-stickers-dubai" }
+      ]
+    },
+    "product-label-printing-dubai": {
+      "slug": "product-label-printing-dubai",
+      "path": "/product-label-printing-dubai",
+      "title": "Product Label Printing Dubai | Bottle, Jar & Roll Labels | ONPRINT",
+      "metaDescription": "Custom product label printing in Dubai & UAE. Waterproof BOPP roll labels, cosmetic bottle labels, food jar stickers & barcode labels with fast UAE delivery.",
+      "focusKeyword": "product label printing dubai",
+      "secondaryKeywords": "custom product labels uae, bottle label printing dubai, cosmetic label printing dubai, jar label printing dubai, roll label printing dubai, food packaging labels uae, custom labels for product packaging",
+      "badge": "COMMERCIAL ROLL & SHEET PRODUCT LABELS • DUBAI",
+      "h1": "Custom Product Label Printing in Dubai",
+      "subheading": "High-definition product labels manufactured on machine-ready rolls or easy-peel sheets for UAE beverage bottlers, cosmetic brands, specialty food producers, fragrance houses, and pharmaceutical suppliers. Waterproof, oil-proof, and compliant with UAE ESMA labeling standards.",
+      "stats": [
+        { "label": "Supply Format", "value": "Rolls (25/40/76mm) & Sheets" },
+        { "label": "Substrates", "value": "White/Clear BOPP, Foil, Kraft" },
+        { "label": "Compliance", "value": "Food-Safe & Oil-Resistant" },
+        { "label": "Turnaround", "value": "24–48 Hours UAE Delivery" }
+      ],
+      "highlights": [
+        {
+          "title": "Automated Machine Roll Labels",
+          "description": "Wound onto standard 25mm (1 inch), 40mm (1.5 inch), or 76mm (3 inch) cores with calibrated gap spacing and custom unwind directions (#1 to #8) for labeling lines."
+        },
+        {
+          "title": "Cosmetic, Perfume & Oud Bottle Labels",
+          "description": "Ultra-clear transparent BOPP with opaque white ink underbase, hot gold foil stamping, and oil-resistant laminates for luxury skincare and fragrance vials."
+        },
+        {
+          "title": "Food, Beverage & Freezer-Grade Labels",
+          "description": "Condensation-proof beverage labels, honey/date jar seals, and deep-freeze (-20°C) adhesives compliant with Dubai Municipality food contact standards."
+        },
+        {
+          "title": "Variable Barcodes, QR Codes & Batch Dates",
+          "description": "High-contrast Grade-A EAN-13/UPC retail barcodes, sequential serial numbering, and Bilingual Arabic-English ingredient panels."
+        }
+      ],
+      "technicalSpecs": [
+        { "feature": "Label Materials", "detail": "White BOPP, Clear BOPP, Silver Metallized BOPP, Estate Wine/Textured Paper, Recycled Kraft" },
+        { "feature": "Roll Specifications", "detail": "25mm, 40mm, or 76mm Core Diameter; Custom Outer Roll Diameter & Unwind Direction" },
+        { "feature": "Surface Finishes", "detail": "Matte Varnish/Lamination, High-Gloss UV, Soft-Touch Velvet, Hot Foil Stamping, Spot UV" },
+        { "feature": "Adhesive Grades", "detail": "Permanent Acrylic, High-Tack Squeeze-Bottle, Freezer Grade (-20°C), or Clean-Peel Removable" },
+        { "feature": "Minimum Order Quantity", "detail": "From 100 labels on sheets or 500 labels on machine rolls" }
+      ],
+      "faqs": [
+        {
+          "question": "Where can I get waterproof product labels in Dubai?",
+          "answer": "ONPRINT manufactures waterproof, oil-proof, and chemical-resistant product labels in Al Quoz, Dubai on white, clear, and metallic BOPP polypropylene film. You can order on sheets starting from 100 labels or on machine rolls starting from 500 labels."
+        },
+        {
+          "question": "How do I know which roll unwind direction my labeling machine needs?",
+          "answer": "Share your applicator model or tell us whether the label should come off the roll top-first (#1), bottom-first (#2), right-side first (#3), or left-side first (#4). Our pre-press engineers verify core diameter (25mm or 76mm) and unwind orientation on your digital proof."
+        },
+        {
+          "question": "Can you print multiple SKU flavors or scents in a single product label order?",
+          "answer": "Yes! Because we run digital roll label presses with zero plate charges, you can split a 1,000 or 5,000 label run across multiple scents, flavors, or barcode SKUs as long as they share the same die-cut size and material."
+        }
+      ],
+      "relatedServices": [
+        { "name": "Label Printing Dubai", "path": "/label-printing-dubai" },
+        { "name": "Sticker Printing Dubai", "path": "/sticker-printing-dubai" },
+        { "name": "Packaging Stickers Dubai", "path": "/packaging-stickers-dubai" }
+      ]
+    },
+    "packaging-stickers-dubai": {
+      "slug": "packaging-stickers-dubai",
+      "path": "/packaging-stickers-dubai",
+      "title": "Packaging Stickers Dubai | Custom Box Seals & Bag Labels | ONPRINT",
+      "metaDescription": "Custom packaging stickers in Dubai. Branded box sealing stickers, tamper-evident delivery bag labels, kraft stickers & gold foil seals for UAE retail & cafes.",
+      "focusKeyword": "packaging stickers dubai",
+      "secondaryKeywords": "custom logo stickers for packaging, box sealing stickers dubai, tamper evident delivery stickers uae, coffee bag labels dubai, kraft packaging stickers uae, ecommerce mailer stickers dubai, business stickers printing dubai",
+      "badge": "BOX SEALS • TAMPER-EVIDENT LABELS • BRANDED PACKAGING",
+      "h1": "Custom Packaging Stickers & Box Seals in Dubai",
+      "subheading": "Transform plain shipping boxes, paper takeaway bags, tissue wraps, and coffee pouches into branded unboxing experiences without paying for high-MOQ custom boxes. Order custom logo packaging stickers, tamper-evident delivery seals, and metallic foil box closures in Dubai.",
+      "stats": [
+        { "label": "Popular Styles", "value": "Round Seals, Strips, Tamper" },
+        { "label": "Minimum Order", "value": "From 100 Stickers (AED 40)" },
+        { "label": "Finishes", "value": "Matte, Gloss, Kraft, Gold Foil" },
+        { "label": "Delivery", "value": "Same-Day / 24h UAE Courier" }
+      ],
+      "highlights": [
+        {
+          "title": "E-Commerce Mailer & Tissue Box Seals",
+          "description": "High-tack circular, square, or fold-over ribbon stickers that secure tissue paper and corrugated shipping mailers with your brand emblem."
+        },
+        {
+          "title": "Tamper-Evident Food Delivery Bag Seals",
+          "description": "Lollipop-shaped and elongated security strip labels engineered for Dubai restaurants, cafes, and cloud kitchens on Talabat, Deliveroo, and Careem."
+        },
+        {
+          "title": "Artisanal Kraft & Metallic Foil Packaging Labels",
+          "description": "Choose organic brown kraft paper for eco-friendly bakeries and soaps, or hot-stamped 24K gold foil on velvet matte for luxury boutiques and Ramadan hampers."
+        },
+        {
+          "title": "Cost-Effective Branding for Small Businesses",
+          "description": "Brand 500 plain boxes or pouches starting from AED 115—ideal for startups, home-based businesses, and seasonal promotions."
+        }
+      ],
+      "technicalSpecs": [
+        { "feature": "Packaging Sticker Formats", "detail": "Round Box Seals (38mm / 50mm), Fold-Over Corner Strips, Lollipop Tamper Seals, Front Pouch Labels" },
+        { "feature": "Adhesive Strength", "detail": "High-Tack Corrugated Cardboard & Kraft Paper Adhesive (wont lift on textured boxes)" },
+        { "feature": "Substrates", "detail": "Waterproof Vinyl, Recycled Brown Kraft Paper, Velvet Matte Art Paper, Clear Film, Gold/Silver Foil" },
+        { "feature": "Supply Options", "detail": "Fast-Peel Kiss-Cut Sheets or Hand/Dispenser Rolls" },
+        { "feature": "Turnaround Time", "detail": "Same-Day 4h Express Rush or 24–48h Standard UAE Delivery" }
+      ],
+      "faqs": [
+        {
+          "question": "How can a small business order custom printed stickers for packaging in Dubai?",
+          "answer": "Small businesses can order custom packaging stickers starting from just 100 pieces (from AED 40) at ONPRINT. Simply choose your sticker size (e.g., 50x50mm round box seal), material (waterproof vinyl, kraft paper, or gold foil), and message us on WhatsApp (+44 7344546056) with your logo for a free digital proof."
+        },
+        {
+          "question": "Which adhesive sticks best to brown kraft paper bags and corrugated cardboard boxes?",
+          "answer": "Recycled kraft bags and corrugated mailers have porous, fibrous surfaces. We use a high-tack permanent acrylic adhesive that bonds deep into paper fibers so your box seals and tamper strips never pop open during courier transit."
+        },
+        {
+          "question": "Do you print tamper-evident delivery seals for Dubai restaurants and cloud kitchens?",
+          "answer": "Yes. We supply custom branded tamper-evident security seals (with optional micro-slits that tear if someone attempts to open a delivery bag or beverage lid) on fast-dispensing rolls for cafes and cloud kitchens across the UAE."
+        }
+      ],
+      "relatedServices": [
+        { "name": "Sticker Printing Dubai", "path": "/sticker-printing-dubai" },
+        { "name": "Product Label Printing Dubai", "path": "/product-label-printing-dubai" },
+        { "name": "Luxury Packaging & Custom Boxes", "path": "/services/luxury-packaging-custom-boxes" }
+      ]
+    },
     "printing-services-dubai": {
       "slug": "printing-services-dubai",
       "path": "/printing-services-dubai",
@@ -527,13 +777,13 @@ const COMMERCIAL_LANDING_PAGES = {
     "label-printing-dubai": {
       "slug": "label-printing-dubai",
       "path": "/label-printing-dubai",
-      "title": "Label Printing Dubai | Custom Product Labels & Roll Printing | ONPRINT",
-      "metaDescription": "Custom product label printing in Dubai. Roll labels and sheet labels for cosmetics, perfume bottles, food jars, candles & packaging. Fast UAE delivery.",
+      "title": "Label Printing Dubai | Product Labels & Roll Printing | ONPRINT",
+      "metaDescription": "Custom product label printing in Dubai & UAE. Waterproof roll labels, custom bottle labels, food packaging labels & cosmetic stickers. Fast UAE delivery.",
       "focusKeyword": "label printing dubai",
-      "secondaryKeywords": "custom label printing dubai, product label printing dubai, bottle label printing dubai, roll label printing dubai, transparent label printing dubai, packaging sticker printing dubai, food packaging label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, barcode label printing dubai, embossed sticker printing dubai",
+      "secondaryKeywords": "product label printing dubai, custom product labels uae, custom bottle labels dubai, food packaging labels dubai, product packaging stickers dubai, custom labels for product packaging, roll label printing dubai, custom logo stickers for packaging",
       "badge": "PRODUCT ROLL LABELS & BOTTLING",
       "h1": "Custom Product Label & Roll Printing Solutions in Dubai",
-      "subheading": "Precision roll and sheet labels for cosmetics, perfumes, food & beverage jars, candle packaging, pharmaceutical containers, and retail boxes. Certified water, oil, and chemical resistant.",
+      "subheading": "Precision roll and sheet product label printing in Dubai for cosmetics, custom bottle labels, food packaging labels, candle jars, pharmaceutical containers, and retail product packaging across the UAE. Certified water, oil, and chemical resistant.",
       "stats": [
         {
           "label": "Format",
@@ -541,7 +791,7 @@ const COMMERCIAL_LANDING_PAGES = {
         },
         {
           "label": "Materials",
-          "detail": "BOPP, Paper, Metallized"
+          "value": "BOPP, Paper, Metallized"
         },
         {
           "label": "Roll Core Sizes",
@@ -597,6 +847,10 @@ const COMMERCIAL_LANDING_PAGES = {
         }
       ],
       "faqs": [
+        {
+          "question": "Where can I get waterproof product labels?",
+          "answer": "You can get waterproof product labels in Dubai and across the UAE from ONPRINT (https://www.0nprint.com/label-printing-dubai). We manufacture 100% waterproof, oil-resistant, and refrigeration-safe BOPP polypropylene and vinyl product labels supplied on machine rolls (25mm, 40mm, or 76mm cores) or easy-peel sheets for cosmetics, beverage bottles, food jars, and retail packaging.",
+        },
         {
           "question": "Where can I order custom product labels on rolls in Dubai?",
           "answer": "ONPRINT specializes in roll label printing for food, cosmetic, and pharmaceutical producers in the UAE. Our Al Quoz facility prints high-resolution full-color labels wound on standard cores configured for your automated or manual label dispensers."

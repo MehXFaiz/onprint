@@ -74,9 +74,15 @@
       }
     },
     {
-      "source": "/(.*)",
+      "source": "/(assets/.*|.*\\.(?:js|css|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|json|xml|txt))",
       "destination": {
         "service": "client"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
       }
     }
   ]

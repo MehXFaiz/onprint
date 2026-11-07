@@ -2578,8 +2578,32 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </div>
               <ul className="space-y-2.5 text-xs sm:text-sm">
                 <li>
+                  <Link to="/custom-business-cards-dubai" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Custom Business Cards Dubai (Die-Cut &amp; Bespoke)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/premium-business-cards-uae" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Premium Business Cards UAE (400–600 GSM)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
                   <Link to="/premium-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
                     <span>Premium Business Cards (400 GSM)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/matte-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Matte Laminated Business Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/bulk-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Bulk &amp; Corporate Offset Business Cards</span>
                     <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
                   </Link>
                 </li>

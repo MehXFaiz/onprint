@@ -136,7 +136,9 @@ function App() {
             <Route path="/business-card-printing-dubai" element={<BusinessCardLandingPage pageKey="business-card-printing-dubai" />} />
             <Route path="/business-card-printing-uae" element={<BusinessCardLandingPage pageKey="business-card-printing-uae" />} />
             <Route path="/visiting-card-printing-dubai" element={<BusinessCardLandingPage pageKey="visiting-card-printing-dubai" />} />
+            <Route path="/custom-business-cards-dubai" element={<BusinessCardLandingPage pageKey="custom-business-cards-dubai" />} />
             <Route path="/premium-business-cards" element={<BusinessCardLandingPage pageKey="premium-business-cards" />} />
+            <Route path="/premium-business-cards-uae" element={<BusinessCardLandingPage pageKey="premium-business-cards-uae" />} />
             <Route path="/matte-business-cards" element={<BusinessCardLandingPage pageKey="matte-business-cards" />} />
             <Route path="/bulk-business-cards" element={<BusinessCardLandingPage pageKey="bulk-business-cards" />} />
             <Route path="/luxury-business-cards" element={<BusinessCardLandingPage pageKey="luxury-business-cards" />} />
@@ -167,6 +169,10 @@ function App() {
             <Route path="/packaging-printing" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
             <Route path="/sticker-printing-dubai" element={<StickersLandingPage />} />
             <Route path="/label-printing-dubai" element={<CommercialLandingPage pageKey="label-printing-dubai" />} />
+            <Route path="/waterproof-stickers-dubai" element={<CommercialLandingPage pageKey="waterproof-stickers-dubai" />} />
+            <Route path="/die-cut-stickers-dubai" element={<CommercialLandingPage pageKey="die-cut-stickers-dubai" />} />
+            <Route path="/product-label-printing-dubai" element={<CommercialLandingPage pageKey="product-label-printing-dubai" />} />
+            <Route path="/packaging-stickers-dubai" element={<CommercialLandingPage pageKey="packaging-stickers-dubai" />} />
             <Route path="/signage-printing-dubai" element={<CommercialLandingPage pageKey="signage-printing-dubai" />} />
             <Route path="/large-format-printing-dubai" element={<CommercialLandingPage pageKey="large-format-printing-dubai" />} />
             <Route path="/corporate-printing-dubai" element={<CommercialLandingPage pageKey="corporate-printing-dubai" />} />
@@ -177,7 +183,6 @@ function App() {
             <Route path="/business-card-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
             <Route path="/business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
             <Route path="/luxury-business-cards-dubai" element={<Navigate to="/luxury-business-cards" replace />} />
-            <Route path="/custom-business-cards-dubai" element={<Navigate to="/premium-business-cards" replace />} />
             <Route path="/visiting-cards-dubai" element={<Navigate to="/visiting-card-printing-dubai" replace />} />
             <Route path="/foil-business-cards-dubai" element={<Navigate to="/foil-business-cards" replace />} />
             <Route path="/spot-uv-business-cards-dubai" element={<Navigate to="/spot-uv-business-cards" replace />} />
@@ -246,6 +251,13 @@ function App() {
             <Route path="/categories/:slug" element={<CategoryDetailPage />} />
             <Route path="/category/:slug" element={<CategoryRouteRedirect />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/luxury-packaging-custom-boxes" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/services/business-cards-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/blog/digital-vs-offset-printing-dubai-cost-comparison" element={<Navigate to="/blog/digital-vs-offset-printing-dubai" replace />} />
+            <Route path="/blog/sustainable-fsc-certified-printing-uae-net-zero-2050" element={<Navigate to="/blog/sustainable-fsc-certified-printing-uae" replace />} />
+            <Route path="/blog/corporate-stationery-essentials-new-companies-dubai-difc" element={<Navigate to="/blog/corporate-stationery-essentials-dubai-setup" replace />} />
+            <Route path="/blog/luxury-printing-finishes-gold-foil-vs-spot-uv" element={<Navigate to="/blog/luxury-printing-finishes-gold-foil-spot-uv-embossing" replace />} />
+            <Route path="/blog/synthetic-waterproof-restaurant-menus-dubai" element={<Navigate to="/blog/synthetic-waterproof-menus-dubai-restaurants" replace />} />
             <Route path="/products/:slug" element={<ProductDetailPage />} />
             <Route path="/product/:slug" element={<ProductRouteRedirect />} />
             <Route path="/blog" element={<BlogPage />} />

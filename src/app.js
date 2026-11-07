@@ -251,7 +251,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         ` : ''}
         <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
           <p style="margin: 0; font-weight: bold; color: #166534;">Direct WhatsApp Quote &amp; Artwork Consultation:</p>
-          <p style="margin: 4px 0 0 0; color: #15803d;">Connect with our Dubai production team on WhatsApp at <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(cleanPathKey.includes('sticker') || cleanPathKey.includes('label') ? 'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.' : `Hello ONPRINT, I would like a quotation for ${commercialData.h1 || 'printing services'} in Dubai. Please share options, pricing and turnaround.`)}" style="color: #15803d; font-weight: bold;">+${WHATSAPP_NUMBER}</a> for instant volume pricing and pre-press assistance.</p>
+          <p style="margin: 4px 0 0 0; color: #15803d;">Connect with our Dubai production team on WhatsApp at <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(requestPath.includes('sticker') || requestPath.includes('label') ? 'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.' : `Hello ONPRINT, I would like a quotation for ${commercialData.h1 || 'printing services'} in Dubai. Please share options, pricing and turnaround.`)}" style="color: #15803d; font-weight: bold;">+${WHATSAPP_NUMBER}</a> for instant volume pricing and pre-press assistance.</p>
         </div>
         ${commercialData.faqs && commercialData.faqs.length > 0 ? `
           <h3>Frequently Asked Questions</h3>
@@ -443,26 +443,26 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   return `
     <div style="font-family: system-ui, -apple-system, sans-serif; color: #352719; background: #F5F0E7; max-width: 1200px; margin: 0 auto; padding: 20px;">
       <header style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #FFFFFF; text-decoration: none; letter-spacing: 0.1em;">
+        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #352719; text-decoration: none; letter-spacing: 0.1em;">
           ON<span style="color: #795C43;">PRINT</span>
         </a>
         <nav style="display: flex; gap: 14px; font-size: 0.875rem; font-weight: 600; flex-wrap: wrap;">
-          <a href="/" style="color: #FFFFFF; text-decoration: none;">Home</a>
-          <a href="/products" style="color: #FFFFFF; text-decoration: none;">Products</a>
-          <a href="/categories" style="color: #FFFFFF; text-decoration: none;">Categories</a>
+          <a href="/" style="color: #352719; text-decoration: none;">Home</a>
+          <a href="/products" style="color: #352719; text-decoration: none;">Products</a>
+          <a href="/categories" style="color: #352719; text-decoration: none;">Categories</a>
           <a href="/business-card-printing-dubai" style="color: #795C43; text-decoration: none; font-weight: 700;">Business Cards</a>
-          <a href="/categories/letterheads-printing-dubai" style="color: #FFFFFF; text-decoration: none;">Stationery</a>
-          <a href="/services" style="color: #FFFFFF; text-decoration: none;">Services</a>
-          <a href="/blog" style="color: #FFFFFF; text-decoration: none;">Guides</a>
-          <a href="/about" style="color: #FFFFFF; text-decoration: none;">About</a>
-          <a href="/contact" style="color: #FFFFFF; text-decoration: none;">Contact</a>
+          <a href="/categories/letterheads-printing-dubai" style="color: #352719; text-decoration: none;">Stationery</a>
+          <a href="/services" style="color: #352719; text-decoration: none;">Services</a>
+          <a href="/blog" style="color: #352719; text-decoration: none;">Guides</a>
+          <a href="/about" style="color: #352719; text-decoration: none;">About</a>
+          <a href="/contact" style="color: #352719; text-decoration: none;">Contact</a>
           <a href="/get-a-quote" style="color: #FFFFFF; background: #795C43; color: #FFFFFF; font-weight: 700; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
         </nav>
       </header>
 
       <main id="main-content">
         <article>
-          <h1 style="font-size: 2.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: #352719; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
           <p style="font-size: 1.125rem; color: #343D4F; line-height: 1.6; margin-bottom: 2rem;">${escapeHtml(metaDesc)}</p>
           ${dynamicBody}
         </article>
@@ -714,11 +714,6 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
         areaServed: ['AE', 'PK'],
         availableLanguage: ['English', 'Arabic', 'Urdu'],
       },
-    ],
-    sameAs: [
-      'https://www.facebook.com/onprintdubai',
-      'https://www.instagram.com/onprintdubai',
-      'https://www.linkedin.com/company/onprintdubai',
     ],
     areaServed: [
       { '@type': 'City', name: 'Dubai' },
@@ -1097,7 +1092,9 @@ const COMMERCIAL_STATIC_PATHS = new Set([
   '/business-card-printing-dubai',
   '/business-card-printing-uae',
   '/visiting-card-printing-dubai',
+  '/custom-business-cards-dubai',
   '/premium-business-cards',
+  '/premium-business-cards-uae',
   '/matte-business-cards',
   '/bulk-business-cards',
   '/luxury-business-cards',
@@ -1116,6 +1113,10 @@ const COMMERCIAL_STATIC_PATHS = new Set([
   '/flyer-printing-dubai',
   '/sticker-printing-dubai',
   '/label-printing-dubai',
+  '/waterproof-stickers-dubai',
+  '/die-cut-stickers-dubai',
+  '/product-label-printing-dubai',
+  '/packaging-stickers-dubai',
   '/signage-printing-dubai',
   '/large-format-printing-dubai',
   '/corporate-printing-dubai',
@@ -1237,7 +1238,9 @@ async function isKnownPublicPath(requestPath) {
   if (routeType === 'blog') {
     try {
       const persistentBlogs = require('./data/persistentStore').getBlogs()
-      return persistentBlogs.some((b) => b.slug === slug && b.status === 'published')
+      if (persistentBlogs.some((b) => b.slug === slug && b.status === 'published')) return true
+      const dubaiBlogs = require('./data/dubaiBlogsData')
+      return Array.isArray(dubaiBlogs) && dubaiBlogs.some((b) => b.slug === slug)
     } catch {
       return false
     }
@@ -1332,7 +1335,7 @@ function createApp() {
 
   // Commercial Landing Page Aliases 301 Permanent Redirects (Direct 1-Hop)
   app.get(['/business-card-printing', '/business-cards', '/business-cards-dubai'], (req, res) => res.redirect(301, '/business-card-printing-dubai'))
-  app.get(['/business-cards/premium-business-cards', '/custom-business-cards-dubai'], (req, res) => res.redirect(301, '/premium-business-cards'))
+  app.get('/business-cards/premium-business-cards', (req, res) => res.redirect(301, '/premium-business-cards'))
   app.get(['/business-cards/foil-business-cards', '/foil-business-cards-dubai'], (req, res) => res.redirect(301, '/foil-business-cards'))
   app.get(['/business-cards/matte-business-cards', '/matte-business-cards-dubai'], (req, res) => res.redirect(301, '/matte-business-cards'))
   app.get('/business-cards/corporate-business-cards', (req, res) => res.redirect(301, '/corporate-business-cards'))
@@ -1341,7 +1344,13 @@ function createApp() {
   app.get('/visiting-cards-dubai', (req, res) => res.redirect(301, '/visiting-card-printing-dubai'))
   app.get('/spot-uv-business-cards-dubai', (req, res) => res.redirect(301, '/spot-uv-business-cards'))
   app.get('/embossed-business-cards-dubai', (req, res) => res.redirect(301, '/embossed-business-cards'))
-  app.get(['/custom-packaging', '/packaging-printing', '/custom-packaging-dubai', '/packaging-printing-dubai'], (req, res) => res.redirect(301, '/services'))
+  app.get(['/custom-packaging', '/packaging-printing', '/custom-packaging-dubai', '/packaging-printing-dubai', '/products/luxury-packaging-custom-boxes'], (req, res) => res.redirect(301, '/services/luxury-packaging-custom-boxes'))
+  app.get('/services/business-cards-printing', (req, res) => res.redirect(301, '/business-card-printing-dubai'))
+  app.get('/blog/digital-vs-offset-printing-dubai-cost-comparison', (req, res) => res.redirect(301, '/blog/digital-vs-offset-printing-dubai'))
+  app.get('/blog/sustainable-fsc-certified-printing-uae-net-zero-2050', (req, res) => res.redirect(301, '/blog/sustainable-fsc-certified-printing-uae'))
+  app.get('/blog/corporate-stationery-essentials-new-companies-dubai-difc', (req, res) => res.redirect(301, '/blog/corporate-stationery-essentials-dubai-setup'))
+  app.get('/blog/luxury-printing-finishes-gold-foil-vs-spot-uv', (req, res) => res.redirect(301, '/blog/luxury-printing-finishes-gold-foil-spot-uv-embossing'))
+  app.get('/blog/synthetic-waterproof-restaurant-menus-dubai', (req, res) => res.redirect(301, '/blog/synthetic-waterproof-menus-dubai-restaurants'))
   app.get('/brochure-printing', (req, res) => res.redirect(301, '/brochure-printing-dubai'))
   app.get('/flyer-printing', (req, res) => res.redirect(301, '/flyer-printing-dubai'))
   app.get('/sticker-printing', (req, res) => res.redirect(301, '/sticker-printing-dubai'))

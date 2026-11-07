@@ -455,7 +455,13 @@ export default function AdminDashboardPage() {
           blogs: liveBlogs,
         })
         const conversionEvents = getStoredConversionEvents()
+        const websiteVisitorEvents = conversionEvents.filter((e) => e.conversion_type === 'website_visitor')
+        const productVisitorEvents = conversionEvents.filter((e) => e.conversion_type === 'product_page_visitor')
         const whatsappEvents = conversionEvents.filter((e) => e.conversion_type === 'whatsapp_click')
+        const qualifiedInquiryEvents = conversionEvents.filter(
+          (e) => e.conversion_type === 'contact_form_submit' || e.conversion_type === 'product_inquiry'
+        )
+        const totalQualifiedInquiries = messages.total + quotes.approved + qualifiedInquiryEvents.length
         const whatsappByProductMap = new Map()
         whatsappEvents.forEach((e) => {
           const key = e.product_name || e.landing_page || 'General WhatsApp Inquiry'
@@ -584,24 +590,36 @@ export default function AdminDashboardPage() {
               <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-5">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-display text-sm font-bold text-[#352719]">
-                    WhatsApp Inquiries vs. Quotes vs. Confirmed Orders
+                    6-Stage Lead &amp; Conversion Funnel (Strict Stage Separation)
                   </h3>
                   <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-500/20">
                     +44 7344 546056
                   </span>
                 </div>
-                <div className="grid grid-cols-3 gap-3 mb-4 text-center">
-                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3">
-                    <div className="text-lg font-black text-emerald-700">{whatsappEvents.length}</div>
-                    <div className="text-[10px] font-bold uppercase text-[#756657]">WhatsApp Clicks</div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-4 text-center">
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5">
+                    <div className="text-base font-black text-[#352719]">{websiteVisitorEvents.length}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">1. Website Visitors</div>
                   </div>
-                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3">
-                    <div className="text-lg font-black text-purple-700">{quotes.total}</div>
-                    <div className="text-[10px] font-bold uppercase text-[#756657]">Quote Requests</div>
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5">
+                    <div className="text-base font-black text-[#5C4938]">{productVisitorEvents.length}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">2. Product Visitors</div>
                   </div>
-                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-3">
-                    <div className="text-lg font-black text-[#795C43]">{orders.total}</div>
-                    <div className="text-[10px] font-bold uppercase text-[#756657]">Confirmed Orders</div>
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5">
+                    <div className="text-base font-black text-emerald-700">{whatsappEvents.length}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">3. WhatsApp Clicks</div>
+                  </div>
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5">
+                    <div className="text-base font-black text-purple-700">{quotes.total}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">4. Submitted Quotes</div>
+                  </div>
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5">
+                    <div className="text-base font-black text-amber-800">{totalQualifiedInquiries}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">5. Qualified Inquiries</div>
+                  </div>
+                  <div className="rounded-xl border border-[#DED2C1] bg-[#FAF8F3] p-2.5">
+                    <div className="text-base font-black text-[#795C43]">{orders.total}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#756657]">6. Confirmed Orders</div>
                   </div>
                 </div>
                 {topWhatsappProducts.length > 0 ? (

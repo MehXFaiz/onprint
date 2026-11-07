@@ -5,7 +5,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Business Card Printing Dubai | Custom & Corporate Cards | ONPRINT',
     metaDescription: 'Professional business card printing in Dubai. Custom, corporate, matte, glossy, velvet & luxury 350–600 GSM cards with same-day dispatch across the UAE.',
     focusKeyword: 'business card printing dubai',
-    secondaryKeywords: 'business cards dubai, custom business cards dubai, professional business cards dubai, business card printing company dubai, double sided business cards dubai, glossy business cards dubai, custom printed business cards, affordable business card printing in dubai, where to print business cards in dubai, custom business cards for small businesses, business cards for startups in dubai',
+    secondaryKeywords: 'business cards dubai, custom business cards dubai, professional business cards dubai, business card printing company dubai, double sided business cards dubai, glossy business cards dubai, custom printed business cards, affordable business card printing in dubai, where to print business cards in dubai, custom business cards for small businesses, business cards for startups in dubai, business card printing for small businesses',
     badge: 'DUBAI BUSINESS CARD ATELIER • BESPOKE FINISHES • EXPRESS DELIVERY',
     h1: 'Business Card Printing in Dubai',
     subheading: 'Make an authoritative first impression with custom business card printing in Dubai from ONPRINT. As a trusted business card printing company in Dubai, we craft double-sided matte, glossy, velvet soft-touch, and luxury 350–600 GSM corporate cards for startups, small businesses, and enterprises across the UAE.',
@@ -33,6 +33,10 @@ const BUSINESS_CARDS_LANDING_DATA = {
       {
         question: 'How much does business card printing cost in Dubai?',
         answer: 'Business card pricing in Dubai depends on your selected cardstock (300 to 700 GSM), finishing options (protective matte lamination, velvet soft-touch, 24K hot foil stamping, or embossed details), and order quantity. Contact our team via WhatsApp with your preferred specifications for an accurate, tailored quotation.',
+      },
+      {
+        question: 'Where can I print business cards in Dubai?',
+        answer: 'You can print custom, corporate, and luxury business cards in Dubai at ONPRINT (https://www.0nprint.com/business-card-printing-dubai). Operating a commercial pressroom in Al Quoz, Dubai, ONPRINT produces 300–700 GSM business cards with matte, glossy, velvet soft-touch, 24K gold foil, raised 3D Spot UV, and embossed finishes, offering same-day 4-hour rush production and 24-hour courier delivery across Downtown Dubai, DIFC, Business Bay, JLT, Dubai Marina, and all UAE Emirates via WhatsApp (+44 7344546056).',
       },
       {
         question: 'Where to print business cards in Dubai with same-day or 24-hour delivery?',
@@ -454,7 +458,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Corporate Business Cards Dubai | Multi-Employee Batch Printing | ONPRINT',
     metaDescription: 'Corporate business cards in Dubai for companies & DIFC enterprises. Multi-employee name batches (5 to 500+ names) with 100% Pantone color consistency.',
     focusKeyword: 'corporate business cards dubai',
-    secondaryKeywords: 'business card printing for companies in uae, professional business cards dubai, company business cards dubai, business card printing company dubai, employee name card printing dubai, premium corporate business card printing, corporate staff business cards uae',
+    secondaryKeywords: 'corporate business card printing, business card printing for companies in uae, professional business cards dubai, company business cards dubai, business card printing company dubai, employee name card printing dubai, premium corporate business card printing, corporate staff business cards uae',
     badge: 'B2B CORPORATE BATCH MANAGEMENT',
     h1: 'Corporate Business Card Printing in Dubai',
     subheading: 'Streamlined procurement and brand identity compliance for Dubai enterprises, legal practices, engineering consultancies, and multinational corporations. Order 5 to 500 employee name sets with volume tier discounts and guaranteed Pantone spot-color fidelity across every onboarding cycle.',
@@ -475,6 +479,10 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { feature: 'Corporate Billing', detail: '30-day corporate credit terms available for verified UAE commercial accounts' },
     ],
     faqs: [
+      {
+        question: 'What are the best business cards for corporate companies?',
+        answer: 'The best business cards for corporate companies in Dubai and the UAE are 400 GSM to 450 GSM heavyweight artboard cards with anti-glare matte or 30-micron velvet soft-touch lamination for executive durability, paired with Pantone PMS spot-color brand matching. For C-suite executives and board directors, 600 GSM Italian archival cotton cards with 24K hot foil stamping or blind debossing provide maximum prestige, while multi-employee onboarding rosters benefit from standardized 350–400 GSM double-sided bilingual (English/Arabic) corporate batches.',
+      },
       {
         question: 'How do we order corporate business cards for multiple new employees at once?',
         answer: 'Simply share your Excel roster with employee names, job titles, direct WhatsApp numbers, and email addresses. Our pre-press team populates your approved master template and sends a consolidated proof book for one-click approval.',
@@ -738,7 +746,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Bulk Business Card Printing Dubai | Volume Corporate Cards | ONPRINT',
     metaDescription: 'Bulk business card printing in Dubai with tiered corporate volume pricing. Multi-employee name batches, 300–400 GSM cardstock, free pre-press audit & UAE-wide delivery.',
     focusKeyword: 'bulk business card printing dubai',
-    secondaryKeywords: 'bulk business cards price dubai, business card printing price dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai, bulk visiting card printing uae, business card printing for startups uae',
+    secondaryKeywords: 'cheap business card printing dubai, bulk business cards price dubai, business card printing price dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai, bulk visiting card printing uae, business card printing for startups uae, business card printing for small businesses',
     badge: 'VOLUME CORPORATE PRICING • MULTI-NAME BATCHES',
     h1: 'Bulk Business Card Printing in Dubai',
     subheading: 'Maximize your marketing budget with high-volume commercial business card printing. Whether you are ordering 500 cards for a trade fair or corporate sets across multiple employee name sets, ONPRINT offers transparent volume-tiered pricing, ISO color consistency, and fast doorstep delivery across Dubai and the UAE.',

@@ -181,6 +181,23 @@ export function trackPageView({ page_title, page_location, page_path } = {}) {
   lastTrackedPath = currentPath
 
   try {
+    const existing = getStoredConversionEvents()
+    const updated = [
+      {
+        conversion_type: 'website_visitor',
+        landing_page: currentPath,
+        source_label: currentTitle,
+        device_category: getDeviceCategory(),
+        timestamp: new Date().toISOString(),
+      },
+      ...existing,
+    ].slice(0, 500)
+    localStorage.setItem('onprint_conversion_events_v1', JSON.stringify(updated))
+  } catch {
+    // ignore
+  }
+
+  try {
     if (typeof window.gtag === 'function') {
       window.gtag('set', {
         page_title: currentTitle,
@@ -235,6 +252,23 @@ export function trackViewCategory({ category_name, category_slug } = {}) {
  * 3. View Product
  */
 export function trackViewProduct({ product_name, product_id, category_name } = {}) {
+  try {
+    const existing = getStoredConversionEvents()
+    const updated = [
+      {
+        conversion_type: 'product_page_visitor',
+        landing_page: getCurrentPagePath(),
+        product_name: product_name || 'Untitled Product',
+        source_label: category_name || 'General Printing',
+        device_category: getDeviceCategory(),
+        timestamp: new Date().toISOString(),
+      },
+      ...existing,
+    ].slice(0, 500)
+    localStorage.setItem('onprint_conversion_events_v1', JSON.stringify(updated))
+  } catch {
+    // ignore
+  }
   trackEvent('view_product', {
     product_name: product_name || 'Untitled Product',
     product_id: product_id ? String(product_id) : undefined,

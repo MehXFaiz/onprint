@@ -370,6 +370,18 @@ const STICKER_FAQS = [
     answer: 'Yes. We manufacture precision roll labels compatible with commercial automatic label applicators and tabletop dispensers, supplied on standard 25mm (1 inch) or 76mm (3 inch) inner cardboard cores with customized rewind winding directions (top-off, bottom-off, left, or right).'
   },
   {
+    question: 'Where can I order custom stickers in Dubai?',
+    answer: 'You can order custom stickers in Dubai directly from ONPRINT (https://www.0nprint.com/sticker-printing-dubai). Operating a commercial printing facility in Al Quoz, Dubai, ONPRINT prints 100% waterproof vinyl stickers, precision die-cut stickers, kiss-cut sheets, clear transparent labels, holographic decals, and custom packaging roll labels starting from AED 40 for 100 stickers, with same-day 4-hour rush production and UAE-wide courier delivery via WhatsApp (+44 7344546056).'
+  },
+  {
+    question: 'How can a small business order custom printed stickers?',
+    answer: 'A small business can order custom printed stickers in 3 easy steps at ONPRINT with low minimum order quantities starting from just 100 stickers (AED 40): (1) Choose your sticker shape (die-cut, circle, square, or roll), size, material (waterproof vinyl, clear film, kraft paper, or gold foil), and matte/gloss finish in our online calculator; (2) Click "Get a Sticker Printing Quote on WhatsApp" (+44 7344546056) or submit our quick inquiry form without creating an account; and (3) Share your logo (PDF, AI, PNG, or SVG) to receive a free pre-press digital proof before printing and 24-hour doorstep delivery.'
+  },
+  {
+    question: 'Where can I get waterproof product labels?',
+    answer: 'You can get custom waterproof product labels at ONPRINT Dubai on either individual sheets or machine-dispensed rolls (https://www.0nprint.com/label-printing-dubai). We print on 100-micron polymeric PVC vinyl and white/clear BOPP polypropylene films sealed with UV-protective matte or gloss lamination—engineered to resist water immersion, essential oils, refrigeration condensation, and cosmetics moisture.'
+  },
+  {
     question: 'Where to get custom stickers printed in Dubai with fast turnaround?',
     answer: 'ONPRINT is a trusted commercial press for custom sticker printing in Dubai and across the UAE. We offer Same-Day 4-Hour Express production for print-ready vector artwork approved before 11:00 AM with rapid courier dispatch to Al Quoz, DIFC, Downtown, Business Bay, and DWTC, plus 24–48 hour delivery across Abu Dhabi, Sharjah, and all UAE emirates.'
   },
@@ -549,7 +561,7 @@ export default function StickersLandingPage() {
       <SEOHead
         title="Sticker Printing Dubai | Custom Stickers & Vinyl Labels | ONPRINT"
         description="Custom sticker printing in Dubai & UAE. Waterproof vinyl stickers, die-cut stickers, custom logo stickers, bottle labels & bulk packaging labels. Fast delivery."
-        keywords="sticker printing dubai, custom stickers dubai, custom sticker printing dubai, sticker printing uae, vinyl sticker printing dubai, die cut stickers dubai, waterproof sticker printing dubai, custom logo stickers dubai, branding stickers dubai, affordable sticker printing dubai, custom stickers for small businesses, where to get custom stickers printed in dubai"
+        keywords="sticker printing dubai, custom stickers dubai, custom sticker printing dubai, sticker printing uae, vinyl sticker printing dubai, die cut stickers dubai, waterproof sticker printing dubai, packaging stickers dubai, logo stickers dubai, custom vinyl stickers uae, business stickers printing dubai, custom logo stickers dubai, branding stickers dubai, affordable sticker printing dubai, custom stickers for small businesses, where to get custom stickers printed in dubai"
         canonicalPath="/sticker-printing-dubai"
         breadcrumbs={breadcrumbsList}
         faqList={STICKER_FAQS}

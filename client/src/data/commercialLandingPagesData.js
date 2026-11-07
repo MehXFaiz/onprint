@@ -598,6 +598,10 @@ const COMMERCIAL_LANDING_PAGES = {
       ],
       "faqs": [
         {
+          "question": "Where can I get waterproof product labels?",
+          "answer": "You can get waterproof product labels in Dubai and across the UAE from ONPRINT (https://www.0nprint.com/label-printing-dubai). We manufacture 100% waterproof, oil-resistant, and refrigeration-safe BOPP polypropylene and vinyl product labels supplied on machine rolls (25mm, 40mm, or 76mm cores) or easy-peel sheets for cosmetics, beverage bottles, food jars, and retail packaging.",
+        },
+        {
           "question": "Where can I order custom product labels on rolls in Dubai?",
           "answer": "ONPRINT specializes in roll label printing for food, cosmetic, and pharmaceutical producers in the UAE. Our Al Quoz facility prints high-resolution full-color labels wound on standard cores configured for your automated or manual label dispensers."
         },

@@ -90,6 +90,12 @@ export default defineConfig(({ mode }) => {
                 return 'vendor-icons'
               }
             }
+            if (id.includes('catalogProducts.json') || id.includes('businessCardsLandingData') || id.includes('commercialLandingPagesData')) {
+              return 'data-catalog'
+            }
+            if (id.includes('defaultBlogGuides')) {
+              return 'data-blog'
+            }
           },
         },
       },

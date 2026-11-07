@@ -1,61 +1,77 @@
+# ONPRINT Dubai — Commercial Printing & Corporate Branding Press
+# https://www.0nprint.com
+
 User-agent: *
 Allow: /
+Allow: /llms.txt
 Allow: /ads.txt
-Allow: /services
-Allow: /services/
-Allow: /products
-Allow: /products/
-Allow: /categories
-Allow: /categories/
-Allow: /portfolio
-Allow: /portfolio/
-Allow: /blog
-Allow: /blog/
-Allow: /about
-Allow: /contact
-Allow: /faq
-Allow: /get-a-quote
-Allow: /privacy-policy
-Allow: /terms
-Allow: /assets/
-Allow: /uploads/
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /quote/
+Disallow: /login
+Disallow: /register
+Disallow: /checkout
+Disallow: /cart
 
-# Generative AI & Knowledge Engine Access (GEO)
-User-agent: GPTBot
+# Search Engine Crawlers
+User-agent: Googlebot
 Allow: /
 Disallow: /admin
 Disallow: /api/
+Disallow: /quote/
 
-User-agent: PerplexityBot
+User-agent: Googlebot-Image
 Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /quote/
+
+# AI Answer Engines & GEO Crawlers
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Disallow: /admin
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /llms.txt
+Disallow: /admin
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+Disallow: /admin
+Disallow: /api/
+
+User-agent:PerplexityBot
+Allow: /
+Allow: /llms.txt
 Disallow: /admin
 Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Allow: /llms.txt
 Disallow: /admin
 Disallow: /api/
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /llms.txt
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /admin
-Disallow: /api/
+Allow: /llms.txt
 
 User-agent: Applebot-Extended
 Allow: /
-Disallow: /admin
-Disallow: /api/
+Allow: /llms.txt
 
-# Admin and Private Areas
-Disallow: /admin
-Disallow: /admin/
-Disallow: /admin/*
-Disallow: /api/
-Disallow: /api/*
-Disallow: /dashboard
-Disallow: /login
-Disallow: /register
-Disallow: /account
-
-Host: https://www.0nprint.com
 Sitemap: https://www.0nprint.com/sitemap.xml

@@ -13,12 +13,6 @@
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.0nprint.com/ar/stickers</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
     <loc>https://www.0nprint.com/ar/sticker-printing-dubai</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,12 +95,6 @@
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.0nprint.com/track-order</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.0nprint.com/privacy-policy</loc>
@@ -1509,6 +1497,24 @@
   <url>
     <loc>https://www.0nprint.com/blog/how-to-choose-sticker-sizes-and-finishes-brand</loc>
     <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.0nprint.com/blog/corporate-mugs-vs-insulated-water-bottles-gifting-dubai</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.0nprint.com/blog/flyer-vs-trifold-brochure-vs-booklet-comparison-dubai</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.0nprint.com/blog/dubai-cafe-restaurant-stickers-menus-packaging-guide</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

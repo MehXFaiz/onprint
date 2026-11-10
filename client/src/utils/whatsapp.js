@@ -348,6 +348,8 @@ export function getWhatsAppUrl(params = {}) {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`
 }
 
+import { trackWhatsAppClick } from './analytics'
+
 /**
  * Opens WhatsApp safely in an adjacent tab via synthetic DOM <a> click
  * without closing the ONPRINT website or triggering aggressive popup blockers.
@@ -355,6 +357,18 @@ export function getWhatsAppUrl(params = {}) {
 export function openWhatsAppDirectly(input, options = {}) {
   const url = typeof input === 'string' ? input : getWhatsAppUrl(input)
   if (typeof window === 'undefined') return
+
+  try {
+    const prodName = typeof input === 'object' ? (input.productName || input.product || input.title) : undefined
+    trackWhatsAppClick({
+      source_page: typeof window !== 'undefined' ? window.location.pathname : '/',
+      button_location: options.buttonLocation || 'direct_cta',
+      product_name: prodName,
+      label: options.label || (prodName ? `whatsapp_${prodName}` : 'whatsapp_cta'),
+    })
+  } catch (trackErr) {
+    console.debug?.('[Analytics] WhatsApp tracking error:', trackErr)
+  }
 
   try {
     const link = document.createElement('a')

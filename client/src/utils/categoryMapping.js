@@ -7,19 +7,19 @@ export const CANONICAL_CATEGORIES = {
   'business-cards-printing': {
     slug: 'business-cards-printing',
     name: 'Business Cards Printing',
-    heroImage: '/uploads/categories/business-cards-printing.jpg',
+    heroImage: '/assets/categories/business-cards-printing.jpg',
     departmentSlug: 'business-office-printing',
   },
   'brochures-printing': {
     slug: 'brochures-printing',
     name: 'Brochures Printing',
-    heroImage: '/uploads/categories/brochures-printing.jpg',
+    heroImage: '/assets/categories/brochures-printing.jpg',
     departmentSlug: 'marketing-promotional-printing',
   },
   'flyers-printing-in-dubai': {
     slug: 'flyers-printing-in-dubai',
     name: 'Flyers Printing In Dubai',
-    heroImage: '/uploads/categories/flyers-printing-in-dubai.jpg',
+    heroImage: '/assets/categories/flyers-printing-in-dubai.jpg',
     departmentSlug: 'marketing-promotional-printing',
   },
   'id-card-printing-dubai': {
@@ -31,91 +31,91 @@ export const CANONICAL_CATEGORIES = {
   'lanyard-printing-dubai': {
     slug: 'lanyard-printing-dubai',
     name: 'Lanyard Printing Dubai',
-    heroImage: '/uploads/categories/lanyard-printing-dubai.jpg',
+    heroImage: '/assets/categories/lanyard-printing-dubai.jpg',
     departmentSlug: 'specialty-corporate-gifts',
   },
   'letterheads-printing-dubai': {
     slug: 'letterheads-printing-dubai',
     name: 'Letterheads Printing Dubai',
-    heroImage: '/uploads/categories/letterheads-printing-dubai.jpg',
+    heroImage: '/assets/categories/letterheads-printing-dubai.jpg',
     departmentSlug: 'business-office-printing',
   },
   'name-badges-printing-dubai': {
     slug: 'name-badges-printing-dubai',
     name: 'Name Badges Printing Dubai',
-    heroImage: '/uploads/categories/name-badges-printing-dubai.jpg',
+    heroImage: '/assets/categories/name-badges-printing-dubai.jpg',
     departmentSlug: 'signage-displays-banners',
   },
   'mug-printing-dubai': {
     slug: 'mug-printing-dubai',
     name: 'Mug Printing Dubai',
-    heroImage: '/uploads/categories/mug-printing-dubai.jpg',
+    heroImage: '/assets/categories/mug-printing-dubai.jpg',
     departmentSlug: 'specialty-corporate-gifts',
   },
   'bottle-printing-dubai': {
     slug: 'bottle-printing-dubai',
     name: 'Water Bottle Printing Dubai',
-    heroImage: '/uploads/categories/bottle-printing-dubai.jpg',
+    heroImage: '/assets/categories/bottle-printing-dubai.jpg',
     departmentSlug: 'specialty-corporate-gifts',
   },
   'corporate-gift-items': {
     slug: 'corporate-gift-items',
     name: 'Corporate Gifts & Merchandise',
-    heroImage: '/uploads/categories/corporate-gift-items.jpg',
+    heroImage: '/assets/categories/corporate-gift-items.jpg',
     departmentSlug: 'specialty-corporate-gifts',
   },
   'signage-banners-printing': {
     slug: 'signage-banners-printing',
     name: 'Signage & Exhibition Banners',
-    heroImage: '/uploads/categories/signage-banners-printing.jpg',
+    heroImage: '/assets/categories/signage-banners-printing.jpg',
     departmentSlug: 'signage-displays-banners',
   },
   'custom-apparel-printing': {
     slug: 'custom-apparel-printing',
     name: 'Custom Apparel & Wearables',
-    heroImage: '/uploads/categories/custom-apparel-printing.jpg',
+    heroImage: '/assets/categories/custom-apparel-printing.jpg',
     departmentSlug: 'specialty-corporate-gifts',
   },
   'stickers-labels-printing': {
     slug: 'stickers-labels-printing',
     name: 'Stickers & Product Labels',
-    heroImage: '/uploads/categories/stickers-labels-printing.jpg',
+    heroImage: '/assets/categories/stickers-labels-printing.jpg',
     departmentSlug: 'stickers-labels-packaging',
   },
   'catalogs-booklets-printing': {
     slug: 'catalogs-booklets-printing',
     name: 'Catalogs & Booklets Printing',
-    heroImage: '/uploads/categories/catalogs-booklets-printing.jpg',
+    heroImage: '/assets/categories/catalogs-booklets-printing.jpg',
     departmentSlug: 'marketing-promotional-printing',
   },
   'office-stationery-printing': {
     slug: 'office-stationery-printing',
     name: 'Office Stationery & Envelopes',
-    heroImage: '/uploads/categories/office-stationery-printing.jpg',
+    heroImage: '/assets/categories/office-stationery-printing.jpg',
     departmentSlug: 'business-office-printing',
   },
   'hospitality-event-printing': {
     slug: 'hospitality-event-printing',
     name: 'Hospitality & Event Stationery',
-    heroImage: '/uploads/categories/hospitality-event-printing.jpg',
+    heroImage: '/assets/categories/hospitality-event-printing.jpg',
     departmentSlug: 'marketing-promotional-printing',
   },
   'promotional-drinkware-tech': {
     slug: 'promotional-drinkware-tech',
     name: 'Promotional Drinkware & Tech',
-    heroImage: '/uploads/categories/promotional-drinkware-tech.jpg',
+    heroImage: '/assets/categories/promotional-drinkware-tech.jpg',
     departmentSlug: 'specialty-corporate-gifts',
   },
   'stamps-printing-dubai': {
     slug: 'stamps-printing-dubai',
     name: 'Custom Stamps & Seals',
-    heroImage: '/uploads/categories/stamps-printing-dubai.jpg',
+    heroImage: '/assets/categories/stamps-printing-dubai.jpg',
     departmentSlug: 'business-office-printing',
   },
   'rollup-banners': {
     slug: 'rollup-banners',
     name: 'Rollup Banners',
-    heroImage: '/uploads/categories/rollup-banners.jpg',
+    heroImage: '/assets/categories/rollup-banners.jpg',
     departmentSlug: 'signage-displays-banners',
   },
 }
@@ -232,19 +232,20 @@ export function resolveCanonicalCategorySlug(rawSlug) {
  * Avoids any hardcoded cross-category leaking.
  */
 export function getCategoryImage(categoryOrSlug) {
-  if (!categoryOrSlug) return '/uploads/categories/business-cards-printing.jpg'
+  if (!categoryOrSlug) return '/assets/categories/business-cards-printing.jpg'
 
   let slug = typeof categoryOrSlug === 'string' ? categoryOrSlug : (categoryOrSlug.slug || '')
   const canonicalSlug = resolveCanonicalCategorySlug(slug)
 
-  // 1. If explicit category object with a valid custom image that isn't broken
+  // 1. If explicit category object with a valid custom image that isn't broken or pointing to unbundled /uploads/
   if (typeof categoryOrSlug === 'object') {
     const rawImg = categoryOrSlug.image_url || categoryOrSlug.image
     if (
       rawImg &&
       typeof rawImg === 'string' &&
       !rawImg.includes('trae.ai') &&
-      !rawImg.includes('1 (1).jpg')
+      !rawImg.includes('1 (1).jpg') &&
+      !rawImg.startsWith('/uploads/categories/')
     ) {
       return rawImg
     }
@@ -256,5 +257,5 @@ export function getCategoryImage(categoryOrSlug) {
   }
 
   // 3. Category path based on canonical slug
-  return `/uploads/categories/${canonicalSlug}.jpg`
+  return `/assets/categories/${canonicalSlug}.jpg`
 }

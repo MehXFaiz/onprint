@@ -686,32 +686,17 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Al Quoz',
       addressLocality: 'Dubai',
       addressRegion: 'Dubai',
-      postalCode: '00000',
       addressCountry: 'AE',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 25.1328,
-      longitude: 55.2348,
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '08:30',
-        closes: '18:30',
-      },
-    ],
     contactPoint: [
       {
         '@type': 'ContactPoint',
         telephone: '+44 7344546056',
         email: '0nprint183@gmail.com',
         contactType: 'customer service / sales',
-        areaServed: ['AE', 'PK'],
+        areaServed: ['AE'],
         availableLanguage: ['English', 'Arabic', 'Urdu'],
       },
     ],
@@ -721,7 +706,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'City', name: 'Sharjah' },
       { '@type': 'City', name: 'Ajman' },
       { '@type': 'Country', name: 'United Arab Emirates' },
-      { '@type': 'Country', name: 'Pakistan' },
+      
     ],
   }
 

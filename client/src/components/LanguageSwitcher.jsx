@@ -67,6 +67,21 @@ export default function LanguageSwitcher({ className = '', variant = 'pill' }) {
     navigate(targetUrl)
   }
 
+  if (variant === 'glass') {
+    return (
+      <button
+        type="button"
+        onClick={toggleLanguage}
+        className={`inline-flex items-center gap-1.5 h-8 sm:h-8.5 px-2.5 sm:px-3 rounded-full border border-[#D4AF65]/35 bg-white/5 hover:bg-[#D4AF65]/20 hover:border-[#D4AF65]/60 text-[#F5F2EB] hover:text-[#D4AF65] transition-all duration-200 cursor-pointer text-xs font-semibold shrink-0 shadow-xs backdrop-blur-md ${className}`}
+        title={isArabic ? 'Switch to English' : 'التحويل إلى اللغة العربية'}
+        aria-label={isArabic ? 'Switch to English' : 'التحويل إلى اللغة العربية'}
+      >
+        <Globe className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
+        <span className="tracking-wide font-medium">{isArabic ? 'EN' : 'عربي'}</span>
+      </button>
+    )
+  }
+
   if (variant === 'compact') {
     return (
       <button

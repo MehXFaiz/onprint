@@ -9,14 +9,14 @@ export default function Logo({
   showText = true,
   iconOnly = false,
 }) {
-  const isInverted = variant === 'inverted' || variant === 'on-dark'
+  const isInverted = variant === 'inverted' || variant === 'on-dark' || variant === 'glass'
   const isIcon = iconOnly || !showText
 
-  // High-contrast brand icon: use dark icon (#1e1e1e with orange fold) on warm beige/cream/ivory surfaces;
-  // use light icon only when explicitly inverted on dark backgrounds.
+  // High-contrast brand icon: use dark icon on warm surfaces;
+  // use light/inverted icon on dark or glass backgrounds.
   const iconSrc = isInverted ? (logoIconLightImg || logoIconImg) : (logoIconImg || logoIconLightImg)
   const textColor = isInverted ? 'text-white' : 'text-[#352719]'
-  const accentColor = isInverted ? 'text-[#C5A989]' : 'text-[#795C43]'
+  const accentColor = variant === 'glass' ? 'text-[#D4AF65]' : (isInverted ? 'text-[#C5A989]' : 'text-[#795C43]')
 
   const sizeMap = {
     sm: {

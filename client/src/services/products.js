@@ -1,9 +1,8 @@
 import api from './api'
-import catalogProducts from '../data/catalogProducts.json'
 import { resolveCanonicalCategorySlug } from '../utils/categoryMapping'
 import { generateEntitySeoDraft } from '../utils/seoDraftGenerator'
 
-export const defaultProducts = catalogProducts
+export const defaultProducts = []
 
 const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v9'
 

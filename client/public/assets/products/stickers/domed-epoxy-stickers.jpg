@@ -84,7 +84,7 @@
       
       <!-- Role -->
       <text x="0" y="112" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="3">SENIOR CREATIVE PRODUCER</text>
-      <text x="0" y="136" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="2">GLOBAL EVENT & PRODUCTION CREW</text>
+      <text x="0" y="136" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="2">GLOBAL EVENT &amp; PRODUCTION CREW</text>
     </g>
 
     <!-- Magnetic Safe Badge Pill in Bottom Right -->

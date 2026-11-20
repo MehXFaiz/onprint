@@ -74,15 +74,18 @@ async function listProducts(req, res, next) {
       const [rows] = await pool.execute(query, params)
 
       if (rows.length > 0) {
-        const [images] = await pool.execute(
-          'SELECT product_id, image_url, alt_text FROM product_images ORDER BY display_order ASC'
-        )
+        let imageMap = {}
+        const missingDirectImages = rows.some((p) => !Array.isArray(p.images) || p.images.length === 0)
+        if (missingDirectImages) {
+          const [images] = await pool.execute(
+            'SELECT product_id, image_url, alt_text FROM product_images ORDER BY display_order ASC'
+          )
 
-        const imageMap = {}
-        images.forEach((img) => {
-          if (!imageMap[img.product_id]) imageMap[img.product_id] = []
-          imageMap[img.product_id].push(img.image_url)
-        })
+          images.forEach((img) => {
+            if (!imageMap[img.product_id]) imageMap[img.product_id] = []
+            imageMap[img.product_id].push(img.image_url)
+          })
+        }
 
         list = rows.map((p) => {
           const directImgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : null

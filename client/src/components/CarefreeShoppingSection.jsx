@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Truck, BadgePercent, ArrowRight, Sparkles } from 'lucide-react'
-import carefreeShoppingImg from '../assets/products/carefree_shopping.jpg'
+import carefreeShoppingImg from '../assets/products/carefree_shopping.webp'
 import carefreeShoppingWebp from '../assets/products/carefree_shopping.webp'
 import { trackGetQuoteClick } from '../utils/analytics'
 

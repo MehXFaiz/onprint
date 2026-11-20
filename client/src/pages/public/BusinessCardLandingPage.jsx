@@ -66,16 +66,16 @@ import {
 } from '../../utils/analytics'
 import { openWhatsAppDirectly,
   formatBusinessCardInquiry, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
-import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.jpg'
-import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'
-import velvetFoilCardImg from '../../assets/products/card-velvet-foil.jpg'
-import paintedEdgeCardImg from '../../assets/products/card-painted-edge.jpg'
-import brochuresImg from '../../assets/products/brochures.jpg'
-import standardSilkImg from '../../assets/products/business-cards/bc_standard_silk.jpg'
-import premiumMatteImg from '../../assets/products/business-cards/bc_premium_matte.jpg'
-import minimalistImg from '../../assets/products/business-cards/bc_minimalist.jpg'
-import basicBusinessCardsImg from '../../assets/products/basic_business_cards.jpg'
-import embossedCardImg from '../../assets/products/business-cards/bc_embossed.jpg'
+import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.webp'
+import softTouchCardImg from '../../assets/products/card-soft-touch.webp'
+import velvetFoilCardImg from '../../assets/products/card-velvet-foil.webp'
+import paintedEdgeCardImg from '../../assets/products/card-painted-edge.webp'
+import brochuresImg from '../../assets/products/brochures.webp'
+import standardSilkImg from '../../assets/products/business-cards/bc_standard_silk.webp'
+import premiumMatteImg from '../../assets/products/business-cards/bc_premium_matte.webp'
+import minimalistImg from '../../assets/products/business-cards/bc_minimalist.webp'
+import basicBusinessCardsImg from '../../assets/products/basic_business_cards.webp'
+import embossedCardImg from '../../assets/products/business-cards/bc_embossed.webp'
 
 // 22 Comprehensive Business Card Options - Basic & Standard Prioritized
 const CARD_VARIATIONS = [

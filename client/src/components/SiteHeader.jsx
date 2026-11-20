@@ -345,32 +345,33 @@ export default function SiteHeader() {
     }
   }, [location.pathname])
 
-  // Load categories & products for Universal Search
-  useEffect(() => {
-    let isMounted = true
-    async function loadNavigationData() {
-      try {
-        const [catRes, prodRes] = await Promise.all([
-          getCategories({ status: 'active' }),
-          getProducts({ status: 'active', limit: 150 }),
-        ])
-        if (isMounted) {
-          if (catRes?.success) {
-            setCategories(catRes.data.categories || [])
-          }
-          if (prodRes?.success) {
-            setProducts(prodRes.data.products || [])
-          }
-        }
-      } catch (err) {
-        console.warn('Could not load navigation catalog data:', err.message)
+  // Load categories & products lazily for Universal Search only when requested
+  const searchDataLoadedRef = useRef(false)
+  const loadSearchData = async () => {
+    if (searchDataLoadedRef.current) return
+    searchDataLoadedRef.current = true
+    try {
+      const [catRes, prodRes] = await Promise.all([
+        getCategories({ status: 'active' }),
+        getProducts({ status: 'active', limit: 150 }),
+      ])
+      if (catRes?.success) {
+        setCategories(catRes.data.categories || [])
       }
+      if (prodRes?.success) {
+        setProducts(prodRes.data.products || [])
+      }
+    } catch (err) {
+      searchDataLoadedRef.current = false
+      console.warn('Could not load navigation catalog data:', err.message)
     }
-    loadNavigationData()
-    return () => {
-      isMounted = false
+  }
+
+  useEffect(() => {
+    if (searchOpen) {
+      loadSearchData()
     }
-  }, [])
+  }, [searchOpen])
 
   // Sticky Header Scroll Listener
   useEffect(() => {
@@ -840,6 +841,8 @@ export default function SiteHeader() {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
+              onMouseEnter={loadSearchData}
+              onFocus={loadSearchData}
               aria-label="Search catalog"
               title="Search Products (Press / or Ctrl+K)"
               className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989] text-[#795C43] transition-colors cursor-pointer shadow-2xs shrink-0"

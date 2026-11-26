@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Executive Matte Black Rollup Banner 85x200cm">
+  <defs>
+    <radialGradient id="execBg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    <linearGradient id="stealthBlackBase" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="25%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#27272a"/>
+      <stop offset="75%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="execBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="40%" stop-color="#18181b"/>
+      <stop offset="80%" stop-color="#1c1917"/>
+      <stop offset="100%" stop-color="#0c0a09"/>
+    </linearGradient>
+    <filter id="execShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="22" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Floor & Lighting -->
+  <rect width="1200" height="900" fill="url(#execBg)"/>
+  <ellipse cx="600" cy="815" rx="430" ry="45" fill="#64748b" fill-opacity="0.35"/>
+  <ellipse cx="600" cy="810" rx="310" ry="24" fill="#09090b" fill-opacity="0.4"/>
+
+  <!-- STAND STRUCTURE -->
+  <g transform="translate(430, 80)" filter="url(#execShadow)">
+    
+    <!-- Top Clamp Rail (Stealth Matte Black with Gold trim) -->
+    <rect x="0" y="0" width="340" height="18" rx="4" fill="url(#stealthBlackBase)" stroke="#3f3f46" stroke-width="1"/>
+    <line x1="2" y1="16" x2="338" y2="16" stroke="url(#goldAccent)" stroke-width="1.5"/>
+    
+    <!-- GRAPHIC FACE (340 x 670) -->
+    <rect x="5" y="16" width="330" height="670" fill="url(#execBanner)"/>
+    
+    <!-- Luxury Geometric Overlays -->
+    <polygon points="5,16 335,16 335,260 5,120" fill="#ffffff" fill-opacity="0.03"/>
+    <circle cx="280" cy="180" r="100" fill="#d97706" fill-opacity="0.12"/>
+    <polygon points="5,380 335,250 335,530 5,630" fill="#000000" fill-opacity="0.35"/>
+    
+    <!-- VIP Edition Tag -->
+    <g transform="translate(205, 36)">
+      <rect width="115" height="24" rx="12" fill="#18181b" stroke="url(#goldAccent)" stroke-width="1.2"/>
+      <text x="57" y="16" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="9" font-weight="900" letter-spacing="1" text-anchor="middle">STEALTH BLACK</text>
+    </g>
+
+    <!-- Brand Header -->
+    <g transform="translate(35, 55)">
+      <rect width="40" height="40" rx="8" fill="#18181b" stroke="url(#goldAccent)" stroke-width="1.5"/>
+      <text x="20" y="26" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="16" font-weight="900" text-anchor="middle">ON</text>
+      <text x="50" y="24" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="1">ONPRINT DUBAI</text>
+      <text x="50" y="38" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="2">EXECUTIVE ED.</text>
+    </g>
+
+    <!-- Headline -->
+    <text x="35" y="155" fill="#ffffff" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="bold" letter-spacing="0.5">EXECUTIVE</text>
+    <text x="35" y="190" fill="#fbbf24" font-family="'Playfair Display', Georgia, serif" font-size="30" font-weight="bold" letter-spacing="1">STEALTH BLACK</text>
+    <text x="35" y="220" fill="#a1a1aa" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="600">CASSETTE</text>
+    <line x1="35" y1="235" x2="160" y2="235" stroke="url(#goldAccent)" stroke-width="3"/>
+
+    <!-- Key Bullet Points -->
+    <g transform="translate(35, 275)" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">
+      <circle cx="6" cy="6" r="4" fill="#fbbf24"/>
+      <text x="20" y="10">Powder-Coated Matte Black Alloy</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#fbbf24"/>
+      <text x="20" y="36">Footless Weighted Teardrop Base</text>
+      
+      <circle cx="6" cy="58" r="4" fill="#fbbf24"/>
+      <text x="20" y="62">Satin Non-Curl Textile Fabric</text>
+
+      <circle cx="6" cy="84" r="4" fill="#fbbf24"/>
+      <text x="20" y="88">Luxury Padded Hard-Shell Bag</text>
+    </g>
+
+    <!-- Bottom Specs Card -->
+    <g transform="translate(25, 535)">
+      <rect width="290" height="95" rx="12" fill="#18181b" fill-opacity="0.95" stroke="url(#goldAccent)" stroke-width="1.2"/>
+      <text x="20" y="30" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1.5">FLAGSHIP SPECIFICATION</text>
+      <text x="20" y="55" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="800">85 cm (W) × 200 cm (H)</text>
+      <text x="20" y="76" fill="#a1a1aa" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Footless Teardrop Profile • 6.2 kg Solid Base</text>
+    </g>
+
+    <!-- Elegant Highlight Sheen -->
+    <path d="M 40 16 L 110 16 L 60 686 L -10 686 Z" fill="#ffffff" fill-opacity="0.04"/>
+
+    <!-- FOOTLESS LUXURY TEARDROP CASSETTE (Matte Black with Chrome/Gold Endplates) -->
+    <!-- Teardrop Endplate Left -->
+    <path d="M -15,720 C -25,720 -30,705 -25,690 C -20,680 -10,680 -5,684 L -5,720 Z" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+    <!-- Teardrop Endplate Right -->
+    <path d="M 355,720 C 365,720 370,705 365,690 C 360,680 350,680 345,684 L 345,720 Z" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+    
+    <!-- Main Matte Black Body (Wide heavy profile, no swing feet needed) -->
+    <rect x="-10" y="682" width="360" height="44" rx="8" fill="url(#stealthBlackBase)" stroke="#27272a" stroke-width="1.5"/>
+    <line x1="-8" y1="685" x2="348" y2="685" stroke="url(#goldAccent)" stroke-width="1.2"/>
+    <line x1="-8" y1="724" x2="348" y2="724" stroke="#3f3f46" stroke-width="1"/>
+
+    <!-- Chrome/Gold Polished Base Trim End Caps -->
+    <ellipse cx="-12" cy="704" rx="5" ry="16" fill="url(#goldAccent)"/>
+    <ellipse cx="352" cy="704" rx="5" ry="16" fill="url(#goldAccent)"/>
+  </g>
+
+  <!-- Side Specifications Badges -->
+  <g transform="translate(140, 360)">
+    <rect width="180" height="90" rx="16" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#09090b" font-family="system-ui, sans-serif" font-size="12" font-weight="800">CASSETTE FINISH</text>
+    <text x="20" y="52" fill="#09090b" font-family="system-ui, sans-serif" font-size="18" font-weight="900">MATTE BLACK</text>
+    <text x="20" y="72" fill="#71717a" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Scratch-Resistant Coating</text>
+  </g>
+
+  <g transform="translate(880, 360)">
+    <rect width="180" height="90" rx="16" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#09090b" font-family="system-ui, sans-serif" font-size="12" font-weight="800">BASE DESIGN</text>
+    <text x="20" y="52" fill="#d97706" font-family="system-ui, sans-serif" font-size="18" font-weight="900">FOOTLESS SLEEK</text>
+    <text x="20" y="72" fill="#71717a" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Heavy Self-Standing Base</text>
+  </g>
+</svg>

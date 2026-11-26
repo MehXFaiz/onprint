@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Executive Matte Black & Metallic VIP ID Cards">
+  <defs>
+    <radialGradient id="bgGradVip" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1c1917"/>
+      <stop offset="100%" stop-color="#0c0a09"/>
+    </radialGradient>
+    <linearGradient id="goldFoil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bf953f"/>
+      <stop offset="25%" stop-color="#fcf6ba"/>
+      <stop offset="50%" stop-color="#b38728"/>
+      <stop offset="75%" stop-color="#fbf5b7"/>
+      <stop offset="100%" stop-color="#aa771c"/>
+    </linearGradient>
+    <linearGradient id="matteBlack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917"/>
+      <stop offset="50%" stop-color="#141210"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <filter id="shadowVip" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="40" flood-color="#000000" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#bf953f" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bgGradVip)"/>
+
+  <!-- Luxury Ambient Glow Rings -->
+  <circle cx="600" cy="450" r="450" fill="none" stroke="url(#goldFoil)" stroke-opacity="0.06" stroke-width="1.5"/>
+
+  <!-- Main Matte Black & Gold Metallic Card -->
+  <g transform="translate(340, 150)" filter="url(#shadowVip)">
+    <rect width="520" height="600" rx="26" fill="url(#matteBlack)"/>
+    <!-- Gold Metallic Chamfered Edge Line -->
+    <rect width="520" height="600" rx="26" fill="none" stroke="url(#goldFoil)" stroke-width="2.5"/>
+    <rect x="8" y="8" width="504" height="584" rx="20" fill="none" stroke="url(#goldFoil)" stroke-width="0.75" stroke-opacity="0.4"/>
+
+    <!-- Gold Crest / Monogram Emblem -->
+    <g transform="translate(260, 95)">
+      <circle cx="0" cy="0" r="46" fill="none" stroke="url(#goldFoil)" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="38" fill="none" stroke="url(#goldFoil)" stroke-width="1" stroke-dasharray="4 3"/>
+      <!-- Crown Icon -->
+      <polygon points="-16,-10 -22,-22 -10,-16 0,-26 10,-16 22,-22 16,-10" fill="url(#goldFoil)"/>
+      <text x="0" y="16" fill="url(#goldFoil)" font-family="'Cinzel', Georgia, serif" font-size="20" font-weight="bold" text-anchor="middle" letter-spacing="3">VIP</text>
+    </g>
+
+    <!-- Header Text -->
+    <text x="260" y="180" fill="url(#goldFoil)" font-family="'Cinzel', Georgia, serif" font-size="26" font-weight="bold" text-anchor="middle" letter-spacing="7">THE ROYAL EMBASSY CLUB</text>
+    <text x="260" y="205" fill="#a8a29e" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="4">DUBAI • ABU DHABI</text>
+
+    <!-- Divider Line -->
+    <line x1="80" y1="230" x2="440" y2="230" stroke="url(#goldFoil)" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Member Photo Frame with Metallic Bevel -->
+    <g transform="translate(60, 260)">
+      <rect width="150" height="185" rx="14" fill="#141210" stroke="url(#goldFoil)" stroke-width="2"/>
+      <circle cx="75" cy="68" r="36" fill="#44403c"/>
+      <path d="M 22 165 C 22 120 45 110 75 110 C 105 110 128 120 128 165 Z" fill="#292524"/>
+      <rect x="10" y="148" width="130" height="24" rx="4" fill="#000000"/>
+      <text x="75" y="164" fill="url(#goldFoil)" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="2">TITANIUM ACCESS</text>
+    </g>
+
+    <!-- Member Details Block -->
+    <g transform="translate(235, 275)">
+      <text x="0" y="22" fill="#fafaf9" font-family="'Cinzel', Georgia, serif" font-size="24" font-weight="bold">HEIKH M. AL-MAKTOUM</text>
+      <text x="0" y="48" fill="url(#goldFoil)" font-family="system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="3">FOUNDING PATRON</text>
+      
+      <line x1="0" y1="68" x2="225" y2="68" stroke="url(#goldFoil)" stroke-width="1" stroke-opacity="0.3"/>
+
+      <text x="0" y="96" fill="#a8a29e" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="2">MEMBERSHIP NUMBER</text>
+      <text x="0" y="120" fill="url(#goldFoil)" font-family="'Roboto Mono', monospace" font-size="18" font-weight="900" letter-spacing="4">VIP-0001-DXB</text>
+
+      <text x="0" y="148" fill="#a8a29e" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="2">VALID THRU</text>
+      <text x="0" y="168" fill="#fafaf9" font-family="system-ui, sans-serif" font-size="14" font-weight="800">PERMANENT PRIVILEGE</text>
+    </g>
+
+    <!-- Embedded NFC Smart Chip in Gold -->
+    <g transform="translate(60, 475)">
+      <rect width="400" height="60" rx="10" fill="#141210" stroke="url(#goldFoil)" stroke-width="1.5"/>
+      <g transform="translate(20, 15)">
+        <rect width="42" height="30" rx="5" fill="url(#goldFoil)"/>
+        <path d="M 0 15 h 42 M 15 0 v 30 M 27 0 v 30" stroke="#78350f" stroke-width="1" fill="none"/>
+      </g>
+      <text x="80" y="36" fill="url(#goldFoil)" font-family="system-ui, sans-serif" font-size="13" font-weight="800" letter-spacing="2">CONTACTLESS SMART VIP ENTRY</text>
+    </g>
+
+    <!-- Footer -->
+    <text x="60" y="565" fill="#78716c" font-family="system-ui, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1">MATTE BLACK SOLID POLYMER • HOT GOLD FOIL</text>
+    <text x="460" y="565" fill="url(#goldFoil)" font-family="'Cinzel', serif" font-size="11" font-weight="bold" text-anchor="end">ONPRINT LUXURY</text>
+  </g>
+</svg>

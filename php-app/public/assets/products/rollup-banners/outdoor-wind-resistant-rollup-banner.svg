@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Outdoor Wind-Resistant Heavy-Duty Rollup Banner 85x200cm">
+  <defs>
+    <radialGradient id="outdoorBg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </radialGradient>
+    <linearGradient id="heavyBase" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="20%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="80%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="springMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="outdoorBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="45%" stop-color="#064e3b"/>
+      <stop offset="85%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="outdoorShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="22" flood-color="#0f172a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Floor & Lighting -->
+  <rect width="1200" height="900" fill="url(#outdoorBg)"/>
+  <ellipse cx="600" cy="820" rx="440" ry="48" fill="#64748b" fill-opacity="0.45"/>
+  <ellipse cx="600" cy="815" rx="320" ry="26" fill="#334155" fill-opacity="0.4"/>
+
+  <!-- STAND STRUCTURE -->
+  <g transform="translate(430, 75)" filter="url(#outdoorShadow)">
+    
+    <!-- Top Reinforced Wind-Grip Clamp Rail -->
+    <rect x="-5" y="0" width="350" height="22" rx="4" fill="url(#heavyBase)" stroke="#64748b" stroke-width="1.5"/>
+    
+    <!-- GRAPHIC FACE (340 x 670) -->
+    <rect x="5" y="20" width="330" height="665" fill="url(#outdoorBanner)"/>
+    
+    <!-- Dynamic Outdoor Graphical Elements -->
+    <polygon points="5,20 335,20 335,260 5,120" fill="#ffffff" fill-opacity="0.05"/>
+    <circle cx="280" cy="180" r="100" fill="#10b981" fill-opacity="0.25"/>
+    <polygon points="5,360 335,240 335,530 5,610" fill="#000000" fill-opacity="0.25"/>
+    
+    <!-- Weatherproof Badge Top Right -->
+    <g transform="translate(225, 38)">
+      <rect width="95" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#34d399" stroke-width="1.2"/>
+      <text x="47" y="17" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle">WIND RATED</text>
+    </g>
+
+    <!-- Brand Header -->
+    <g transform="translate(35, 55)">
+      <rect width="40" height="40" rx="8" fill="#10b981" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="20" y="26" fill="#022c22" font-family="system-ui, sans-serif" font-size="16" font-weight="900" text-anchor="middle">ON</text>
+      <text x="50" y="24" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="1">ONPRINT DUBAI</text>
+      <text x="50" y="38" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="2">EXTERIOR SERIES</text>
+    </g>
+
+    <!-- Headline -->
+    <text x="35" y="155" fill="#f8fafc" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="bold" letter-spacing="0.5">OUTDOOR &amp; WIND</text>
+    <text x="35" y="188" fill="#34d399" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="bold" letter-spacing="1">RESISTANT</text>
+    <text x="35" y="218" fill="#f8fafc" font-family="'Playfair Display', Georgia, serif" font-size="19" font-weight="600">STABILITY</text>
+    <line x1="35" y1="233" x2="160" y2="233" stroke="#34d399" stroke-width="3"/>
+
+    <!-- Key Outdoor Specs -->
+    <g transform="translate(35, 270)" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">
+      <circle cx="6" cy="6" r="4" fill="#34d399"/>
+      <text x="20" y="10">Dual Heavy Springs Absorbs Wind</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#34d399"/>
+      <text x="20" y="36">510 GSM Heavy Weatherproof PVC</text>
+      
+      <circle cx="6" cy="58" r="4" fill="#34d399"/>
+      <text x="20" y="62">UV-Resistant Non-Fade Pigment Inks</text>
+
+      <circle cx="6" cy="84" r="4" fill="#34d399"/>
+      <text x="20" y="88">Weighted Base (Water / Sand Refill)</text>
+    </g>
+
+    <!-- Bottom Specs Card -->
+    <g transform="translate(25, 535)">
+      <rect width="290" height="95" rx="12" fill="#011612" fill-opacity="0.9" stroke="#34d399" stroke-width="1" stroke-opacity="0.3"/>
+      <text x="20" y="30" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1.5">HEAVY-DUTY EXTERIOR</text>
+      <text x="20" y="55" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="800">85 cm (W) × 200 cm (H)</text>
+      <text x="20" y="76" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Rated Up to 38 km/h Wind • Water Ballast</text>
+    </g>
+
+    <!-- Sheen overlay -->
+    <path d="M 40 20 L 120 20 L 70 685 L -10 685 Z" fill="#ffffff" fill-opacity="0.06"/>
+
+    <!-- DUAL TENSION SPRINGS (Left & Right connection) -->
+    <g transform="translate(20, 680)">
+      <rect x="0" y="0" width="16" height="24" rx="2" fill="url(#springMetal)"/>
+      <line x1="0" y1="6" x2="16" y2="6" stroke="#0f172a" stroke-width="1.5"/>
+      <line x1="0" y1="12" x2="16" y2="12" stroke="#0f172a" stroke-width="1.5"/>
+      <line x1="0" y1="18" x2="16" y2="18" stroke="#0f172a" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(304, 680)">
+      <rect x="0" y="0" width="16" height="24" rx="2" fill="url(#springMetal)"/>
+      <line x1="0" y1="6" x2="16" y2="6" stroke="#0f172a" stroke-width="1.5"/>
+      <line x1="0" y1="12" x2="16" y2="12" stroke="#0f172a" stroke-width="1.5"/>
+      <line x1="0" y1="18" x2="16" y2="18" stroke="#0f172a" stroke-width="1.5"/>
+    </g>
+
+    <!-- HEAVY BALLAST BASE TANK (Extra Wide 380 x 50) -->
+    <rect x="-20" y="700" width="380" height="52" rx="10" fill="url(#heavyBase)" stroke="#1e293b" stroke-width="2"/>
+    <ellipse cx="170" cy="710" rx="20" ry="6" fill="#0f172a" stroke="#64748b" stroke-width="1"/>
+    <text x="170" y="713" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">WATER FILL</text>
+    <line x1="-15" y1="728" x2="355" y2="728" stroke="#64748b" stroke-width="1" stroke-opacity="0.5"/>
+
+    <!-- Stabilizing Outrigger Base Feet with Ground Grips -->
+    <polygon points="-30,745 30,745 10,762 -45,762" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <polygon points="310,745 370,745 385,762 330,762" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  </g>
+
+  <!-- Side Specifications Badges -->
+  <g transform="translate(140, 360)">
+    <rect width="180" height="90" rx="16" fill="#ffffff" fill-opacity="0.9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#0f172a" font-family="system-ui, sans-serif" font-size="12" font-weight="800">WATER / SAND</text>
+    <text x="20" y="52" fill="#10b981" font-family="system-ui, sans-serif" font-size="18" font-weight="900">12 KG BALLAST</text>
+    <text x="20" y="72" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Zero Tipping in Wind</text>
+  </g>
+
+  <g transform="translate(880, 360)">
+    <rect width="180" height="90" rx="16" fill="#ffffff" fill-opacity="0.9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#0f172a" font-family="system-ui, sans-serif" font-size="12" font-weight="800">WEATHERPROOF</text>
+    <text x="20" y="52" fill="#0284c7" font-family="system-ui, sans-serif" font-size="18" font-weight="900">510 GSM PVC</text>
+    <text x="20" y="72" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Water &amp; UV Shielded</text>
+  </g>
+</svg>

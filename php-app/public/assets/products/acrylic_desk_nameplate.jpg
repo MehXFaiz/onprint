@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Acrylic Desk Nameplates">
+  <defs>
+    <!-- Background Studio Gradient -->
+    <radialGradient id="deskBg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+
+    <!-- Luxury Desk Surface Gradient -->
+    <linearGradient id="deskSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="40%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Acrylic Glass Gradients & Shimmers -->
+    <linearGradient id="acrylicBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="30%" stop-color="#f1f5f9" stop-opacity="0.75"/>
+      <stop offset="70%" stop-color="#e2e8f0" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <linearGradient id="acrylicBevelTop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#e2e8f0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="acrylicBevelLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#92400e"/>
+      <stop offset="35%" stop-color="#d97706"/>
+      <stop offset="70%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+
+    <linearGradient id="brandRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A82F19"/>
+      <stop offset="100%" stop-color="#7a1f0f"/>
+    </linearGradient>
+
+    <!-- Stainless Steel Feet Gradient -->
+    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="30%" stop-color="#cbd5e1"/>
+      <stop offset="60%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="blockShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="35" stdDeviation="25" flood-color="#020617" flood-opacity="0.45"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+
+    <filter id="glassBlur" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="1200" height="900" fill="url(#deskBg)"/>
+
+  <!-- Perspective Horizon / Executive Desk -->
+  <path d="M 0 520 L 1200 520 L 1200 900 L 0 900 Z" fill="url(#deskSurface)"/>
+  <line x1="0" y1="520" x2="1200" y2="520" stroke="#334155" stroke-width="2"/>
+  <line x1="0" y1="522" x2="1200" y2="522" stroke="#000000" stroke-width="1.5" stroke-opacity="0.8"/>
+
+  <!-- Ambient Light Reflection on Dark Wood -->
+  <ellipse cx="600" cy="580" rx="460" ry="60" fill="#38bdf8" fill-opacity="0.04"/>
+
+  <!-- Glass Shadow on Desk -->
+  <ellipse cx="600" cy="650" rx="420" ry="35" fill="#000000" fill-opacity="0.55" filter="url(#glassBlur)"/>
+
+  <!-- Solid Acrylic Desk Block Group (Perspective Angled) -->
+  <g transform="translate(180, 260)" filter="url(#blockShadow)">
+    
+    <!-- Heavy Solid Acrylic 20mm Bottom Base Shadow -->
+    <polygon points="40,320 800,320 840,360 0,360" fill="#0f172a" fill-opacity="0.6"/>
+
+    <!-- Left Chamfered Bevel Edge (Thickness 25mm) -->
+    <polygon points="0,350 40,310 40,50 0,90" fill="url(#acrylicBevelLeft)"/>
+
+    <!-- Bottom Chamfered Edge -->
+    <polygon points="0,350 40,310 840,310 800,350" fill="#64748b" fill-opacity="0.3"/>
+
+    <!-- Main Front Crystal Clear Face (800 x 260) -->
+    <rect x="40" y="50" width="800" height="260" rx="8" fill="url(#acrylicBody)" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- Top Bevel Highlight (Refraction) -->
+    <polygon points="0,90 40,50 840,50 800,90" fill="url(#acrylicBevelTop)"/>
+    <line x1="40" y1="50" x2="840" y2="50" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Inner Crystal Border Accent -->
+    <rect x="65" y="75" width="750" height="210" rx="5" fill="none" stroke="#cbd5e1" stroke-width="1.2" stroke-opacity="0.75"/>
+    <rect x="70" y="80" width="740" height="200" rx="4" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.9"/>
+
+    <!-- Polished Stainless Steel Support Feet Left & Right -->
+    <g transform="translate(110, 290)">
+      <rect width="60" height="35" rx="6" fill="url(#steelGrad)" stroke="#ffffff" stroke-width="1"/>
+      <ellipse cx="30" cy="10" rx="18" ry="4" fill="#ffffff" fill-opacity="0.6"/>
+    </g>
+    <g transform="translate(710, 290)">
+      <rect width="60" height="35" rx="6" fill="url(#steelGrad)" stroke="#ffffff" stroke-width="1"/>
+      <ellipse cx="30" cy="10" rx="18" ry="4" fill="#ffffff" fill-opacity="0.6"/>
+    </g>
+
+    <!-- ONPRINT Red Badge Crest on Left of Nameplate -->
+    <g transform="translate(130, 140)">
+      <rect width="80" height="80" rx="16" fill="url(#brandRed)"/>
+      <rect width="72" height="72" x="4" y="4" rx="12" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.4"/>
+      <!-- Monogram Diamond -->
+      <polygon points="40,16 64,40 40,64 16,40" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+      <text x="40" y="48" fill="#ffffff" font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="bold" text-anchor="middle">OP</text>
+    </g>
+
+    <!-- Executive Laser Engraved Typography -->
+    <g transform="translate(245, 145)">
+      <!-- Name -->
+      <text x="0" y="32" fill="#0f172a" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="34" font-weight="bold" letter-spacing="3">VICTORIA STERLING</text>
+      
+      <!-- Gold Foil Role Underline -->
+      <line x1="0" y1="52" x2="520" y2="52" stroke="url(#goldText)" stroke-width="2"/>
+      <circle cx="520" cy="52" r="3" fill="url(#goldText)"/>
+
+      <!-- Title & Organization -->
+      <text x="0" y="80" fill="url(#brandRed)" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="4">CHIEF EXECUTIVE OFFICER</text>
+      <text x="0" y="105" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="3">ONPRINT GLOBAL HOLDINGS • DUBAI</text>
+    </g>
+
+    <!-- Light Glare Shimmer Diagonal across Glass -->
+    <path d="M 120 50 L 300 50 L 160 310 L -20 310 Z" fill="#ffffff" fill-opacity="0.18"/>
+    <path d="M 340 50 L 390 50 L 250 310 L 200 310 Z" fill="#ffffff" fill-opacity="0.12"/>
+  </g>
+
+  <!-- Spec Tag / Badge in Bottom Right -->
+  <g transform="translate(900, 790)">
+    <rect width="240" height="65" rx="12" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#0f172a" font-family="system-ui, sans-serif" font-size="14" font-weight="800">20mm Diamond Bevel</text>
+    <text x="20" y="48" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Crystal Clear Acrylic Desk Plate</text>
+  </g>
+</svg>

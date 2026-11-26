@@ -1,0 +1,17 @@
+# Deny direct access to sensitive directories and dotfiles if uploaded as a single folder
+Options -Indexes
+
+<FilesMatch "^(\.env.*|composer\.(json|lock)|.*\.sql|.*\.md)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Block direct HTTP requests to non-public backend folders
+  RewriteRule ^(app|config|database|routes|storage|vendor|views)(/|$) - [F,L]
+
+  # Forward everything cleanly to public/
+  RewriteCond %{REQUEST_URI} !^/public/
+  RewriteRule ^(.*)$ public/$1 [L,QSA]
+</IfModule>

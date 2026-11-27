@@ -74,30 +74,6 @@ function ProductRouteRedirect() {
   return <Navigate to={`/products/${slug}`} replace />
 }
 
-// Lazy load admin section and layouts to dramatically improve initial page load performance
-const AdminLayout = lazy(() => import('./layouts/AdminLayout'))
-const AdminLoginPage = lazy(() => import('./pages/admin/AdminLoginPage'))
-const AdminDashboardPage = lazy(() => import('./pages/admin/AdminDashboardPage'))
-const AdminProductsPage = lazy(() => import('./pages/admin/AdminProductsPage'))
-const AdminProductFormPage = lazy(() => import('./pages/admin/AdminProductFormPage'))
-const AdminCategoriesPage = lazy(() => import('./pages/admin/AdminCategoriesPage'))
-const AdminCategoryFormPage = lazy(() => import('./pages/admin/AdminCategoryFormPage'))
-const AdminServicesPage = lazy(() => import('./pages/admin/AdminServicesPage'))
-const AdminServiceFormPage = lazy(() => import('./pages/admin/AdminServiceFormPage'))
-const AdminBlogPage = lazy(() => import('./pages/admin/AdminBlogPage'))
-const AdminBlogFormPage = lazy(() => import('./pages/admin/AdminBlogFormPage'))
-const AdminSeoManagerPage = lazy(() => import('./pages/admin/seo/AdminSeoManagerPage'))
-const AdminOrdersPage = lazy(() => import('./pages/admin/AdminOrdersPage'))
-const AdminOrderFormPage = lazy(() => import('./pages/admin/AdminOrderFormPage'))
-const AdminQuotesPage = lazy(() => import('./pages/admin/AdminQuotesPage'))
-const AdminQuoteFormPage = lazy(() => import('./pages/admin/AdminQuoteFormPage'))
-const AdminCustomersPage = lazy(() => import('./pages/admin/AdminCustomersPage'))
-const AdminCustomerFormPage = lazy(() => import('./pages/admin/AdminCustomerFormPage'))
-const AdminPortfolioPage = lazy(() => import('./pages/admin/AdminPortfolioPage'))
-const AdminPortfolioFormPage = lazy(() => import('./pages/admin/AdminPortfolioFormPage'))
-const AdminMessagesPage = lazy(() => import('./pages/admin/AdminMessagesPage'))
-const AdminSettingsPage = lazy(() => import('./pages/admin/AdminSettingsPage'))
-
 function SuspenseFallback() {
   return (
     <div className="flex min-h-[60vh] w-full items-center justify-center bg-[#F5F0E7]">
@@ -292,62 +268,7 @@ function App() {
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />
-            <Route path="/login" element={<Navigate to="/admin/login" replace />} />
-            <Route path="/register" element={<Navigate to="/admin/login" replace />} />
             <Route path="*" element={<NotFoundPage />} />
-          </Route>
-
-          <Route path="/admin/login" element={<AdminLoginPage />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboardPage />} />
-
-            {/* Categories Dedicated Routes */}
-            <Route path="categories" element={<AdminCategoriesPage />} />
-            <Route path="categories/new" element={<AdminCategoryFormPage />} />
-            <Route path="categories/:id/edit" element={<AdminCategoryFormPage />} />
-
-            {/* Products Dedicated Routes */}
-            <Route path="products" element={<AdminProductsPage />} />
-            <Route path="products/new" element={<AdminProductFormPage />} />
-            <Route path="products/:id/edit" element={<AdminProductFormPage />} />
-
-            {/* Services Dedicated Routes */}
-            <Route path="services" element={<AdminServicesPage />} />
-            <Route path="services/new" element={<AdminServiceFormPage />} />
-            <Route path="services/:id/edit" element={<AdminServiceFormPage />} />
-
-            {/* Blog Dedicated Routes */}
-            <Route path="blog" element={<AdminBlogPage />} />
-            <Route path="blog/new" element={<AdminBlogFormPage />} />
-            <Route path="blog/:id/edit" element={<AdminBlogFormPage />} />
-
-            {/* SEO Management Routes */}
-            <Route path="seo" element={<AdminSeoManagerPage />} />
-            <Route path="seo-audit" element={<Navigate to="/admin/seo" replace />} />
-
-            {/* Orders Dedicated Routes */}
-            <Route path="orders" element={<AdminOrdersPage />} />
-            <Route path="orders/new" element={<AdminOrderFormPage />} />
-            <Route path="orders/:id/edit" element={<AdminOrderFormPage />} />
-
-            {/* Quotes Dedicated Routes */}
-            <Route path="quotes" element={<AdminQuotesPage />} />
-            <Route path="quotes/new" element={<AdminQuoteFormPage />} />
-            <Route path="quotes/:id/edit" element={<AdminQuoteFormPage />} />
-
-            {/* Customers Dedicated Routes */}
-            <Route path="customers" element={<AdminCustomersPage />} />
-            <Route path="customers/new" element={<AdminCustomerFormPage />} />
-            <Route path="customers/:id/edit" element={<AdminCustomerFormPage />} />
-
-            {/* Portfolio Dedicated Routes */}
-            <Route path="portfolio" element={<AdminPortfolioPage />} />
-            <Route path="portfolio/new" element={<AdminPortfolioFormPage />} />
-            <Route path="portfolio/:id/edit" element={<AdminPortfolioFormPage />} />
-
-            {/* Messages & Settings */}
-            <Route path="messages" element={<AdminMessagesPage />} />
-            <Route path="settings" element={<AdminSettingsPage />} />
           </Route>
         </Routes>
       </Suspense>

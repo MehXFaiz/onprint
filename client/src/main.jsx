@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { AuthProvider } from './context/AuthContext.jsx'
 
 // Automatically recover from stale chunk / preload errors on mobile & desktop after deployments
 if (typeof window !== 'undefined') {
@@ -31,9 +30,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary>
       <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <App />
       </BrowserRouter>
     </ErrorBoundary>
   </StrictMode>,

@@ -34,7 +34,6 @@ import {
 import Logo from './Logo'
 import LanguageSwitcher from './LanguageSwitcher'
 import WhatsAppIcon from './WhatsAppIcon'
-import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 import { getProducts } from '../services/products'
@@ -357,7 +356,6 @@ export default function SiteHeader() {
   const megaRef = useRef(null)
   const megaTimeoutRef = useRef(null)
 
-  const { isAuthenticated, user, isAdmin } = useAuth()
   const location = useLocation()
 
   // Scroll listener for sticky compact glass transition

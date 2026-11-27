@@ -1,4 +1,3 @@
-import api from './api'
 import {
   getDepartmentForCategory,
   getDepartmentBySlug,
@@ -354,79 +353,8 @@ export const initialCategories = [
   }
 ]
 
-const STORAGE_KEY = 'onprint_categories_data_v6'
-
-function getStoredCategories() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    if (saved) {
-      const parsed = JSON.parse(saved)
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        const initialMap = new Map(initialCategories.map((c) => [c.slug, c]))
-        const sanitized = parsed.map((c) => {
-          const init = initialMap.get(c.slug)
-          let img = c.image || c.image_url
-          if (!img || img.includes('trae.ai')) {
-            img = init ? (init.image || init.image_url) : `/uploads/categories/${c.slug}.jpg`
-          }
-          return { ...c, image: img, image_url: img }
-        })
-        const existingSlugs = new Set(sanitized.map((c) => c.slug))
-        const missing = initialCategories.filter((ic) => !existingSlugs.has(ic.slug))
-        if (missing.length > 0) {
-          const merged = [...sanitized, ...missing]
-          saveStoredCategories(merged)
-          return merged
-        }
-        return sanitized
-      }
-    }
-  } catch {
-    // ignore
-  }
-  return initialCategories
-}
-
-function saveStoredCategories(data) {
-  try {
-    if (Array.isArray(data) && data.length > 0) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
-    }
-  } catch {
-    // ignore
-  }
-}
-
 export async function getCategories(params = {}) {
-  let list = []
-  try {
-    const { data } = await api.get('/categories', { params })
-    if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
-      const initialMap = new Map(initialCategories.map((c) => [c.slug, c]))
-      const cleanData = data.data.map((c) => {
-        const init = initialMap.get(c.slug)
-        let img = c.image || c.image_url
-        if (!img || img.includes('trae.ai')) {
-          img = init ? (init.image || init.image_url) : `/uploads/categories/${c.slug}.jpg`
-        }
-        return {
-          ...c,
-          image: img,
-          image_url: img,
-        }
-      })
-      const existingSlugs = new Set(cleanData.map((c) => c.slug))
-      const missing = initialCategories.filter((ic) => !existingSlugs.has(ic.slug))
-      list = missing.length > 0 ? [...cleanData, ...missing] : cleanData
-      saveStoredCategories(list)
-    }
-  } catch (err) {
-    console.warn('[Categories] Fetch note:', err.message)
-  }
-
-  if (!list || list.length === 0) {
-    list = getStoredCategories()
-  }
+  let list = initialCategories
 
   if (params.status && params.status !== 'all') {
     list = list.filter((c) => (params.status === 'active' ? c.status === 'active' || c.active : c.status === 'inactive' || !c.active))
@@ -471,25 +399,7 @@ export async function getCategoryById(id) {
     }
   }
 
-  try {
-    const { data } = await api.get(`/categories/${canonicalSlug || id}`)
-    if (data?.data) {
-      const dept = getDepartmentForCategory(data.data.slug)
-      const verifiedImg = getCategoryImage(data.data)
-      return {
-        ...data.data,
-        image: verifiedImg,
-        image_url: verifiedImg,
-        department_slug: dept?.slug || data.data.department_slug || '',
-        department_name: dept?.name || data.data.department_name || '',
-      }
-    }
-  } catch (err) {
-    console.warn('[Category] Fetch by ID note:', err.message)
-  }
-
-  const all = getStoredCategories()
-  const found = all.find((c) => {
+  const found = initialCategories.find((c) => {
     const cSlug = (c.slug || '').toLowerCase()
     const cCanonical = resolveCanonicalCategorySlug(cSlug)
     const cId = String(c.id || '').toLowerCase()
@@ -514,141 +424,6 @@ export async function getCategoryById(id) {
     }
   }
 
-  const fallback = initialCategories.find((c) => {
-    const cSlug = (c.slug || '').toLowerCase()
-    const cCanonical = resolveCanonicalCategorySlug(cSlug)
-    const cId = String(c.id || '').toLowerCase()
-    const cUid = (c._id || '').toLowerCase()
-    return (
-      cCanonical === canonicalSlug ||
-      cSlug === cleanId ||
-      cSlug === canonicalSlug ||
-      cId === cleanId ||
-      cUid === cleanId
-    )
-  })
-  if (fallback) {
-    const dept = getDepartmentForCategory(fallback.slug)
-    const verifiedImg = getCategoryImage(fallback)
-    return {
-      ...fallback,
-      image: verifiedImg,
-      image_url: verifiedImg,
-      department_slug: dept?.slug || fallback.department_slug || '',
-      department_name: dept?.name || fallback.department_name || '',
-    }
-  }
-
   return null
-}
-
-export async function createCategory(categoryData) {
-  const payload = {
-    name: categoryData.name,
-    slug: categoryData.slug,
-    description: categoryData.description || '',
-    image: categoryData.image || categoryData.image_url || '',
-    image_url: categoryData.image_url || categoryData.image || '',
-    status: categoryData.status || 'active',
-    display_order: Number(categoryData.display_order ?? categoryData.displayOrder ?? 0),
-    displayOrder: Number(categoryData.display_order ?? categoryData.displayOrder ?? 0),
-    seo_title: categoryData.seo_title || categoryData.seoTitle,
-    seo_description: categoryData.seo_description || categoryData.seoDescription,
-    seo_keywords: categoryData.seo_keywords || categoryData.seoKeywords,
-    seo_heading: categoryData.seo_heading || categoryData.seoHeading,
-    image_alt: categoryData.image_alt || categoryData.imageAlt,
-    canonical_url: categoryData.canonical_url || categoryData.canonicalUrl,
-  }
-
-  try {
-    const { data } = await api.post('/categories', payload)
-    const all = getStoredCategories()
-    const newCat = data?.data || { id: Date.now(), _id: `cat-${Date.now()}`, ...payload }
-    saveStoredCategories([...all, newCat])
-    return data
-  } catch (err) {
-    if (err.message === 'Network Error' || !err.response) {
-      const all = getStoredCategories()
-      const newCat = { id: Date.now(), _id: `cat-${Date.now()}`, ...payload, active: payload.status !== 'inactive' }
-      saveStoredCategories([...all, newCat])
-      return { success: true, data: newCat }
-    }
-    throw err
-  }
-}
-
-export async function updateCategory(id, categoryData) {
-  const payload = {
-    name: categoryData.name,
-    slug: categoryData.slug,
-    description: categoryData.description || '',
-    image: categoryData.image || categoryData.image_url || '',
-    image_url: categoryData.image_url || categoryData.image || '',
-    status: categoryData.status || 'active',
-    display_order: Number(categoryData.display_order ?? categoryData.displayOrder ?? 0),
-    displayOrder: Number(categoryData.display_order ?? categoryData.displayOrder ?? 0),
-    seo_title: categoryData.seo_title || categoryData.seoTitle,
-    seo_description: categoryData.seo_description || categoryData.seoDescription,
-    seo_keywords: categoryData.seo_keywords || categoryData.seoKeywords,
-    seo_heading: categoryData.seo_heading || categoryData.seoHeading,
-    image_alt: categoryData.image_alt || categoryData.imageAlt,
-    canonical_url: categoryData.canonical_url || categoryData.canonicalUrl,
-  }
-
-  try {
-    const { data } = await api.put(`/categories/${id}`, payload)
-    const all = getStoredCategories()
-    const updated = all.map((c) => (String(c.id) === String(id) || c._id === id || c.slug === id ? { ...c, ...payload } : c))
-    saveStoredCategories(updated)
-    return data
-  } catch (err) {
-    if (err.message === 'Network Error' || !err.response) {
-      const all = getStoredCategories()
-      const updated = all.map((c) => (String(c.id) === String(id) || c._id === id || c.slug === id ? { ...c, ...payload } : c))
-      saveStoredCategories(updated)
-      return { success: true, data: { id, ...payload } }
-    }
-    throw err
-  }
-}
-
-export async function updateCategoryStatus(id, status) {
-  try {
-    const { data } = await api.patch(`/categories/${id}/status`, { status })
-    const all = getStoredCategories()
-    const updated = all.map((c) => (String(c.id) === String(id) || c._id === id || c.slug === id ? { ...c, status, active: status === 'active' } : c))
-    saveStoredCategories(updated)
-    return data
-  } catch {
-    const all = getStoredCategories()
-    const updated = all.map((c) => (String(c.id) === String(id) || c._id === id || c.slug === id ? { ...c, status, active: status === 'active' } : c))
-    saveStoredCategories(updated)
-    return { success: true, data: { id, status } }
-  }
-}
-
-export async function deleteCategory(id) {
-  const all = getStoredCategories()
-  const updated = all.filter((c) => String(c.id) !== String(id) && c._id !== id && c.slug !== id)
-  saveStoredCategories(updated)
-
-  try {
-    const { data } = await api.delete(`/categories/${id}`)
-    return data
-  } catch {
-    return { success: true, message: 'Category removed successfully' }
-  }
-}
-
-export async function uploadCategoryImage(id, file) {
-  const formData = new FormData()
-  formData.append('file', file)
-
-  const { data } = await api.post(`/categories/${id}/image`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  })
-  return data
 }
 

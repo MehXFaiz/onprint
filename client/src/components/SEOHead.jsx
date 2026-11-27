@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getPageSeoByUrl } from '../services/seo'
 import { FORMATTED_PHONE } from '../utils/whatsapp'
 
 const DEFAULT_SITE_URL = 'https://www.0nprint.com'
@@ -162,35 +161,7 @@ function setStructuredDataScript(id, schemaData) {
 }
 
 /**
- * Custom React Hook to retrieve current page's MySQL SEO record
- */
-export function usePageSeo() {
-  const location = useLocation()
-  const [seo, setSeo] = useState(null)
-
-  useEffect(() => {
-    let isMounted = true
-    getPageSeoByUrl(location.pathname)
-      .then((res) => {
-        if (isMounted && res?.success && res.data) {
-          setSeo(res.data)
-        }
-      })
-      .catch(() => {})
-    return () => {
-      isMounted = false
-    }
-  }, [location.pathname])
-
-  return seo
-}
-
-/**
- * Dynamic Page-by-Page SEOHead Component
- * Automatically queries MySQL /api/seo/by-url for the current pathname.
- * Injects: Document Title, Meta Description, Keywords, Canonical, Open Graph,
- * Twitter Cards, Robots directives, and JSON-LD structured data.
- * Falls back gracefully to component props if no record is found in the database.
+ * Injects document metadata and structured data from each page's props.
  */
 export default function SEOHead({
   title,
@@ -211,55 +182,21 @@ export default function SEOHead({
   video,
 }) {
   const location = useLocation()
-  const [dbSeo, setDbSeo] = useState(null)
-
-  // Fetch page SEO dynamically from MySQL database by URL
-  useEffect(() => {
-    let isMounted = true
-    const fetchPageSeo = async () => {
-      try {
-        const path = location.pathname || '/'
-        const res = await getPageSeoByUrl(path)
-        if (isMounted && res?.success && res.data) {
-          setDbSeo(res.data)
-        } else if (isMounted) {
-          setDbSeo(null)
-        }
-      } catch {
-        if (isMounted) setDbSeo(null)
-      }
-    }
-
-    fetchPageSeo()
-    return () => {
-      isMounted = false
-    }
-  }, [location.pathname])
-
-  // Resolve Title: Database record takes precedence, falls back to prop
-  const activeTitle = dbSeo?.meta_title || title
+  const activeTitle = title
   const fullTitle = activeTitle
     ? activeTitle.includes('ONPRINT')
       ? activeTitle
       : `${activeTitle} | ONPRINT Dubai`
     : 'Printing Company in Dubai | ONPRINT – Printing & Branding Solutions'
 
-  // Resolve Description: Database record takes precedence, falls back to prop
   const metaDesc =
-    dbSeo?.meta_description ||
     description ||
     'ONPRINT is Dubai’s premier printing company. Precision digital & offset printing, corporate gifts, business cards, office stationery, and large-format signage in UAE.'
 
-  // Resolve Focus & Secondary Keywords
-  const effectiveKeywords = dbSeo?.focus_keyword
-    ? dbSeo.secondary_keywords
-      ? `${dbSeo.focus_keyword}, ${dbSeo.secondary_keywords}`
-      : dbSeo.focus_keyword
-    : keywords || 'printing company dubai, commercial printing dubai, luxury business cards dubai, custom sticker printing dubai, roll up banners dubai, bottle printing dubai, corporate gifts uae'
+  const effectiveKeywords =
+    keywords || 'printing company dubai, commercial printing dubai, luxury business cards dubai, custom sticker printing dubai, roll up banners dubai, bottle printing dubai, corporate gifts uae'
 
-  // Resolve Canonical URL
   let effectiveCanonical =
-    dbSeo?.canonical_url ||
     canonicalUrl ||
     (canonicalPath.startsWith('http')
       ? canonicalPath
@@ -269,9 +206,7 @@ export default function SEOHead({
     effectiveCanonical = effectiveCanonical.replace(/^https?:\/\/(www\.)?0nprint\.com/i, SITE_URL)
   }
 
-  // Resolve Images
   const effectiveImage =
-    dbSeo?.og_image ||
     (typeof ogImage === 'string' && ogImage
       ? ogImage.startsWith('http')
         ? ogImage
@@ -287,22 +222,17 @@ export default function SEOHead({
   let robotsDirective = 'index, follow, max-image-preview:large'
   if (noindex) {
     robotsDirective = 'noindex, nofollow'
-  } else if (dbSeo) {
-    const idx = dbSeo.robots_index || 'index'
-    const fol = dbSeo.robots_follow || 'follow'
-    robotsDirective = `${idx}, ${fol}`
-    if (idx === 'index') robotsDirective += ', max-image-preview:large'
   }
 
   // Open Graph Values
-  const ogTitle = dbSeo?.og_title || fullTitle
-  const ogDescription = dbSeo?.og_description || metaDesc
-  const ogImg = normalizeImageUrl(dbSeo?.og_image || effectiveImage)
+  const ogTitle = fullTitle
+  const ogDescription = metaDesc
+  const ogImg = normalizeImageUrl(effectiveImage)
 
   // Twitter Card Values
-  const twitterTitle = dbSeo?.twitter_title || dbSeo?.og_title || fullTitle
-  const twitterDescription = dbSeo?.twitter_description || dbSeo?.og_description || metaDesc
-  const twitterImg = normalizeImageUrl(dbSeo?.twitter_image || dbSeo?.og_image || effectiveImage)
+  const twitterTitle = fullTitle
+  const twitterDescription = metaDesc
+  const twitterImg = normalizeImageUrl(effectiveImage)
 
   useEffect(() => {
     // 1. Update Document Title
@@ -313,7 +243,7 @@ export default function SEOHead({
     if (effectiveKeywords) setMetaTag('name', 'keywords', effectiveKeywords)
     setMetaTag('name', 'robots', robotsDirective)
 
-    const googleVerification = import.meta.env.VITE_GOOGLE_SITE_VERIFICATION || dbSeo?.google_site_verification
+    const googleVerification = import.meta.env.VITE_GOOGLE_SITE_VERIFICATION
     if (googleVerification) {
       setMetaTag('name', 'google-site-verification', googleVerification)
     }
@@ -390,18 +320,6 @@ export default function SEOHead({
       },
     }
     setStructuredDataScript('onprint-schema-webpage', webPageSchema)
-
-    // 7. Database JSON-LD Schema (if defined in page_seo)
-    if (dbSeo?.schema_markup && dbSeo.schema_markup.trim()) {
-      try {
-        const parsed = JSON.parse(dbSeo.schema_markup)
-        setStructuredDataScript('onprint-schema-db-page', parsed)
-      } catch {
-        setStructuredDataScript('onprint-schema-db-page', null)
-      }
-    } else {
-      setStructuredDataScript('onprint-schema-db-page', null)
-    }
 
     // 8. Breadcrumbs Schema
     if (Array.isArray(breadcrumbs) && breadcrumbs.length > 0) {
@@ -697,7 +615,6 @@ export default function SEOHead({
     twitterTitle,
     twitterDescription,
     twitterImg,
-    dbSeo,
     breadcrumbs,
     product,
     service,

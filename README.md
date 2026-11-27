@@ -53,6 +53,7 @@ onprint/
    ```
 4. **Deploy Node.js App on GoDaddy**:
    - Go to cPanel -> **Setup Node.js App**.
+   - Select Node.js **20.19.0 or newer** (Node.js 22 LTS recommended).
    - Set Application Root to project root, Application Startup File to `server.js`.
    - Run `npm install` and `npm run build`.
    - Start the application.

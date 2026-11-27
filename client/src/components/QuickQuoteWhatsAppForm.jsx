@@ -28,11 +28,8 @@ import {
   trackQuoteRequest,
   trackWhatsAppClick,
   trackBusinessCardWhatsAppClick,
-  trackStickerWhatsAppClick,
-  trackArtworkUpload
+  trackStickerWhatsAppClick
 } from '../utils/analytics'
-import { createQuote } from '../services/quotes'
-import { uploadArtwork } from '../services/uploadService'
 
 const CATEGORIES = [
   { id: 'business-cards', label: 'Business Cards (350–700 GSM)', defaultSize: '90 × 55 mm Standard', defaultFinish: 'Matte Lamination' },
@@ -75,8 +72,6 @@ export default function QuickQuoteWhatsAppForm({
   const [phone, setPhone] = useState('')
   const [notes, setNotes] = useState('')
   const [artworkFiles, setArtworkFiles] = useState([])
-  const [uploadedArtworkUrls, setUploadedArtworkUrls] = useState([])
-  const [isUploading, setIsUploading] = useState(false)
   const [hasStarted, setHasStarted] = useState(false)
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -105,7 +100,7 @@ export default function QuickQuoteWhatsAppForm({
     }
   }
 
-  const handleFileChange = async (e) => {
+  const handleFileChange = (e) => {
     handleStart()
     const selected = Array.from(e.target.files || [])
     if (selected.length === 0) return
@@ -143,24 +138,10 @@ export default function QuickQuoteWhatsAppForm({
     if (valid.length === 0) return
 
     setArtworkFiles((prev) => [...prev, ...valid])
-    trackArtworkUpload({ file_count: valid.length, source_page: 'quick_quote_whatsapp_form' })
-
-    setIsUploading(true)
-    try {
-      const res = await uploadArtwork(valid)
-      if (res?.urls) {
-        setUploadedArtworkUrls((prev) => [...prev, ...res.urls])
-      }
-    } catch (err) {
-      console.warn('Artwork upload note (files can still be sent via WhatsApp):', err.message)
-    } finally {
-      setIsUploading(false)
-    }
   }
 
   const removeArtworkFile = (index) => {
     setArtworkFiles((prev) => prev.filter((_, i) => i !== index))
-    setUploadedArtworkUrls((prev) => prev.filter((_, i) => i !== index))
   }
 
   const validate = () => {
@@ -172,7 +153,7 @@ export default function QuickQuoteWhatsAppForm({
     return errs
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     handleStart()
 
@@ -198,11 +179,12 @@ export default function QuickQuoteWhatsAppForm({
         quantity: qtyNum,
         material: materialFinish || '350 GSM Silk',
         finish: materialFinish || 'Matte Lamination',
+        phone: phone.trim() || undefined,
         deliveryLocation: deliveryLocation || 'Dubai',
         customerName: customerName.trim() || undefined,
         notes: notes.trim() || undefined,
         refNumber: quoteRef,
-        artworkStatus: artworkNames ? `${artworkNames} (uploaded / ready to attach)` : undefined,
+        artworkStatus: artworkNames ? `${artworkNames} (please attach in WhatsApp)` : undefined,
       })
     } else if (category === 'stickers') {
       tailoredWhatsAppUrl = getServiceWhatsAppUrl('stickers', {
@@ -210,11 +192,12 @@ export default function QuickQuoteWhatsAppForm({
         quantity: `${qtyNum} units`,
         size: size.trim() || 'Custom Size',
         finish: materialFinish.trim() || 'Waterproof Vinyl',
+        phone: phone.trim() || undefined,
         deliveryLocation: deliveryLocation || 'Dubai',
         customerName: customerName.trim() || undefined,
         notes: notes.trim() || undefined,
         refNumber: quoteRef,
-        artworkStatus: artworkNames ? `${artworkNames} (uploaded / ready to attach)` : undefined,
+        artworkStatus: artworkNames ? `${artworkNames} (please attach in WhatsApp)` : undefined,
       })
     } else if (category === 'stamps') {
       tailoredWhatsAppUrl = getServiceWhatsAppUrl('stamps', {
@@ -222,11 +205,12 @@ export default function QuickQuoteWhatsAppForm({
         quantity: `${qtyNum} unit`,
         size: size.trim() || 'Standard Legal',
         casingBrand: materialFinish.trim() || 'Trodat / Colop Austrian Casing',
+        phone: phone.trim() || undefined,
         deliveryLocation: deliveryLocation || 'Dubai',
         customerName: customerName.trim() || undefined,
         notes: notes.trim() || undefined,
         refNumber: quoteRef,
-        artworkStatus: artworkNames ? `${artworkNames} (uploaded / ready to attach)` : undefined,
+        artworkStatus: artworkNames ? `${artworkNames} (please attach in WhatsApp)` : undefined,
       })
     } else {
       tailoredWhatsAppUrl = getServiceWhatsAppUrl(category, {
@@ -234,11 +218,12 @@ export default function QuickQuoteWhatsAppForm({
         quantity: qtyNum,
         size: size.trim() || undefined,
         material: materialFinish.trim() || undefined,
+        phone: phone.trim() || undefined,
         deliveryLocation: deliveryLocation || 'Dubai',
         customerName: customerName.trim() || undefined,
         notes: notes.trim() || undefined,
         refNumber: quoteRef,
-        artworkStatus: artworkNames ? `${artworkNames} (uploaded / ready to attach)` : undefined,
+        artworkStatus: artworkNames ? `${artworkNames} (please attach in WhatsApp)` : undefined,
       })
     }
 
@@ -249,25 +234,6 @@ export default function QuickQuoteWhatsAppForm({
       prefilledText = parsedUrl.searchParams.get('text') || ''
     } catch {
       prefilledText = `Hello ONPRINT, I would like a quotation for ${resolvedProd}. Quantity: ${qtyNum}. Specifications: ${size || ''} ${materialFinish || ''}. Delivery: ${deliveryLocation}. Please share pricing and options.`
-    }
-
-    // Attempt quote creation in background without blocking WhatsApp
-    try {
-      await createQuote({
-        quoteNumber: quoteRef,
-        name: customerName.trim() || 'Direct WhatsApp Inquirer',
-        phone: phone.trim() || 'Via WhatsApp',
-        email: 'inquiry@onprint.ae',
-        productName: resolvedProd,
-        quantity: qtyNum,
-        specs: `Category: ${selectedCategory.label} | Size: ${size || 'Standard'} | Finish: ${materialFinish || 'Standard'} | Delivery: ${deliveryLocation}`,
-        notes: notes.trim() || null,
-        artworkFile: artworkNames || null,
-        artworkFiles: uploadedArtworkUrls.length > 0 ? uploadedArtworkUrls : undefined,
-        status: 'New',
-      })
-    } catch (saveErr) {
-      console.warn('Quote auto-save fallback:', saveErr.message)
     }
 
     // Dispatch analytics (privacy-safe, zero PII)
@@ -359,7 +325,7 @@ export default function QuickQuoteWhatsAppForm({
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-700">
               <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0" />
-              <span>Inquiry Prepared (Ref #{generatedResult.refNumber})</span>
+              <span>WhatsApp Message Ready (Ref #{generatedResult.refNumber})</span>
             </div>
             <span className="text-[10px] font-bold text-emerald-800 bg-emerald-500/20 px-2 py-0.5 rounded">
               WhatsApp Ready
@@ -559,20 +525,20 @@ export default function QuickQuoteWhatsAppForm({
             <div className="flex flex-col min-[420px]:flex-row items-start justify-between gap-3">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#795C43] block">
-                  Artwork Upload (Optional)
+                  Artwork for WhatsApp (Optional)
                 </span>
                 <p className="text-[11px] text-[#756657] mt-0.5">
-                  Supported formats: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP (Max 50MB).
+                  Supported formats: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP (Max 50MB). Files are not uploaded here.
                 </p>
                 <div className="mt-1 flex items-center gap-1.5 text-[10.5px] text-emerald-700">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
-                  <span>You can also attach files directly in WhatsApp chat once opened.</span>
+                  <span>Attach selected files in WhatsApp after the chat opens.</span>
                 </div>
               </div>
 
               <label className="shrink-0 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] px-3.5 py-2 text-xs font-bold text-[#352719] transition-colors cursor-pointer">
                 <Upload className="h-3.5 w-3.5 text-[#795C43]" />
-                <span>{isUploading ? 'Uploading...' : 'Choose File'}</span>
+                <span>Choose File</span>
                 <input
                   type="file"
                   multiple
@@ -595,7 +561,7 @@ export default function QuickQuoteWhatsAppForm({
                   <div key={i} className="flex items-center justify-between gap-2 text-[11px] text-[#756657]">
                     <span className="truncate">📄 {f.name}</span>
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-emerald-700 font-semibold">Attached ✓</span>
+                      <span className="text-[#756657] font-semibold">Selected — attach in WhatsApp</span>
                       <button
                         type="button"
                         onClick={() => removeArtworkFile(i)}

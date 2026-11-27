@@ -23,7 +23,7 @@ import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
-import { getProgrammaticPage } from '../../services/seo'
+import { getProgrammaticPage } from '../../data/programmaticPages'
 import { getCategories } from '../../services/categories'
 
 export default function ProgrammaticLandingPage() {
@@ -39,27 +39,13 @@ export default function ProgrammaticLandingPage() {
 
   useEffect(() => {
     let isMounted = true
-    async function fetchData() {
-      setLoading(true)
-      try {
-        // Fetch programmatic page data
-        const res = await getProgrammaticPage(slug, pageType)
-        if (res?.success && res.data && isMounted) {
-          setPageData(res.data)
-        }
-
-        // Fetch categories for sidebar
-        const catRes = await getCategories({ limit: 5, status: 'active' })
-        if (catRes?.success && catRes.data?.categories && isMounted) {
-          setCategories(catRes.data.categories)
-        }
-      } catch (err) {
-        console.warn('Could not fetch data from API:', err.message)
-      } finally {
-        if (isMounted) setLoading(false)
-      }
-    }
-    fetchData()
+    setLoading(true)
+    setPageData(getProgrammaticPage(slug, pageType))
+    getCategories({ status: 'active' }).then((categoryList) => {
+      if (isMounted) setCategories(categoryList.slice(0, 5))
+    }).finally(() => {
+      if (isMounted) setLoading(false)
+    })
     return () => {
       isMounted = false
     }

@@ -24,9 +24,7 @@ import Button from '../../components/Button'
 import SEOHead from '../../components/SEOHead'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
-import { WHATSAPP_PHONE } from '../../utils/whatsapp'
-import { uploadArtwork } from '../../services/uploadService'
-import api from '../../services/api'
+import { openWhatsAppDirectly, WHATSAPP_PHONE } from '../../utils/whatsapp'
 
 const POPULAR_CORPORATE_PRODUCTS = [
   'Luxury Cotton Business Cards',
@@ -83,10 +81,7 @@ export default function CorporateQuotePage() {
     },
   ])
 
-  // File uploads
   const [files, setFiles] = useState([])
-  const [uploadProgress, setUploadProgress] = useState(0)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submittedData, setSubmittedData] = useState(null)
   const [copiedRef, setCopiedRef] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
@@ -121,7 +116,7 @@ export default function CorporateQuotePage() {
     setFiles((prev) => [...prev, ...incoming].slice(0, 5))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setErrorMsg('')
 
@@ -130,57 +125,52 @@ export default function CorporateQuotePage() {
       return
     }
 
-    setIsSubmitting(true)
-
-    try {
-      let uploadedFileNames = []
-      if (files.length > 0) {
-        try {
-          const res = await uploadArtwork(files, (p) => setUploadProgress(p))
-          uploadedFileNames = res.files ? res.files.map((f) => f.filename || f.url) : []
-        } catch (err) {
-          console.warn('File upload fallback:', err.message)
-          uploadedFileNames = files.map((f) => f.name)
-        }
-      }
-
-      const randomSeq = Math.floor(100000 + Math.random() * 900000)
-      const referenceNumber = `ONP-CORP-${randomSeq}`
-
-      const payload = {
-        referenceNumber,
-        companyName: companyName.trim(),
-        tradeLicenseNumber: tradeLicenseNumber.trim() || null,
-        trnNumber: trnNumber.trim() || null,
-        contactName: contactName.trim(),
-        department: department.trim() || 'Procurement',
-        email: email.toLowerCase().trim(),
-        phone: phone.trim(),
-        annualVolumeEstimate,
-        creditTermsRequested,
-        deliveryLocations: [deliveryLocations.trim() || 'Dubai'],
-        items,
-        notes: notes.trim() || null,
-        artworkFiles: uploadedFileNames,
-      }
-
-      // Send to server API
-      try {
-        await api.post('/corporate-quotes', payload)
-      } catch (postErr) {
-        console.warn('API post fallback to persistentStore:', postErr.message)
-      }
-
-      setSubmittedData({
-        ...payload,
-        referenceNumber,
-      })
-    } catch (err) {
-      console.error('Submission error:', err)
-      setErrorMsg('Failed to submit corporate quote. Please try again or message our desk on WhatsApp.')
-    } finally {
-      setIsSubmitting(false)
+    const referenceNumber = `ONP-CORP-${Math.floor(100000 + Math.random() * 900000)}`
+    const itemDetails = items
+      .map((item, index) => `${index + 1}. ${item.productName} — ${item.quantity} units; ${item.specifications}`)
+      .join('\n')
+    const artworkFileNames = files.map((file) => file.name)
+    const payload = {
+      referenceNumber,
+      companyName: companyName.trim(),
+      tradeLicenseNumber: tradeLicenseNumber.trim(),
+      trnNumber: trnNumber.trim(),
+      contactName: contactName.trim(),
+      department: department.trim() || 'Procurement',
+      email: email.toLowerCase().trim(),
+      phone: phone.trim(),
+      annualVolumeEstimate,
+      creditTermsRequested,
+      deliveryLocations: deliveryLocations.trim() || 'Dubai',
+      items,
+      notes: notes.trim(),
+      artworkFiles: artworkFileNames,
     }
+    const message = [
+      'Hello ONPRINT Corporate Desk, I would like to request a corporate print quote.',
+      `Reference (generated in this browser): ${referenceNumber}`,
+      `Company: ${payload.companyName}`,
+      `Trade license: ${payload.tradeLicenseNumber || 'Not provided'}`,
+      `TRN: ${payload.trnNumber || 'Not provided'}`,
+      `Contact: ${payload.contactName} (${payload.department})`,
+      `Email: ${payload.email}`,
+      `Phone: ${payload.phone}`,
+      `Annual volume: ${payload.annualVolumeEstimate}`,
+      `Requested credit terms: ${payload.creditTermsRequested}`,
+      `Delivery location(s): ${payload.deliveryLocations}`,
+      `Requested items:\n${itemDetails}`,
+      payload.notes ? `Additional notes: ${payload.notes}` : '',
+      artworkFileNames.length > 0
+        ? `Artwork files selected: ${artworkFileNames.join(', ')}. Please attach these files in WhatsApp; they have not been uploaded.`
+        : '',
+    ].filter(Boolean).join('\n')
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`
+
+    setSubmittedData({ ...payload, whatsappUrl })
+    openWhatsAppDirectly(whatsappUrl, {
+      allowSameTabFallback: true,
+      label: 'corporate_quote_request',
+    })
   }
 
   const handleCopy = () => {
@@ -250,13 +240,13 @@ export default function CorporateQuotePage() {
             </div>
 
             <span className="inline-block rounded-full bg-emerald-500/10 border border-emerald-400/40 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-emerald-700 mb-2">
-              Corporate RFQ Logged
+              WhatsApp Request Prepared
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#352719]">
-              Request Received for {submittedData.companyName}
+              Request Ready for {submittedData.companyName}
             </h2>
             <p className="mt-2 text-sm text-[#756657]">
-              Your reference code has been generated. Our Senior Key Account Director will review your multi-item specifications, credit terms, and deliver an itemized proposal within 2–4 business hours.
+              Review and send the prefilled WhatsApp message to submit your request. Nothing has been sent or stored yet. Attach any selected artwork files in the WhatsApp chat.
             </p>
 
             <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] p-4 font-mono text-base font-black text-[#352719]">
@@ -273,20 +263,20 @@ export default function CorporateQuotePage() {
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT Corporate Desk, I have submitted corporate RFQ ${submittedData.referenceNumber} for ${submittedData.companyName}. Looking forward to connecting with our account manager.`)}`}
+                href={submittedData.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-all cursor-pointer"
               >
                 <WhatsAppIcon className="h-4 w-4 fill-white" />
-                <span>Fast-Track on WhatsApp</span>
+                <span>Review and Send on WhatsApp</span>
               </a>
 
               <Link
                 to={`/track-order?ref=${encodeURIComponent(submittedData.referenceNumber)}`}
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] px-6 py-3 text-xs sm:text-sm font-bold text-[#352719] transition-colors"
               >
-                <span>Track RFQ Status</span>
+                <span>Ask about Status</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -587,7 +577,7 @@ export default function CorporateQuotePage() {
                 {/* Upload Box */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#352719] mb-1.5">
-                    Artwork / Brand Kit Upload (Optional)
+                    Artwork / Brand Kit for WhatsApp (Optional)
                   </label>
                   <label className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#DED2C1] bg-[#F5F0E7] p-6 text-center hover:border-[#C5A989] transition-all cursor-pointer">
                     <UploadCloud className="h-8 w-8 text-[#795C43] mb-2" />
@@ -595,7 +585,7 @@ export default function CorporateQuotePage() {
                       Click to browse or drop brand files
                     </span>
                     <span className="text-[11px] text-[#756657] mt-1">
-                      PDF, AI, EPS, PSD, TIFF, ZIP up to 50MB per file
+                      PDF, AI, EPS, PSD, TIFF, ZIP up to 50MB per file. Files are not uploaded here.
                     </span>
                     <input
                       type="file"
@@ -620,13 +610,10 @@ export default function CorporateQuotePage() {
                     </div>
                   )}
 
-                  {uploadProgress > 0 && uploadProgress < 100 && (
-                    <div className="mt-2 w-full bg-[#F5F0E7] rounded-full h-2">
-                      <div
-                        className="bg-[#795C43] h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${uploadProgress}%` }}
-                      />
-                    </div>
+                  {files.length > 0 && (
+                    <p className="mt-2 text-[11px] text-[#756657]">
+                      Attach the selected files in WhatsApp after the message opens.
+                    </p>
                   )}
                 </div>
               </div>
@@ -635,9 +622,9 @@ export default function CorporateQuotePage() {
             {/* Bottom Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-[#F5F0E7] p-6 text-[#352719] shadow-lg">
               <div>
-                <p className="font-bold text-sm text-[#352719]">Ready to Submit Corporate RFQ?</p>
+                <p className="font-bold text-sm text-[#352719]">Ready to Send a Corporate Quote Request?</p>
                 <p className="text-xs text-[#756657]">
-                  You will receive an instant reference number and itemized quotation within 2–4 business hours.
+                  Your request is prepared in a WhatsApp message for you to review and send.
                 </p>
               </div>
 
@@ -646,10 +633,9 @@ export default function CorporateQuotePage() {
                   type="submit"
                   variant="accent"
                   size="lg"
-                  disabled={isSubmitting}
                   className="w-full sm:w-auto justify-center font-bold px-8 shadow-md"
                 >
-                  {isSubmitting ? 'Transmitting RFQ...' : 'Submit Corporate Quote Request'}
+                  Prepare WhatsApp Request
                 </Button>
               </div>
             </div>

@@ -537,8 +537,16 @@ const USE_CASE_PAGES = [
   },
 ]
 
-const withLocationUrl = (p) => ({ ...p, fullUrl: ${SITE_URL}/printing-services/, path: /printing-services/ })
-const withUseCaseUrl = (p) => ({ ...p, fullUrl: ${SITE_URL}/printing-solutions/, path: /printing-solutions/ })
+const withLocationUrl = (p) => ({
+  ...p,
+  fullUrl: `${SITE_URL}/printing-services/${p.slug}`,
+  path: `/printing-services/${p.slug}`,
+})
+const withUseCaseUrl = (p) => ({
+  ...p,
+  fullUrl: `${SITE_URL}/printing-solutions/${p.slug}`,
+  path: `/printing-solutions/${p.slug}`,
+})
 
 export function getProgrammaticPage(slug, type = null) {
   if (!type || type === 'location') {

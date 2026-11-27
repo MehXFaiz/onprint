@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, MapPin, Clock, CheckCircle2, MessageSquare, RefreshCw } from 'lucide-react'
+import { Mail, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-react'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
@@ -11,7 +11,6 @@ import {
   trackWhatsAppClick,
   trackProductInquiry,
 } from '../../utils/analytics'
-import { submitContactInquiry } from '../../services/contact'
 import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const contactDetails = [
@@ -64,8 +63,6 @@ function validate(values) {
 export default function ContactPage() {
   const [values, setValues] = useState(initialForm)
   const [errors, setErrors] = useState({})
-  const [submitError, setSubmitError] = useState('')
-  const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
   function handleFieldFocus() {
@@ -96,43 +93,19 @@ export default function ContactPage() {
     pageUrl: 'https://www.0nprint.com/contact',
   })
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault()
-    setSubmitError('')
     const nextErrors = validate(values)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length === 0) {
-      setSubmitting(true)
-      try {
-        await submitContactInquiry({
-          name: values.name.trim(),
-          email: values.email.trim() || 'inquiry@0nprint.com',
-          phone: values.phone.trim() || null,
-          subject: values.product || 'Direct Studio Inquiry',
-          product: values.product || 'Direct Studio Inquiry',
-          quantity: values.quantity.trim() || null,
-          deliveryLocation: values.deliveryLocation.trim() || null,
-          message: values.message.trim(),
-        })
-        trackContactFormSubmit({
-          source_page: '/contact',
-          product_name: values.product,
-          button_location: 'contact_form_submit_button',
-          form_name: 'contact_us_form',
-        })
-        setSubmitted(true)
-
-        // Attempt to open WhatsApp in a new tab without navigating away from the confirmation screen
-        openWhatsAppDirectly(dynamicWhatsAppUrl, { allowSameTabFallback: true })
-      } catch (err) {
-        console.error('Failed to submit contact inquiry:', err)
-        setSubmitError(
-          err?.response?.data?.message ||
-            'Could not submit online right now. You can click "Get Quote on WhatsApp" below to send your details immediately.'
-        )
-      } finally {
-        setSubmitting(false)
-      }
+      trackContactFormSubmit({
+        source_page: '/contact',
+        product_name: values.product,
+        button_location: 'contact_form_whatsapp',
+        form_name: 'contact_us_form',
+      })
+      openWhatsAppDirectly(dynamicWhatsAppUrl, { allowSameTabFallback: true })
+      setSubmitted(true)
     }
   }
 
@@ -140,8 +113,8 @@ export default function ContactPage() {
     return (
       <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
         <SEOHead
-          title="Inquiry Received | Contact ONPRINT Dubai"
-          description="Thank you for contacting ONPRINT Dubai. Our print specialists will respond to your project request promptly."
+          title="WhatsApp Inquiry Ready | Contact ONPRINT Dubai"
+          description="Your contact details are ready in a WhatsApp message. Review and send it to contact ONPRINT."
           canonicalPath="/contact"
           noindex
         />
@@ -149,19 +122,19 @@ export default function ContactPage() {
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <h1 className="font-display mt-6 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
-          Message Received Successfully.
+          WhatsApp Message Prepared.
         </h1>
         <p className="mt-4 max-w-md text-base text-secondary">
-          Thank you, {values.name.split(' ')[0]} — our print specialists have logged your inquiry for{' '}
-          <strong>{values.product}</strong> and will respond within 2 hours.
+          Thank you, {values.name.split(' ')[0]}. Your inquiry for <strong>{values.product}</strong> has not been sent yet.
+          Review the prefilled WhatsApp message and tap Send to contact our press team.
         </p>
 
         <div className="mt-6 w-full max-w-md rounded-2xl bg-emerald-500/10 border border-emerald-500/40 p-4 text-center space-y-2">
           <p className="text-xs font-black uppercase tracking-wider text-emerald-700">
-            📱 Instant WhatsApp Quotation
+            📱             Send Your WhatsApp Inquiry
           </p>
           <p className="text-xs text-emerald-800 leading-relaxed font-medium">
-            Your inquiry details ({values.product}, Qty: {values.quantity || 'Custom'}) are pre-filled and ready. Click below to open WhatsApp directly:
+            Your inquiry details ({values.product}, Qty: {values.quantity || 'Custom'}) are prefilled. Tap below, then send the message in WhatsApp:
           </p>
           <a
             href={dynamicWhatsAppUrl}
@@ -279,14 +252,8 @@ export default function ContactPage() {
               <span>Quick Quotation &amp; WhatsApp Inquiry Form</span>
             </div>
             <p className="text-xs text-secondary mb-6">
-              Fill in your product and specifications below to open a pre-filled WhatsApp message or submit your inquiry online.
+              Fill in your product and specifications below. Continue to WhatsApp to review and send your inquiry.
             </p>
-
-            {submitError && (
-              <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-3.5 text-xs font-semibold text-red-800">
-                {submitError}
-              </div>
-            )}
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
@@ -437,16 +404,9 @@ export default function ContactPage() {
                 type="submit"
                 variant="accent"
                 size="lg"
-                disabled={submitting}
                 className="w-full justify-center sm:w-auto font-bold"
               >
-                {submitting ? (
-                  <span className="flex items-center gap-2">
-                    <RefreshCw className="h-4 w-4 animate-spin" /> Submitting...
-                  </span>
-                ) : (
-                  'Submit Inquiry Online'
-                )}
+                Continue to WhatsApp
               </Button>
             </div>
           </form>

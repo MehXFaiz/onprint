@@ -14,7 +14,6 @@ import { getProductImage, getProductCategoriesWithImages, getAllProductCategoryI
 import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackProductInquiryClick, trackWhatsAppClick, trackContactFormStart } from '../../utils/analytics'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getServiceWhatsAppUrl, getProductInquiryButtonLabel } from '../../utils/whatsapp'
-import ProductReviewsSection from '../../components/ProductReviewsSection'
 
 const CARD_FALLBACK_SIZES = [
   { label: 'EU Standard (85 × 55 mm)', priceModifier: 0 },
@@ -1370,9 +1369,6 @@ export default function ProductDetailPage() {
             </Link>
           </div>
         </div>
-
-        {/* Customer Reviews & Ratings with Schema.org AggregateRating */}
-        <ProductReviewsSection product={product} categorySlug={product.category?.slug} />
 
         {/* Product FAQs */}
         <div className="mt-16 rounded-2xl border border-border bg-surface p-8 shadow-xs sm:p-12">

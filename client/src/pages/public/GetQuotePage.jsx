@@ -23,12 +23,10 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import QuickQuoteWhatsAppForm from '../../components/QuickQuoteWhatsAppForm'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
-import { createQuote } from '../../services/quotes'
-import { uploadArtwork } from '../../services/uploadService'
-import { trackQuoteRequest, trackArtworkUpload, trackWhatsAppClick } from '../../utils/analytics'
+import { trackQuoteRequest, trackWhatsAppClick } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, WHATSAPP_PHONE } from '../../utils/whatsapp'
 
-const steps = ['What You Need', 'Project Details', 'Artwork Upload', 'Contact Details', 'Review & Submit']
+const steps = ['What You Need', 'Project Details', 'Artwork for WhatsApp', 'Contact Details', 'Review & Send']
 
 const FINISH_OPTIONS = [
   { id: 'gold-foil', label: '24K Hot Stamped Gold Foil' },
@@ -138,14 +136,9 @@ export default function GetQuotePage() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [artworkFiles, setArtworkFiles] = useState([])
-  const [uploadedArtworkUrls, setUploadedArtworkUrls] = useState([])
-  const [uploadProgress, setUploadProgress] = useState(0)
-  const [isUploading, setIsUploading] = useState(false)
   const [prefillNote, setPrefillNote] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [submittedOrder, setSubmittedOrder] = useState(null)
-  const [submitting, setSubmitting] = useState(false)
-  const [submissionError, setSubmissionError] = useState(null)
 
   useEffect(() => {
     getCategories().then(setCategories).catch(() => setCategories([]))
@@ -205,7 +198,7 @@ export default function GetQuotePage() {
     setErrors((prev) => (prev.product ? { ...prev, product: undefined } : prev))
   }
 
-  async function handleFileChange(event) {
+  function handleFileChange(event) {
     const selected = Array.from(event.target.files || [])
     if (selected.length === 0) return
 
@@ -244,28 +237,11 @@ export default function GetQuotePage() {
 
     if (valid.length > 0) {
       setArtworkFiles((prev) => [...prev, ...valid])
-      trackArtworkUpload({ file_count: valid.length, source_page: 'get_quote_wizard' })
-
-      // Auto-upload to private artwork endpoint with progress
-      setIsUploading(true)
-      setUploadProgress(10)
-      try {
-        const res = await uploadArtwork(valid, (percent) => setUploadProgress(percent))
-        if (res?.urls) {
-          setUploadedArtworkUrls((prev) => [...prev, ...res.urls])
-        }
-      } catch (err) {
-        console.warn('Artwork upload warning:', err.message)
-      } finally {
-        setIsUploading(false)
-        setUploadProgress(100)
-      }
     }
   }
 
   function removeFile(index) {
     setArtworkFiles((prev) => prev.filter((_, i) => i !== index))
-    setUploadedArtworkUrls((prev) => prev.filter((_, i) => i !== index))
   }
 
   function validateStep(current) {
@@ -305,10 +281,7 @@ export default function GetQuotePage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  async function handleSubmit() {
-    if (submitting) return
-    setSubmitting(true)
-
+  function handleSubmit() {
     const specsArray = []
     if (form.size) specsArray.push(`Size: ${form.size}`)
     if (form.material) specsArray.push(`Material: ${form.material}`)
@@ -325,12 +298,15 @@ export default function GetQuotePage() {
     }
 
     const artworkNames = artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : null
-    const artworkList = uploadedArtworkUrls.length > 0 ? uploadedArtworkUrls : (artworkNames ? [artworkNames] : [])
-
     const randomSeq = Math.floor(100000 + Math.random() * 900000)
     const quoteRef = `ONP-Q-${randomSeq}`
+    const noteLines = [
+      form.notes.trim(),
+      form.largeFileLink ? `Artwork link: ${form.largeFileLink}` : '',
+      artworkNames ? `Artwork selected: ${artworkNames}. Please attach the files in WhatsApp; they have not been uploaded.` : '',
+    ].filter(Boolean)
 
-    const fallbackQuote = {
+    const quoteDraft = {
       quoteNumber: quoteRef,
       orderNumber: quoteRef,
       name: form.name.trim(),
@@ -348,68 +324,35 @@ export default function GetQuotePage() {
       deliveryLocation: form.deliveryLocation,
       notes: form.notes.trim() || null,
       artworkFile: artworkNames,
-      artworkFiles: artworkList,
+      artworkFiles: artworkNames ? [artworkNames] : [],
     }
 
-    try {
-      const newQuote = await createQuote(fallbackQuote)
+    trackQuoteRequest({
+      source_page: 'get_quote_wizard',
+      product_name: form.product || undefined,
+      category_name: form.product || undefined,
+    })
+    setSubmittedOrder(quoteDraft)
+    setSubmitted(true)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 
-      trackQuoteRequest({
-        source_page: 'get_quote_wizard',
-        product_name: form.product || undefined,
-        category_name: form.product || undefined,
-      })
-
-      setSubmittedOrder(newQuote || fallbackQuote)
-      setSubmitted(true)
-      setSubmissionError(null)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-
-      // Dispatch to WhatsApp
-      openWhatsAppDirectly(
-        {
-          title: 'NEW COMMERCIAL PRINT QUOTATION REQUEST',
-          refNumber: quoteRef,
-          name: form.name.trim(),
-          phone: form.phone.trim(),
-          email: form.email.trim(),
-          company: form.company.trim() || 'Individual Client',
-          product: form.product.trim() || 'Custom Print Job',
-          quantity: qty,
-          specs,
-          price: totalPrice,
-          notes: form.notes.trim() || (form.largeFileLink ? `Artwork Link: ${form.largeFileLink}` : 'None'),
-          pageUrl: 'https://www.0nprint.com/get-a-quote',
-        },
-        { allowSameTabFallback: true }
-      )
-    } catch (err) {
-      console.warn('Quote creation notice:', err)
-      setSubmissionError('Your specifications are saved locally. Connect directly with our pressroom on WhatsApp below.')
-      setSubmittedOrder(fallbackQuote)
-      setSubmitted(true)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-
-      openWhatsAppDirectly(
-        {
-          title: 'NEW COMMERCIAL PRINT QUOTATION REQUEST',
-          refNumber: quoteRef,
-          name: form.name.trim(),
-          phone: form.phone.trim(),
-          email: form.email.trim(),
-          company: form.company.trim() || 'Individual Client',
-          product: form.product.trim() || 'Custom Print Job',
-          quantity: qty,
-          specs,
-          price: totalPrice,
-          notes: form.notes.trim() || (form.largeFileLink ? `Artwork Link: ${form.largeFileLink}` : 'None'),
-          pageUrl: 'https://www.0nprint.com/get-a-quote',
-        },
-        { allowSameTabFallback: true }
-      )
-    } finally {
-      setSubmitting(false)
-    }
+    openWhatsAppDirectly(
+      {
+        title: 'NEW COMMERCIAL PRINT QUOTATION REQUEST',
+        refNumber: quoteRef,
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim(),
+        company: form.company.trim() || 'Individual Client',
+        product: form.product.trim() || 'Custom Print Job',
+        quantity: qty,
+        specs,
+        price: totalPrice,
+        notes: noteLines.join('\n') || 'None',
+        pageUrl: 'https://www.0nprint.com/get-a-quote',
+      },
+      { allowSameTabFallback: true }
+    )
   }
 
   if (submitted) {
@@ -435,28 +378,23 @@ export default function GetQuotePage() {
           <CheckCircle2 className="h-9 w-9" />
         </div>
         <span className="mt-4 rounded-full bg-[#F5F0E7] border border-[#DED2C1] px-3 py-1 text-xs font-black uppercase tracking-wider text-[#795C43]">
-          Quotation Submitted &bull; Reference #{quoteNum}
+          WhatsApp Message Prepared &bull; Reference #{quoteNum}
         </span>
         <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#352719] sm:text-4xl">
-          Quote Request Received!
+          Your Quote Request is Ready
         </h1>
         <p className="mt-3 max-w-lg text-sm text-[#756657] leading-relaxed">
-          Thank you, <strong className="text-[#352719]">{form.name}</strong>. Our prepress estimator in Al Quoz, Dubai has received your specifications for <strong className="text-[#352719]">{prodName}</strong>. A formal proposal will be dispatched to <strong className="text-[#352719]">{form.email}</strong>.
+          Thank you, <strong className="text-[#352719]">{form.name}</strong>. Your message for <strong className="text-[#352719]">{prodName}</strong> is ready in WhatsApp. Review and send it there; the request has not been sent or stored yet.
         </p>
 
         {/* WhatsApp Card */}
         <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-500/10 border border-emerald-500/30 p-5 text-center space-y-3 shadow-xs">
-          {submissionError && (
-            <div className="rounded-xl border border-amber-500/30 bg-amber-500/15 p-2.5 text-xs text-amber-800 text-left">
-              <strong>Notice:</strong> {submissionError}
-            </div>
-          )}
           <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-700">
             <WhatsAppIcon className="h-4 w-4 fill-emerald-400" />
             <span>Express WhatsApp Priority Channel</span>
           </div>
           <p className="text-xs text-emerald-800 leading-relaxed">
-            Need urgent same-day turnaround or custom material consultation? Chat directly with our senior pressman on WhatsApp quoting reference <code className="font-bold text-[#795C43] font-mono bg-[#F5F0E7] px-1.5 py-0.5 rounded border border-[#DED2C1]">{quoteNum}</code>.
+            Review the prefilled details and send them to our pressroom on WhatsApp. Quote reference <code className="font-bold text-[#795C43] font-mono bg-[#F5F0E7] px-1.5 py-0.5 rounded border border-[#DED2C1]">{quoteNum}</code> is generated only for this message.
           </p>
           <a
             href={directWhatsAppUrl}
@@ -465,7 +403,7 @@ export default function GetQuotePage() {
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 sm:px-6 py-3.5 text-xs font-black text-white shadow-md shadow-emerald-600/30 transition-all hover:scale-[1.02] cursor-pointer w-full text-center"
           >
             <WhatsAppIcon className="h-4.5 w-4.5 fill-white shrink-0" />
-            <span className="truncate">Chat on WhatsApp Now (Ref: {quoteNum})</span>
+            <span className="truncate">Review and Send on WhatsApp (Ref: {quoteNum})</span>
           </a>
         </div>
 
@@ -500,8 +438,8 @@ export default function GetQuotePage() {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Button to={`/track-order?order=${quoteNum}`} variant="accent" icon={false}>
-            Track Production Status
+          <Button to={`/track-order?ref=${quoteNum}`} variant="accent" icon={false}>
+            Ask About Status on WhatsApp
           </Button>
           <Button to="/" variant="outline" icon={false}>
             Back to Storefront
@@ -779,16 +717,16 @@ export default function GetQuotePage() {
             </div>
           )}
 
-          {/* Step 3: Artwork Upload with Validation */}
+          {/* Step 3: Artwork Selection */}
           {step === 3 && (
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#795C43] mb-2">
                 <Upload className="h-4 w-4" />
                 <span>Step 3 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-[#352719]">3. Upload Customer Artwork</h2>
+              <h2 className="font-display text-xl font-bold text-[#352719]">3. Select Customer Artwork</h2>
               <p className="mt-1 text-xs text-[#756657]">
-                Support for all industry-standard vector and prepress file formats up to 50MB. (Optional)
+                Choose supported artwork files up to 50MB. Files are not uploaded and must be attached in WhatsApp. (Optional)
               </p>
 
               {prefillNote && <p className="mt-3 text-xs font-bold text-[#795C43]">{prefillNote}</p>}
@@ -801,7 +739,7 @@ export default function GetQuotePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FAF8F3] text-[#795C43] border border-[#DED2C1]">
                   <Upload className="h-6 w-6" />
                 </div>
-                <span className="text-sm font-bold text-[#352719]">Choose Artwork Files or Drag &amp; Drop</span>
+                <span className="text-sm font-bold text-[#352719]">Choose Artwork Files</span>
                 <span className="text-xs text-[#756657]">
                   Allowed formats: <strong>PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP</strong> (Max 50MB per file)
                 </span>
@@ -822,27 +760,11 @@ export default function GetQuotePage() {
                 </div>
               )}
 
-              {/* Upload Progress Bar */}
-              {isUploading && (
-                <div className="mt-4 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3">
-                  <div className="flex justify-between text-xs font-semibold text-[#352719] mb-1.5">
-                    <span>Uploading artwork files...</span>
-                    <span>{uploadProgress}%</span>
-                  </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
-                    <div
-                      className="h-full bg-[#795C43] transition-all duration-300"
-                      style={{ width: `${uploadProgress}%` }}
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Attached Files List */}
+              {/* Selected Files List */}
               {artworkFiles.length > 0 && (
                 <div className="mt-6 space-y-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#756657] block">
-                    Attached Files ({artworkFiles.length})
+                    Selected Files ({artworkFiles.length}) — attach these in WhatsApp
                   </span>
                   <ul className="space-y-2">
                     {artworkFiles.map((file, index) => (
@@ -970,7 +892,7 @@ export default function GetQuotePage() {
               </div>
               <h2 className="font-display text-2xl font-bold text-[#352719]">5. Review Your Request</h2>
               <p className="mt-1 text-xs text-[#756657]">
-                Please verify your project parameters before generating your official quotation ticket.
+                Please verify your project details before preparing a WhatsApp quote request.
               </p>
 
               <dl className="mt-6 divide-y divide-slate-100 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] shadow-2xs">
@@ -982,7 +904,7 @@ export default function GetQuotePage() {
                   ['Finishes', form.finishes.length > 0 ? form.finishes.join(', ') : 'Standard Finishing'],
                   ['Turnaround', form.deliveryUrgency],
                   ['Destination', form.deliveryLocation],
-                  ['Artwork Uploaded', artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : (form.largeFileLink ? `Cloud Link: ${form.largeFileLink}` : 'None provided')],
+                  ['Artwork Selected', artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : (form.largeFileLink ? `Cloud Link: ${form.largeFileLink}` : 'None provided')],
                   ['Customer Name', form.name],
                   ['Work Email', form.email],
                   ['Contact Phone', form.phone],
@@ -1057,10 +979,9 @@ export default function GetQuotePage() {
                 variant="accent"
                 size="lg"
                 icon={false}
-                disabled={submitting || isUploading}
                 className="justify-center font-bold"
               >
-                {submitting ? 'Generating Official Quote...' : 'Confirm & Request Formal Quote'}
+                Prepare WhatsApp Quote Request
               </Button>
             )}
           </div>

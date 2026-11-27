@@ -231,6 +231,8 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   const detailLines = []
   const customerName = details.customerName || details.name
   if (customerName) detailLines.push(`• Customer Name: ${customerName}`)
+  const customerPhone = details.phone || details.customerPhone
+  if (customerPhone) detailLines.push(`• Phone / WhatsApp: ${customerPhone}`)
   if (prodName) detailLines.push(`• Product: ${prodName}`)
   if (details.quantity) detailLines.push(`• Quantity: ${details.quantity} units`)
   const sizeVal = details.size || details.dimensions

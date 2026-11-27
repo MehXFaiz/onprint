@@ -110,9 +110,10 @@ async function testConnection() {
 
 async function initDatabase() {
   try {
-    await connectDB()
+    const conn = await connectDB()
+    if (!conn) return false
 
-    // Ensure default Admin user
+    // Ensure default Admin user (only if not already present)
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
@@ -133,12 +134,12 @@ async function initDatabase() {
       console.log(`[Database] Seeded Admin User in MongoDB Atlas: ${adminEmail}`)
     }
 
-    // 1. Ensure all 19 categories are synced into MongoDB Atlas with clean local images (no trae.ai URLs)
+    // 1. Seed missing categories into MongoDB Atlas without overwriting existing records ($setOnInsert)
     for (const c of initialCategories) {
       await Category.updateOne(
         { slug: c.slug },
         {
-          $set: {
+          $setOnInsert: {
             id: c.id,
             category_key: c._id || `cat-${c.slug}`,
             name: c.name,
@@ -161,13 +162,13 @@ async function initDatabase() {
       )
     }
 
-    // 2. Ensure all 111 products have collision-free unique IDs, correct category_id, embedded category, and verified image arrays
+    // 2. Seed missing products into MongoDB Atlas without overwriting existing records ($setOnInsert)
     for (const p of initialProducts) {
       const cleanImgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : [p.image]
       await Product.updateOne(
         { slug: p.slug },
         {
-          $set: {
+          $setOnInsert: {
             id: p.id,
             product_key: p.product_key || `prod-${p.id}`,
             category_id: p.category_id,

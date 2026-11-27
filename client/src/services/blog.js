@@ -1,9 +1,6 @@
-import api from './api'
 import { DEFAULT_BLOG_GUIDES } from '../data/defaultBlogGuides'
 
 export { DEFAULT_BLOG_GUIDES }
-
-const BLOGS_STORAGE_KEY = 'onprint_admin_blogs_v2'
 
 /**
  * Prioritized Editorial Drafts Created for Admin Review Before Publication (Section 5)
@@ -132,49 +129,16 @@ export const DEFAULT_EDITORIAL_DRAFTS = [
 ]
 
 export function getStoredBlogs() {
-  const baseList = [
+  return [
     ...DEFAULT_BLOG_GUIDES.map((b) => ({ ...b, status: b.status || 'published', seoReviewStatus: b.seoReviewStatus || 'approved' })),
     ...DEFAULT_EDITORIAL_DRAFTS,
   ]
-  if (typeof window === 'undefined') return baseList
-  try {
-    const raw = localStorage.getItem(BLOGS_STORAGE_KEY)
-    if (raw) {
-      const parsed = JSON.parse(raw)
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        const existingSlugs = new Set(parsed.map((b) => b.slug))
-        const missing = baseList.filter((b) => !existingSlugs.has(b.slug))
-        return missing.length > 0 ? [...parsed, ...missing] : parsed
-      }
-    }
-  } catch {
-    // ignore
-  }
-  return baseList
-}
-
-export function saveStoredBlogs(blogs) {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.setItem(BLOGS_STORAGE_KEY, JSON.stringify(blogs))
-  } catch {
-    // ignore
-  }
 }
 
 /**
  * Fetch public published blog posts with pagination, search, and category/product filters
  */
 export async function getPublicBlogs(params = {}) {
-  try {
-    const { data } = await api.get('/blogs', { params })
-    if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
-      return data
-    }
-  } catch {
-    // Fallback if API server is offline or database empty
-  }
-
   let filtered = getStoredBlogs().filter((b) => b.status !== 'draft')
   if (params.category && params.category !== 'All') {
     filtered = filtered.filter((b) => (b.category || '').toLowerCase().includes(params.category.toLowerCase()))
@@ -200,15 +164,6 @@ export async function getPublicBlogs(params = {}) {
  * Fetch a single blog post by slug (includes related blogs, related product, and category)
  */
 export async function getPublicBlogBySlug(slug) {
-  try {
-    const { data } = await api.get(`/blogs/${slug}`)
-    if (data?.data) {
-      return data.data
-    }
-  } catch {
-    // Fallback if API server is offline
-  }
-
   const allPublished = getStoredBlogs().filter((b) => b.status !== 'draft')
   const found = allPublished.find((b) => b.slug === slug)
   if (found) {
@@ -220,220 +175,3 @@ export async function getPublicBlogBySlug(slug) {
   return null
 }
 
-/**
- * Fetch a single blog post for Admin by ID or slug
- */
-export async function getAdminBlogById(id) {
-  try {
-    const { data } = await api.get(`/blogs/${id}`)
-    if (data?.data) return data.data
-  } catch {
-    // fallback to local stored blogs
-  }
-  return getStoredBlogs().find((b) => String(b.id || b._id) === String(id) || b.slug === id) || null
-}
-
-/**
- * Fetch all blogs for Admin dashboard with statistics and filters
- */
-export async function getAdminBlogs(params = {}) {
-  try {
-    const { data } = await api.get('/blogs/admin', { params })
-    if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
-      return data
-    }
-  } catch {
-    // fallback to local stored blogs
-  }
-  let all = getStoredBlogs()
-  if (params.status && params.status !== 'all') {
-    all = all.filter((b) => (b.status || 'published') === params.status)
-  }
-  return {
-    success: true,
-    data: all,
-    pagination: { page: 1, limit: 100, total: all.length, totalPages: 1 },
-  }
-}
-
-/**
- * Fetch blog dashboard KPI statistics
- */
-export async function getBlogStats() {
-  try {
-    const { data } = await api.get('/blogs/stats')
-    if (data?.data) return data.data
-  } catch {
-    // fallback
-  }
-  const all = getStoredBlogs()
-  return {
-    total: all.length,
-    published: all.filter((b) => b.status !== 'draft').length,
-    drafts: all.filter((b) => b.status === 'draft').length,
-  }
-}
-
-/**
- * Create a new blog post (Admin)
- */
-export async function createBlog(payload) {
-  const all = getStoredBlogs()
-  const newPost = {
-    id: Date.now(),
-    status: payload.status || 'draft',
-    seoReviewStatus: payload.seoReviewStatus || 'needs_review',
-    published_at: payload.status === 'published' ? new Date().toISOString() : null,
-    ...payload,
-  }
-  saveStoredBlogs([newPost, ...all])
-  try {
-    const { data } = await api.post('/blogs', payload)
-    return data
-  } catch {
-    return { success: true, data: newPost }
-  }
-}
-
-/**
- * Update an existing blog post (Admin)
- */
-export async function updateBlog(id, payload) {
-  const all = getStoredBlogs()
-  const updated = all.map((b) => (String(b.id || b._id) === String(id) || b.slug === id ? { ...b, ...payload } : b))
-  saveStoredBlogs(updated)
-  try {
-    const { data } = await api.put(`/blogs/${id}`, payload)
-    return data
-  } catch {
-    return { success: true, data: { id, ...payload } }
-  }
-}
-
-/**
- * Delete a single blog post (Admin)
- */
-export async function deleteBlog(id) {
-  const all = getStoredBlogs()
-  saveStoredBlogs(all.filter((b) => String(b.id || b._id) !== String(id) && b.slug !== id))
-  try {
-    const { data } = await api.delete(`/blogs/${id}`)
-    return data
-  } catch {
-    return { success: true }
-  }
-}
-
-/**
- * Bulk delete blog posts (Admin)
- */
-export async function bulkDeleteBlogs(blogIds) {
-  const idSet = new Set((blogIds || []).map(String))
-  const all = getStoredBlogs()
-  saveStoredBlogs(all.filter((b) => !idSet.has(String(b.id || b._id))))
-  try {
-    const { data } = await api.post('/blogs/bulk-delete', { blogIds })
-    return data
-  } catch {
-    return { success: true }
-  }
-}
-
-/**
- * Publish blog (Admin)
- */
-export async function publishBlog(id) {
-  const all = getStoredBlogs()
-  saveStoredBlogs(
-    all.map((b) =>
-      String(b.id || b._id) === String(id) || b.slug === id
-        ? { ...b, status: 'published', seoReviewStatus: 'approved', published_at: new Date().toISOString() }
-        : b
-    )
-  )
-  try {
-    const { data } = await api.patch(`/blogs/${id}/publish`)
-    return data
-  } catch {
-    return { success: true }
-  }
-}
-
-/**
- * Unpublish blog / Save as Draft (Admin)
- */
-export async function unpublishBlog(id) {
-  const all = getStoredBlogs()
-  saveStoredBlogs(
-    all.map((b) => (String(b.id || b._id) === String(id) || b.slug === id ? { ...b, status: 'draft' } : b))
-  )
-  try {
-    const { data } = await api.patch(`/blogs/${id}/unpublish`)
-    return data
-  } catch {
-    return { success: true }
-  }
-}
-
-/**
- * Toggle featured state (Admin)
- */
-export async function toggleFeaturedBlog(id) {
-  const { data } = await api.patch(`/blogs/${id}/featured`)
-  return data
-}
-
-/**
- * AI Content and SEO Generator (Admin)
- */
-export async function generateBlogContent(payload) {
-  const { data } = await api.post('/blogs/generate-content', payload)
-  return data?.data
-}
-
-/**
- * AI Image Generator & Matcher (Admin)
- */
-export async function generateBlogImage(payload) {
-  const { data } = await api.post('/blogs/generate-image', payload)
-  return data?.data
-}
-
-/**
- * AI-powered Blog SEO Generator (Admin)
- * Generates meta title, meta description, focus keyword, secondary keywords,
- * slug, canonical, og tags, structured data, and FAQs.
- */
-export async function generateBlogSeo(payload, id = null) {
-  const url = id ? `/blogs/${id}/generate-seo` : '/blogs/generate-seo'
-  const { data } = await api.post(url, payload)
-  return data?.data || data
-}
-
-/**
- * Real-time Blog SEO Analysis (Admin)
- * Evaluates 16 on-page & technical factors and returns 0-100 score + checklist + recommendations.
- */
-export async function analyzeBlogSeo(payload, id = null) {
-  const url = id ? `/blogs/${id}/analyze-seo` : '/blogs/analyze-seo'
-  const { data } = await api.post(url, payload)
-  return data?.data || data
-}
-
-/**
- * Fetch Blog SEO Dashboard Metrics & Opportunities (Admin)
- */
-export async function getBlogSeoMetrics() {
-  const { data } = await api.get('/blogs/seo-metrics')
-  return data?.data || data
-}
-
-// Backwards-compatible aliases
-export const getBlogPosts = async (params = {}) => {
-  const res = await getPublicBlogs(params)
-  return res?.data || []
-}
-export const getBlogPostBySlug = getPublicBlogBySlug
-export const createBlogPost = createBlog
-export const updateBlogPost = updateBlog
-export const deleteBlogPost = deleteBlog

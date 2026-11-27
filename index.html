@@ -187,12 +187,19 @@
           document.head.appendChild(s);
         }
         if (typeof window !== 'undefined') {
-          if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(loadAdSense, { timeout: 3500 });
+          // Wait for the load event so adsbygoogle.js never competes with the app bundle
+          // for the first render, then use idle time to fetch it.
+          var startAdSense = function() {
+            if ('requestIdleCallback' in window) {
+              window.requestIdleCallback(loadAdSense, { timeout: 2500 });
+            } else {
+              setTimeout(loadAdSense, 1200);
+            }
+          };
+          if (document.readyState === 'complete') {
+            startAdSense();
           } else {
-            window.addEventListener('load', function() {
-              setTimeout(loadAdSense, 1000);
-            });
+            window.addEventListener('load', startAdSense, { once: true });
           }
         }
       })();

@@ -1,6 +1,6 @@
 import React from 'react'
-import logoIconImg from '../assets/logo_icon.png'
-import logoIconLightImg from '../assets/logo_icon_light.png'
+import logoIconImg from '../assets/logo_icon.webp'
+import logoIconLightImg from '../assets/logo_icon_light.webp'
 
 export default function Logo({
   className = '',

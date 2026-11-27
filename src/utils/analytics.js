@@ -124,12 +124,32 @@ export function initGA(measurementId) {
     anonymize_ip: true,
   })
 
-  // 2. Inject official Google tag (gtag.js)
-  const script = document.createElement('script')
-  script.id = 'onprint-ga4-script'
-  script.async = true
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${cleanId}`
-  document.head.appendChild(script)
+  // 2. Inject official Google tag (gtag.js) once the page has finished loading.
+  // gtag.js is ~196 KiB and costs seconds of main-thread scripting on mobile, so it must
+  // not compete with the app bundle for the initial render. Events pushed to dataLayer
+  // before the script arrives are queued and replayed by gtag.
+  const loadGtagScript = () => {
+    if (document.getElementById('onprint-ga4-script')) return
+    const script = document.createElement('script')
+    script.id = 'onprint-ga4-script'
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${cleanId}`
+    document.head.appendChild(script)
+  }
+
+  const scheduleGtag = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadGtagScript, { timeout: 3000 })
+    } else {
+      setTimeout(loadGtagScript, 800)
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    scheduleGtag()
+  } else {
+    window.addEventListener('load', scheduleGtag, { once: true })
+  }
 
   isInitialized = true
 }

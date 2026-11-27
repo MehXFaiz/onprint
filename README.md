@@ -49,3 +49,14 @@ Values prefixed with `VITE_` are exposed to the browser. Do not put credentials 
 ## Deployment
 
 Deploy the Vite build output (`dist/`) as a static site. The included Vercel configuration builds the application and serves client-side routes through `index.html`. The `public/` directory contains static site metadata and assets.
+
+### Hostinger (Node.js hosting)
+
+Hostinger's Node.js hosting runs an entry file, so `server.js` serves the built `dist/` directory and falls back to `index.html` for client-side routes. Configure the application in hPanel as follows:
+
+- Node version: `22` (from `.nvmrc`; must be at least `20.19.0` to satisfy the `engines` field and the Vite/React toolchain)
+- Install command: `npm install`
+- Build command: `npm run build`
+- Start command / entry file: `node server.js` (`server.js`, port from `PORT`)
+
+Static hosting works too: upload the contents of `dist/` instead of running `server.js`.

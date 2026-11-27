@@ -1,27 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "services": {
-    "app": {
-      "root": ".",
-      "framework": "express",
-      "entrypoint": "server.js",
-      "bindings": [
-        {
-          "type": "service",
-          "service": "client",
-          "format": "url",
-          "env": "CLIENT_SERVICE_URL"
-        }
-      ]
-    },
-    "client": {
-      "root": "client",
-      "framework": "vite"
-    }
-  },
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(assets|uploads)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -30,16 +14,7 @@
       ]
     },
     {
-      "source": "/",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/((?!api|assets|uploads).*)",
+      "source": "/index.html",
       "headers": [
         {
           "key": "Cache-Control",
@@ -50,40 +25,8 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": {
-        "service": "app"
-      }
-    },
-    {
-      "source": "/uploads/(.*)",
-      "destination": {
-        "service": "app"
-      }
-    },
-    {
-      "source": "/(robots\\.txt|sitemap\\.xml|llms\\.txt|ads\\.txt)",
-      "destination": {
-        "service": "app"
-      }
-    },
-    {
-      "source": "/(health|healthz|ping)",
-      "destination": {
-        "service": "app"
-      }
-    },
-    {
-      "source": "/(assets/.*|.*\\.(?:js|css|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|json|xml|txt))",
-      "destination": {
-        "service": "client"
-      }
-    },
-    {
-      "source": "/(.*)",
-      "destination": {
-        "service": "app"
-      }
+      "source": "/((?!assets/|uploads/|.*\\.).*)",
+      "destination": "/index.html"
     }
   ]
 }

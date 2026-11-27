@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- Core Brand & PWA Theming -->
+    <meta name="theme-color" content="#F5F0E7" />
+    <meta name="msapplication-TileColor" content="#F5F0E7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ONPRINT Dubai" />
+
+    <!-- Instant Pre-Hydration Navy Canvas Guarantee (Prevents White Startup Flash) -->
+    <style>
+      html, body, #root {
+        background-color: #F5F0E7 !important;
+        color: #352719 !important;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        width: 100%;
+      }
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #F5F0E7 !important;
+      }
+    </style>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Resource Hints & DNS Prefetches for Core Web Vitals (FCP, LCP, INP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+
+    <!-- Preload Critical LCP Hero Image for Instant Mobile & Desktop Paint -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/products/luxury_business_cards_dubai_mobile.webp"
+      type="image/webp"
+      media="(max-width: 640px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/products/luxury_business_cards_dubai.webp"
+      type="image/webp"
+      media="(min-width: 641px)"
+      fetchpriority="high"
+    />
+
+    <!-- Non-Render-Blocking Google Fonts (Optimized Weights) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Printing Company in Dubai | ONPRINT – Commercial &amp; Luxury Printing UAE</title>
+    <meta name="title" content="Printing Company in Dubai | ONPRINT – Commercial &amp; Luxury Printing UAE" />
+    <meta name="description" content="ONPRINT is Dubai's leading commercial pressroom in Al Quoz. Precision digital &amp; Heidelberg offset printing, 600 GSM business cards, corporate stationery, brochures, stickers, and corporate gifts with same-day UAE delivery." />
+    <meta name="keywords" content="printing company dubai, printing services dubai, business card printing dubai, luxury business cards dubai, corporate stationery printing dubai, brochure printing dubai, sticker printing dubai, offset printing dubai, digital printing press uae, corporate gifts dubai, same day printing dubai" />
+    <meta name="author" content="ONPRINT Dubai" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    <!-- Canonical & Alternate Hreflang Tags -->
+    <link rel="canonical" href="https://www.0nprint.com/" />
+    <link rel="alternate" hreflang="en-ae" href="https://www.0nprint.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.0nprint.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.0nprint.com/" />
+
+    <!-- Local SEO & Geo Coordinates (Al Quoz, Dubai) -->
+    <meta name="geo.region" content="AE-DU" />
+    <meta name="geo.placename" content="Dubai" />
+    <meta name="geo.position" content="25.1328;55.2348" />
+    <meta name="ICBM" content="25.1328, 55.2348" />
+    <meta name="coverage" content="United Arab Emirates" />
+    <meta name="distribution" content="Global" />
+    <meta name="target" content="all" />
+
+    <!-- Open Graph / Facebook Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ONPRINT" />
+    <meta property="og:title" content="Printing Company in Dubai | ONPRINT – Commercial &amp; Luxury Printing UAE" />
+    <meta property="og:description" content="Dubai's leading in-house commercial pressroom in Al Quoz. Calibrated Heidelberg color accuracy, 600 GSM luxury business cards, corporate stationery, and marketing collaterals." />
+    <meta property="og:image" content="https://www.0nprint.com/logo_icon.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ONPRINT Printing Dubai" />
+    <meta property="og:url" content="https://www.0nprint.com/" />
+    <meta property="og:locale" content="en_AE" />
+
+    <!-- Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@0nprint" />
+    <meta name="twitter:creator" content="@0nprint" />
+    <meta name="twitter:title" content="Printing Company in Dubai | ONPRINT" />
+    <meta name="twitter:description" content="Precision Heidelberg offset &amp; digital printing, 600 GSM business cards, brochures, stickers &amp; corporate merchandise in Al Quoz, Dubai." />
+    <meta name="twitter:image" content="https://www.0nprint.com/logo_icon.png" />
+
+    <!-- Static Structured Data: LocalBusiness & Organization Schema (Instant Crawler Discovery) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.0nprint.com/#organization",
+      "name": "ONPRINT",
+      "alternateName": "0nprint Dubai",
+      "legalName": "ONPRINT Printing & Branding Solutions",
+      "url": "https://www.0nprint.com",
+      "logo": "https://www.0nprint.com/logo_icon.png",
+      "image": "https://www.0nprint.com/logo_icon.png",
+      "description": "Commercial printing and branding service based in Dubai, UAE. Specializing in luxury business cards, executive stationery, company stamps & seals, custom stickers, brochures, flyers, banners, and corporate merchandise with UAE-wide delivery.",
+      "email": "0nprint183@gmail.com",
+      "telephone": "+44 7344546056",
+      "priceRange": "$",
+      "currenciesAccepted": "AED",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer, Apple Pay",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "addressCountry": "AE"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:30",
+          "closes": "18:30"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44 7344546056",
+          "contactType": "customer service",
+          "areaServed": "AE",
+          "availableLanguage": ["English", "Arabic", "Urdu"]
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Dubai" },
+        { "@type": "City", "name": "Abu Dhabi" },
+        { "@type": "City", "name": "Sharjah" },
+        { "@type": "City", "name": "Ajman" },
+        { "@type": "Country", "name": "United Arab Emirates" }
+      ]
+    }
+    </script>
+
+    <!-- Google AdSense (Deferred for Main-Thread Optimization & Core Web Vitals) -->
+    <meta name="google-adsense-account" content="ca-pub-2412757543318629" />
+    <script>
+      (function() {
+        function loadAdSense() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412757543318629";
+          s.crossOrigin = "anonymous";
+          document.head.appendChild(s);
+        }
+        if (typeof window !== 'undefined') {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadAdSense, { timeout: 3500 });
+          } else {
+            window.addEventListener('load', function() {
+              setTimeout(loadAdSense, 1000);
+            });
+          }
+        }
+      })();
+    </script>
+
+    <script>
+      // Polyfill ES2021/ES2022 helpers for older iOS Safari & Android WebViews
+      if (!Object.hasOwn) { Object.hasOwn = function (o, p) { return Object.prototype.hasOwnProperty.call(o, p); }; }
+      if (!Array.prototype.at) { Array.prototype.at = function (n) { n = Math.trunc(n) || 0; if (n < 0) n += this.length; return n < 0 || n >= this.length ? undefined : this[n]; }; }
+      if (!String.prototype.replaceAll) { String.prototype.replaceAll = function (s, r) { return Object.prototype.toString.call(s).toLowerCase() === '[object regexp]' ? this.replace(s, r) : this.split(s).join(r); }; }
+      if (typeof caches !== 'undefined' && caches.keys) { caches.keys().then(function (k) { for (var i = 0; i < k.length; i++) caches.delete(k[i]); }).catch(function () {}); }
+      window.addEventListener('error', function (e) { var t = e && e.target; if (t && t.tagName === 'SCRIPT' && t.src && t.src.indexOf('/assets/') !== -1 && window.location.search.indexOf('_cb=') === -1) { var sep = window.location.search ? '&' : '?'; window.location.replace(window.location.pathname + window.location.search + sep + '_cb=' + Date.now()); } }, true);
+      // Clean up any stale service workers or caches from preview environments
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (var i = 0; i < registrations.length; i++) {
+            registrations[i].unregister();
+          }
+        });
+      }
+    </script>
+  </head>
+  <body class="antialiased" style="background-color: #F5F0E7; color: #352719; margin: 0;">
+    <div id="root" style="background-color: #F5F0E7; color: #352719; min-height: 100vh;">
+      <!-- Semantic Static Fallback for Search Crawlers & Pre-Hydration Accessibility -->
+      <header style="padding: 24px; border-bottom: 1px solid rgba(212,175,101,0.2); max-width: 1200px; margin: 0 auto; width: 100%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <a href="/" style="color: #795C43; font-size: 24px; font-weight: bold; text-decoration: none; font-family: serif;">ONPRINT Dubai</a>
+          <nav style="display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px;">
+            <a href="/business-card-printing-dubai" style="color: #352719; font-weight: 500; text-decoration: none;">Business Cards</a>
+            <a href="/categories/stamps-printing-dubai" style="color: #352719; font-weight: 500; text-decoration: none;">Stamps &amp; Seals</a>
+            <a href="/sticker-printing-dubai" style="color: #352719; font-weight: 500; text-decoration: none;">Stickers &amp; Labels</a>
+            <a href="/flyer-printing-dubai" style="color: #352719; font-weight: 500; text-decoration: none;">Flyers &amp; Brochures</a>
+            <a href="/large-format-printing-dubai" style="color: #352719; font-weight: 500; text-decoration: none;">Roll-Up Banners</a>
+            <a href="/categories/drinkware-and-mugs" style="color: #352719; font-weight: 500; text-decoration: none;">Drinkware &amp; Mugs</a>
+            <a href="/products" style="color: #352719; font-weight: 500; text-decoration: none;">All 122 Products</a>
+            <a href="/blog" style="color: #352719; font-weight: 500; text-decoration: none;">Printing Guides</a>
+            <a href="https://wa.me/447344546056" style="color: #795C43; font-weight: 600; text-decoration: none;">WhatsApp Quote (+447344546056)</a>
+            <a href="/ar" style="color: #795C43; font-weight: bold; text-decoration: none;">عربي</a>
+          </nav>
+        </div>
+      </header>
+
+      <main style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; width: 100%;">
+        <h1 style="font-size: 32px; color: #352719; font-family: serif; margin-bottom: 16px; line-height: 1.2;">
+          Commercial Printing &amp; Corporate Branding Services in Dubai, UAE
+        </h1>
+        <p style="font-size: 16px; line-height: 1.6; color: #5C4938; margin-bottom: 32px; max-width: 800px;">
+          ONPRINT is Dubai’s precision commercial press specializing in corporate stationery, luxury business cards, official company stamps, die-cut stickers, commercial flyers, brochures, rigid packaging, and promotional merchandise. Fast turnaround and direct delivery across Dubai, Abu Dhabi, Sharjah, and all UAE emirates.
+        </p>
+
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+          <article style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.25); border-radius: 8px; padding: 20px;">
+            <h2 style="font-size: 20px; color: #795C43; margin-top: 0;"><a href="/business-card-printing-dubai" style="color: inherit; text-decoration: none;">Business Card Printing Dubai</a></h2>
+            <p style="font-size: 14px; color: #5C4938; line-height: 1.5;">Premium 350-600 GSM cards, soft-touch velvet lamination, raised gold foil stamping, spot UV, embossed finishes, NFC smart cards, and same-day rush printing in Dubai.</p>
+          </article>
+
+          <article style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.25); border-radius: 8px; padding: 20px;">
+            <h2 style="font-size: 20px; color: #795C43; margin-top: 0;"><a href="/categories/stamps-printing-dubai" style="color: inherit; text-decoration: none;">Company Stamps &amp; Official Seals</a></h2>
+            <p style="font-size: 14px; color: #5C4938; line-height: 1.5;">Self-inking round company stamps, rectangular address stamps, date stamps, VAT/TRN compliance seals, and Trodat/Colop hardware for UAE trade licenses.</p>
+          </article>
+
+          <article style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.25); border-radius: 8px; padding: 20px;">
+            <h2 style="font-size: 20px; color: #795C43; margin-top: 0;"><a href="/sticker-printing-dubai" style="color: inherit; text-decoration: none;">Custom Stickers &amp; Waterproof Labels</a></h2>
+            <p style="font-size: 14px; color: #5C4938; line-height: 1.5;">Die-cut vinyl stickers, waterproof BOPP packaging roll labels, metallic foil labels, clear transparent labels, UV DTF 3D transfers, and jar labels.</p>
+          </article>
+
+          <article style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.25); border-radius: 8px; padding: 20px;">
+            <h2 style="font-size: 20px; color: #795C43; margin-top: 0;"><a href="/flyer-printing-dubai" style="color: inherit; text-decoration: none;">Commercial Flyers &amp; Brochures</a></h2>
+            <p style="font-size: 14px; color: #5C4938; line-height: 1.5;">A4/A5 promotional leaflets, bi-fold &amp; tri-fold corporate brochures, event catalogs, and saddle-stitched booklets on 130-350 GSM silk and gloss art paper.</p>
+          </article>
+
+          <article style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.25); border-radius: 8px; padding: 20px;">
+            <h2 style="font-size: 20px; color: #795C43; margin-top: 0;"><a href="/large-format-printing-dubai" style="color: inherit; text-decoration: none;">Roll-Up Banners &amp; Signage</a></h2>
+            <p style="font-size: 14px; color: #5C4938; line-height: 1.5;">Retractable pull-up banner stands (85x200cm), exhibition display backdrops, pop-up media walls, and vibrant large-format prints near DWTC Dubai.</p>
+          </article>
+
+          <article style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.25); border-radius: 8px; padding: 20px;">
+            <h2 style="font-size: 20px; color: #795C43; margin-top: 0;"><a href="/categories/drinkware-and-mugs" style="color: inherit; text-decoration: none;">Corporate Drinkware &amp; Gifts</a></h2>
+            <p style="font-size: 14px; color: #5C4938; line-height: 1.5;">Custom engraved water bottles, insulated stainless steel flasks, ceramic mugs, corporate notebooks, lanyards, and branded employee onboarding kits.</p>
+          </article>
+        </section>
+
+        <!-- Complete 19-Category & Commercial Hub Directory for Search Engine & AI Crawlers -->
+        <section style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.2); border-radius: 8px; padding: 24px; margin-bottom: 32px;">
+          <h2 style="font-size: 20px; color: #795C43; margin-top: 0;">Complete ONPRINT Dubai Product Categories &amp; Commercial Hubs</h2>
+          <p style="font-size: 14px; color: #5C4938; line-height: 1.5; margin-bottom: 16px;">
+            Explore all 19 canonical product categories and commercial printing hubs with instant WhatsApp quotations (<a href="https://wa.me/447344546056" style="color: #795C43;">+447344546056</a>):
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; line-height: 1.8;">
+            <a href="/categories/business-cards-printing" style="color: #352719; font-weight: 500;">Business Cards</a> •
+            <a href="/categories/stickers-labels-printing" style="color: #352719; font-weight: 500;">Stickers &amp; Labels</a> •
+            <a href="/categories/stamps-printing-dubai" style="color: #352719; font-weight: 500;">Company Stamps &amp; Seals</a> •
+            <a href="/categories/flyers-brochures-printing" style="color: #352719; font-weight: 500;">Flyers &amp; Brochures</a> •
+            <a href="/categories/banners-displays-printing" style="color: #352719; font-weight: 500;">Banners &amp; Displays</a> •
+            <a href="/categories/drinkware-and-mugs" style="color: #352719; font-weight: 500;">Drinkware &amp; Mugs</a> •
+            <a href="/categories/pens-and-writing" style="color: #352719; font-weight: 500;">Pens &amp; Writing</a> •
+            <a href="/categories/notebooks-and-notepads" style="color: #352719; font-weight: 500;">Notebooks &amp; Notepads</a> •
+            <a href="/categories/bags-and-totes" style="color: #352719; font-weight: 500;">Bags &amp; Totes</a> •
+            <a href="/categories/custom-apparel" style="color: #352719; font-weight: 500;">Custom Apparel &amp; Uniforms</a> •
+            <a href="/categories/lanyards-and-id-cards" style="color: #352719; font-weight: 500;">Lanyards &amp; ID Cards</a> •
+            <a href="/categories/tech-accessories" style="color: #352719; font-weight: 500;">Tech Accessories &amp; USBs</a> •
+            <a href="/categories/awards-and-trophies" style="color: #352719; font-weight: 500;">Awards &amp; Trophies</a> •
+            <a href="/categories/keychains-and-badges" style="color: #352719; font-weight: 500;">Keychains &amp; Badges</a> •
+            <a href="/categories/calendars-and-diaries" style="color: #352719; font-weight: 500;">Calendars &amp; Diaries</a> •
+            <a href="/categories/umbrellas-and-outdoor" style="color: #352719; font-weight: 500;">Umbrellas &amp; Outdoor</a> •
+            <a href="/categories/executive-gift-sets" style="color: #352719; font-weight: 500;">Executive Gift Sets</a> •
+            <a href="/categories/eco-friendly-gifts" style="color: #352719; font-weight: 500;">Eco-Friendly Gifts</a> •
+            <a href="/categories/packaging-and-ribbons" style="color: #352719; font-weight: 500;">Packaging &amp; Ribbons</a> •
+            <a href="/services/luxury-packaging-custom-boxes" style="color: #795C43;">Packaging Printing Dubai</a> •
+            <a href="/label-printing-dubai" style="color: #795C43;">Label Printing Dubai</a> •
+            <a href="/brochure-printing-dubai" style="color: #795C43;">Brochure Printing Dubai</a> •
+            <a href="/corporate-printing-dubai" style="color: #795C43;">Corporate Printing Dubai</a> •
+            <a href="/promotional-printing-dubai" style="color: #795C43;">Promotional Gifts Dubai</a> •
+            <a href="/signage-printing-dubai" style="color: #795C43;">Signage Printing Dubai</a>
+          </div>
+        </section>
+
+        <!-- Arabic Language Portal Preview for Search Crawlers -->
+        <section style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.3); border-radius: 8px; padding: 24px; margin-bottom: 32px;" dir="rtl">
+          <h2 style="font-size: 20px; color: #795C43; margin-top: 0; font-family: serif;">
+            خدمات الطباعة التجارية والفاخرة باللغة العربية في دبي (ONPRINT Arabic Portal)
+          </h2>
+          <p style="font-size: 14px; color: #5C4938; line-height: 1.6; margin-bottom: 16px;">
+            نوفر لعملائنا في دولة الإمارات العربية المتحدة خدمات طباعة متكاملة باللغة العربية مع دعم فني مباشر عبر واتساب:
+          </p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px;">
+            <a href="/ar/business-cards" style="color: #795C43; font-weight: bold; text-decoration: none;">• طباعة كروت شخصية دبي</a>
+            <a href="/ar/sticker-printing-dubai" style="color: #795C43; font-weight: bold; text-decoration: none;">• طباعة ستيكرات وملصقات مخصصة</a>
+            <a href="/ar/stamps" style="color: #795C43; font-weight: bold; text-decoration: none;">• أختام الشركات الرسمية المعتمدة</a>
+            <a href="/ar/printing-services" style="color: #795C43; font-weight: bold; text-decoration: none;">• خدمات الطباعة التجارية والبروشورات</a>
+            <a href="/ar" style="color: #352719; font-weight: bold; text-decoration: underline;">• البوابة العربية الكاملة</a>
+          </div>
+        </section>
+
+        <section style="background: #FAF8F3; border: 1px solid rgba(212,175,101,0.2); border-radius: 8px; padding: 24px; margin-bottom: 32px;">
+          <h2 style="font-size: 20px; color: #795C43; margin-top: 0;">Dubai &amp; UAE Commercial Delivery Coverage</h2>
+          <p style="font-size: 14px; color: #5C4938; line-height: 1.6; margin-bottom: 12px;">
+            We provide delivery across all Dubai districts including Business Bay, Downtown Dubai, DIFC, Dubai Media City, Al Quoz, Dubai Marina, JLT, Deira, and Bur Dubai, as well as rapid courier dispatch to Abu Dhabi, Sharjah, and all other Emirates.
+          </p>
+          <p style="font-size: 14px; color: #5C4938;">
+            Official WhatsApp Sales &amp; Inquiries: <a href="https://wa.me/447344546056" style="color: #795C43; font-weight: bold; text-decoration: none;">+44 7344546056</a> | Email: <a href="mailto:0nprint183@gmail.com" style="color: #795C43; text-decoration: none;">0nprint183@gmail.com</a>
+          </p>
+        </section>
+      </main>
+
+      <footer style="padding: 24px; border-top: 1px solid rgba(212,175,101,0.2); text-align: center; font-size: 13px; color: #5C4938;">
+        &copy; 2026 ONPRINT Dubai. All rights reserved. Commercial Printing &amp; Branding Solutions.
+      </footer>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

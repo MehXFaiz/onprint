@@ -1,0 +1,278 @@
+import { lazy as reactLazy, Suspense } from 'react'
+
+function lazy(factory) {
+  return reactLazy(() =>
+    factory().catch((err) => {
+      return new Promise((resolve) => setTimeout(resolve, 400))
+        .then(() => factory())
+        .catch(() => {
+          try {
+            if (!sessionStorage.getItem('onprint_lazy_reload')) {
+              sessionStorage.setItem('onprint_lazy_reload', '1')
+              window.location.reload()
+            }
+          } catch {
+            // Ignore storage restrictions
+          }
+          throw err
+        })
+    })
+  )
+}
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
+import PublicLayout from './layouts/PublicLayout'
+import GoogleAnalytics from './components/GoogleAnalytics'
+
+import HomePage from './pages/public/HomePage'
+
+// Lazy load secondary public pages for optimal initial bundle size and fastest FCP
+const AboutPage = lazy(() => import('./pages/public/AboutPage'))
+const ServicesPage = lazy(() => import('./pages/public/ServicesPage'))
+const ServiceDetailPage = lazy(() => import('./pages/public/ServiceDetailPage'))
+const CategoriesPage = lazy(() => import('./pages/public/CategoriesPage'))
+const CategoryDetailPage = lazy(() => import('./pages/public/CategoryDetailPage'))
+const ProductsPage = lazy(() => import('./pages/public/ProductsPage'))
+const ProductDetailPage = lazy(() => import('./pages/public/ProductDetailPage'))
+const BlogPage = lazy(() => import('./pages/public/BlogPage'))
+const BlogPostPage = lazy(() => import('./pages/public/BlogPostPage'))
+const PortfolioPage = lazy(() => import('./pages/public/PortfolioPage'))
+const ContactPage = lazy(() => import('./pages/public/ContactPage'))
+const GetQuotePage = lazy(() => import('./pages/public/GetQuotePage'))
+const CorporateQuotePage = lazy(() => import('./pages/public/CorporateQuotePage'))
+const FinishingShowcasePage = lazy(() => import('./pages/public/FinishingShowcasePage'))
+const TrackOrderPage = lazy(() => import('./pages/public/TrackOrderPage'))
+
+const FaqPage = lazy(() => import('./pages/public/FaqPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
+const TermsPage = lazy(() => import('./pages/public/TermsPage'))
+const ProgrammaticLandingPage = lazy(() => import('./pages/public/ProgrammaticLandingPage'))
+const CommercialLandingPage = lazy(() => import('./pages/public/CommercialLandingPage'))
+const BusinessCardLandingPage = lazy(() => import('./pages/public/BusinessCardLandingPage'))
+const StickersLeadPage = lazy(() => import('./pages/public/StickersLeadPage'))
+const MugsLeadPage = lazy(() => import('./pages/public/MugsLeadPage'))
+const BottlesLeadPage = lazy(() => import('./pages/public/BottlesLeadPage'))
+const RollupBannersLeadPage = lazy(() => import('./pages/public/RollupBannersLeadPage'))
+const LocationLandingPage = lazy(() => import('./pages/public/LocationLandingPage'))
+const StampsLandingPage = lazy(() => import('./pages/public/StampsLandingPage'))
+const StickersLandingPage = lazy(() => import('./pages/public/StickersLandingPage'))
+const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
+const ArabicHomePage = lazy(() => import('./pages/public/ArabicHomePage'))
+const ArabicBusinessCardsPage = lazy(() => import('./pages/public/ArabicBusinessCardsPage'))
+const ArabicStickersPage = lazy(() => import('./pages/public/ArabicStickersPage'))
+const ArabicStampsPage = lazy(() => import('./pages/public/ArabicStampsPage'))
+const ArabicPrintingServicesPage = lazy(() => import('./pages/public/ArabicPrintingServicesPage'))
+
+
+function CategoryRouteRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={`/categories/${slug}`} replace />
+}
+
+function ProductRouteRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={`/products/${slug}`} replace />
+}
+
+function SuspenseFallback() {
+  return (
+    <div className="flex min-h-[60vh] w-full items-center justify-center bg-[#F5F0E7]">
+      <div className="h-9 w-9 animate-spin rounded-full border-2 border-[#DED2C1] border-t-[#795C43]" />
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <GoogleAnalytics />
+      <Suspense fallback={<SuspenseFallback />}>
+        <Routes>
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<HomePage />} />
+
+            {/* Official Bilingual Arabic Portal & High-Intent Landing Pages */}
+            <Route path="/ar" element={<ArabicHomePage />} />
+            <Route path="/ar/business-cards" element={<ArabicBusinessCardsPage />} />
+            <Route path="/ar/business-card-printing-dubai" element={<ArabicBusinessCardsPage />} />
+            <Route path="/ar/stickers" element={<ArabicStickersPage />} />
+            <Route path="/ar/sticker-printing-dubai" element={<ArabicStickersPage />} />
+            <Route path="/ar/stickers-labels-printing" element={<ArabicStickersPage />} />
+            <Route path="/ar/stamps" element={<ArabicStampsPage />} />
+            <Route path="/ar/custom-stamps-seals" element={<ArabicStampsPage />} />
+            <Route path="/ar/printing-services" element={<ArabicPrintingServicesPage />} />
+
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/printing-services/:slug" element={<ProgrammaticLandingPage />} />
+            <Route path="/printing-solutions/:slug" element={<ProgrammaticLandingPage />} />
+
+            {/* 16 Dedicated Business Card Topical Cluster Landing Pages */}
+            <Route path="/business-card-printing-dubai" element={<BusinessCardLandingPage pageKey="business-card-printing-dubai" />} />
+            <Route path="/business-card-printing-uae" element={<BusinessCardLandingPage pageKey="business-card-printing-uae" />} />
+            <Route path="/visiting-card-printing-dubai" element={<BusinessCardLandingPage pageKey="visiting-card-printing-dubai" />} />
+            <Route path="/custom-business-cards-dubai" element={<BusinessCardLandingPage pageKey="custom-business-cards-dubai" />} />
+            <Route path="/premium-business-cards" element={<BusinessCardLandingPage pageKey="premium-business-cards" />} />
+            <Route path="/premium-business-cards-uae" element={<BusinessCardLandingPage pageKey="premium-business-cards-uae" />} />
+            <Route path="/matte-business-cards" element={<BusinessCardLandingPage pageKey="matte-business-cards" />} />
+            <Route path="/bulk-business-cards" element={<BusinessCardLandingPage pageKey="bulk-business-cards" />} />
+            <Route path="/luxury-business-cards" element={<BusinessCardLandingPage pageKey="luxury-business-cards" />} />
+            <Route path="/foil-business-cards" element={<BusinessCardLandingPage pageKey="foil-business-cards" />} />
+            <Route path="/spot-uv-business-cards" element={<BusinessCardLandingPage pageKey="spot-uv-business-cards" />} />
+            <Route path="/velvet-business-cards" element={<BusinessCardLandingPage pageKey="velvet-business-cards" />} />
+            <Route path="/soft-touch-business-cards" element={<BusinessCardLandingPage pageKey="soft-touch-business-cards" />} />
+            <Route path="/embossed-business-cards" element={<BusinessCardLandingPage pageKey="embossed-business-cards" />} />
+            <Route path="/corporate-business-cards" element={<BusinessCardLandingPage pageKey="corporate-business-cards" />} />
+            <Route path="/business-card-design" element={<BusinessCardLandingPage pageKey="business-card-design" />} />
+            <Route path="/same-day-business-card-printing" element={<BusinessCardLandingPage pageKey="same-day-business-card-printing" />} />
+            <Route path="/business-card-printing-abu-dhabi" element={<BusinessCardLandingPage pageKey="business-card-printing-abu-dhabi" />} />
+            <Route path="/business-card-printing-sharjah" element={<BusinessCardLandingPage pageKey="business-card-printing-sharjah" />} />
+            <Route path="/business-card-printing-ajman" element={<BusinessCardLandingPage pageKey="business-card-printing-ajman" />} />
+
+            {/* Core Commercial SEO Landing Pages */}
+            <Route path="/printing-services-dubai" element={<CommercialLandingPage pageKey="printing-services-dubai" />} />
+            <Route path="/printing-services-abu-dhabi" element={<LocationLandingPage locationKey="abu-dhabi" />} />
+            <Route path="/printing-services-sharjah" element={<LocationLandingPage locationKey="sharjah" />} />
+            <Route path="/printing-services-ajman" element={<LocationLandingPage locationKey="ajman" />} />
+            <Route path="/printing-services-ras-al-khaimah" element={<LocationLandingPage locationKey="ras-al-khaimah" />} />
+            <Route path="/brochure-printing-dubai" element={<CommercialLandingPage pageKey="brochure-printing-dubai" />} />
+            <Route path="/flyer-printing-dubai" element={<CommercialLandingPage pageKey="flyer-printing-dubai" />} />
+            {/* Packaging Routes Redirected to Canonical Packaging Service */}
+            <Route path="/packaging-printing-dubai" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/custom-packaging-dubai" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/custom-packaging" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/packaging-printing" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/sticker-printing-dubai" element={<StickersLandingPage />} />
+            <Route path="/label-printing-dubai" element={<CommercialLandingPage pageKey="label-printing-dubai" />} />
+            <Route path="/waterproof-stickers-dubai" element={<CommercialLandingPage pageKey="waterproof-stickers-dubai" />} />
+            <Route path="/die-cut-stickers-dubai" element={<CommercialLandingPage pageKey="die-cut-stickers-dubai" />} />
+            <Route path="/product-label-printing-dubai" element={<CommercialLandingPage pageKey="product-label-printing-dubai" />} />
+            <Route path="/packaging-stickers-dubai" element={<CommercialLandingPage pageKey="packaging-stickers-dubai" />} />
+            <Route path="/signage-printing-dubai" element={<CommercialLandingPage pageKey="signage-printing-dubai" />} />
+            <Route path="/large-format-printing-dubai" element={<CommercialLandingPage pageKey="large-format-printing-dubai" />} />
+            <Route path="/corporate-printing-dubai" element={<CommercialLandingPage pageKey="corporate-printing-dubai" />} />
+            <Route path="/promotional-printing-dubai" element={<CommercialLandingPage pageKey="promotional-printing-dubai" />} />
+            <Route path="/bottle-printing-dubai" element={<CommercialLandingPage pageKey="bottle-printing-dubai" />} />
+
+            {/* Commercial Landing Page Aliases & Redirects */}
+            <Route path="/business-card-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/luxury-business-cards-dubai" element={<Navigate to="/luxury-business-cards" replace />} />
+            <Route path="/visiting-cards-dubai" element={<Navigate to="/visiting-card-printing-dubai" replace />} />
+            <Route path="/foil-business-cards-dubai" element={<Navigate to="/foil-business-cards" replace />} />
+            <Route path="/spot-uv-business-cards-dubai" element={<Navigate to="/spot-uv-business-cards" replace />} />
+            <Route path="/embossed-business-cards-dubai" element={<Navigate to="/embossed-business-cards" replace />} />
+            <Route path="/matte-business-cards-dubai" element={<Navigate to="/matte-business-cards" replace />} />
+            <Route path="/bulk-business-card-printing-dubai" element={<Navigate to="/bulk-business-cards" replace />} />
+            <Route path="/bulk-business-cards-dubai" element={<Navigate to="/bulk-business-cards" replace />} />
+            <Route path="/business-cards" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/business-cards/premium-business-cards" element={<Navigate to="/premium-business-cards" replace />} />
+            <Route path="/business-cards/foil-business-cards" element={<Navigate to="/foil-business-cards" replace />} />
+            <Route path="/business-cards/matte-business-cards" element={<Navigate to="/matte-business-cards" replace />} />
+            <Route path="/business-cards/corporate-business-cards" element={<Navigate to="/corporate-business-cards" replace />} />
+            <Route path="/business-cards/bulk-business-cards" element={<Navigate to="/bulk-business-cards" replace />} />
+            <Route path="/business-cards/luxury-business-cards" element={<Navigate to="/luxury-business-cards" replace />} />
+            <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
+            <Route path="/flyer-printing" element={<Navigate to="/flyer-printing-dubai" replace />} />
+            <Route path="/flyers-printing" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/flyers" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/flyer-and-leaflet-printing" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/flyers-and-leaflets" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/stickers" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/stickers-labels-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/quote/stickers" element={<StickersLeadPage />} />
+            <Route path="/custom-stickers-dubai" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            {/* Direct Sticker Category Mapping */}
+            <Route path="/stickers/custom-stickers" element={<Navigate to="/products/die-cut-stickers" replace />} />
+            <Route path="/stickers/logo-stickers" element={<Navigate to="/products/custom-logo-stickers" replace />} />
+            <Route path="/stickers/product-labels" element={<Navigate to="/products/custom-roll-labels" replace />} />
+            <Route path="/stickers/packaging-stickers" element={<Navigate to="/products/round-packaging-stickers" replace />} />
+            <Route path="/stickers/vinyl-stickers" element={<Navigate to="/products/waterproof-vinyl-stickers" replace />} />
+            <Route path="/stickers/die-cut-stickers" element={<Navigate to="/products/die-cut-stickers" replace />} />
+            <Route path="/stickers/waterproof-stickers" element={<Navigate to="/products/waterproof-vinyl-stickers" replace />} />
+            <Route path="/stickers/transparent-stickers" element={<Navigate to="/products/clear-transparent-stickers" replace />} />
+            <Route path="/stickers/bulk-stickers" element={<Navigate to="/products/bulk-sticker-printing" replace />} />
+            <Route path="/label-printing" element={<Navigate to="/label-printing-dubai" replace />} />
+            <Route path="/rollup-banners" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/roll-up-banners" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/rollup-banner-printing-dubai" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/roll-up-banner-printing-dubai" element={<Navigate to="/services/rollup-banners" replace />} />
+            {/* Dedicated Stamp Products Section & Aliases */}
+            <Route path="/rubber-stamps-dubai" element={<StampsLandingPage />} />
+            <Route path="/services/stamps-printing-dubai" element={<StampsLandingPage />} />
+            <Route path="/services/stamps" element={<Navigate to="/categories/stamps-printing-dubai" replace />} />
+            <Route path="/services/custom-stamps" element={<Navigate to="/categories/stamps-printing-dubai" replace />} />
+            <Route path="/services/brochures-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
+            <Route path="/categories/brochures-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
+            <Route path="/categories/custom-stamps-seals" element={<StampsLandingPage />} />
+            <Route path="/categories/stamps-printing-dubai" element={<StampsLandingPage />} />
+            <Route path="/stamps" element={<StampsLandingPage />} />
+            <Route path="/custom-stamps" element={<StampsLandingPage />} />
+            <Route path="/company-stamps-dubai" element={<StampsLandingPage />} />
+            <Route path="/stamp-maker-dubai" element={<StampsLandingPage />} />
+            <Route path="/custom-stamp-printing-dubai" element={<StampsLandingPage />} />
+            <Route path="/custom-rubber-stamps" element={<StampsLandingPage />} />
+            <Route path="/quote/stamps" element={<StampsLandingPage />} />
+            <Route path="/signage-printing" element={<Navigate to="/signage-printing-dubai" replace />} />
+            <Route path="/large-format-printing" element={<Navigate to="/large-format-printing-dubai" replace />} />
+            <Route path="/corporate-printing" element={<Navigate to="/corporate-printing-dubai" replace />} />
+            <Route path="/promotional-printing" element={<Navigate to="/promotional-printing-dubai" replace />} />
+            <Route path="/bottle-printing" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/water-bottle-printing-dubai" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/custom-bottle-printing-dubai" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/custom-bottles-dubai" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/categories/:slug" element={<CategoryDetailPage />} />
+            <Route path="/category/:slug" element={<CategoryRouteRedirect />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/luxury-packaging-custom-boxes" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/services/business-cards-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/blog/digital-vs-offset-printing-dubai-cost-comparison" element={<Navigate to="/blog/digital-vs-offset-printing-dubai" replace />} />
+            <Route path="/blog/sustainable-fsc-certified-printing-uae-net-zero-2050" element={<Navigate to="/blog/sustainable-fsc-certified-printing-uae" replace />} />
+            <Route path="/blog/corporate-stationery-essentials-new-companies-dubai-difc" element={<Navigate to="/blog/corporate-stationery-essentials-dubai-setup" replace />} />
+            <Route path="/blog/luxury-printing-finishes-gold-foil-vs-spot-uv" element={<Navigate to="/blog/luxury-printing-finishes-gold-foil-spot-uv-embossing" replace />} />
+            <Route path="/blog/synthetic-waterproof-restaurant-menus-dubai" element={<Navigate to="/blog/synthetic-waterproof-menus-dubai-restaurants" replace />} />
+            <Route path="/products/:slug" element={<ProductDetailPage />} />
+            <Route path="/product/:slug" element={<ProductRouteRedirect />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/finishes" element={<FinishingShowcasePage />} />
+            <Route path="/finishing-showcase" element={<Navigate to="/finishes" replace />} />
+            <Route path="/corporate-quotes" element={<CorporateQuotePage />} />
+            <Route path="/bulk-orders" element={<CorporateQuotePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/get-a-quote" element={<GetQuotePage />} />
+            <Route path="/quote" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/get-quote" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/quote-request" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/pricing" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/track-order" element={<TrackOrderPage />} />
+
+            <Route path="/track" element={<Navigate to="/track-order" replace />} />
+            <Route path="/orders/track" element={<Navigate to="/track-order" replace />} />
+            <Route path="/order-tracking" element={<Navigate to="/track-order" replace />} />
+            <Route path="/customer/*" element={<Navigate to="/track-order" replace />} />
+            <Route path="/customer" element={<Navigate to="/track-order" replace />} />
+            <Route path="/account/*" element={<Navigate to="/track-order" replace />} />
+            <Route path="/account" element={<Navigate to="/track-order" replace />} />
+
+            {/* Lead Generation Specialized Aliases */}
+            <Route path="/quote/mugs" element={<MugsLeadPage />} />
+            <Route path="/quote/bottles" element={<BottlesLeadPage />} />
+            <Route path="/quote/water-bottles" element={<Navigate to="/quote/bottles" replace />} />
+            <Route path="/quote/rollup-banners" element={<RollupBannersLeadPage />} />
+
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </>
+  )
+}
+
+export default App

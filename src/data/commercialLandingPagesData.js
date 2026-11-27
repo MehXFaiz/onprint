@@ -1404,4 +1404,4 @@ const COMMERCIAL_LANDING_PAGES = {
     }
   }
 
-module.exports = { COMMERCIAL_LANDING_PAGES };
+export { COMMERCIAL_LANDING_PAGES };

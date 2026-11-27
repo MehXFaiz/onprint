@@ -24,8 +24,8 @@ assert.strictEqual(normalizeWhatsAppNumber('501234567'), '971501234567');
 console.log('  ✓ Phone normalization verified across UK and UAE patterns.\n');
 
 // 2. Scan entire client/src for any hardcoded wrong phone numbers
-console.log('Test 2: Scanning all files in client/src for outdated or mismatched numbers:');
-const clientSrc = path.join(__dirname, '..', 'client', 'src');
+console.log('Test 2: Scanning all files in src for outdated or mismatched numbers:');
+const clientSrc = path.join(__dirname, '..', 'src');
 let foundOldNumber = false;
 
 function scanDir(dir) {
@@ -45,7 +45,7 @@ function scanDir(dir) {
 }
 scanDir(clientSrc);
 assert.strictEqual(foundOldNumber, false, 'No files should contain the outdated 971562947183 number');
-console.log('  ✓ Zero occurrences of outdated phone numbers found in client/src.\n');
+console.log('  ✓ Zero occurrences of outdated phone numbers found in src.\n');
 
 // 3. Scan for suppressed redirect fallbacks
 console.log('Test 3: Scanning for suppressed popup fallbacks ({ allowSameTabFallback: false }):');

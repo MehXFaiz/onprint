@@ -28,7 +28,7 @@ function it(name, fn) {
 // 1. WhatsApp Utilities & Phone Number Verification
 // -----------------------------------------------------------------------------
 console.log('--- 1. WhatsApp Number & Centralized Utility Verification ---')
-const whatsappUtilsPath = path.join(__dirname, '../client/src/utils/whatsapp.js')
+const whatsappUtilsPath = path.join(__dirname, '../src/utils/whatsapp.js')
 const whatsappUtilsCode = fs.readFileSync(whatsappUtilsPath, 'utf8')
 
 // Clean code to isolate ES module in CJS test environment
@@ -146,7 +146,7 @@ it('getServiceWhatsAppUrl routes products to specialized formatters and encodes 
 // 2. Homepage Headline, Supporting Text & CTAs Verification
 // -----------------------------------------------------------------------------
 console.log('\n--- 2. Homepage Hero & Bento Service Card Verification ---')
-const homePagePath = path.join(__dirname, '../client/src/pages/public/HomePage.jsx')
+const homePagePath = path.join(__dirname, '../src/pages/public/HomePage.jsx')
 const homePageCode = fs.readFileSync(homePagePath, 'utf8')
 
 it('Homepage hero contains specified headline', () => {
@@ -182,7 +182,7 @@ it('Homepage category cards have functioning clickable links', () => {
 // 3. QuickQuoteWhatsAppForm & GetQuotePage Verification
 // -----------------------------------------------------------------------------
 console.log('\n--- 3. Quick Quote WhatsApp Form & RFP Redundancy ---')
-const quickQuotePath = path.join(__dirname, '../client/src/components/QuickQuoteWhatsAppForm.jsx')
+const quickQuotePath = path.join(__dirname, '../src/components/QuickQuoteWhatsAppForm.jsx')
 assert(fs.existsSync(quickQuotePath), 'QuickQuoteWhatsAppForm.jsx file does not exist')
 const quickQuoteCode = fs.readFileSync(quickQuotePath, 'utf8')
 
@@ -210,7 +210,7 @@ it('QuickQuoteWhatsAppForm provides fallback direct call and copy message button
   assert(quickQuoteCode.includes('mailto:'), 'Email fallback missing')
 })
 
-const getQuotePagePath = path.join(__dirname, '../client/src/pages/public/GetQuotePage.jsx')
+const getQuotePagePath = path.join(__dirname, '../src/pages/public/GetQuotePage.jsx')
 const getQuotePageCode = fs.readFileSync(getQuotePagePath, 'utf8')
 
 it('GetQuotePage renders QuickQuoteWhatsAppForm by default with non-blocking error handling', () => {
@@ -223,7 +223,7 @@ it('GetQuotePage renders QuickQuoteWhatsAppForm by default with non-blocking err
 // 4. Floating WhatsApp Concierge & Mobile Layout Clearance
 // -----------------------------------------------------------------------------
 console.log('\n--- 4. Floating WhatsApp Concierge & Usability ---')
-const floatingWhatsAppPath = path.join(__dirname, '../client/src/components/FloatingWhatsApp.jsx')
+const floatingWhatsAppPath = path.join(__dirname, '../src/components/FloatingWhatsApp.jsx')
 const floatingWhatsAppCode = fs.readFileSync(floatingWhatsAppPath, 'utf8')
 
 it('Floating WhatsApp button maintains safe mobile clearance above bottom navigation', () => {
@@ -240,7 +240,7 @@ it('Floating WhatsApp includes alternative contact fallbacks', () => {
 // 5. Product Detail Page Dynamic Action Buttons
 // -----------------------------------------------------------------------------
 console.log('\n--- 5. Product Detail Page Dynamic Inquiry CTAs ---')
-const productDetailPagePath = path.join(__dirname, '../client/src/pages/public/ProductDetailPage.jsx')
+const productDetailPagePath = path.join(__dirname, '../src/pages/public/ProductDetailPage.jsx')
 const productDetailPageCode = fs.readFileSync(productDetailPagePath, 'utf8')
 
 it('ProductDetailPage uses dynamic button labels and tracking events', () => {
@@ -252,7 +252,7 @@ it('ProductDetailPage uses dynamic button labels and tracking events', () => {
 // 6. Analytics Events & Privacy (Zero PII)
 // -----------------------------------------------------------------------------
 console.log('\n--- 6. Analytics Telemetry & PII Protection ---')
-const analyticsPath = path.join(__dirname, '../client/src/utils/analytics.js')
+const analyticsPath = path.join(__dirname, '../src/utils/analytics.js')
 const analyticsCode = fs.readFileSync(analyticsPath, 'utf8')
 
 it('All 8 required conversion events are explicitly exported', () => {
@@ -284,7 +284,7 @@ it('Analytics explicitly prohibits PII from telemetry', () => {
 // 7. Router Integrity & Redirections
 // -----------------------------------------------------------------------------
 console.log('\n--- 7. Router Integrity & Redirects ---')
-const appJsxPath = path.join(__dirname, '../client/src/App.jsx')
+const appJsxPath = path.join(__dirname, '../src/App.jsx')
 const appJsxCode = fs.readFileSync(appJsxPath, 'utf8')
 
 it('App.jsx has valid routes for dedicated landing pages and services', () => {
@@ -302,7 +302,7 @@ it('App.jsx has valid routes for dedicated landing pages and services', () => {
 // 8. GEO Content & Pre-Press Guides Verification
 // -----------------------------------------------------------------------------
 console.log('\n--- 8. GEO Content & Pre-Press Guides ---')
-const defaultGuidesPath = path.join(__dirname, '../client/src/data/defaultBlogGuides.js')
+const defaultGuidesPath = path.join(__dirname, '../src/data/defaultBlogGuides.js')
 assert(fs.existsSync(defaultGuidesPath), 'defaultBlogGuides.js does not exist')
 const defaultGuidesCode = fs.readFileSync(defaultGuidesPath, 'utf8')
 
@@ -313,7 +313,7 @@ it('Authoritative pre-press guides are defined for business cards, stickers, and
   assert(defaultGuidesCode.includes('gold-foil-vs-raised-spot-uv-business-cards'), 'Foil vs spot UV guide missing')
 })
 
-const indexHtmlPath = path.join(__dirname, '../client/index.html')
+const indexHtmlPath = path.join(__dirname, '../index.html')
 const indexHtmlCode = fs.readFileSync(indexHtmlPath, 'utf8')
 
 it('Index.html crawlable navigation links directly to canonical /sticker-printing-dubai', () => {

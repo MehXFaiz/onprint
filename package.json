@@ -1,38 +1,30 @@
 {
   "name": "onprint",
-  "version": "1.0.0",
   "private": true,
-  "description": "ONPRINT — Express & React printing-services platform",
-  "main": "server.js",
-  "type": "commonjs",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint src",
+    "preview": "vite preview",
+    "test": "node tests/test_full_whatsapp_lead_system.cjs && node tests/test_whatsapp_ctas.cjs"
+  },
   "engines": {
     "node": ">=20.19.0"
   },
-  "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "seed:admin": "node src/scripts/seedAdmin.js",
-    "postinstall": "node -e \"delete process.env.npm_config_local_prefix; require('child_process').execSync('npm install', { cwd: 'client', stdio: 'inherit' })\"",
-    "dev:client": "npm run dev --prefix client",
-    "dev:all": "concurrently -n CLIENT,SERVER -c blue,green \"npm:dev:client\" \"npm:dev\"",
-    "build": "npm run build --prefix client",
-    "heroku-postbuild": "npm run build"
-  },
   "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "compression": "^1.8.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "helmet": "^7.1.0",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.11.4",
-    "morgan": "^1.12.1",
-    "multer": "^2.5.0",
-    "nodemailer": "^10.1.4"
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.31.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0"
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.75.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.2.0"
   }
 }

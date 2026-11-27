@@ -1,0 +1,2942 @@
+import React, { useState, useRef, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { BUSINESS_CARDS_LANDING_DATA } from '../../data/businessCardsLandingData'
+import {
+  Sparkles,
+  Award,
+  ShieldCheck,
+  Zap,
+  Clock,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  MessageSquare,
+  Layers,
+  Printer,
+  ChevronDown,
+  Upload,
+  FileText,
+  MapPin,
+  Building2,
+  Briefcase,
+  Stethoscope,
+  Scale,
+  UtensilsCrossed,
+  HardHat,
+  Cpu,
+  Star,
+  Check,
+  Compass,
+  Flame,
+  Info,
+  Send,
+  Download,
+  Scissors,
+  Bookmark,
+  Calendar,
+  CreditCard,
+  Crown,
+  Palette,
+  Eye,
+  FileCheck,
+  Mail,
+} from 'lucide-react'
+import Container from '../../components/Container'
+import Button from '../../components/Button'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
+import Reveal from '../../components/Reveal'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { CornerMarks, CmykDots } from '../../components/PrintMarks'
+import {
+  trackGetQuoteClick,
+  trackProductInquiry,
+  trackQuoteRequest,
+  trackWhatsAppClick,
+  trackBusinessCardWhatsAppClick,
+  trackBusinessCardPageView,
+  trackBusinessCardProductView,
+  trackCorporateEnquirySubmit,
+  trackQualifiedLead,
+  trackQuoteFormStart,
+} from '../../utils/analytics'
+import { openWhatsAppDirectly,
+  formatBusinessCardInquiry, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
+import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.webp'
+import softTouchCardImg from '../../assets/products/card-soft-touch.webp'
+import velvetFoilCardImg from '../../assets/products/card-velvet-foil.webp'
+import paintedEdgeCardImg from '../../assets/products/card-painted-edge.webp'
+import brochuresImg from '../../assets/products/brochures.webp'
+import standardSilkImg from '../../assets/products/business-cards/bc_standard_silk.webp'
+import premiumMatteImg from '../../assets/products/business-cards/bc_premium_matte.webp'
+import minimalistImg from '../../assets/products/business-cards/bc_minimalist.webp'
+import basicBusinessCardsImg from '../../assets/products/basic_business_cards.webp'
+import embossedCardImg from '../../assets/products/business-cards/bc_embossed.webp'
+
+// 22 Comprehensive Business Card Options - Basic & Standard Prioritized
+const CARD_VARIATIONS = [
+  {
+    id: 'standard-silk-350',
+    title: 'Standard Business Cards (350 GSM Silk / Matte)',
+    category: 'basic',
+    gsm: '350 GSM',
+    badge: 'Most Popular • Everyday Standard',
+    image: basicBusinessCardsImg,
+    description:
+      'Clean, crisp silk finish visiting cards in Dubai printed on durable 350 GSM silk-coated art card with protective matte or gloss lamination. Ideal for personal name card printing in Dubai, everyday networking, sales teams, and startups.',
+    specs: '350 GSM Art Card • Double-Sided CMYK • Matte or Gloss Finish • Low Minimums',
+    suitableFor: 'Startups, Small Businesses, Sales Reps, Retail Staff, Daily Networking, Trade Fairs',
+    popularFinishes: ['Smooth Matte', 'Protective Gloss', 'Clean Uncoated'],
+  },
+  {
+    id: 'basic-economy-300',
+    title: 'Simple Economy Visiting Cards (300 GSM)',
+    category: 'basic',
+    gsm: '300 GSM',
+    badge: 'Budget Friendly • Fast Turnaround',
+    image: '/assets/products/business-cards/bc_corporate_batches.jpg',
+    description:
+      'Affordable business card printing in Dubai for startups, small businesses, retail staff, and exhibition handouts. Practical 300 GSM cardstock with sharp double-sided typography, vivid colors, and low minimum order quantities.',
+    specs: '300 GSM Cardstock • Full Color CMYK • Fast 24h Turnaround • Low Minimums',
+    suitableFor: 'Exhibitions, Event Handouts, Field Staff, Freelancers, Startup Launches',
+    popularFinishes: ['Single Sided', 'Double Sided', 'Square Cut'],
+  },
+  {
+    id: 'premium-business-cards',
+    title: 'Premium Business Cards (400 GSM Matte)',
+    category: 'basic',
+    gsm: '400 GSM',
+    badge: 'Sturdy Matte • Anti-Curling',
+    image: standardSilkImg,
+    description:
+      'Sturdy 400 GSM premium artboard sealed with dual-sided protective matte coating for crisp typography, deep black contrast, and zero edge curling.',
+    specs: '400 GSM Artboard • Double Matte Sealed • Crisp Die-Trim • Executive Feel',
+    suitableFor: 'Corporate Companies, Real Estate Agencies, Law Offices, Financial Advisors',
+    popularFinishes: ['Matte Coating', 'Crisp Square Cut', 'Rounded Corners'],
+  },
+  {
+    id: 'soft-touch-matte-400',
+    title: 'Soft-Touch Velvet Cards (350–400 GSM)',
+    category: 'basic',
+    gsm: '350–400 GSM',
+    badge: 'Popular Upgrade • Velvet Touch',
+    image: softTouchCardImg,
+    description:
+      'Silky smooth peach-skin texture that completely eliminates glare and resists fingerprints. An affordable tactile upgrade that feels premium in hand without the heavy luxury price tag.',
+    specs: '350–400 GSM Artboard • 30μ Anti-Scuff Velvet • Fingerprint Resistant',
+    suitableFor: 'Corporate Executives, Marketing Agencies, Financial Advisors, Consultants',
+    popularFinishes: ['Velvet Soft-Touch', 'Spot UV 3D', 'Curved Rounded Corners'],
+  },
+  {
+    id: 'luxury-cotton-600',
+    title: 'Luxury 600 GSM Cotton Cards',
+    category: 'luxury',
+    gsm: '600 GSM',
+    badge: 'Executive Flagship',
+    image: luxuryBusinessCardsImg,
+    description:
+      'Triple-ply 100% Italian archival tree-free cotton board with an ultra-soft, pillowy tactile finish. Engineered specifically for deep architectural blind debossing and 24K hot foil stamping.',
+    specs: '600 GSM • Uncoated Archival • Deep Deboss / Foil Ready • FSC Certified',
+    suitableFor: 'Founders, C-Suite Executives, Luxury Real Estate, Private Equity, Law Partners',
+    popularFinishes: ['24K Gold Foil', 'Blind Debossing', 'Painted Gilded Edges'],
+  },
+  {
+    id: 'velvet-foil-card',
+    title: 'Foil Business Cards (24K Gold & Copper)',
+    category: 'finishes',
+    gsm: '450 GSM',
+    badge: 'Best Seller',
+    image: velvetFoilCardImg,
+    description:
+      'Heavyweight 450 GSM artboard laminated with 30-micron velvet soft-touch film and stamped with heated brass dies in reflective Gold, Rose Gold, Champagne, or Silver metallic foil.',
+    specs: '450 GSM • Velvet Soft-Touch Matte • Hot Stamped Foil • Zero Flaking',
+    suitableFor: 'Luxury Boutiques, High-End Agencies, Hospitality Directors, DIFC Corporates',
+    popularFinishes: ['24K Gold Foil', 'Rose Gold Foil', 'Spot Gloss Contrast'],
+  },
+  {
+    id: 'raised-spot-uv-3d',
+    title: 'Spot UV Business Cards (Raised 3D Scodix)',
+    category: 'finishes',
+    gsm: '400 GSM',
+    badge: 'Tactile Contrast',
+    image: embossedCardImg,
+    description:
+      'Features high-build 100-micron clear gloss liquid polymer cured with UV light over a smooth matte or soft-touch velvet background, creating striking dimensional contrast.',
+    specs: '400 GSM • Matte / Velvet Base • 100μ Raised Gloss • Pinpoint Trap',
+    suitableFor: 'Tech Founders, Creative Agencies, Architecture Studios, Medical Specialists',
+    popularFinishes: ['Raised 3D UV', 'Soft-Touch Matte', 'Blind Gloss Pattern'],
+  },
+  {
+    id: 'painted-gilded-edges',
+    title: 'Painted & Gilded Metallic Edge Cards',
+    category: 'luxury',
+    gsm: '700 GSM',
+    badge: '360° Profile',
+    image: paintedEdgeCardImg,
+    description:
+      'Painted edge business cards in the UAE crafted on ultra-thick 700 GSM multi-ply card stacks, hand-beveled with mirror metallic foil (Gold/Silver) or custom Pantone-matched painted borders for a 360-degree profile.',
+    specs: '700 GSM Duplex • Mirror Foil Edges • Pantone Tint • Multilayer Core',
+    suitableFor: 'VIP Club Members, Creative Directors, Luxury Hotel Concierges, High-Net-Worth Brokers',
+    popularFinishes: ['Mirror Gilded Edges', 'Custom Pantone Painted', 'Triplex Multi-Ply'],
+  },
+  {
+    id: 'corporate-business-cards',
+    title: 'Corporate Business Cards (Multi-Employee Batches)',
+    category: 'corporate',
+    gsm: '350–400 GSM',
+    badge: 'Bulk Discount',
+    image: '/assets/products/business-cards/bc_corporate_batches.jpg',
+    description:
+      'Unified brand printing for companies ordering 5 to 500 employee name sets. Color-calibrated to exact brand Pantone standards with centralized re-ordering.',
+    specs: 'Multi-Name Split • Central Brand Asset Management • Volume Tier Pricing',
+    suitableFor: 'Multinational Corporations, Government Entities, Consultancies, Enterprise Teams',
+    popularFinishes: ['Velvet Soft-Touch', 'Spot Gloss Logo', 'Standard Matte'],
+  },
+  {
+    id: 'glossy-business-cards',
+    title: 'Glossy Business Cards (High-Reflectivity)',
+    category: 'corporate',
+    gsm: '350 GSM',
+    badge: 'Vibrant Colors',
+    image: '/assets/products/business-cards/bc_glossy.jpg',
+    description:
+      'Ultra-gloss thermal lamination that enhances photograph color saturation, deep rich tones, and vibrant graphics with durable water and dirt resistance.',
+    specs: '350 GSM Artboard • High-Gloss UV / Thermal Lamination • Photo Saturation',
+    suitableFor: 'Photographers, Event Planners, Nightlife Venues, Visual Artists',
+    popularFinishes: ['Full Gloss Front', 'Uncoated Writable Back'],
+  },
+  {
+    id: 'embossed-business-cards',
+    title: 'Embossed Business Cards (Sculptural Relief)',
+    category: 'finishes',
+    gsm: '450–600 GSM',
+    badge: 'Tactile Relief',
+    image: '/assets/products/business-cards/bc_embossed.jpg',
+    description:
+      'Raised tactile relief created with precision CNC male/female brass dies. Lifts your corporate emblem or monogram outward from the card surface.',
+    specs: 'Multi-Level Emboss • 3D Relief Effect • Compatible with Foil Stamping',
+    suitableFor: 'High-End Fashion Brands, Heritage Companies, Private Banks, Royal Offices',
+    popularFinishes: ['Emboss + Gold Foil', 'Blind Multi-Level Emboss'],
+  },
+  {
+    id: 'debossed-business-cards',
+    title: 'Debossed Business Cards (Deep Impression)',
+    category: 'luxury',
+    gsm: '600 GSM',
+    badge: 'Letterpress Depth',
+    image: '/assets/products/business-cards/bc_debossed.jpg',
+    description:
+      'Heavily pressed letterpress depression stamped deep into thick 600 GSM uncalendered cotton paper, creating dramatic shadows and antique craftsmanship.',
+    specs: 'Deep Letterpress Impression • Archival Italian Cotton • Pillowy Touch',
+    suitableFor: 'Architects, Interior Designers, Boutique Coffee Roasters, Bespoke Tailors',
+    popularFinishes: ['Blind Deboss', 'Deboss with Inked Lettering'],
+  },
+  {
+    id: 'textured-linen-kraft',
+    title: 'Textured Business Cards (Linen & Fedrigoni)',
+    category: 'eco',
+    gsm: '350–400 GSM',
+    badge: 'Eco-Friendly FSC',
+    image: '/assets/products/business-cards/bc_textured_kraft.jpg',
+    description:
+      'Authentic European Fedrigoni textured stocks, cross-hatch fine linen, and tactile hammered laid paper for organic, artisanal, and heritage brands.',
+    specs: '350–400 GSM • Natural Texture • Unbleached Kraft • Vegetable Inks',
+    suitableFor: 'Sustainable Brands, Artisanal Cafes, Eco Consultants, Fashion Designers',
+    popularFinishes: ['Letterpress Deboss', 'White Opaque Ink', 'Kraft Raw Board'],
+  },
+  {
+    id: 'die-cut-business-cards',
+    title: 'Custom Shaped & Die-Cut Business Cards',
+    category: 'specialty',
+    gsm: '400 GSM',
+    badge: 'Custom Silhouette',
+    image: '/assets/products/business-cards/bc_diecut.jpg',
+    description:
+      'Custom shaped business cards in Dubai precision-cut with CNC steel-rule dies into bespoke brand shapes, geometric outlines, interior window cutouts, or custom silhouette contours.',
+    specs: 'Bespoke CNC Steel Rule Die • Custom Shaped Contours • Crisp Clean Margins',
+    suitableFor: 'Creative Directors, Product Designers, Boutique Brands, Marketing Innovators',
+    popularFinishes: ['Custom Contour', 'Matte Finish', 'Foil Stamped Detail'],
+  },
+  {
+    id: 'rounded-corner-cards',
+    title: 'Rounded Corner Business Cards (3mm / 6mm)',
+    category: 'corporate',
+    gsm: '350–450 GSM',
+    badge: 'Modern Arc',
+    image: '/assets/products/business-cards/bc_rounded_corners.jpg',
+    description:
+      'Rounded corner business cards in the UAE precision die-cut with smooth 3mm (credit card style) or 6mm (bold curvature) radii that eliminate pocket dog-ears and snagging.',
+    specs: '3mm / 6mm Precision Radii • 4 Corners Die-Trimmed • Smooth Edges',
+    suitableFor: 'App Developers, Tech Companies, Health Clinics, Modern Startups',
+    popularFinishes: ['Velvet Soft-Touch', 'Spot UV Contrast', 'Gold Foil Accent'],
+  },
+  {
+    id: 'minimal-business-cards',
+    title: 'Minimalist Business Cards (Monochrome Atelier)',
+    category: 'luxury',
+    gsm: '450–600 GSM',
+    badge: 'Understated Luxury',
+    image: '/assets/products/business-cards/bc_minimalist.jpg',
+    description:
+      'Minimalist business card printing in the UAE featuring high-contrast monochromatic aesthetics and pure typographical precision. Black foil on white cotton or white ink on deep black pulp-dyed stock.',
+    specs: 'Pulp-Dyed Solid Black / Pure Cotton White • Micro-Typographic Precision',
+    suitableFor: 'Minimalist Architects, Fine Jewelers, Contemporary Art Curators, Startup Founders',
+    popularFinishes: ['Black Gloss Foil on Matte Black', 'Blind Debossed Monogram'],
+  },
+  {
+    id: 'creative-business-cards',
+    title: 'Creative Business Cards (Triplex Color Core)',
+    category: 'specialty',
+    gsm: '650 GSM',
+    badge: 'Color Sandwich',
+    image: '/assets/products/business-cards/bc_triplex.jpg',
+    description:
+      'Triplex business cards in the UAE engineered by laminating three thick paper layers together with a vibrant colored middle seam (Red, Cyan, Yellow, Black, or Gold) visible along the card profile edge.',
+    specs: '650 GSM Triplex Sandwich • Colored Internal Core Seam • Ultra-Rigid',
+    suitableFor: 'Design Agencies, Media Agencies, Animation Studios, Branding Consultants',
+    popularFinishes: ['Contrasting Core Seam', 'Matte Face', 'Foil Accents'],
+  },
+  {
+    id: 'double-sided-cards',
+    title: 'Double-Sided Business Cards (Dual-Faced)',
+    category: 'corporate',
+    gsm: '350–450 GSM',
+    badge: 'Complete Info',
+    image: '/assets/products/business-cards/bc_bilingual.jpg',
+    description:
+      'Bilingual business cards (English & Arabic) in the UAE with full-bleed color printing on both sides. Ideal for custom logo visiting cards and business cards with social media details, QR codes, and dual-language layouts.',
+    specs: 'Bilingual English/Arabic Ready • Full Color Both Sides • Balanced Bleed',
+    suitableFor: 'UAE Businesses, International Trade Companies, Bilingual Professionals',
+    popularFinishes: ['Double Matte', 'Foil Front + Matte Reverse'],
+  },
+  {
+    id: 'single-sided-cards',
+    title: 'Single-Sided Business Cards (Writable Back)',
+    category: 'corporate',
+    gsm: '350 GSM',
+    badge: 'Budget Friendly',
+    image: standardSilkImg,
+    description:
+      'Uncoated business cards in Dubai and single-sided coated cards with an absorbent writable surface, ideal for handwritten notes, personal messages, and immediate pen writing without ink smearing.',
+    specs: 'Coated Silk Front • Uncoated Absorbent Back • Pen & Pencil Writable',
+    suitableFor: 'Medical Doctors, Dental Clinics, Hair Stylists, Service Technicians',
+    popularFinishes: ['Matte Front', 'Uncoated Reverse'],
+  },
+  {
+    id: 'custom-business-cards',
+    title: 'Custom Business Cards (Full Bespoke Atelier)',
+    category: 'specialty',
+    gsm: 'Bespoke',
+    badge: 'Unlimited Choice',
+    image: '/uploads/categories/business-cards-printing.jpg',
+    description:
+      'Combine multiple finishes without limits: duplex cotton, dual-color foils, beveled gilded edges, Scodix Spot UV, and custom CNC silhouettes.',
+    specs: 'Custom Die Creation • Specialty Substrates • Exact Technical Prototyping',
+    suitableFor: 'Luxury Conglomerates, Royalty, Signature Brands, High-Profile Executives',
+    popularFinishes: ['Foil + Deboss + Gilded Edge', 'Custom Stock Duplex'],
+  },
+  {
+    id: 'branded-business-cards',
+    title: 'Branded Business Cards (Pantone Spot Colors)',
+    category: 'corporate',
+    gsm: '400 GSM',
+    badge: 'Brand Compliant',
+    image: '/assets/products/1 (7).jpg',
+    description:
+      'Printed with genuine Pantone Matching System (PMS) spot inks on Heidelberg offset presses for 100% strict corporate brand identity compliance.',
+    specs: 'Genuine PMS Inks • Zero CMYK Color Shift • ISO 12647-2 Certified',
+    suitableFor: 'Franchise Networks, Corporate Law Firms, Global Banking Groups, Telecoms',
+    popularFinishes: ['Pantone Metallic Ink', 'Velvet Protective Film'],
+  },
+  {
+    id: 'pvc-waterproof-cards',
+    title: 'PVC Business Cards (760μ Waterproof & Frosted)',
+    category: 'specialty',
+    gsm: '760 Microns',
+    badge: '100% Waterproof • Tear-Proof',
+    image: '/assets/products/business-cards/bc_rounded_corners.jpg',
+    description:
+      'Engineered on rigid 500–760 micron solid white, frosted translucent, or clear PVC polymer sheets cured with UV inks. Completely waterproof, tear-proof, and credit-card durable for Dubai outdoor & marine environments.',
+    specs: '760μ Solid / Frosted PVC • UV Cured Ink + White Underbase • 3mm Rounded Corners',
+    suitableFor: 'Yacht Charters, Beach Clubs, Fitness Trainers, Construction Engineers, VIP Membership',
+    popularFinishes: ['Frosted Translucent PVC', 'Solid Matte PVC + Spot UV', 'NFC Chip Ready'],
+  },
+  {
+    id: 'qr-nfc-smart-cards',
+    title: 'QR Code & Smart NFC Business Cards (Contactless vCard)',
+    category: 'specialty',
+    gsm: '400–600 GSM / 760μ PVC',
+    badge: 'Tap & Scan • Digital vCard',
+    image: '/assets/products/business-cards/bc_rounded_corners.jpg',
+    description:
+      'QR code business cards in Dubai and smart NFC business cards embedded with contactless NTAG215/216 microchips. Tap any smartphone or scan the vector QR code to instantly save your vCard, WhatsApp, or portfolio.',
+    specs: 'High-Contrast Vector QR Code • Embedded NTAG216 NFC Chip • iOS & Android Ready',
+    suitableFor: 'Tech Startups, Real Estate Brokers, Exhibition Teams, Professional Networking in UAE',
+    popularFinishes: ['Matte Velvet + Raised UV QR', '760μ Matte Black NFC PVC', '600 GSM Cotton NFC'],
+  },
+  {
+    id: 'appointment-loyalty-cards',
+    title: 'Appointment & Loyalty Stamp Cards (Writable Cardstock)',
+    category: 'corporate',
+    gsm: '350–400 GSM',
+    badge: 'Writable & Stamp-Ready',
+    image: standardSilkImg,
+    description:
+      'Custom appointment cards printing in the UAE and loyalty cards printing in Dubai. Engineered with a laminated full-color branded front and an absorbent uncoated reverse side that accepts pen ink and loyalty rubber stamps without smudging.',
+    specs: '350–400 GSM • Coated Front + Uncoated Writable Back • Smudge-Free Stamp Ink Absorption',
+    suitableFor: 'Medical & Dental Clinics, Beauty Salons, Specialty Coffee Shops, Retail Boutiques, Fitness Studios',
+    popularFinishes: ['Matte Front + Writable Back', 'Rounded Corners', 'Custom Stamp Grid Layout'],
+  },
+  {
+    id: 'folded-tent-business-cards',
+    title: 'Folded Business Cards (4-Panel Scored Tent Cards)',
+    category: 'specialty',
+    gsm: '350–400 GSM',
+    badge: '4-Page Mini Brochure',
+    image: brochuresImg,
+    description:
+      'Folded business cards in Dubai and folded visiting card printing in the UAE (170 x 55 mm precision-scored to fold cleanly to 85 x 55 mm). Gives you 4 full panels for bilingual company profiles, service price lists, appointment tables, or mini product catalogs.',
+    specs: '170×55mm Flat → 85×55mm Folded • Anti-Crack Crease Score • Horizontal or Vertical Fold',
+    suitableFor: 'Medical Clinics, Real Estate Portfolios, Luxury Spas, Hospitality Concierges, B2B Catalogs',
+    popularFinishes: ['Matte Laminated + Crease Score', 'Velvet Soft-Touch Folded', 'Spot UV Cover'],
+  },
+  {
+    id: 'luxury-black-pulp-cards',
+    title: 'Luxury Black Business Cards (Pulp-Dyed Matte Black)',
+    category: 'luxury',
+    gsm: '450–600 GSM',
+    badge: 'Solid Black Core • Metallic Foil',
+    image: velvetFoilCardImg,
+    description:
+      'Luxury black business cards in Dubai crafted on through-dyed solid black Italian boards (no white paper edges) paired with metallic finish business cards UAE embellishments: 24K mirror gold, silver, copper hot foil, or dense opaque white pigment ink.',
+    specs: '450–600 GSM Solid Black Core • 24K Gold / Silver Hot Foil • Opaque White Ink & Blind Deboss',
+    suitableFor: 'VIP Concierges, Luxury Automotive, Private Equity, Nightlife & Hospitality, Architecture Firms',
+    popularFinishes: ['24K Gold Foil on Black', 'Silver Foil + Raised Spot UV', 'White Ink + Blind Deboss'],
+  },
+]
+
+// 12 Real Customer Industries in Dubai & UAE
+const INDUSTRY_SOLUTIONS = [
+  {
+    title: 'Real Estate Agents & Luxury Brokers',
+    icon: Building2,
+    recommended: '450 GSM Velvet Soft-Touch + 24K Gold Foil + Back QR Code',
+    desc: 'Command instant credibility in luxury property meetings with heavy tactile velvet boards and metallic foil stamping that echoes Dubai’s luxury skyline.',
+  },
+  {
+    title: 'Law Firms & Legal Advocates',
+    icon: Scale,
+    recommended: '600 GSM Archival Cotton + Sculptural Blind Debossing',
+    desc: 'Timeless restraint and heavy cotton tactile authority for DIFC and ADGM solicitors, senior partners, and international legal counsels.',
+  },
+  {
+    title: 'Doctors, Dentists & Aesthetic Clinics',
+    icon: Stethoscope,
+    recommended: '400 GSM Anti-Scuff Matte + Appointment Table Backing',
+    desc: 'Crisp, clinical hygiene aesthetic with uncoated matte writable reverse side for patient appointment tracking and specialist credentials.',
+  },
+  {
+    title: 'Luxury Hospitality & Restaurants',
+    icon: UtensilsCrossed,
+    recommended: '700 GSM Duplex + Gold Gilded Edges + Velvet Lamination',
+    desc: 'Designed for VIP concierge teams, Michelin-star general managers, and boutique resort directors where every sensory touchpoint matters.',
+  },
+  {
+    title: 'Corporate Financial & Investment Firms',
+    icon: Briefcase,
+    recommended: '400 GSM Matte + Raised 3D Spot UV Logo Contrast',
+    desc: 'Precision corporate brand consistency across 5 to 500 employee name batches with calibrated Pantone color fidelity.',
+  },
+  {
+    title: 'Tech Founders & Creative Startups',
+    icon: Cpu,
+    recommended: '450 GSM Dark Pulp-Dyed + Holographic Foil + NFC Smart Chip',
+    desc: 'Futuristic aesthetic blending physical metallic prism foils with instant digital contact sharing via embedded NFC chips and QR codes.',
+  },
+  {
+    title: 'Contractors & Construction Companies',
+    icon: HardHat,
+    recommended: '450 GSM Heavy Board + Matte Anti-Scuff Protective Lamination',
+    desc: 'Durable, resilient cards that withstand site visits, dust, and handling while presenting engineering prestige.',
+  },
+  {
+    title: 'Salons & Luxury Beauty Spas',
+    icon: Sparkles,
+    recommended: '400 GSM Soft-Touch + Rose Gold Foil + Loyalty Stamp Reverse',
+    desc: 'Elegantly tactile cards that double as client appointment reminders and luxury VIP customer retention passes.',
+  },
+  {
+    title: 'Marketing & Advertising Agencies',
+    icon: Palette,
+    recommended: '650 GSM Triplex Color Core + Raised 3D UV Pattern',
+    desc: 'Showcase your creative boldness before speaking a word. Multi-layer sandwiched card stocks with vibrant color edge seams.',
+  },
+  {
+    title: 'Management & Strategy Consultants',
+    icon: Crown,
+    recommended: '500 GSM Fedrigoni Textured Linen + Crisp Charcoal Foil',
+    desc: 'Subtle European paper craftsmanship conveying advisory depth, rigorous intellect, and executive gravitas.',
+  },
+  {
+    title: 'Retail Boutiques & Luxury Brands',
+    icon: Bookmark,
+    recommended: '450 GSM Velvet Soft-Touch + Gilded Metallic Gold Edges',
+    desc: 'Accompany luxury purchases, private client gifting, and boutique customer service with opulent gilded profile cards.',
+  },
+  {
+    title: 'Freelancers & Independent Designers',
+    icon: Scissors,
+    recommended: '350 GSM Recycled Kraft or Custom Die-Cut Silhouette',
+    desc: 'Distinctive, sustainable, and memorable cards that highlight your independent design philosophy and artistic signature.',
+  },
+  {
+    title: 'Recruitment & Executive Search Agencies',
+    icon: Briefcase,
+    recommended: '400 GSM Silk Matte + Bilingual Layout + LinkedIn / vCard QR',
+    desc: 'High-volume recruitment agency business cards in the UAE with multi-consultant name batch pooling, fast employee reprints, and direct LinkedIn QR codes.',
+  },
+]
+
+// 12 Legitimate Dubai & UAE Service & Delivery Hubs
+const DUBAI_AREAS = [
+  {
+    name: 'Al Quoz, Dubai',
+    hub: 'Direct Production Pressroom',
+    dispatch: '2-Hour Express Pickup / Same-Day Courier',
+    desc: 'Central Heidelberg offset & HP Indigo press facility with client proofing lounge in Al Quoz, Dubai.',
+  },
+  {
+    name: 'DIFC & Downtown Dubai',
+    hub: 'Financial & Executive Hub',
+    dispatch: 'Same-Day 4-Hour Hand Delivery',
+    desc: 'Express dispatch for investment banks, corporate law firms, and executive offices in Gate District & Boulevard.',
+  },
+  {
+    name: 'Business Bay & SZR',
+    hub: 'Commercial District',
+    dispatch: 'Same-Day Afternoon Courier',
+    desc: 'Daily express runs to Bay Square, Executive Towers, and Sheikh Zayed Road multinational headquarters.',
+  },
+  {
+    name: 'Dubai Marina, JLT & Palm Jumeirah',
+    hub: 'Coastal Enterprise Hub',
+    dispatch: 'Daily Express Dispatch',
+    desc: 'Serving marketing agencies, yacht brokers, luxury realtors, and luxury hospitality groups across Marina & JLT clusters.',
+  },
+  {
+    name: 'Deira, Bur Dubai & Karama',
+    hub: 'Historic Trade Center',
+    dispatch: 'Morning & Evening Daily Routes',
+    desc: 'Trading houses, wholesale enterprises, medical clinics, and government entity procurement offices.',
+  },
+  {
+    name: 'Al Barsha & Mall of the Emirates',
+    hub: 'Commercial & Retail Corridor',
+    dispatch: 'Same-Day Courier Delivery',
+    desc: 'Serving commercial agencies, private clinics, consulting practices, and hospitality suites.',
+  },
+  {
+    name: 'Jumeirah & City Walk',
+    hub: 'Luxury Boutique District',
+    dispatch: 'Same-Day Courier Delivery',
+    desc: 'Bespoke cards for luxury fashion ateliers, aesthetic clinics, upscale cafes, and interior design firms.',
+  },
+  {
+    name: 'Al Garhoud & DAFZA Airport Free Zone',
+    hub: 'Aviation & Cargo Free Zone',
+    dispatch: 'Same-Day Morning Route',
+    desc: 'Rapid delivery for logistics firms, airline offices, international trading companies, and customs brokers.',
+  },
+  {
+    name: 'Al Nahda & Dubai-Sharjah Gateway',
+    hub: 'Northern Commercial Hub',
+    dispatch: 'Daily Morning & Evening Delivery',
+    desc: 'Reliable doorstep distribution for medical centers, educational institutions, and commercial enterprises.',
+  },
+  {
+    name: 'JAFZA & Dubai South Logistics',
+    hub: 'Industrial & Export Hub',
+    dispatch: 'Next-Day Express Dispatch',
+    desc: 'High-volume corporate batches and industrial business cards for multinational logistics operators in JAFZA.',
+  },
+  {
+    name: 'Abu Dhabi Capital City',
+    hub: 'Capital Corporate Delivery',
+    dispatch: '24-Hour Insured Doorstep Courier',
+    desc: 'White-glove delivery to ADGM, Al Maryah Island, Corniche corporate towers, and government departments.',
+  },
+  {
+    name: 'Northern Emirates (Sharjah, Ajman, RAK)',
+    hub: 'UAE-Wide Distribution',
+    dispatch: '24-Hour Doorstep Delivery',
+    desc: 'Daily logistics network covering corporate and retail clients across Sharjah, Ajman, Umm Al Quwain, and RAK.',
+  },
+]
+
+// Comprehensive 16 FAQs answering search intent
+const BUSINESS_CARD_FAQS = [
+  {
+    question: 'How do I order business cards in Dubai?',
+    answer:
+      'You can select your preferred cardstock, finishing options (matte, velvet soft-touch, gold foil, spot UV), and batch quantity on our website. Our pre-press studio provides free artwork review and instant customized quotations tailored to your exact order size.',
+  },
+  {
+    question: 'Where can I print business cards in Dubai?',
+    answer:
+      'ONPRINT operates directly from Al Quoz, Dubai. You can order online through our website with live quotation, visit our production facility for physical paper swatch checks, or request same-day courier delivery directly to your Dubai office.',
+  },
+  {
+    question: 'What is the best paper for business cards?',
+    answer:
+      'For everyday corporate multi-name use, 350–400 GSM silk artboard provides the ideal balance of rigidity and sharpness. For genuine executive luxury cards, 450 GSM velvet artboard or 600–700 GSM multi-ply Italian cotton board is unmatched for tactile weight and letterpress debossing.',
+  },
+  {
+    question: 'What business card size should I use in Dubai?',
+    answer:
+      'The two most popular business card sizes in Dubai and the UAE are: (1) Standard European Size: 85 x 55 mm (standard credit card ratio, fits all modern wallets), and (2) US Standard Size: 90 x 50 mm (3.5 x 2.0 inches). We also produce custom square cards (65 x 65 mm) and bespoke CNC die-cut shapes.',
+  },
+  {
+    question: 'What is the difference between matte and glossy business cards?',
+    answer:
+      'Matte lamination provides a smooth, non-reflective coating that resists glare and creates an understated, executive look. Glossy lamination features a high-shine reflective polymer that amplifies vibrant photographs and saturated brand colors while offering moisture and dirt protection.',
+  },
+  {
+    question: 'What is spot UV business card printing?',
+    answer:
+      'Spot UV is a finishing technique where a clear high-gloss liquid polymer is applied selectively over specific elements (such as your logo, typography, or pattern) and cured with UV light. When paired with a matte or soft-touch background, it produces a dynamic contrast between light reflection and matte restraint.',
+  },
+  {
+    question: 'What is foil business card printing?',
+    answer:
+      'Foil business card printing bonds metallic or pigmented foil onto the paper using heated brass dies and hydraulic pressure (traditional hot foil stamping) or digital sleeking. Colors include 24K Mirror Gold, Rose Gold, Matte Champagne, Silver, Copper, Holographic Prism, and High-Gloss Black.',
+  },
+  {
+    question: 'How many business cards should I order?',
+    answer:
+      'For individual professionals attending regular Dubai networking events, 250 to 500 cards is the standard initial batch. For companies ordering for teams, we recommend 100 to 250 cards per employee to take advantage of multi-name corporate batch pricing tiers.',
+  },
+  {
+    question: 'Can I print custom business cards with unique finishes?',
+    answer:
+      'Yes. ONPRINT specializes in bespoke atelier customization: multi-ply duplex/triplex boards up to 700 GSM, painted and gilded metallic edges, laser-cut rounded corners, magnetic NFC smart chips, and Pantone spot-color matching.',
+  },
+  {
+    question: 'Can I send my own business card design?',
+    answer:
+      'Yes. Select your artwork in the quote form, then attach it yourself in WhatsApp after reviewing the prepared message. The website does not upload the file. For print-ready artwork, use a vector PDF with CMYK color, 300 DPI resolution, and 3mm bleed margins.',
+  },
+  {
+    question: 'How quickly can business cards be printed?',
+    answer:
+      'Standard digital runs are ready in 24 to 48 hours. We also offer Same-Day 4-Hour Express rush service for orders with approved print-ready artwork submitted before 11:00 AM, available for immediate Al Quoz collection or afternoon courier dispatch.',
+  },
+  {
+    question: 'Can businesses order bulk business cards with multiple employee names?',
+    answer:
+      'Yes. We specialize in corporate batch printing. You can submit an Excel sheet with employee names and titles; our pre-press team populates your approved master template, guaranteeing 100% typography and brand color consistency across all staff.',
+  },
+  {
+    question: 'What is the best finish for professional business cards?',
+    answer:
+      'For senior executives, lawyers, and luxury brokers in Dubai, Velvet Soft-Touch lamination combined with 24K Hot Gold Foil or Raised 3D Spot UV is the most commanding finish combination in high-stakes meetings.',
+  },
+  {
+    question: 'What information should a business card contain?',
+    answer:
+      'An effective corporate card should include: Full Name, Official Title, Company Name and Logo, WhatsApp / Phone number with UAE country code (+971), Corporate Email, Website URL, Physical Office Address / Zone (e.g. DIFC, Business Bay), and optionally a QR code linking to your digital vCard or LinkedIn.',
+  },
+  {
+    question: 'What file format should I use for printing?',
+    answer:
+      'The ideal format is a Vector PDF saved in CMYK color mode at 300 DPI with 3mm bleed on all four sides and text converted to outlines (curves). If your card includes foil or Spot UV, provide a separate monochrome layer with 100% solid black (K:100%) indicating the finish placement.',
+  },
+  {
+    question: 'Can ONPRINT print corporate business cards with exact Pantone colors?',
+    answer:
+      'Yes. For enterprise brands requiring strict brand compliance, we print using genuine Pantone Matching System (PMS) spot inks on Heidelberg offset presses, eliminating the color shifts common in standard digital CMYK toner reproduction.',
+  },
+  {
+    question: 'Do you print QR code business cards and smart NFC business cards in Dubai?',
+    answer:
+      'Yes. We print high-contrast vector QR code business cards in Dubai with error-corrected scannability for digital vCards, WhatsApp links, and company profiles. We also manufacture smart NFC business cards with embedded contactless NTAG215/216 chips inside multi-ply 600 GSM cardstock or 760-micron PVC.',
+  },
+  {
+    question: 'Can I order appointment cards, loyalty stamp cards, or startup business card packages in the UAE?',
+    answer:
+      'Yes. We print custom appointment cards and loyalty cards on 350–400 GSM board with an uncoated writable reverse that accepts ballpoint pens and rubber loyalty stamps without smearing. For UAE startups and new company launches, we offer low 100-card minimums and multi-founder batch splitting.',
+  },
+  {
+    question: 'Do you print folded business cards, vertical visiting cards, square cards, and mini slim cards in Dubai?',
+    answer:
+      'Yes. Alongside standard landscape cards (85 x 55 mm and 90 x 50 mm), we print vertical portrait visiting cards (55 x 85 mm), square business cards (65 x 65 mm), compact mini slim cards (85 x 40 mm), and 4-panel scored folded business cards (170 x 55 mm folded to 85 x 55 mm) ideal for bilingual company profiles, mini menus, and appointment schedules.',
+  },
+  {
+    question: 'Can ONPRINT produce luxury black business cards, triplex color-core cards, and painted edge cards in the UAE?',
+    answer:
+      'Yes. Our Al Quoz atelier crafts luxury black business cards on 450–600 GSM solid pulp-dyed black boards stamped with 24K gold/silver metallic foil or opaque white ink, 650 GSM triplex sandwich cards with a colored middle core seam, and 700 GSM painted or mirror-gilded edge cards.',
+  },
+  {
+    question: 'Do you provide a corporate business card reprint service, recurring office supply, and design assistance?',
+    answer:
+      'Yes. We serve as a long-term company visiting card supplier for Dubai offices, recruitment agencies, and multi-branch UAE enterprises. We archive your approved master artwork and Pantone color profiles for fast 1-click employee reprints, and our pre-press studio offers full business card design assistance and bilingual English-Arabic typesetting.',
+  },
+]
+
+export default function BusinessCardLandingPage({ pageKey: propKey }) {
+  const quoteFormRef = useRef(null)
+  const location = useLocation()
+  const derivedKey = propKey || location.pathname.replace(/^\//, '') || 'business-card-printing-dubai'
+  const pageData = BUSINESS_CARDS_LANDING_DATA?.[derivedKey] || BUSINESS_CARDS_LANDING_DATA?.['business-card-printing-dubai'] || {}
+
+  const [activeCategory, setActiveCategory] = useState(pageData?.cardCategory || 'all')
+  const [activeGuideTab, setActiveGuideTab] = useState('size')
+  const [openFaq, setOpenFaq] = useState(0)
+
+  // Form State - Standard / Basic defaults
+  const [formState, setFormState] = useState({
+    name: '',
+    company: '',
+    phone: '',
+    email: '',
+    quantity: '100',
+    size: '85 x 55 mm (EU Standard)',
+    cardType: 'Standard Business Cards (350 GSM Silk / Matte)',
+    paper: '350 GSM Standard Silk / Matte Card',
+    finish: 'Matte Lamination (Simple & Clean)',
+    deliveryLocation: 'Dubai, UAE',
+    designStatus: 'Have Print-Ready PDF',
+    deliveryDate: 'Standard 24-48 Hours',
+    notes: '',
+  })
+  const [artworkFile, setArtworkFile] = useState(null)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [quoteNumber, setQuoteNumber] = useState('')
+
+  useEffect(() => {
+    trackBusinessCardPageView({
+      page_title: pageData?.title || 'Business Card Printing Dubai',
+      page_path: pageData?.path || '/business-card-printing-dubai',
+      card_category: pageData?.cardCategory || 'all',
+    })
+  }, [derivedKey])
+
+  const scrollToQuote = (prefillType = null, prefillPaper = null, prefillQty = null) => {
+    if (prefillType || prefillPaper || prefillQty) {
+      setHasInteractedWithForm(true)
+      setFormState((prev) => ({
+        ...prev,
+        ...(prefillType ? { cardType: prefillType } : {}),
+        ...(prefillPaper ? { paper: prefillPaper } : {}),
+        ...(prefillQty ? { quantity: String(prefillQty) } : {}),
+      }))
+    }
+    quoteFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const [hasInteractedWithForm, setHasInteractedWithForm] = useState(false)
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target
+    if (!hasInteractedWithForm) {
+      setHasInteractedWithForm(true)
+      trackQuoteFormStart({
+        form_name: 'business_card_quote_form',
+        source_page: pageData?.path || '/business-card-printing-dubai',
+        product_name: formState.cardType,
+      })
+    }
+    setFormState((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setArtworkFile(e.target.files[0])
+    }
+  }
+
+  const handleQuoteSubmit = (e) => {
+    e.preventDefault()
+    trackGetQuoteClick({ source_page: `business_card_${derivedKey}` })
+
+    const referenceNumber = `ONP-BC-${Math.floor(100000 + Math.random() * 900000)}`
+    setQuoteNumber(referenceNumber)
+    setSubmitSuccess(true)
+
+    trackQuoteRequest({
+      product: `Business Cards (${formState.cardType})`,
+      quantity: Number(formState.quantity) || 100,
+      source_page: `business_card_${derivedKey}`,
+    })
+
+    trackQualifiedLead({
+      lead_type: 'business_card_cluster_quote',
+      product_name: `Business Cards (${formState.cardType})`,
+      quantity: Number(formState.quantity) || 100,
+      material: formState.paper,
+      finish: formState.finish,
+      has_artwork: Boolean(artworkFile),
+      delivery_location: formState.deliveryLocation || 'Dubai, UAE',
+      source_page: `business_card_${derivedKey}`,
+    })
+
+    openWhatsAppDirectly(
+      {
+        title: 'BUSINESS CARD QUOTE INQUIRY',
+        refNumber: referenceNumber,
+        name: formState.name,
+        phone: formState.phone,
+        email: formState.email,
+        company: formState.company || 'N/A',
+        product: `Business Cards (${formState.cardType})`,
+        quantity: formState.quantity,
+        size: formState.size,
+        material: formState.paper,
+        finish: formState.finish,
+        deliveryLocation: formState.deliveryLocation || 'Dubai, UAE',
+        specs: `Size: ${formState.size} | Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
+        artwork: artworkFile ? `${artworkFile.name} (please attach in WhatsApp)` : undefined,
+        notes: formState.notes || 'None',
+      },
+      { allowSameTabFallback: true }
+    )
+  }
+
+  const filteredCards =
+    activeCategory === 'all'
+      ? CARD_VARIATIONS
+      : CARD_VARIATIONS.filter((card) => card.category === activeCategory) || []
+
+  const breadcrumbs = [
+    { name: 'Services', url: '/services' },
+    ...(derivedKey !== 'business-card-printing-dubai'
+      ? [{ name: 'Business Card Printing Dubai', url: '/business-card-printing-dubai' }]
+      : []),
+    { name: pageData?.title ? pageData.title.split('|')[0].trim() : 'Business Cards', url: pageData?.path || '/business-card-printing-dubai' },
+  ]
+
+  const serviceSchema = {
+    name: pageData?.h1 || 'Business Card Printing Dubai',
+    description: pageData?.metaDescription || 'Professional business card printing in Dubai.',
+    image: '/uploads/categories/business-cards-printing.jpg',
+  }
+
+  const productSchema = {
+    name: `${pageData?.h1 || 'Business Cards'} - ONPRINT Dubai`,
+    description: pageData?.metaDescription || 'Business card printing in Dubai.',
+    image: '/uploads/categories/business-cards-printing.jpg',
+    price: 45,
+    currency: 'AED',
+    sku: 'ONP-BC-DUBAI',
+    brand: {
+      '@type': 'Brand',
+      name: 'ONPRINT',
+    },
+  }
+
+  return (
+    <div className="bg-[#F5F0E7] text-[#352719] pt-4 sm:pt-6 pb-12 sm:pb-16">
+      {/* Dynamic SEO & Schema Engine */}
+      <SEOHead
+        title={pageData?.title || 'Business Card Printing Dubai | ONPRINT'}
+        description={pageData?.metaDescription || 'Custom business card printing in Dubai with premium finishes and express dispatch.'}
+        keywords={pageData?.secondaryKeywords || 'business cards dubai'}
+        canonicalPath={pageData?.path || '/business-card-printing-dubai'}
+        breadcrumbs={breadcrumbs}
+        faqList={pageData?.faqs || BUSINESS_CARD_FAQS || []}
+        service={serviceSchema}
+        product={productSchema}
+      />
+
+      <Container>
+        <Breadcrumbs items={breadcrumbs} />
+
+        {/* 1. HERO SECTION ABOVE THE FOLD & INSTANT QUOTE FUNNEL */}
+        <section className="mt-4 overflow-hidden rounded-3xl border border-[#DED2C1] bg-[#F5F0E7] text-[#352719] p-6 sm:p-10 lg:p-12 shadow-2xl relative">
+          <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#795C43]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#795C43]/10 blur-3xl" />
+
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 relative z-10">
+            {/* Left Column: Commercial SEO Copy & Value Proposition */}
+            <div className="lg:col-span-7 space-y-6">
+              <Reveal>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/40 bg-[#795C43]/10 px-4 py-1.5 shadow-xs backdrop-blur-md">
+                    <Sparkles className="h-3.5 w-3.5 text-[#795C43]" />
+                    <span className="text-[11px] font-black uppercase tracking-[0.22em] text-[#795C43]">
+                      {pageData.badge}
+                    </span>
+                    <span className="hidden sm:inline-block h-3 w-px bg-[#795C43]/30" />
+                    <span className="hidden sm:inline-block font-mono text-[9.5px] font-bold text-[#756657]">
+                      AL QUOZ 3
+                    </span>
+                  </div>
+                  <Link
+                    to="/ar/business-cards"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#C5A989]/40 bg-[#795C43]/10 px-3.5 py-1 text-xs font-bold text-[#795C43] hover:bg-[#795C43]/20 hover:border-[#C5A989] transition-all"
+                    title="النسخة العربية - طباعة كروت شخصية في دبي"
+                  >
+                    <span>🇦🇪 النسخة العربية (Arabic)</span>
+                  </Link>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.06}>
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight text-[#352719]">
+                  {pageData.h1}
+                </h1>
+              </Reveal>
+
+              <Reveal delay={0.12}>
+                <p className="text-base sm:text-lg text-[#756657] leading-relaxed max-w-2xl">
+                  {pageData.subheading}
+                </p>
+              </Reveal>
+
+              {/* Live Technical Trust Strip */}
+              <Reveal delay={0.18}>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                  {(pageData.heroStats || [
+                    { label: 'Paper Stocks', val: '350 – 700 GSM' },
+                    { label: 'Same-Day Rush', val: '4-Hour Express' },
+                    { label: 'Standard Sizes', val: '85x55 & 90x50' },
+                    { label: 'Color Matching', val: '100% Pantone' },
+                  ]).map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/80 p-3 shadow-xs backdrop-blur-md"
+                    >
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657]">
+                        {item.label}
+                      </span>
+                      <span className="mt-0.5 block text-xs font-black text-[#352719]">{item.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+
+              {/* Hero Action Buttons */}
+              <Reveal delay={0.22}>
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                      formatBusinessCardInquiry(
+                        hasInteractedWithForm
+                          ? {
+                              cardType: formState.cardType,
+                              quantity: formState.quantity,
+                              size: formState.size,
+                              paper: formState.paper,
+                              finish: formState.finish,
+                              location: formState.deliveryLocation,
+                              notes: formState.notes,
+                            }
+                          : {}
+                      )
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackBusinessCardWhatsAppClick({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        service: 'business-cards',
+                        button_location: 'hero_primary_cta',
+                        label: 'get_business_card_quote_on_whatsapp',
+                      })
+                    }}
+                    className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#25D366]/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    <WhatsAppIcon className="h-5 w-5 fill-current" />
+                    <span>Get a Business Card Quote on WhatsApp</span>
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={() => scrollToQuote()}
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#795C43] hover:bg-[#c39e55] px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#795C43]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    <span>Instant Custom Quote</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#C5A989] bg-[#FAF8F3] hover:bg-[#795C43] hover:text-white px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#352719] transition-all cursor-pointer"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>Inquire Studio</span>
+                  </Link>
+                </div>
+              </Reveal>
+
+              {/* Social Proof Badges */}
+              <Reveal delay={0.26}>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-[#756657] pt-2">
+                  <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[11px]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700" />
+                    Doorstep Express UAE Delivery
+                  </span>
+                  <span className="text-[#756657]">•</span>
+                  <span className="font-bold text-[#352719]">Free PDF Pre-Press Proof</span>
+                  <span className="text-[#756657]">•</span>
+                  <span className="inline-flex items-center gap-1 font-bold text-[#795C43]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#795C43]" />
+                    Heidelberg &amp; HP Indigo Calibration
+                  </span>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right Column: High-Converting Live Quote Form Card */}
+            <div ref={quoteFormRef} className="lg:col-span-5">
+              <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] text-[#352719] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#DED2C1]">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2.5 w-2.5 rounded-full bg-[#795C43] ring-4 ring-[#795C43]/20" />
+                    <h3 className="font-display text-base font-black text-[#352719]">
+                      Request Business Card Quote
+                    </h3>
+                  </div>
+                  <span className="rounded-md bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.5 text-[9.5px] font-mono font-bold text-[#795C43]">
+                    2h Response
+                  </span>
+                </div>
+
+                {submitSuccess ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-8 text-center space-y-4"
+                  >
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-700 border border-emerald-500/30">
+                      <CheckCircle2 className="h-8 w-8" />
+                    </div>
+                    <h4 className="font-display text-lg font-black text-[#352719]">
+                      WhatsApp Message Ready
+                    </h4>
+                    <p className="text-xs text-[#756657] leading-relaxed max-w-sm mx-auto">
+                      Your prefilled quote message is ready. Review and send it in WhatsApp; nothing has been sent or stored yet. Reference:{' '}
+                      <strong className="font-mono text-[#795C43]">{quoteNumber}</strong>.
+                    </p>
+                    <div className="pt-2">
+                      <a
+                        href={getWhatsAppUrl({
+                          title: 'BUSINESS CARD QUOTE INQUIRY',
+                          refNumber: quoteNumber,
+                          name: formState.name,
+                          phone: formState.phone,
+                          email: formState.email,
+                          company: formState.company || 'N/A',
+                          product: `Business Cards (${formState.cardType})`,
+                          quantity: formState.quantity,
+                          size: formState.size,
+                          material: formState.paper,
+                          finish: formState.finish,
+                          artwork: artworkFile ? `${artworkFile.name} (please attach in WhatsApp)` : undefined,
+                          notes: formState.notes || 'None',
+                        })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() =>
+                          trackBusinessCardWhatsAppClick({ source_page: 'business_card_landing_quote_received', service: 'business-cards', button_location: 'quote_received' })
+                        }
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 px-6 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-current" />
+                        <span>👉 Tap to Open WhatsApp &amp; Fast-Track ({FORMATTED_PHONE})</span>
+                      </a>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleQuoteSubmit} className="space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          value={formState.name}
+                          onChange={handleFormChange}
+                          placeholder="e.g. Tariq Al Mansoor"
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Company Name
+                        </label>
+                        <input
+                          type="text"
+                          name="company"
+                          value={formState.company}
+                          onChange={handleFormChange}
+                          placeholder="e.g. Apex Holdings Dubai"
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          WhatsApp / Phone *
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          value={formState.phone}
+                          onChange={handleFormChange}
+                          placeholder="+971 50 123 4567"
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formState.email}
+                          onChange={handleFormChange}
+                          placeholder="tariq@company.ae"
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Quantity
+                        </label>
+                        <select
+                          name="quantity"
+                          value={formState.quantity}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="100">100 Cards (1 Name)</option>
+                          <option value="250">250 Cards</option>
+                          <option value="500">500 Cards (Popular)</option>
+                          <option value="1000">1,000 Cards (Best Value)</option>
+                          <option value="2500">2,500+ Multi-Employee Batch</option>
+                          <option value="5000">5,000+ Enterprise Contract</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Card Type
+                        </label>
+                        <select
+                          name="cardType"
+                          value={formState.cardType}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          {CARD_VARIATIONS?.map((c) => (
+                            <option key={c.id} value={c.title}>
+                              {c.title} ({c.gsm})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Paper / Material Stock
+                        </label>
+                        <select
+                          name="paper"
+                          value={formState.paper}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="350 GSM Standard Silk / Matte Card">350 GSM Standard Silk / Matte (Popular Standard)</option>
+                          <option value="300 GSM Economy Artboard">300 GSM Economy Artboard (Budget Friendly)</option>
+                          <option value="400 GSM Silk Artboard (Matte)">400 GSM Heavyweight Matte Card</option>
+                          <option value="450 GSM Velvet Soft-Touch Artboard">450 GSM Velvet Soft-Touch</option>
+                          <option value="600 GSM Archival Pure Cotton (Triple-Ply)">600 GSM Archival Italian Cotton</option>
+                          <option value="700 GSM Ultra-Thick Duplex Board">700 GSM Ultra-Thick Duplex</option>
+                          <option value="Fedrigoni Textured Linen Board">Fedrigoni Textured Linen</option>
+                          <option value="100% Recycled Kraft Eco Stock">100% Recycled Kraft Eco Stock</option>
+                          <option value="Waterproof Frosted PVC / Plastic">Waterproof Frosted PVC</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Tactile Finish
+                        </label>
+                        <select
+                          name="finish"
+                          value={formState.finish}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="Matte Lamination (Simple & Clean)">Matte Lamination (Simple &amp; Clean - Recommended)</option>
+                          <option value="Gloss Lamination (Vibrant & Protective)">Gloss Lamination (Vibrant &amp; Protective)</option>
+                          <option value="Uncoated / Natural (Easy to write on)">Uncoated / Natural (Easy to write on)</option>
+                          <option value="Velvet Soft-Touch Only">Velvet Soft-Touch Only</option>
+                          <option value="24K Gold Foil Stamping">24K Gold Hot Foil</option>
+                          <option value="Rose Gold Foil">Rose Gold Foil</option>
+                          <option value="Silver Mirror Foil">Silver Mirror Foil</option>
+                          <option value="Raised 3D Spot UV">Raised 3D Spot UV (Scodix)</option>
+                          <option value="Blind Debossing">Sculptural Blind Debossing</option>
+                          <option value="Painted Gilded Edges">Painted / Gilded Edges</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Card Size / Dimensions
+                        </label>
+                        <select
+                          name="size"
+                          value={formState.size}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="85 x 55 mm (Landscape EU Standard)">85 x 55 mm (Landscape EU Standard)</option>
+                          <option value="90 x 50 mm (Landscape US Standard)">90 x 50 mm (Landscape US / GCC Standard)</option>
+                          <option value="55 x 85 mm (Vertical Portrait)">55 x 85 mm (Vertical / Portrait Layout)</option>
+                          <option value="65 x 65 mm (Square)">65 x 65 mm (Square Business Card)</option>
+                          <option value="85 x 40 mm (Compact Mini Slim)">85 x 40 mm (Compact Mini / Slim Card)</option>
+                          <option value="170 x 55 mm Folded to 85 x 55 mm (4-Panel)">170 x 55 mm → 85 x 55 mm (Folded 4-Panel Card)</option>
+                          <option value="Custom Die-Cut Shape / Custom Size">Custom Size / Custom Die-Cut Layout</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Delivery Location
+                        </label>
+                        <select
+                          name="deliveryLocation"
+                          value={formState.deliveryLocation}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="Dubai, UAE">Dubai (DIFC, Business Bay, Downtown, Marina, Al Quoz)</option>
+                          <option value="Abu Dhabi, UAE">Abu Dhabi &amp; ADGM Courier</option>
+                          <option value="Sharjah, UAE">Sharjah &amp; SAIF Zone Courier</option>
+                          <option value="Ajman & Northern Emirates">Ajman, RAK, UAQ &amp; Fujairah</option>
+                          <option value="Al Quoz Pressroom Pickup">Al Quoz 3 Pressroom Pickup (Dubai)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Design Status
+                        </label>
+                        <select
+                          name="designStatus"
+                          value={formState.designStatus}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="Have Print-Ready PDF">Have Print-Ready PDF with Bleed</option>
+                          <option value="Need Minor Edits / Resizing">Need Minor File Adjustments</option>
+                          <option value="Need Full Custom Design Studio">Need Full Custom Design</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                          Required Delivery Date
+                        </label>
+                        <select
+                          name="deliveryDate"
+                          value={formState.deliveryDate}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] focus:border-[#C5A989] focus:outline-none"
+                        >
+                          <option value="Urgent 4h Same-Day Express">Urgent 4h Same-Day (Al Quoz)</option>
+                          <option value="Next-Day 24h Delivery">Next-Day 24-Hour Dispatch</option>
+                          <option value="Standard 24-48 Hours">Standard 24–48 Hours</option>
+                          <option value="Flexible / Bulk Schedule">Flexible / Bulk Schedule</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Upload Artwork Dropzone */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                        Upload Artwork (PDF, AI, PSD, ZIP)
+                      </label>
+                      <label className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] p-2.5 cursor-pointer transition-colors">
+                        <Upload className="h-4 w-4 text-[#795C43] mb-1" />
+                        <span className="text-[10.5px] font-bold text-[#352719]">
+                          {artworkFile ? artworkFile.name : 'Click to browse or drop vector file'}
+                        </span>
+                        <span className="text-[9.5px] text-[#756657]">PDF, AI, EPS or ZIP up to 50MB</span>
+                        <input
+                          type="file"
+                          accept=".pdf,.ai,.eps,.psd,.zip,.jpg,.png"
+                          onChange={handleFileChange}
+                          className="hidden"
+                        />
+                      </label>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#352719] mb-1">
+                        Message / Employee Names
+                      </label>
+                      <textarea
+                        name="notes"
+                        rows={2}
+                        value={formState.notes}
+                        onChange={handleFormChange}
+                        placeholder="Mention corner radius, multiple employee names, or urgent deadline..."
+                        className="w-full rounded-xl border border-[#DED2C1] bg-[#F5F0E7] px-3 py-2 text-xs text-[#352719] placeholder:text-[#756657] focus:border-[#C5A989] focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2 pt-1">
+                      <button
+                        type="submit"
+                        className="w-full rounded-2xl bg-[#795C43] hover:bg-[#795C43] py-3.5 text-xs font-black uppercase tracking-wider text-white shadow-lg shadow-[#795C43]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                      >
+                        <Send className="h-3.5 w-3.5" />
+                        <span>Prepare WhatsApp Quote Request</span>
+                      </button>
+
+                      <a
+                        href={getWhatsAppUrl(formatBusinessCardInquiry({
+                          quantity: formState.quantity,
+                          material: formState.paper,
+                          finish: formState.finish,
+                          location: 'Dubai, UAE',
+                          artwork: artworkFile,
+                          name: formState.name,
+                          company: formState.company,
+                          notes: formState.notes,
+                        }))}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                          trackBusinessCardWhatsAppClick({
+                            source_page: 'business_card_landing_form',
+                            service: 'business-cards',
+                            product_name: `Business Cards (${formState.cardType})`,
+                            button_location: 'quote_form',
+                          })
+                          trackProductInquiry({
+                            product_name: `Business Cards (${formState.cardType})`,
+                            button_location: 'quote_form',
+                            source_page: 'business_card_landing_form',
+                          })
+                        }}
+                        className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-current" />
+                        <span>Get Price on WhatsApp ({FORMATTED_PHONE})</span>
+                      </a>
+                    </div>
+                    <p className="text-[10px] text-center text-[#756657]">
+                      Free Pre-Press Artwork Inspection Included with Every Order.
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* AFFORDABLE EVERYDAY BUSINESS CARDS SPOTLIGHT */}
+        <section className="mt-12 sm:mt-16">
+          <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#DED2C1]">
+              <div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/40 px-3 py-1 text-xs font-bold text-emerald-700">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700" />
+                  Simple &amp; Affordable Everyday Option
+                </span>
+                <h2 className="font-display text-2xl sm:text-3xl font-black text-[#352719] mt-2">
+                  Simple &amp; Basic Business Cards — Standard Batch Printing
+                </h2>
+                <p className="text-xs sm:text-sm text-[#756657] mt-1 max-w-2xl leading-relaxed">
+                  Looking for clean, professional business cards without expensive luxury add-ons? Our standard 300 &amp; 350 GSM business cards feature crisp high-definition color, smooth protective lamination, and fast local production in Dubai.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 bg-[#F5F0E7] px-4 py-3 rounded-2xl border border-[#DED2C1] shrink-0">
+                <CheckCircle2 className="h-4 w-4 text-[#795C43]" />
+                <span className="text-xs font-bold text-[#352719]">Fast 24h Dispatch • Low Minimums</span>
+              </div>
+            </div>
+
+            {/* 4 Standard Quantity Batch Tiers with Transparent Pricing & WhatsApp Direct Order */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+              {[
+                { qty: '100', price: '85', unit: '0.85', subtitle: 'Starter Batch', desc: 'Ideal for new ventures, trade shows & fast networking', label: 'Starter Pack', popular: false },
+                { qty: '250', price: '140', unit: '0.56', subtitle: 'Standard Batch', desc: 'Most requested tier for sales meetings & regular client handoffs', label: 'Most Popular', popular: true },
+                { qty: '500', price: '195', unit: '0.39', subtitle: 'Growth Batch', desc: 'High ROI bulk pack recommended for growing commercial teams', label: 'Best Value', popular: false },
+                { qty: '1000', price: '295', unit: '0.30', subtitle: 'Corporate Batch', desc: 'Economical multi-staff supply with strict Pantone fidelity', label: 'Corporate Tier', popular: false },
+              ].map((tier) => (
+                <div
+                  key={tier.qty}
+                  className={`relative rounded-2xl border p-5 flex flex-col justify-between transition-all ${
+                    tier.popular
+                      ? 'border-[#C5A989] bg-[#F5F0E7] shadow-lg ring-1 ring-[#795C43]/40'
+                      : 'border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989]/60'
+                  }`}
+                >
+                  {tier.popular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#795C43] px-3 py-0.5 text-[9px] font-black uppercase tracking-wider text-white shadow-sm">
+                      {tier.label}
+                    </span>
+                  )}
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black text-[#795C43] uppercase tracking-wider">{tier.qty} Cards</span>
+                      <span className="text-[10px] font-mono text-[#756657]">AED {tier.unit}/pc</span>
+                    </div>
+                    <div className="mt-1 font-display text-lg font-black text-[#352719]">{tier.subtitle}</div>
+                    
+                    {/* Transparent Price Callout */}
+                    <div className="mt-2.5 flex items-baseline gap-1.5 bg-[#FAF8F3] px-3 py-2 rounded-xl border border-[#DED2C1]">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#756657]">From</span>
+                      <span className="font-display text-2xl font-black text-[#795C43]">AED {tier.price}</span>
+                      <span className="text-[10px] text-[#756657] ml-auto">+ 5% VAT</span>
+                    </div>
+
+                    <div className="text-[11px] text-[#756657] mt-2.5 leading-relaxed min-h-[34px]">{tier.desc}</div>
+                  </div>
+
+                  <div className="mt-4 space-y-2 pt-3 border-t border-[#DED2C1]">
+                    <a
+                      href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                        formatBusinessCardInquiry({
+                          quantity: tier.qty,
+                          paper: '350 GSM Standard Silk / Matte',
+                          finish: 'Matte Lamination (Both Sides)',
+                          sides: 'Double-sided CMYK',
+                          location: 'Dubai, UAE',
+                          additionalRequirements: `Standard Batch Inquiry: ${tier.qty} Cards from AED ${tier.price}. Need delivery timeline.`,
+                        })
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {
+                        trackBusinessCardWhatsAppClick({
+                          source_page: pageData?.path || '/business-card-printing-dubai',
+                          service: 'business-cards',
+                          button_location: `standard_batch_tier_${tier.qty}`,
+                          label: `order_whatsapp_${tier.qty}_cards_aed_${tier.price}`,
+                        })
+                      }}
+                      className="w-full rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-[11px] font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-md shadow-[#25D366]/20"
+                    >
+                      <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                      <span>Order {tier.qty} on WhatsApp</span>
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={() => scrollToQuote('Standard Business Cards (350 GSM Silk / Matte)', '350 GSM Standard Silk / Matte Card', tier.qty)}
+                      className="w-full rounded-xl border border-[#DED2C1] bg-[#FAF8F3] hover:bg-[#EDE3D5] hover:border-[#C5A989]/50 py-2 text-[10.5px] font-semibold text-[#352719] transition-colors cursor-pointer text-center"
+                    >
+                      Customize Specifications
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#DED2C1] text-xs text-[#756657]">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                <span className="inline-flex items-center gap-1.5 font-medium text-[#352719]">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700" />
+                  Sturdy 350 GSM Artboard
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-[#352719]">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700" />
+                  Matte or Gloss Protective Coating
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-[#352719]">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700" />
+                  Full Color Both Sides (CMYK)
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-[#352719]">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700" />
+                  Same-Day or 24h Al Quoz Pickup
+                </span>
+              </div>
+            </div>
+
+            {/* Premium & Specialty Finishes Quick Matrix */}
+            <div className="mt-6 pt-6 border-t border-[#DED2C1]">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="font-display text-base font-black text-[#352719]">
+                    Premium Substrates &amp; Luxury Finishes Price Guide
+                  </h3>
+                  <p className="text-[11px] text-[#756657]">
+                    Transparent indicative pricing for popular specialty upgrades (based on standard 100 pcs batch).
+                  </p>
+                </div>
+                <span className="hidden sm:inline-block rounded-md bg-[#F5F0E7] px-2.5 py-1 text-[10px] font-mono font-bold text-[#795C43] border border-[#DED2C1]">
+                  Instant Quotes on WhatsApp
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                {[
+                  { name: '400 GSM Matte', price: 'AED 110', tag: 'Heavyweight', spec: 'Anti-curl double matte', finish: '400 GSM Matte Coating' },
+                  { name: '450 GSM Velvet', price: 'AED 145', tag: 'Soft-Touch', spec: 'Peach-skin tactile barrier', finish: '450 GSM Velvet Soft-Touch' },
+                  { name: 'Raised Spot UV', price: 'AED 190', tag: '3D Texture', spec: 'Gloss tactile relief contrast', finish: 'Spot UV 3D Gloss' },
+                  { name: '24K Gold Foil', price: 'AED 240', tag: 'Hot Stamped', spec: 'Metallic mirror foil highlight', finish: '24K Gold Foil Accent' },
+                  { name: '600 GSM Cotton', price: 'AED 380', tag: 'Letterpress', spec: 'Archival deboss & gilded edges', finish: '600 GSM Cotton Duplex' },
+                ].map((item, idx) => (
+                  <div key={idx} className="rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3.5 flex flex-col justify-between hover:border-[#C5A989]/50 transition-colors">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-xs text-[#352719]">{item.name}</span>
+                        <span className="text-[9px] font-mono text-[#795C43] bg-[#FAF8F3] px-1.5 py-0.5 rounded border border-[#DED2C1]">{item.tag}</span>
+                      </div>
+                      <div className="mt-1 font-display text-base font-black text-[#795C43]">
+                        {item.price} <span className="text-[9px] font-normal text-[#756657]">/ 100 pcs</span>
+                      </div>
+                      <div className="text-[10px] text-[#756657] mt-1">{item.spec}</div>
+                    </div>
+                    <a
+                      href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                        formatBusinessCardInquiry({
+                          quantity: '100',
+                          paper: item.finish,
+                          finish: item.name,
+                          sides: 'Double-sided CMYK',
+                          location: 'Dubai, UAE',
+                          additionalRequirements: `Specialty Finish Inquiry for ${item.name} (${item.price}/100 pcs). Please share sample photos and turnaround.`,
+                        })
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {
+                        trackBusinessCardWhatsAppClick({
+                          source_page: pageData?.path || '/business-card-printing-dubai',
+                          service: 'business-cards',
+                          button_location: `specialty_strip_${item.name.toLowerCase().replace(/\s+/g, '_')}`,
+                          label: `inquire_${item.name.toLowerCase().replace(/\s+/g, '_')}`,
+                        })
+                      }}
+                      className="mt-3 w-full rounded-lg bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/40 py-1.5 text-[10px] font-bold transition-all cursor-pointer flex items-center justify-center gap-1"
+                    >
+                      <WhatsAppIcon className="h-3 w-3 fill-current" />
+                      <span>Quote {item.tag}</span>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. COMPREHENSIVE BUSINESS CARD OPTIONS & FINISHES SHOWCASE */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+                PRODUCT SPECIFICATIONS
+              </span>
+              <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+                Business Card Materials &amp; Finish Variations
+              </h2>
+              <p className="mt-2 text-sm text-[#756657] max-w-xl">
+                From simple everyday standard cards to executive luxury finishes, choose the exact substrate for your brand.
+              </p>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-[#DED2C1] p-1.5 rounded-2xl shadow-2xs">
+              {[
+                { id: 'all', label: 'All Cards' },
+                { id: 'basic', label: 'Simple & Basic Cards' },
+                { id: 'corporate', label: 'Corporate & Teams' },
+                { id: 'finishes', label: 'Spot UV & Foil' },
+                { id: 'luxury', label: 'Luxury & Velvet' },
+                { id: 'eco', label: 'Textured & Eco' },
+                { id: 'specialty', label: 'Specialty & Shapes' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveCategory(tab.id)}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-black transition-all cursor-pointer ${
+                    activeCategory === tab.id
+                      ? 'bg-[#795C43] text-white shadow-xs'
+                      : 'text-[#756657] hover:text-[#352719]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {filteredCards?.map((card, idx) => (
+              <Reveal key={card.id} delay={Math.min((idx % 4) * 0.08, 0.3)}>
+                <div
+                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] shadow-xs transition-all duration-300 card-hover-lift hover:shimmer h-full hover:border-[#C5A989] hover:shadow-xl"
+                >
+                <div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={card.image}
+                      alt={`${card.title} in Dubai`}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                      <span className="rounded-md bg-[#FAF8F3]/95 border border-[#DED2C1] px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider text-[#352719] backdrop-blur-xs shadow-xs">
+                        {card.badge}
+                      </span>
+                    </div>
+                    <span className="absolute bottom-2.5 right-2.5 rounded-md bg-[#795C43] px-2 py-0.5 text-[8.5px] font-mono font-black text-white shadow-xs">
+                      {card.gsm}
+                    </span>
+                  </div>
+
+                  <div className="p-5">
+                    <h3 className="font-display text-base font-black text-[#352719] group-hover:text-[#795C43] transition-colors line-clamp-1">
+                      {card.title}
+                    </h3>
+                    <p className="mt-2 text-xs text-[#756657] leading-relaxed line-clamp-3">
+                      {card.description}
+                    </p>
+
+                    <div className="mt-3 border-t border-slate-100 pt-3 text-[11px] text-[#756657]">
+                      <span className="font-bold text-[#795C43] block mb-1">Ideal For:</span>
+                      <span className="line-clamp-2 text-[#756657]">{card.suitableFor}</span>
+                    </div>
+
+                    <div className="mt-2.5 flex flex-wrap gap-1">
+                      {(card?.popularFinishes || []).map((f) => (
+                        <span
+                          key={f}
+                          className="rounded-md bg-[#F5F0E7] border border-[#DED2C1] px-2 py-0.5 text-[9.5px] font-bold text-[#756657]"
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 pt-0 grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => scrollToQuote(card.title, card.specs.split('•')[0].trim())}
+                    className="w-full rounded-xl bg-[#795C43] hover:bg-[#5D442E] py-2 text-[11px] font-black uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-1 shadow-xs"
+                  >
+                    <span>Instant Quote</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
+
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                      formatBusinessCardInquiry({
+                        cardType: card.title,
+                        paper: card.gsm,
+                        finish: (card.popularFinishes || []).join(', '),
+                        specs: card.specs,
+                      })
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackBusinessCardWhatsAppClick({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        service: 'business-cards',
+                        product_name: card.title,
+                        button_location: 'card_variation_grid',
+                        label: `card_grid_whatsapp_${card.id}`,
+                      })
+                      trackProductInquiry({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        product_name: card.title,
+                        button_location: 'card_variation_grid',
+                      })
+                    }}
+                    className="w-full rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2 text-[11px] font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs"
+                    title={`Inquire about ${card.title} on WhatsApp`}
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                    <span>Inquire on WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* 2B. TAILORED PACKAGES FOR INDIVIDUALS, STARTUPS & CORPORATE/BULK BUYERS + QUOTE CHECKLIST */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              TAILORED ORDERING FOR EVERY BUYER TIER
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+              Business Card Packages for Individuals, Startups &amp; Corporate Teams
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              Whether you need a single 100-card personal box, a multi-founder startup pack, or a 10,000+ card corporate employee rollout across the UAE, choose your buyer profile below for an immediate quotation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {[
+              {
+                badge: 'Individuals & Freelancers',
+                title: 'Personal & Executive Name Cards',
+                qtyRange: '100 – 250 Cards (1 Name)',
+                priceNote: 'From AED 85 (350 GSM) • Luxury Upgrades Available',
+                desc: 'Ideal for consultants, real estate brokers, doctors, and independent professionals who need premium visiting cards in Dubai with fast 4-hour or 24-hour turnaround.',
+                features: [
+                  'Low 100-card minimum order per person',
+                  'Choice of 350–450 GSM Silk/Velvet or 600 GSM Cotton',
+                  'Optional QR code vCard & bilingual Arabic/English sides',
+                  'Same-day 4h express rush or next-day Dubai courier',
+                ],
+                waSpecs: {
+                  cardType: 'Individual / Executive Business Cards (1 Name)',
+                  quantity: '100 - 250 Cards',
+                  paper: '350 GSM Silk or 450 GSM Velvet Soft-Touch',
+                  specs: 'Single-name personal business card run with free PDF proof',
+                },
+                formType: 'Standard 350-400 GSM Silk / Matte',
+                formPaper: '350 GSM Standard Silk / Matte Card',
+                formQty: '100',
+              },
+              {
+                badge: 'Startups & SMEs',
+                title: 'Startup & Founder Multi-Name Packs',
+                qtyRange: '250 – 1,000 Cards (1 to 5 Names)',
+                priceNote: 'From AED 140 • Multi-Founder Batch Splitting',
+                desc: 'Built for DIFC Innovation Hub, Dubai Internet City, and UAE Free Zone startups launching their brand identity for investor meetings, GITEX, and client pitches.',
+                features: [
+                  'Split runs across co-founders & early team members',
+                  'Custom business cards with logo & social media handles',
+                  'Pre-press artwork check or custom layout assistance',
+                  '24K gold foil, Spot UV, or minimalist uncoated stocks',
+                ],
+                waSpecs: {
+                  cardType: 'Startup & Founder Business Card Package',
+                  quantity: '500 Cards (Multi-Founder / Team Pack)',
+                  paper: '400 GSM Matte or 450 GSM Velvet Soft-Touch',
+                  specs: 'Startup team business cards with logo & QR code',
+                },
+                formType: 'Velvet Soft-Touch Laminated',
+                formPaper: '450 GSM Velvet Soft-Touch Board',
+                formQty: '500',
+              },
+              {
+                badge: 'Corporate & Bulk Buyers',
+                title: 'Enterprise Multi-Employee & Bulk Runs',
+                qtyRange: '1,000 – 10,000+ Cards (5 to 500+ Staff)',
+                priceNote: 'Volume Tiered Pricing • TRN Tax Invoicing',
+                desc: 'Centralized corporate business card printing across the UAE for HR, procurement, and marketing departments requiring strict Pantone color consistency and rapid staff re-orders.',
+                features: [
+                  'Locked master template for effortless employee reprints',
+                  'Upload Excel staff roster for automated bilingual proofs',
+                  'Heidelberg offset & HP Indigo Pantone calibration',
+                  'Official UAE VAT tax invoice & multi-branch delivery',
+                ],
+                waSpecs: {
+                  cardType: 'Corporate Bulk / Multi-Employee Business Cards',
+                  quantity: '1,000+ Cards (Corporate Multi-Staff Batch)',
+                  paper: '350-450 GSM Corporate Standard (Double-Sided)',
+                  specs: 'Bilingual English/Arabic corporate template + UAE VAT invoice',
+                },
+                formType: 'Corporate Multi-Name Batch',
+                formPaper: '400 GSM Heavyweight Matte Coating',
+                formQty: '1000',
+              },
+            ].map((pkg) => (
+              <div
+                key={pkg.title}
+                className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-7 shadow-lg flex flex-col justify-between hover:border-[#C5A989] transition-all"
+              >
+                <div>
+                  <span className="inline-block rounded-full bg-[#795C43]/15 border border-[#C5A989]/40 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#795C43]">
+                    {pkg.badge}
+                  </span>
+                  <h3 className="font-display text-xl font-black text-[#352719] mt-3">
+                    {pkg.title}
+                  </h3>
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-[#F5F0E7] border border-[#DED2C1] px-3.5 py-2">
+                    <span className="text-xs font-black text-[#795C43]">{pkg.qtyRange}</span>
+                    <span className="text-[10.5px] font-semibold text-[#756657]">{pkg.priceNote}</span>
+                  </div>
+                  <p className="mt-3 text-xs text-[#756657] leading-relaxed">
+                    {pkg.desc}
+                  </p>
+                  <ul className="mt-4 space-y-2 border-t border-[#DED2C1] pt-4 text-xs text-[#352719]">
+                    {pkg.features.map((feat) => (
+                      <li key={feat} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-[#DED2C1] grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                      formatBusinessCardInquiry(pkg.waSpecs)
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackBusinessCardWhatsAppClick({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        service: 'business-cards',
+                        product_name: pkg.title,
+                        button_location: `buyer_segment_${pkg.badge.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+                      })
+                    }}
+                    className="w-full rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-[11px] font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                    <span>WhatsApp Quote</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => scrollToQuote(pkg.formType, pkg.formPaper, pkg.formQty)}
+                    className="w-full rounded-xl bg-[#795C43] hover:bg-[#5D442E] py-2.5 px-3 text-[11px] font-black uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    <span>Select Package</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* What Information Customers Should Provide for an Instant Quote */}
+          <div className="mt-8 rounded-3xl border border-[#DED2C1] bg-[#F5F0E7] p-6 sm:p-8 shadow-md">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="max-w-xl">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#795C43]">
+                  FAST QUOTATION CHECKLIST
+                </span>
+                <h3 className="font-display text-lg sm:text-xl font-black text-[#352719] mt-1">
+                  What Information to Share for an Instant Business Card Quote
+                </h3>
+                <p className="text-xs text-[#756657] mt-1 leading-relaxed">
+                  When messaging our print estimators on WhatsApp ({FORMATTED_PHONE}) or submitting the quote form, sharing these 4 details lets us reply with an exact price and turnaround within minutes:
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 flex-1">
+                {[
+                  { step: '1. Quantity & Names', detail: 'Total cards required (100, 250, 500, 1,000+) and number of employee names.' },
+                  { step: '2. Paper & Finish', detail: '350 GSM Silk, 450 GSM Velvet, or 600 GSM Cotton + Foil, Spot UV, or Embossing.' },
+                  { step: '3. Artwork or Design', detail: 'Attach your PDF/AI logo file, or let us know if you need layout/typesetting help.' },
+                  { step: '4. Delivery & Timeline', detail: 'Your office area in Dubai/UAE and whether you need 4h same-day or 24-48h dispatch.' },
+                ].map((item) => (
+                  <div key={item.step} className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-3.5">
+                    <span className="text-xs font-black text-[#795C43] block">{item.step}</span>
+                    <p className="text-[11px] text-[#756657] mt-1 leading-relaxed">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. INDUSTRY-SPECIFIC BUSINESS CARD SEO & USE CASES (12 SECTORS) */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              TAILORED INDUSTRY SPECIFICATIONS
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+              Engineered for Dubai’s Commercial Sectors
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              Specific card weights, finish combinations, and layouts designed for maximum conversion in your industry.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {INDUSTRY_SOLUTIONS?.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <Reveal key={item.title} delay={Math.min((idx % 3) * 0.08, 0.3)}>
+                  <div
+                    className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs card-hover-lift hover-shimmer h-full hover:border-[#C5A989] hover:shadow-xl"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 text-[#795C43] shadow-2xs mb-4">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-base font-black text-[#352719]">{item.title}</h3>
+                    <p className="mt-2 text-xs text-[#756657] leading-relaxed">{item.desc}</p>
+                    <div className="mt-4 rounded-xl border border-[#DED2C1] bg-[#F5F0E7] p-3 text-[11px]">
+                      <span className="font-bold text-[#795C43] block mb-0.5">Recommended Spec:</span>
+                      <span className="text-[#756657] font-medium">{item.recommended}</span>
+                    </div>
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* 4. BUSINESS CARD KNOWLEDGE HUB & TECHNICAL PRE-PRESS GUIDES */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+                KNOWLEDGE &amp; PRE-PRESS RESOURCE CENTER
+              </span>
+              <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+                Business Card Guides &amp; Specifications
+              </h2>
+              <p className="mt-2 text-sm text-[#756657] max-w-xl">
+                Technical resources, size standards, and paper weight comparisons curated by ONPRINT pre-press engineers.
+              </p>
+            </div>
+
+            {/* Guide Tabs */}
+            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-[#DED2C1] p-1.5 rounded-2xl shadow-2xs">
+              {[
+                { id: 'size', label: 'Size Standards' },
+                { id: 'gsm', label: 'GSM Paper Guide' },
+                { id: 'finishes', label: 'Finishes Explained' },
+                { id: 'corporate', label: 'Multi-Employee' },
+                { id: 'bleed', label: '3mm Bleed Checklist' },
+              ].map((g) => (
+                <button
+                  key={g.id}
+                  type="button"
+                  onClick={() => setActiveGuideTab(g.id)}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-black transition-all cursor-pointer ${
+                    activeGuideTab === g.id
+                      ? 'bg-[#795C43] text-white shadow-xs'
+                      : 'text-[#756657] hover:text-[#352719]'
+                  }`}
+                >
+                  {g.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-10 shadow-xs">
+            {activeGuideTab === 'size' && (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#795C43]/10 px-3.5 py-1 text-xs font-bold text-[#795C43] border border-[#C5A989]/30">
+                    <CreditCard className="h-3.5 w-3.5" />
+                    <span>Standard Dimensions in Dubai &amp; GCC</span>
+                  </div>
+                  <h3 className="font-display text-2xl font-black text-[#352719]">
+                    Dubai Business Card Size Guide
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#756657] leading-relaxed">
+                    Selecting the right dimensions ensures your card fits effortlessly into client wallets, luxury cardholders, and digital scanners across the Middle East:
+                  </p>
+                  <ul className="space-y-2.5 text-xs text-[#756657]">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#795C43] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-[#352719]">Standard European (85 x 55 mm):</strong> The gold standard in Dubai and the UAE. Mirrors standard ISO 7810 credit card dimensions.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#795C43] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-[#352719]">US Standard (90 x 50 mm / 3.5 x 2.0 in):</strong> Slightly slimmer and wider, favored by American multinationals and legal practices.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#795C43] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-[#352719]">Square (65 x 65 mm) &amp; Compact Mini (85 x 40 mm):</strong> Square business cards printing in Dubai and slim mini visiting cards for boutique retail, creatives, and modern tech brands.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#795C43] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-[#352719]">Vertical Portrait (55 x 85 mm) &amp; Folded 4-Panel (170 x 55 mm):</strong> Vertical visiting cards in the UAE for modern QR/badge aesthetics, plus scored folded business cards offering 4 panels for bilingual profiles or appointment grids.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="lg:col-span-5 bg-[#F5F0E7] p-4 sm:p-6 rounded-2xl border border-[#DED2C1] text-center space-y-4 shadow-sm">
+                  <div className="mx-auto w-full max-w-[12rem] h-32 rounded-xl border-2 border-dashed border-[#C5A989] bg-[#FAF8F3] flex flex-col items-center justify-center p-3 relative shadow-xs">
+                    <span className="font-mono text-xs font-black text-[#352719]">85 mm × 55 mm</span>
+                    <span className="text-[10px] text-[#756657] mt-1">ISO 7810 Standard Wallet Ratio</span>
+                    <div className="absolute top-1 left-1 text-[8px] font-mono text-[#795C43]">+3mm Bleed</div>
+                    <div className="absolute bottom-1 right-1 text-[8px] font-mono text-[#795C43]">300 DPI CMYK</div>
+                  </div>
+                  <p className="text-[11px] text-[#756657]">
+                    Always add 3mm outer bleed to your design file (Total document canvas: 91 x 61 mm).
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeGuideTab === 'gsm' && (
+              <div className="space-y-6">
+                <div className="max-w-2xl">
+                  <h3 className="font-display text-2xl font-black text-[#352719]">
+                    Understanding Card Thickness &amp; GSM
+                  </h3>
+                  <p className="mt-1 text-xs sm:text-sm text-[#756657]">
+                    Grams per Square Meter (GSM) measures paper density. Higher GSM creates a stiffer, more substantial executive presence.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {[
+                    { gsm: '350 GSM', name: 'Silk Artboard', role: 'Commercial Standard', desc: 'Crisp baseline stock for team batches and everyday client hand-offs.' },
+                    { gsm: '400 GSM', name: 'Premium Matte', role: 'Executive Solid', desc: 'Substantial rigidity with double-sided matte protection. Zero flimsiness.' },
+                    { gsm: '450 GSM', name: 'Velvet Soft-Touch', role: 'Luxury Atelier', desc: 'Dense artboard wrapped in suede-like soft touch film. Stiff and luxurious.' },
+                    { gsm: '600–700 GSM', name: 'Italian Cotton / Duplex', role: 'Flagship Pinnacle', desc: 'Multi-ply archival board built for deep letterpress debossing and painted edges.' },
+                  ].map((item) => (
+                    <div key={item.gsm} className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-5 shadow-xs">
+                      <span className="font-mono text-lg font-black text-[#795C43]">{item.gsm}</span>
+                      <h4 className="font-display text-sm font-black text-[#352719] mt-1">{item.name}</h4>
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#756657] mt-0.5">{item.role}</span>
+                      <p className="mt-2 text-xs text-[#756657] leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {activeGuideTab === 'finishes' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-6 shadow-xs space-y-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#795C43]/15 text-[#795C43] border border-[#C5A989]/30">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-display text-base font-black text-[#352719]">24K Hot Foil Stamping</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
+                    Uses heated brass dies and hydraulic pressure to fuse mirror metallic foils into the paper. Ideal for luxury monograms, executive titles, and premium crests.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-6 shadow-xs space-y-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#795C43]/15 text-[#795C43] border border-[#C5A989]/30">
+                    <Layers className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-display text-base font-black text-[#352719]">Raised 3D Spot UV (Scodix)</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
+                    Applies a 100-micron high-build clear gloss polymer over matte or velvet laminated surfaces, creating an irresistible tactile dimension under light.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-6 shadow-xs space-y-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#795C43]/15 text-[#795C43] border border-[#C5A989]/30">
+                    <ShieldCheck className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-display text-base font-black text-[#352719]">Blind Sculptural Debossing</h4>
+                  <p className="text-xs text-[#756657] leading-relaxed">
+                    Deep mechanical indentation stamped into cotton boards without ink. Creates subtle architectural shadows that exude understated confidence.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeGuideTab === 'corporate' && (
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-black text-[#352719]">
+                  Corporate Multi-Employee Batch Printing
+                </h3>
+                <p className="text-xs sm:text-sm text-[#756657] max-w-2xl">
+                  Streamlined corporate ordering for HR and procurement departments. Maintain exact brand typography, paper consistency, and Pantone colors across your entire organization.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
+                    <span className="font-mono text-base font-bold text-[#795C43]">01. Central Master Asset</span>
+                    <p className="text-xs text-[#756657] mt-1">We securely lock your official brand typography, layout, and Pantone color profiles.</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
+                    <span className="font-mono text-base font-bold text-[#795C43]">02. Excel Multi-Name Sync</span>
+                    <p className="text-xs text-[#756657] mt-1">Upload your employee roster spreadsheet to generate proofs for 10 to 500 staff in hours.</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4">
+                    <span className="font-mono text-base font-bold text-[#795C43]">03. Tiered Volume Savings</span>
+                    <p className="text-xs text-[#756657] mt-1">Pooled print runs maximize bulk economies of scale with consolidated corporate dispatch.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeGuideTab === 'bleed' && (
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-black text-[#352719]">
+                  Print-Ready Vector Artwork &amp; Bleed Checklist
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4 text-xs">
+                    <span className="font-bold text-[#795C43] block mb-1">1. Color Mode</span>
+                    <span className="text-[#756657]">CMYK color space (no RGB). Specify Pantone PMS codes for exact spot colors.</span>
+                  </div>
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4 text-xs">
+                    <span className="font-bold text-[#795C43] block mb-1">2. Resolution</span>
+                    <span className="text-[#756657]">Minimum 300 DPI for raster images; 100% vector for typography and logos.</span>
+                  </div>
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4 text-xs">
+                    <span className="font-bold text-[#795C43] block mb-1">3. 3mm Bleed</span>
+                    <span className="text-[#756657]">Extend background art 3mm beyond the cut line to prevent white margins.</span>
+                  </div>
+                  <div className="rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] p-4 text-xs">
+                    <span className="font-bold text-[#795C43] block mb-1">4. Safety Margin</span>
+                    <span className="text-[#756657]">Keep all critical contact text at least 3mm to 4mm inside the final trim edge.</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* 5. DUBAI LOCAL SEO & AREA DELIVERY MATRIX (12 AREAS) */}
+        <section className="mt-16 sm:mt-24 rounded-3xl border border-[#DED2C1] bg-gradient-to-br from-[#EDE3D5] via-[#FAF8F3] to-[#F5F0E7] p-8 sm:p-12 text-[#352719] shadow-xl relative overflow-hidden">
+          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#795C43]/15 blur-3xl" />
+
+          <div className="relative z-10">
+            <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/40 bg-[#795C43]/10 px-3.5 py-1 text-xs font-bold text-[#795C43]">
+                  <MapPin className="h-3.5 w-3.5" />
+                  <span>Dubai Local Pressroom &amp; Express Delivery</span>
+                </div>
+                <h2 className="font-display mt-3 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+                  Doorstep Business Card Delivery Across Dubai &amp; UAE
+                </h2>
+              </div>
+              <span className="text-xs font-mono text-[#756657]">
+                Direct Pressroom • Zero Broker Markups
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {DUBAI_AREAS?.map((area, idx) => (
+                <Reveal key={area.name} delay={Math.min((idx % 3) * 0.05, 0.25)}>
+                  <div
+                    className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-4 backdrop-blur-xs transition-colors hover:border-[#C5A989] hover:bg-white card-hover-lift hover-shimmer h-full"
+                  >
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-display text-sm font-black text-[#352719]">{area.name}</h4>
+                      <span className="rounded-md bg-[#795C43] px-2 py-0.5 text-[8.5px] font-bold uppercase tracking-wider text-white">
+                        {area.dispatch}
+                      </span>
+                    </div>
+                    <span className="mt-1 block text-[10.5px] font-bold text-[#795C43]">
+                      {area.hub}
+                    </span>
+                    <p className="mt-2 text-xs text-[#756657] leading-relaxed">{area.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 6. GEO / AI SEARCH FACT & ANSWER SECTION (AEO OPTIMIZED) */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              AI SEARCH &amp; FACTUAL VERIFICATION
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black text-[#352719]">
+              Key Factual Answers on Business Card Printing
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              Clear, factual specifications extracted directly from our Al Quoz press floor.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+              <h4 className="font-display text-sm font-black text-[#352719]">What is ONPRINT?</h4>
+              <p className="mt-2 text-xs text-[#756657] leading-relaxed">
+                ONPRINT is a licensed commercial printing atelier located in Al Quoz, Dubai, UAE, specializing in luxury business cards, corporate stationery, and corporate merchandise.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+              <h4 className="font-display text-sm font-black text-[#352719]">What sizes are printed?</h4>
+              <p className="mt-2 text-xs text-[#756657] leading-relaxed">
+                We print standard European 85 x 55 mm, US Standard 90 x 50 mm, Square 65 x 65 mm, and custom CNC die-cut visiting cards with 3mm bleed margins.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+              <h4 className="font-display text-sm font-black text-[#352719]">What paper weights are offered?</h4>
+              <p className="mt-2 text-xs text-[#756657] leading-relaxed">
+                Stock weights range from standard 350 GSM silk artboard up to 400 GSM matte, 450 GSM velvet, and 600–700 GSM multi-ply Italian cotton boards.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+              <h4 className="font-display text-sm font-black text-[#352719]">What is the bleed requirement?</h4>
+              <p className="mt-2 text-xs text-[#756657] leading-relaxed">
+                All artwork files must include a 2mm to 3mm bleed on all sides and a 3mm safe inner margin, supplied in 300 DPI CMYK vector PDF format.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+              <h4 className="font-display text-sm font-black text-[#352719]">How fast is turnaround?</h4>
+              <p className="mt-2 text-xs text-[#756657] leading-relaxed">
+                Standard digital runs are dispatched in 24–48 hours across Dubai. Express same-day 4-hour printing is available for orders approved by 11:00 AM.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-5 shadow-xs">
+              <h4 className="font-display text-sm font-black text-[#352719]">Are multi-name discounts available?</h4>
+              <p className="mt-2 text-xs text-[#756657] leading-relaxed">
+                Yes. Procurement teams ordering cards for 5 to 500+ employees receive tiered corporate discounts with unified brand color calibration.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* HOW TO ORDER IN 3 SIMPLE STEPS */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              FAST &amp; EFFORTLESS PROCESS
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+              How to Order Business Cards in 3 Simple Steps
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              From digital concept to luxury tactile cards delivered anywhere in Dubai and the UAE.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 shadow-xs relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#795C43]/15 border border-[#C5A989]/30 text-[#795C43] font-black text-lg mb-6">
+                01
+              </div>
+              <h3 className="font-display text-lg font-black text-[#352719]">Choose Specs or Send Artwork</h3>
+              <p className="mt-2 text-xs sm:text-sm text-[#756657] leading-relaxed">
+                Select your preferred paper weight (300 to 700 GSM) and finishing options (matte, soft-touch, 24K gold foil, embossing). Upload your print-ready PDF/AI file or request our pre-press design assistance.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 shadow-xs relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#795C43]/15 border border-[#C5A989]/30 text-[#795C43] font-black text-lg mb-6">
+                02
+              </div>
+              <h3 className="font-display text-lg font-black text-[#352719]">Get Instant WhatsApp Quotation</h3>
+              <p className="mt-2 text-xs sm:text-sm text-[#756657] leading-relaxed">
+                Receive an immediate customized price quotation, technical file audit, and digital PDF contract proof directly on WhatsApp within minutes from our Dubai print estimators.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 shadow-xs relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#795C43]/15 border border-[#C5A989]/30 text-[#795C43] font-black text-lg mb-6">
+                03
+              </div>
+              <h3 className="font-display text-lg font-black text-[#352719]">Fast Production &amp; Dubai Delivery</h3>
+              <p className="mt-2 text-xs sm:text-sm text-[#756657] leading-relaxed">
+                Your cards are precision-printed on industrial Heidelberg or HP Indigo presses, die-cut, and dispatched. Choose 4-hour express rush or next-day doorstep delivery to your office.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                formatBusinessCardInquiry(
+                  hasInteractedWithForm
+                    ? {
+                        cardType: formState.cardType,
+                        quantity: formState.quantity,
+                        size: formState.size,
+                        paper: formState.paper,
+                        finish: formState.finish,
+                        location: formState.deliveryLocation,
+                        notes: formState.notes,
+                      }
+                    : {}
+                )
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackBusinessCardWhatsAppClick({
+                  source_page: pageData?.path || '/business-card-printing-dubai',
+                  service: 'business-cards',
+                  button_location: 'how_to_order_steps',
+                  label: 'start_order_on_whatsapp',
+                })
+              }}
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all cursor-pointer"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-current" />
+              <span>Start Your Order on WhatsApp</span>
+            </a>
+          </div>
+        </section>
+
+        {/* 7. TECHNICAL ARTWORK & BLEED GUIDE */}
+        <section className="mt-16 sm:mt-24 rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-8 sm:p-12 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#795C43]/15 border border-[#C5A989]/30 px-3.5 py-1 text-xs font-bold text-[#795C43]">
+                <FileText className="h-3.5 w-3.5" />
+                <span>Designer Pre-Press Specification</span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-black text-[#352719]">
+                Download Print-Ready Business Card Templates
+              </h3>
+              <p className="text-xs sm:text-sm text-[#756657] leading-relaxed">
+                Ensure perfect alignment, zero text cut-off, and exact Spot UV / Hot Foil mask layers. Our free template bundle includes Adobe Illustrator (.ai), InDesign (.indd), and PDF vector templates for 85x55mm and 90x50mm cards.
+              </p>
+              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-bold text-[#352719]">
+                <span className="flex items-center gap-1"><Check className="h-4 w-4 text-[#795C43]" /> 3mm Outer Bleed</span>
+                <span className="flex items-center gap-1"><Check className="h-4 w-4 text-[#795C43]" /> 300 DPI CMYK</span>
+                <span className="flex items-center gap-1"><Check className="h-4 w-4 text-[#795C43]" /> Vector Outlined Fonts</span>
+                <span className="flex items-center gap-1"><Check className="h-4 w-4 text-[#795C43]" /> K:100% Foil Mask Layer</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col gap-3">
+              <a
+                href="/assets/products/luxury_business_cards.jpg"
+                download="ONPRINT-Business-Card-Specs-Dubai.jpg"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#795C43] hover:bg-[#795C43] px-6 py-4 text-xs font-black uppercase tracking-wider text-white shadow-md shadow-[#795C43]/20 transition-all cursor-pointer text-center"
+              >
+                <Download className="h-4 w-4" />
+                <span>Download Spec Sheet</span>
+              </a>
+              <button
+                type="button"
+                onClick={() => scrollToQuote()}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#DED2C1] bg-[#F5F0E7] hover:border-[#C5A989] hover:text-[#795C43] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#352719] transition-all cursor-pointer text-center"
+              >
+                <span>Request Free Artwork Check</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. PRINT SPECIFICATIONS & APPLICATION PROFILES */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              CORPORATE APPLICATION PROFILES
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#352719]">
+              Engineered for Every Corporate Requirement
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              From DIFC legal practices to Downtown hospitality and Business Bay enterprise scaleups.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                title: 'Executive Leadership',
+                description: '450 GSM velvet soft-touch cards with 24K mirror gold or rose gold foil stamping. High tactile contrast designed for boardrooms and investor presentations.',
+                application: 'Private Equity & Legal',
+                spec: '450 GSM Velvet + 24K Foil',
+              },
+              {
+                title: 'Luxury Real Estate',
+                description: '600 GSM pure cotton cards with deep blind letterpress debossing and hand-painted gilded edges for high-value client interactions.',
+                application: 'Brokers & Hospitality',
+                spec: '600 GSM Cotton + Deboss',
+              },
+              {
+                title: 'Enterprise Teams',
+                description: '350 GSM premium silk with scuff-resistant matte lamination and bilingual Arabic/English typesetting with strict Pantone color consistency across batch reprints.',
+                application: 'Corporate Multi-Name',
+                spec: '350 GSM Silk + Bilingual',
+              },
+              {
+                title: 'Design & Creative',
+                description: '400 GSM textured Italian linen and uncoated craft stocks with custom die-cut contours and raised 3D Scodix spot UV highlights.',
+                application: 'Studios & Agencies',
+                spec: '400 GSM Linen + Die-Cut',
+              },
+            ].map((profile, i) => (
+              <div
+                key={i}
+                className="rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 shadow-xs flex flex-col justify-between"
+              >
+                <div>
+                  <span className="inline-block rounded-md bg-[#F5F0E7] px-2 py-0.5 text-[10px] font-mono text-[#795C43] border border-[#DED2C1] mb-3">
+                    {profile.application}
+                  </span>
+                  <h3 className="font-bold text-sm text-[#352719] mb-2">{profile.title}</h3>
+                  <p className="text-xs text-[#756657] leading-relaxed">
+                    {profile.description}
+                  </p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-[#DED2C1]">
+                  <span className="text-[11px] font-mono font-bold text-emerald-700">
+                    {profile.spec}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+
+
+        {/* 8. COMPREHENSIVE 16-QUESTION FAQ ACCORDION */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16 max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              FREQUENTLY ASKED QUESTIONS
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black text-[#352719]">
+              Business Card Printing FAQ
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              Clear answers on turnaround times, pricing, paper stocks, and embellishments in Dubai.
+            </p>
+          </div>
+
+          <div className="divide-y divide-slate-200 border-t border-b border-[#DED2C1]">
+            {BUSINESS_CARD_FAQS?.map((faq, index) => {
+              const isOpen = openFaq === index
+              return (
+                <div key={faq.question} className="py-5">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                    className="flex w-full cursor-pointer items-center justify-between text-left gap-4"
+                  >
+                    <h3 className="font-display text-sm sm:text-base font-bold text-[#352719] hover:text-[#795C43] transition-colors">
+                      {faq.question}
+                    </h3>
+                    <ChevronDown
+                      className={`h-5 w-5 shrink-0 text-[#756657] transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 text-[#795C43]' : ''
+                      }`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      className="mt-3 text-xs sm:text-sm leading-relaxed text-[#756657]"
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* 8.5. TOPICAL CLUSTER INTERLINKING DIRECTORY */}
+        <section className="mt-16 sm:mt-24 border-t border-[#DED2C1] pt-12 sm:pt-16">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-[#795C43]">
+              BUSINESS CARDS TOPICAL CLUSTER
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black text-[#352719]">
+              Explore Specialized Business Card Finishes &amp; UAE Coverage
+            </h2>
+            <p className="mt-2 text-sm text-[#756657]">
+              Select your specific board finish, enterprise corporate tier, or regional emirate dispatch hub.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Column 1: Luxury & Tactile Finishes */}
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 space-y-3 shadow-md">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#795C43]">
+                <Sparkles className="h-4 w-4" />
+                <span>Luxury &amp; Tactile Finishes</span>
+              </div>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link to="/foil-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>24K Gold &amp; Metallic Foil Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/spot-uv-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Raised 3D Spot UV (Scodix) Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/velvet-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Velvet Soft-Touch Business Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/soft-touch-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Silk Soft-Touch Artboard Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/embossed-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Embossed &amp; Blind Debossed Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/luxury-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>600 GSM Archival Cotton Luxury Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 2: Formats, Speed & Corporate Tiers */}
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 space-y-3 shadow-md">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#795C43]">
+                <Briefcase className="h-4 w-4" />
+                <span>Executive &amp; Corporate Tiers</span>
+              </div>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link to="/custom-business-cards-dubai" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Custom Business Cards Dubai (Die-Cut &amp; Bespoke)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/premium-business-cards-uae" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Premium Business Cards UAE (400–600 GSM)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/premium-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Premium Business Cards (400 GSM)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/matte-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Matte Laminated Business Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/bulk-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Bulk &amp; Corporate Offset Business Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/corporate-business-cards" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Corporate Multi-Name Batches (PMS)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/same-day-business-card-printing" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Same-Day 4-Hour Express Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/visiting-card-printing-dubai" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Visiting Card Printing Dubai</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-design" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Business Card Design &amp; Pre-Press</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-dubai" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Dubai Central Hub (Al Quoz 3)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: UAE Regional Coverage */}
+            <div className="rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 space-y-3 shadow-md">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#795C43]">
+                <MapPin className="h-4 w-4" />
+                <span>Emirates Regional Dispatch</span>
+              </div>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link to="/business-card-printing-uae" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>All UAE Emirates Doorstep Delivery</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-abu-dhabi" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Abu Dhabi Capital &amp; ADGM Express</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-sharjah" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Sharjah Industrial &amp; Free Zones</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-ajman" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Ajman Commercial District Courier</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/business-cards-printing" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Standard Business Cards Service</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/blog" className="font-semibold text-[#352719] hover:text-[#795C43] flex items-center justify-between group">
+                    <span>Business Card Paper &amp; Specs Guides</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#795C43]" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 8B. Link-Worthy Executive Guides & Print Engineering Resources */}
+          <div className="mt-8 rounded-2xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-8 text-[#352719]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DED2C1] pb-5 mb-6">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#795C43] mb-1">
+                  <FileText className="h-3.5 w-3.5" />
+                  <span>Dubai Print Engineering Library</span>
+                </div>
+                <h3 className="font-display text-xl sm:text-2xl font-black text-[#352719]">
+                  Executive Business Card Guides &amp; Technical Specifications
+                </h3>
+                <p className="text-xs sm:text-sm text-[#756657] mt-1">
+                  Free technical resources authored by our Al Quoz pre-press specialists to help UAE founders, designers, and procurement teams specify flawless cards.
+                </p>
+              </div>
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#C5A989]/30 bg-[#795C43]/10 hover:bg-[#795C43]/20 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-[#795C43] transition-all shrink-0"
+              >
+                <span>View All Guides</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  title: 'How to Choose Business Card Paper: 350gsm vs 450gsm vs 600gsm Cotton',
+                  slug: '/blog/how-to-choose-business-card-paper-dubai',
+                  tag: 'Paper & GSM Specs',
+                  desc: 'Compare caliper microns, fiber stiffness, and cotton stocks for Dubai corporate cards.',
+                },
+                {
+                  title: 'Business Card Design Guide for Dubai Businesses (Bilingual & Pre-Press)',
+                  slug: '/blog/business-card-design-guide-dubai-businesses',
+                  tag: 'Pre-Press & Bilingual',
+                  desc: '90x55mm bleed rules, Arabic-English typography, CMYK vs Pantone, and foil masks.',
+                },
+                {
+                  title: 'Business Card Printing Checklist for UAE Startups & Free Zone Founders',
+                  slug: '/blog/business-card-printing-checklist-uae-startups',
+                  tag: 'Startup & Event Prep',
+                  desc: '12-point pre-flight audit, dynamic vCard QR setup, and 4-hour rush contingency.',
+                },
+                {
+                  title: 'Premium vs Standard Business Cards: A Practical ROI Guide for Dubai',
+                  slug: '/blog/premium-vs-standard-business-cards-dubai-guide',
+                  tag: 'Tier & Cost Matrix',
+                  desc: 'When to deploy 350gsm Matte vs 450gsm Velvet vs 600gsm Cotton across teams.',
+                },
+                {
+                  title: 'Business Branding & Networking Materials for Dubai Exhibitions',
+                  slug: '/blog/business-branding-networking-materials-dubai-companies',
+                  tag: 'Corporate Stationery',
+                  desc: 'Synchronize business cards, presentation folders, letterheads, and NFC badges.',
+                },
+                {
+                  title: 'How to Prepare Artwork for Professional Business Card Printing in Dubai',
+                  slug: '/blog/how-to-prepare-artwork-business-card-printing-dubai',
+                  tag: 'PDF/X-1a & Vector Prep',
+                  desc: 'Step-by-step bleed, safe zone, CMYK rich black, font outlining, and foil/UV mask separation.',
+                },
+                {
+                  title: 'Common Business Card Printing Mistakes in Dubai and How to Avoid Them',
+                  slug: '/blog/common-business-card-printing-mistakes-dubai',
+                  tag: 'Quality Control',
+                  desc: 'Prevent edge cracking, RGB color shifts, 4-color text blur, and uncalibrated QR codes.',
+                },
+                {
+                  title: 'Business Card Printing FAQs for Dubai Customers: GSM & Delivery',
+                  slug: '/blog/business-card-printing-faqs-dubai-customers',
+                  tag: 'Complete Dubai FAQ',
+                  desc: 'Direct answers on paper weights, 4-hour rush cutoffs, PVC cards, and UAE delivery.',
+                },
+              ].map((guide) => (
+                <Link
+                  key={guide.slug}
+                  to={guide.slug}
+                  className="group rounded-xl border border-white/10 bg-[#FAF8F3]/5 hover:bg-[#FAF8F3]/10 hover:border-[#C5A989]/50 p-4 flex flex-col justify-between transition-all"
+                >
+                  <div>
+                    <span className="inline-block rounded-md bg-[#795C43]/10 border border-[#C5A989]/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#795C43] mb-2">
+                      {guide.tag}
+                    </span>
+                    <h4 className="font-bold text-xs sm:text-sm text-[#352719] group-hover:text-[#795C43] transition-colors leading-snug">
+                      {guide.title}
+                    </h4>
+                    <p className="text-[11px] text-[#756657] mt-2 leading-relaxed">
+                      {guide.desc}
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-[#795C43]">
+                    <span>Read Technical Guide</span>
+                    <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CROSS-CATEGORY STATIONERY & BRANDING SYNERGY */}
+        <section className="mt-14 sm:mt-20 rounded-3xl border border-[#DED2C1] bg-[#FAF8F3] p-6 sm:p-10 text-[#352719] shadow-xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/40 bg-[#795C43]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#795C43] mb-2.5">
+                <Briefcase className="h-3.5 w-3.5" />
+                Complete Executive Identity Suite
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-[#352719]">
+                Pair Your Business Cards With Official Corporate Stationery
+              </h3>
+              <p className="text-xs sm:text-sm text-[#756657] mt-2 max-w-2xl">
+                Unify your brand across every client touchpoint in Dubai. Order matching official company stamps, packaging stickers, and executive letterheads produced in our Al Quoz pressroom.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              to="/categories/custom-stamps-seals"
+              className="group rounded-2xl border border-white/10 bg-[#F5F0E7] p-5 hover:border-[#C5A989] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#795C43] bg-[#795C43]/10 px-2 py-0.5 rounded">
+                  Official Verification
+                </span>
+                <h4 className="font-bold text-base text-[#352719] mt-2 group-hover:text-[#795C43] transition-colors">
+                  Company Stamps & Seals
+                </h4>
+                <p className="text-xs text-[#756657] mt-2 leading-relaxed">
+                  Self-inking Trodat & Colop rubber stamps, pocket stamps, and legal embossing seals for UAE business contracts.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#795C43]">
+                <span>Order Custom Stamps</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/categories/stickers-labels-printing"
+              className="group rounded-2xl border border-white/10 bg-[#F5F0E7] p-5 hover:border-[#C5A989] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#795C43] bg-[#795C43]/10 px-2 py-0.5 rounded">
+                  Product & Packaging
+                </span>
+                <h4 className="font-bold text-base text-[#352719] mt-2 group-hover:text-[#795C43] transition-colors">
+                  Custom Stickers & Labels
+                </h4>
+                <p className="text-xs text-[#756657] mt-2 leading-relaxed">
+                  Waterproof die-cut vinyl stickers, gold foil embossed packaging seals, and machine roll labels with zero smudge.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#795C43]">
+                <span>Explore Stickers</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/categories/letterheads-printing-dubai"
+              className="group rounded-2xl border border-white/10 bg-[#F5F0E7] p-5 hover:border-[#C5A989] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#795C43] bg-[#795C43]/10 px-2 py-0.5 rounded">
+                  Corporate Letters
+                </span>
+                <h4 className="font-bold text-base text-[#352719] mt-2 group-hover:text-[#795C43] transition-colors">
+                  Executive Letterheads
+                </h4>
+                <p className="text-xs text-[#756657] mt-2 leading-relaxed">
+                  100–120 GSM premium bond and textured linen letterheads calibrated to match your business card Pantone colors.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#795C43]">
+                <span>Print Letterheads</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/categories/brochures-printing"
+              className="group rounded-2xl border border-white/10 bg-[#F5F0E7] p-5 hover:border-[#C5A989] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#795C43] bg-[#795C43]/10 px-2 py-0.5 rounded">
+                  Sales Collaterals
+                </span>
+                <h4 className="font-bold text-base text-[#352719] mt-2 group-hover:text-[#795C43] transition-colors">
+                  Brochures & Catalogs
+                </h4>
+                <p className="text-xs text-[#756657] mt-2 leading-relaxed">
+                  Bi-fold, tri-fold, and saddle-stitched company brochures with luxury matte and spot UV finishes for Dubai clients.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#795C43]">
+                <span>Browse Brochures</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* 9. BOTTOM HIGH-CONVERTING CALL TO ACTION */}
+        <section className="mt-16 sm:mt-24 rounded-3xl bg-[#F5F0E7] border border-[#DED2C1] p-8 sm:p-12 lg:p-16 text-[#352719] text-center shadow-2xl relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(121, 92, 67, 0.15),transparent_70%)]" />
+
+          <div className="relative z-10 max-w-2xl mx-auto space-y-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A989]/40 bg-[#FAF8F3] px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#795C43]">
+              <Sparkles className="h-3.5 w-3.5" />
+              Elevate Your Executive Presence
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#352719]">
+              Ready to Print Dubai’s Finest Business Cards?
+            </h2>
+
+            <p className="text-sm sm:text-base text-[#756657] leading-relaxed">
+              Order your 300–700 GSM luxury cards or corporate multi-employee batches with fast proofing, precision color calibration, and doorstep delivery across Dubai.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+              <a
+                href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                  formatBusinessCardInquiry(
+                    hasInteractedWithForm
+                      ? {
+                          cardType: formState.cardType,
+                          quantity: formState.quantity,
+                          size: formState.size,
+                          paper: formState.paper,
+                          finish: formState.finish,
+                          location: formState.deliveryLocation,
+                          notes: formState.notes,
+                        }
+                      : {}
+                  )
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackBusinessCardWhatsAppClick({
+                    source_page: pageData?.path || '/business-card-printing-dubai',
+                    service: 'business-cards',
+                    button_location: 'bottom_cta_section',
+                    label: 'get_business_card_quote_on_whatsapp',
+                  })
+                }}
+                className="w-full sm:w-auto rounded-2xl bg-[#25D366] hover:bg-[#20ba59] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#25D366]/30 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-current" />
+                <span>Get Quote on WhatsApp</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => scrollToQuote()}
+                className="w-full sm:w-auto rounded-2xl bg-[#795C43] hover:bg-[#c39e55] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#795C43]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
+              >
+                Request Custom Quotation
+              </button>
+
+              <a
+                href="mailto:0nprint183@gmail.com"
+                className="w-full sm:w-auto rounded-2xl border border-[#DED2C1] bg-[#FAF8F3]/50 hover:bg-[#FAF8F3] px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#352719] transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <Mail className="h-4 w-4" />
+                <span>Email Studio</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </Container>
+
+      {/* MOBILE STICKY FLOATING WHATSAPP CTA BAR */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#F5F0E7]/95 backdrop-blur-md border-t border-[#DED2C1] p-3 px-4 flex items-center justify-between gap-3 shadow-2xl">
+        <div className="flex flex-col">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#795C43]">ONPRINT Dubai</span>
+          <span className="text-xs font-black text-[#352719]">Business Cards Quote</span>
+        </div>
+        <a
+          href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+            formatBusinessCardInquiry(
+              hasInteractedWithForm
+                ? {
+                    cardType: formState.cardType,
+                    quantity: formState.quantity,
+                    size: formState.size,
+                    paper: formState.paper,
+                    finish: formState.finish,
+                    location: formState.deliveryLocation,
+                    notes: formState.notes,
+                  }
+                : {}
+            )
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackBusinessCardWhatsAppClick({
+              source_page: pageData?.path || '/business-card-printing-dubai',
+              service: 'business-cards',
+              button_location: 'mobile_sticky_bar',
+              label: 'mobile_sticky_quote_whatsapp',
+            })
+          }}
+          className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 py-2 text-xs font-bold text-white shadow-md shadow-[#25D366]/30 cursor-pointer"
+        >
+          <WhatsAppIcon className="h-4 w-4 fill-current" />
+          <span>WhatsApp Quote</span>
+        </a>
+      </div>
+    </div>
+  )
+}

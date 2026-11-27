@@ -31,3 +31,8 @@ backups/
 brain/
 
 
+
+build_output.txt
+audit_stdout.txt
+audit_stderr.txt
+audit_result.txt

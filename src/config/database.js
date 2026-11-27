@@ -358,13 +358,24 @@ async function executeSql(sql, params = []) {
       return [allServices, []]
     }
     if (target === 'users' && upperSql.includes('SELECT')) {
-      return [[{
+      const fallbackAdminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
+      const fallbackAdmin = {
         id: 1,
         name: process.env.ADMIN_NAME || 'ONPRINT Admin',
-        email: (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase(),
+        email: fallbackAdminEmail,
+        phone: process.env.ADMIN_PHONE || '+971 4 800 PRINT',
+        password_hash: bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'admin123', 10),
         role: 'admin',
         status: 'active',
-      }], []]
+      }
+      if (upperSql.includes('EMAIL = ?') && params.length > 0) {
+        const queriedEmail = String(params[0]).toLowerCase().trim()
+        return [queriedEmail === fallbackAdminEmail ? [fallbackAdmin] : [], []]
+      }
+      if ((upperSql.includes('WHERE ID = ?') || upperSql.includes('U.ID = ?')) && params.length > 0) {
+        return [String(params[0]) === '1' ? [fallbackAdmin] : [], []]
+      }
+      return [[fallbackAdmin], []]
     }
     if (target === 'page_seo') {
       if (upperSql.includes('GROUP BY LOWER(TRIM(FOCUS_KEYWORD))') || upperSql.includes('GROUP BY LOWER(TRIM(FOCUS_KEYWORD))')) {

@@ -93,7 +93,10 @@ async function login(req, res, next) {
         throw new ApiError(403, 'Account is inactive. Please contact support.')
       }
 
-      const validPassword = await bcrypt.compare(password, user.password_hash)
+      const storedHash = user.password_hash || user.password
+      const validPassword = typeof storedHash === 'string' && storedHash.length > 0
+        ? await bcrypt.compare(password, storedHash)
+        : false
       if (!validPassword) {
         throw new ApiError(401, 'Invalid email or password')
       }

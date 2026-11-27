@@ -13,9 +13,7 @@ import toteBagsImg from './products/tote_bags.webp'
 import keychainImg from './products/wooden_keychain.webp'
 import mugsImg from './products/mugs.webp'
 import bottlesImg from './products/water_bottles.webp'
-import flyersImg from './products/flyers.webp'
 import brochuresImg from './products/brochures.webp'
-import badgesImg from './products/name_badges.webp'
 import idCardsImg from './products/id_cards.webp'
 import rollupImg from './products/rollup_banner.webp'
 import flagsImg from './products/flags.webp'
@@ -27,13 +25,8 @@ import img3 from './products/1 (3).webp'
 import img4 from './products/1 (4).webp'
 import img5 from './products/1 (5).webp'
 import img6 from './products/1 (6).webp'
-import img7 from './products/1 (7).webp'
-import img8 from './products/1 (8).webp'
 import img9 from './products/1 (9).webp'
-import img10 from './products/1 (10).webp'
-import img11 from './products/1 (11).webp'
 import img12 from './products/1 (12).webp'
-import img13 from './products/1 (13).webp'
 import img14 from './products/1 (14).webp'
 import img15 from './products/1 (15).webp'
 
@@ -103,7 +96,6 @@ import photoIdStaffCardImg from './products/id-cards/photo-id-staff-cards.webp'
 import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.webp'
 import visitorPassHoldersImg from './products/id-cards/visitor-pass-cards-holders.webp'
 import executiveVipMetalCardImg from './products/id-cards/executive-metallic-vip-id-cards.webp'
-import transparentIdCardsImg from './products/id-cards/transparent-id-cards.webp'
 
 // Dedicated high-resolution Lanyard variety images
 import standardPolyesterLanyardImg from './products/lanyards/standard-polyester-lanyard.webp'
@@ -175,7 +167,7 @@ import waterproofVinylStickersImg from './products/stickers/waterproof-vinyl-sti
 import cosmeticBottleLabelsImg from './products/stickers/cosmetic-bottle-labels.webp'
 import domedEpoxyStickersImg from './products/stickers/domed-epoxy-stickers.webp'
 
-import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
+import { getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
 const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
@@ -355,9 +347,7 @@ export const productSlugImageMap = {
   'dl-slim-event-menu-flyers': flyerDlEventImg,
   'luxury-gold-foil-flyers': flyerLuxuryFoilImg,
   'gold-foil-flyers': flyerLuxuryFoilImg,
-  'door-hangers-printing': flyerDoorHangersImg,
   'door-hanger-flyers': flyerDoorHangersImg,
-  'postcards-printing': flyerDirectMailPostcardsImg,
   'postcards-direct-mail-printing': flyerDirectMailPostcardsImg,
   'folded-leaflets-flyers': flyerFoldedLeafletsImg,
   'folded-leaflets': flyerFoldedLeafletsImg,
@@ -393,7 +383,6 @@ export const productSlugImageMap = {
   'printing-services-dubai': serviceDigitalOffsetImg,
   'custom-labels-die-cut-stickers': serviceStickersLabelsImg,
   'executive-business-stationery': serviceExecutiveStationeryImg,
-  'office-stationery-printing': serviceExecutiveStationeryImg,
   'large-format-exhibition-signage': serviceExhibitionSignageImg,
   'custom-branded-tote-bags': toteBagsImg,
 
@@ -491,9 +480,6 @@ export const productSlugImageMap = {
   'luxury-gold-foil-letterheads': letterheadGoldFoilImg,
   'luxury-foil-stamped-letterheads': letterheadGoldFoilImg,
   'matching-corporate-envelopes': letterheadEnvelopesSuiteImg,
-  'printed-envelopes': letterheadEnvelopesSuiteImg,
-  'corporate-presentation-folders': letterheadPresentationFoldersImg,
-  'presentation-folders': letterheadPresentationFoldersImg,
   'textured-linen-letterheads': letterheadGoldFoilImg,
   'continuation-sheets-invoices': letterheadExecutive120gsmImg,
 
@@ -556,7 +542,6 @@ export const productSlugImageMap = {
   '3d-gel-domed-epoxy-decals': domedEpoxyStickersImg,
   'power-banks-printing': luxuryCorporateGiftsDubaiImg,
   'engraved-keychains': keychainImg,
-  'executive-notebooks': serviceExecutiveStationeryImg,
   'bi-fold-brochures-printing': brochureBifoldImg,
   'corporate-bi-fold-brochures': brochureBifoldImg,
   'bi-fold-brochure-printing': brochureBifoldImg,

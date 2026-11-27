@@ -14,7 +14,6 @@ import {
   Check,
   Copy,
   ArrowRight,
-  ArrowUpRight,
   Briefcase,
   Megaphone,
   Tag,
@@ -22,14 +21,12 @@ import {
   Package,
   HelpCircle,
   Building2,
-  FileText,
   Clock,
   Layers,
-  Palette,
-  ShieldCheck,
   BookOpen,
   Info,
   Send,
+  ExternalLink,
 } from 'lucide-react'
 import Logo from './Logo'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -37,7 +34,7 @@ import WhatsAppIcon from './WhatsAppIcon'
 import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 import { getProducts } from '../services/products'
-import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../utils/whatsapp'
+import { FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../utils/whatsapp'
 
 // ---------------------------------------------------------------------------
 // 1. STRUCTURED MEGA MENU DEPARTMENTS (Catalog)
@@ -291,32 +288,6 @@ const COMPANY_LINKS = [
   },
 ]
 
-// ---------------------------------------------------------------------------
-// 3. HELP & SUPPORT DROPDOWN LINKS (Top Strip)
-// ---------------------------------------------------------------------------
-const SUPPORT_LINKS = [
-  {
-    label: 'Press Hotline',
-    sub: '+44 7344 546056',
-    to: `https://wa.me/${RAW_WHATSAPP_NUMBER}?text=Hi%20ONPRINT%20Support,%20I%20need%20assistance`,
-    isExternal: true,
-    icon: Phone,
-  },
-  {
-    label: 'Corporate Quotes',
-    sub: 'Dedicated B2B procurement & volume rates',
-    to: '/corporate-quotes',
-    icon: Building2,
-  },
-  {
-    label: 'Order Update',
-    sub: 'Request your order status via WhatsApp',
-    to: '/track-order',
-    icon: Truck,
-  },
-]
-
-// ---------------------------------------------------------------------------
 // 4. POPULAR SEARCH SUGGESTIONS
 // ---------------------------------------------------------------------------
 const POPULAR_SEARCHES = [
@@ -334,13 +305,11 @@ export default function SiteHeader() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false)
   const [companyMenuOpen, setCompanyMenuOpen] = useState(false)
   const [supportMenuOpen, setSupportMenuOpen] = useState(false)
-  const [activeMegaCategory, setActiveMegaCategory] = useState(MEGA_MENU_CATEGORIES[0].key)
   const [copiedPhone, setCopiedPhone] = useState(false)
 
   // Mobile Accordion States
   const [mobileCatalogOpen, setMobileCatalogOpen] = useState(false)
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false)
-  const [mobileSupportOpen, setMobileSupportOpen] = useState(false)
 
   // Universal Search Modal State
   const [searchOpen, setSearchOpen] = useState(false)
@@ -487,13 +456,6 @@ export default function SiteHeader() {
     navigator.clipboard.writeText(FORMATTED_PHONE)
     setCopiedPhone(true)
     setTimeout(() => setCopiedPhone(false), 2000)
-  }
-
-  // Active link helper
-  const isPathActive = (to) => {
-    const current = location.pathname
-    if (to === '/') return current === '/'
-    return current === to || current.startsWith(`${to}/`)
   }
 
   const isCatalogActive = () => {

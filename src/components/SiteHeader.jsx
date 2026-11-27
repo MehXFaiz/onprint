@@ -309,8 +309,8 @@ const SUPPORT_LINKS = [
     icon: Building2,
   },
   {
-    label: 'Track Order',
-    sub: 'Real-time UAE delivery & pressroom status',
+    label: 'Order Update',
+    sub: 'Request your order status via WhatsApp',
     to: '/track-order',
     icon: Truck,
   },
@@ -646,7 +646,7 @@ export default function SiteHeader() {
                         </div>
                       </Link>
 
-                      {/* 3. Track Order */}
+                      {/* 3. Order Update */}
                       <Link
                         to="/track-order"
                         onClick={() => setSupportMenuOpen(false)}
@@ -657,10 +657,10 @@ export default function SiteHeader() {
                         </div>
                         <div className="min-w-0">
                           <span className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors block">
-                            Track Order
+                            Order Update
                           </span>
                           <span className="text-[10px] text-[#F5F2EB]/70 block truncate">
-                            Live production &amp; dispatch status
+                            Ask our team for an order update via WhatsApp
                           </span>
                         </div>
                       </Link>
@@ -695,7 +695,7 @@ export default function SiteHeader() {
               <Logo
                 variant="glass"
                 size={scrolled ? 'sm' : 'md'}
-                className="transition-all duration-300"
+                className="site-header-logo transition-all duration-300"
               />
             </Link>
           </div>
@@ -1013,10 +1013,12 @@ export default function SiteHeader() {
             <Link
               to="/get-a-quote"
               onClick={() => trackGetQuoteClick('header_capsule_cta')}
+              aria-label="Get a Quote"
+              title="Get a Quote"
               className="inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 rounded-full bg-[#D4AF65] hover:bg-[#c9a150] text-[#101D35] font-black text-xs sm:text-[13px] tracking-wide shadow-[0_0_20px_rgba(212,175,101,0.35)] hover:shadow-[0_0_28px_rgba(212,175,101,0.6)] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer"
             >
               <Sparkles className="h-3.5 w-3.5 text-[#101D35] shrink-0" />
-              <span>Get a Quote</span>
+              <span className="hidden sm:inline">Get a Quote</span>
             </Link>
 
             {/* 5. Mobile Hamburger Button (lg:hidden) */}
@@ -1243,7 +1245,7 @@ export default function SiteHeader() {
                     >
                       <span className="flex items-center gap-2">
                         <Truck className="h-3.5 w-3.5 text-emerald-400" />
-                        <span>Track Order Status</span>
+                        <span>Order Update</span>
                       </span>
                       <ChevronRight className="h-3 w-3 text-white/40" />
                     </Link>

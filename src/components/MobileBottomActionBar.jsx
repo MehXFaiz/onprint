@@ -75,7 +75,7 @@ export default function MobileBottomActionBar() {
           <span className="text-[10px] font-bold tracking-tight mt-1 text-[#352719]">Call Us</span>
         </a>
 
-        {/* 4. Track Order / Reference */}
+        {/* 4. Order Update / Reference */}
         <Link
           to="/track-order"
           className={`flex flex-col items-center justify-center min-h-[48px] min-w-[48px] py-1 px-1 rounded-xl active:scale-95 transition-all ${
@@ -87,7 +87,7 @@ export default function MobileBottomActionBar() {
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FAF8F3] text-[#352719] shadow-2xs border border-[#DED2C1]">
             <Package className="h-3.5 w-3.5 text-[#795C43]" />
           </div>
-          <span className="text-[10px] font-bold tracking-tight mt-1 text-[#352719]">Track Order</span>
+          <span className="text-[10px] font-bold tracking-tight mt-1 text-[#352719]">Order Update</span>
         </Link>
       </div>
     </nav>

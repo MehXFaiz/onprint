@@ -129,6 +129,16 @@ body {
   color: #352719;
 }
 
+@media (max-width: 400px) {
+  .site-header-logo {
+    gap: 0;
+  }
+
+  .site-header-logo > div:last-child {
+    display: none;
+  }
+}
+
 ::selection {
   background: #C5A989;
   color: #352719;

@@ -225,7 +225,7 @@ export default function SiteFooter() {
             </Link>
             <span className="text-[#DED2C1] hidden sm:inline">|</span>
             <Link to="/track-order" className="hover:text-[#795C43] transition-colors">
-              Track Order
+              Order Update
             </Link>
             <span className="text-[#DED2C1] hidden sm:inline">|</span>
             <LanguageSwitcher variant="compact" />

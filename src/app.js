@@ -1380,18 +1380,19 @@ function createApp() {
   app.get('/api/health/db', async (req, res) => {
     try {
       const [rows] = await pool.query('SELECT 1 AS connected')
-      if (rows && rows.length > 0) {
+      if (rows && rows[0] && Boolean(rows[0].connected)) {
         return res.status(200).json({
           success: true,
           database: 'MongoDB Atlas',
           connected: true,
         })
       }
-      return res.status(500).json({
+      return res.status(503).json({
         success: false,
         database: 'MongoDB Atlas',
         connected: false,
-        error: 'Database connection failed',
+        fallbackActive: true,
+        error: process.env.MONGODB_URI ? 'MongoDB Atlas connection failed' : 'MONGODB_URI is not configured in .env',
       })
     } catch {
       return res.status(500).json({
@@ -1412,7 +1413,7 @@ function createApp() {
     let databaseConnected = false
     try {
       const [rows] = await pool.query('SELECT 1 AS connected')
-      databaseConnected = Boolean(rows && rows.length > 0)
+      databaseConnected = Boolean(rows && rows[0] && rows[0].connected)
     } catch {
       databaseConnected = false
     }
